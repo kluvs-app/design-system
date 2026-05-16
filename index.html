@@ -95,7 +95,7 @@
             <div class="sidebar-footer">
                 <button class="surface-toggle" id="surface-toggle">
                     <span class="ti">◐</span>
-                    <span id="toggle-label">Dark surface</span>
+                    <span id="toggle-label">Light surface</span>
                 </button>
                 <a
                     href="https://github.com/kluvs-app/design-system"
@@ -108,7 +108,7 @@
         </nav>
 
         <!-- ════ MAIN ════ -->
-        <main class="main">
+        <main class="main dark-surface">
             <!-- Header ─────────────────────────────── -->
             <header class="page-header" id="overview">
                 <div class="header-eyebrow">Kluvs · Book-club App</div>
@@ -1667,8 +1667,9 @@
 
                 <!-- Navigation -->
                 <div class="comp-group" id="comp-navigation">
-                    <div class="comp-group-title">Navigation — TopBar · SubBar · Tabs · BottomNav · Both Surfaces</div>
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Dark (product — canonical)</div>
+                    <div class="comp-group-title">Navigation — TopBar · SubBar · Tabs · BottomNav</div>
+                    <div data-surface="dark">
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface — product canonical</div>
                     <div class="card-dark" style="padding: 0; overflow: hidden">
                         <!-- TopBar -->
                         <div
@@ -1877,9 +1878,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">Dark: warm near-black surfaces, cream text, copper active states. Navigation is dark-only in the product.</div>
-
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin:20px 0 10px">Light (web / reference)</div>
+                    <div class="comp-anno">TopBar 52px · SubBar 32px · TabStrip 42px, 2px copper underline · BottomNav 80px, copper pill on selected. Navigation is dark-only in the product.</div>
+                    </div><!-- /data-surface dark -->
+                    <div data-surface="light">
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface — web / reference</div>
                     <div class="card" style="padding:0;overflow:hidden">
                         <div style="background:#FFFFFF;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E0E0E0">
                             <span style="font:700 20px/1 var(--kluvs-font-sans);letter-spacing:.08em;color:#1A1A1A">KLUVS</span>
@@ -1911,108 +1913,65 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">Light: white surfaces, near-black text, copper active states. For web marketing or future light-mode product consideration.</div>
+                    <div class="comp-anno">White surfaces, near-black text, copper active states. Reference for web or future light-mode product.</div>
+                    </div><!-- /data-surface light -->
                 </div>
 
                 <!-- Buttons -->
                 <div class="comp-group" id="comp-buttons">
-                    <div class="comp-group-title">Buttons — All Variants · Both Surfaces</div>
+                    <div class="comp-group-title">Buttons — All Variants</div>
 
-                    <!-- Primary Filled -->
-                    <div style="margin-bottom:24px">
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Primary — Filled</div>
-                        <div class="comp-grid">
-                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:10px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:2px">Dark surface</div>
-                                <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
-                                <button style="background:rgba(209,109,48,0.25);color:#4D4033;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Normal · Disabled</span>
-                            </div>
-                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:10px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:2px">Light surface</div>
-                                <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
-                                <button style="background:rgba(209,109,48,0.15);color:rgba(209,109,48,0.35);border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Normal · Disabled</span>
-                            </div>
+                    <!-- Dark surface buttons -->
+                    <div data-surface="dark" style="display:flex;flex-direction:column;gap:20px">
+                        <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:12px">
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:4px">Primary — Filled</div>
+                            <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
+                            <button style="background:rgba(209,109,48,0.25);color:#4D4033;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Outlined</div>
+                            <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
+                            <button style="background:transparent;color:#4D4033;border:1.5px solid #4D4033;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Text — Ghost</div>
+                            <button style="background:transparent;color:#D16D30;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
+                            <button style="background:transparent;color:#8C8073;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Text — Destructive</div>
+                            <button style="background:transparent;color:#EF4444;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
+                            <button style="background:transparent;color:#8C8073;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
+                        </div>
+                        <div class="surface-note">
+                            <span>Social OAuth buttons (Discord, Google, Apple) appear on the <strong>light auth surface only</strong> — switch to light surface to preview.</span>
                         </div>
                     </div>
 
-                    <!-- Outlined -->
-                    <div style="margin-bottom:24px">
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Outlined</div>
-                        <div class="comp-grid">
-                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:10px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:2px">Dark surface</div>
-                                <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
-                                <button style="background:transparent;color:#4D4033;border:1.5px solid #4D4033;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Normal · Disabled</span>
-                            </div>
-                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:10px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:2px">Light surface</div>
-                                <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
-                                <button style="background:transparent;color:rgba(209,109,48,0.35);border:1.5px solid rgba(209,109,48,0.35);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Normal · Disabled</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Text / Ghost -->
-                    <div style="margin-bottom:24px">
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Text — Ghost</div>
-                        <div class="comp-grid">
-                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:6px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:4px">Dark surface</div>
-                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
-                                <button style="background:transparent;color:#8C8073;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
-                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">OK</button>
-                            </div>
-                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:6px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:4px">Light surface</div>
-                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
-                                <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
-                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">OK</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Text Destructive -->
-                    <div style="margin-bottom:24px">
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Text — Destructive</div>
-                        <div class="comp-grid">
-                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:6px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:4px">Dark surface</div>
-                                <button style="background:transparent;color:#EF4444;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
-                                <button style="background:transparent;color:#8C8073;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Destructive · Dismiss</span>
-                            </div>
-                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:6px">
-                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:4px">Light surface</div>
-                                <button style="background:transparent;color:#EF4444;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
-                                <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
-                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Destructive · Dismiss</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social -->
-                    <div>
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Social — OAuth <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">· auth / light surface only</span></div>
-                        <div style="display:flex;flex-direction:column;gap:10px;max-width:320px">
+                    <!-- Light surface buttons -->
+                    <div data-surface="light" style="display:flex;flex-direction:column;gap:20px">
+                        <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:12px">
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:4px">Primary — Filled</div>
+                            <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
+                            <button style="background:rgba(209,109,48,0.15);color:rgba(209,109,48,0.35);border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Outlined</div>
+                            <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
+                            <button style="background:transparent;color:rgba(209,109,48,0.35);border:1.5px solid rgba(209,109,48,0.35);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Text — Ghost</div>
+                            <button style="background:transparent;color:#D16D30;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
+                            <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Text — Destructive</div>
+                            <button style="background:transparent;color:#EF4444;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
+                            <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Social — OAuth</div>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple</button>
                         </div>
                     </div>
 
-                    <div class="comp-anno" style="margin-top:16px">Primary: copper fill · white text · 12px radius · 15px/600. Outlined: copper border + text · transparent fill. Text: no container · copper or error-red. Social: provider-branded · light surface only · 12px radius.</div>
+                    <div class="comp-anno">Primary: copper fill · white text · 12px radius. Outlined: copper border + text. Text: no container. Social: auth / light only.</div>
                 </div>
 
                 <!-- Inputs -->
                 <div class="comp-group" id="comp-inputs">
                     <div class="comp-group-title">InputField — 4 States · Both Surfaces</div>
                     <div class="comp-grid">
-                        <!-- Dark surface inputs -->
-                        <div class="comp-surface-dark">
+                    <div data-surface="dark"><div class="comp-surface-dark">
                             <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:14px">Dark surface</div>
                             <div class="input-wrap">
                                 <div style="font:500 12px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:6px">Email</div>
@@ -2032,8 +1991,8 @@
                                 <input type="text" value="user@kluvs.com" disabled style="width:100%;padding:11px 14px;border-radius:8px;font:400 14px/1 var(--kluvs-font-sans);background:#140F0D;color:#4D4033;border:1px solid #241C17;outline:none;cursor:not-allowed">
                             </div>
                         </div>
-                        <!-- Light surface inputs (existing) -->
-                        <div class="comp-surface-light">
+                        </div></div><!-- /dark -->
+                    <div data-surface="light"><div class="comp-surface-light">
                             <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:14px">Light surface</div>
                             <div class="input-wrap">
                                 <div class="input-label">Email</div>
@@ -2061,8 +2020,9 @@
                 <div class="comp-group" id="comp-cards">
                     <div class="comp-group-title">Cards — Default · Accent · Both Surfaces</div>
 
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Dark (product)</div>
-                    <div class="comp-grid" style="margin-bottom:20px">
+                    <div data-surface="dark">
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface — product</div>
+                    <div class="comp-grid" style="margin-bottom:0">
                         <div class="comp-surface-dark">
                             <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Default</div>
                             <div style="background:#241C17;border-radius:12px;padding:16px">
@@ -2087,7 +2047,9 @@
                         </div>
                     </div>
 
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light (web / marketing)</div>
+                    </div><!-- /dark -->
+                    <div data-surface="light">
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface — web / marketing</div>
                     <div class="comp-grid">
                         <div class="comp-surface-light">
                             <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Default</div>
@@ -2112,7 +2074,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">Dark: warm fills (#241C17 default, #382112 accent) · no default border · 1.5px copper on accent. Light: white fill · #E0E0E0 border · subtle shadow · copper tint on accent.</div>
+                    </div><!-- /light -->
+                    <div class="comp-anno">Dark: warm fills, no default border, 1.5px copper on accent. Light: white fill, #E0E0E0 border, subtle shadow, copper tint on accent.</div>
                 </div>
 
                 <!-- Avatars -->
@@ -2400,9 +2363,7 @@
                 <!-- Members -->
                 <div class="comp-group" id="comp-members">
                     <div class="comp-group-title">MemberRow · TextDivider · Both Surfaces</div>
-                    <div class="comp-grid">
-                        <!-- Dark -->
-                        <div class="comp-surface-dark" style="padding:0;overflow:hidden">
+                    <div data-surface="dark"><div class="comp-surface-dark" style="padding:0;overflow:hidden">
                             <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;padding:14px 20px 10px">Dark surface</div>
                             <div style="padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
                                 <div style="height:1px;flex:1;background:#332B24"></div>
@@ -2433,8 +2394,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Light -->
-                        <div class="comp-surface-light" style="padding:0;overflow:hidden">
+                    </div></div><!-- /dark -->
+                    <div data-surface="light"><div class="comp-surface-light" style="padding:0;overflow:hidden">
                             <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);padding:14px 20px 10px">Light surface</div>
                             <div style="padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F5F5F5">
                                 <div style="height:1px;flex:1;background:#E0E0E0"></div>
@@ -2465,8 +2426,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="comp-anno">TextDivider: hairline + sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge. Dark: warm surfaces, cream text. Light: white surface, near-black text.</div>
+                    </div></div><!-- /light -->
+                    <div class="comp-anno">TextDivider: hairline + sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge.</div>
                 </div>
 
                 <!-- States -->

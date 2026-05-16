@@ -949,3 +949,28 @@ main.dark-surface .icon-item span { color: var(--kluvs-warm-fg-tertiary); }
 main.dark-surface .icon-item img { filter: brightness(0) invert(1); opacity: 0.6; }
 main.dark-surface .icon-item:hover { border-color: var(--kluvs-primary); background: rgba(209,109,48,0.08); }
 main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
+
+/* ── Preview mode: component surface visibility ──────── */
+/* Default state is dark (main.dark-surface).             */
+/* Only one surface shown at a time per toggle.           */
+[data-surface="light"] { display: none; }
+[data-surface="dark"]  { display: block; }
+
+main:not(.dark-surface) [data-surface="dark"]  { display: none; }
+main:not(.dark-surface) [data-surface="light"] { display: block; }
+
+.surface-note {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  background: rgba(209,109,48,0.06);
+  border: 1px dashed rgba(209,109,48,0.3);
+  border-radius: 8px;
+  font: 400 13px/1.5 var(--kluvs-font-sans);
+  color: var(--kluvs-content-light-secondary);
+}
+main.dark-surface .surface-note {
+  background: rgba(209,109,48,0.06);
+  border-color: rgba(209,109,48,0.2);
+  color: var(--kluvs-warm-fg-tertiary);
+}
+.surface-note strong { color: var(--kluvs-primary); font-weight: 600; }
