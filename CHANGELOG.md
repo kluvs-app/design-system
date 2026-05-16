@@ -15,6 +15,41 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+---
+
+## [1.0.2] — 2026-05-16
+
+Major style guide overhaul. The hosted site at design.kluvs.com now supports a full surface toggle, dual-surface component specimens, responsive mobile layout, and correct dark mode rendering throughout.
+
+### Added
+- `site.css` and `site.js` extracted from `index.html` (was 3969 lines → now ~2400)
+- Surface toggle: dark/light preview mode switching chrome and component specimens simultaneously; defaults to dark
+- Full button system: Primary, Outlined, Text/Ghost, Text Destructive, Social — all on both surfaces
+- Dual-surface specimens for all component groups: Navigation, Inputs, Cards, Avatars, Members, States
+- Light variant for Avatars (white fill, role rings preserved) and States (white cards, adjusted progress/timeline colors)
+- Light Surfaces swatch card pinned to white in dark mode; all other color cards respond to toggle
+- Accessibility section dark mode: table text, exception headings, paragraphs, and dividers all correctly styled
+- Responsive mobile layout with slide-in nav drawer
+
+### Changed
+- `tokens.json`: removed all surface/platform restrictions ("mobile-only", "dark-only", "auth-only", etc.)
+- All documentation: principle updated to "both surfaces supported everywhere"
+- Social OAuth buttons: removed light-only assumption; fixed provider colors work on any surface
+- Navigation: removed "dark-only in the product" claim
+- Warm-dark token description: reworded from "mobile/Figma" to "warm-dark stack"
+- Component status table: Button Primary promoted Partial → Done; Outlined, Text, Destructive added as Done
+- `SKILL.md`: tightened reading list with explicit do-not-read list for site infrastructure
+
+### Fixed
+- Copper hex in README corrected to `#D16D30` (unanimous across all codebases)
+- Card radius corrected to 12px in README
+- Gold: `#F0BF05` → `#EFBF04` in CSS (matches both mobile platforms)
+- Admin teal: `#006682` → `#006781` in README
+- Error red: `#E53333` → `#EF4444` in README
+- iOS Google button text documented as pending fix (`#757575` → `#1F1F1F`)
+- Surface toggle CSS specificity: `!important` on visibility rules to override inline `display:flex`
+- Orphaned `comp-grid` wrapper removed from inputs section after refactor
+
 ### Added
 - Full button system: Primary (filled), Outlined, Text/Ghost, Text Destructive, Social — all five variants with live specimens on both warm-dark and light surfaces
 - Surface toggle in sidebar — flips the style guide chrome between light and warm-dark to preview component behaviour in each context
@@ -63,6 +98,7 @@ Initial design system foundation, generated from the Kluvs Figma file.
 
 ---
 
-[Unreleased]: https://github.com/kluvs-app/design-system/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/kluvs-app/design-system/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/kluvs-app/design-system/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/kluvs-app/design-system/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/kluvs-app/design-system/releases/tag/v1.0.0
