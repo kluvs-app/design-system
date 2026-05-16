@@ -29,6 +29,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ### Added
 - Typography tier system documented in README: four-tier hierarchy (section headers → primary content → supporting details → fine print) with M3 role mappings for mobile and web utility class equivalents
+- `index.html` — hosted style guide homepage: dark sidebar nav, inline color swatches (brand / warm-dark / light / roles / providers), type specimens, spacing + radius visuals, icon grid, brand asset showcase, component status table, mobile kit link
 
 ---
 

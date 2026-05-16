@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kluvs · Design System</title>
+<link rel="stylesheet" href="colors_and_type.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--kluvs-font-sans);
+  background: #FAFAFC;
+  color: var(--kluvs-content-light-primary);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────── */
+.sidebar {
+  width: 232px;
+  flex-shrink: 0;
+  background: var(--kluvs-warm-dark-base);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--kluvs-warm-dark-card-2); border-radius: 2px; }
+
+.sidebar-header {
+  padding: 28px 20px 24px;
+  border-bottom: 1px solid var(--kluvs-warm-dark-card-2);
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--kluvs-warm-fg-primary);
+}
+
+.wordmark-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--kluvs-primary);
+  flex-shrink: 0;
+}
+
+.sidebar-subtitle {
+  font-size: 11px;
+  color: var(--kluvs-warm-fg-tertiary);
+  margin-top: 6px;
+}
+
+.nav-group {
+  padding: 20px 0 4px;
+}
+
+.nav-group-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kluvs-warm-fg-placeholder);
+  padding: 0 20px;
+  margin-bottom: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 7px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--kluvs-warm-fg-label);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color var(--kluvs-dur-fast) var(--kluvs-ease),
+              background var(--kluvs-dur-fast) var(--kluvs-ease);
+}
+.nav-link:hover {
+  color: var(--kluvs-warm-fg-primary);
+  background: rgba(242,237,229,0.04);
+}
+.nav-link.active {
+  color: var(--kluvs-primary);
+  border-left-color: var(--kluvs-primary);
+  background: rgba(209,109,48,0.1);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px 20px 0;
+  border-top: 1px solid var(--kluvs-warm-dark-card-2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sidebar-footer a {
+  font-size: 12px;
+  color: var(--kluvs-warm-fg-tertiary);
+  text-decoration: none;
+  transition: color var(--kluvs-dur-fast);
+}
+.sidebar-footer a:hover { color: var(--kluvs-warm-fg-label); }
+
+/* ── Main ────────────────────────────────── */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 52px 52px 100px;
+}
+
+/* ── Page header ─────────────────────────── */
+.page-header {
+  margin-bottom: 60px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--kluvs-divider-light);
+}
+
+.header-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kluvs-primary);
+  margin-bottom: 10px;
+}
+
+.header-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--kluvs-content-light-primary);
+  margin-bottom: 10px;
+}
+
+.header-desc {
+  font-size: 15px;
+  color: var(--kluvs-content-light-secondary);
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.header-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--kluvs-divider-light);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--kluvs-content-light-secondary);
+  box-shadow: var(--kluvs-shadow-card);
+}
+
+.chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--kluvs-primary);
+}
+
+/* ── Sections ────────────────────────────── */
+.section {
+  margin-bottom: 72px;
+  scroll-margin-top: 32px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kluvs-primary);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--kluvs-content-light-primary);
+  margin-bottom: 6px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--kluvs-content-light-secondary);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+/* ── Cards ───────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: 1px solid var(--kluvs-divider-light);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 14px;
+  box-shadow: var(--kluvs-shadow-card);
+}
+
+.card-dark {
+  background: var(--kluvs-warm-dark-base);
+  border: 1px solid var(--kluvs-warm-dark-card-2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 14px;
+}
+
+.card-flush {
+  background: #FFFFFF;
+  border: 1px solid var(--kluvs-divider-light);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--kluvs-shadow-card);
+}
+
+.card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kluvs-content-light-secondary);
+  margin-bottom: 18px;
+}
+
+.card-dark .card-label {
+  color: var(--kluvs-warm-fg-placeholder);
+}
+
+/* ── Status table ────────────────────────── */
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.status-table th {
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kluvs-content-light-secondary);
+  background: #FAFAFC;
+  border-bottom: 1px solid var(--kluvs-divider-light);
+}
+
+.status-table td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--kluvs-divider-light);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.status-table tbody tr:last-child td { border-bottom: none; }
+
+.status-table tbody tr:hover td { background: #FAFAFC; }
+
+.comp-name { font-weight: 500; }
+.comp-note { color: var(--kluvs-content-light-secondary); font-size: 12px; }
+
+/* ── Status badges ───────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge-done        { background: rgba(72,164,128,0.1);  color: #2a7d5f; }
+.badge-done::before      { background: #2a7d5f; }
+
+.badge-partial     { background: rgba(209,109,48,0.1);  color: #a0501a; }
+.badge-partial::before   { background: var(--kluvs-primary); }
+
+.badge-planned     { background: rgba(0,0,0,0.05);      color: var(--kluvs-content-light-secondary); }
+.badge-planned::before   { background: #aaa; }
+
+.badge-substitute  { background: rgba(0,103,129,0.08);  color: #005568; }
+.badge-substitute::before { background: #006781; }
+
+/* ── Color swatches ──────────────────────── */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 14px;
+}
+
+.swatch-block {
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.swatch-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--kluvs-content-light-primary);
+  margin-bottom: 2px;
+}
+
+.swatch-hex {
+  font-size: 11px;
+  color: var(--kluvs-content-light-secondary);
+  font-family: ui-monospace, 'SF Mono', monospace;
+}
+
+.card-dark .swatch-name { color: var(--kluvs-warm-fg-primary); }
+.card-dark .swatch-hex  { color: var(--kluvs-warm-fg-tertiary); }
+
+/* ── Type specimens ──────────────────────── */
+.type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--kluvs-divider-light);
+}
+.type-row:last-child { border-bottom: none; padding-bottom: 0; }
+.type-row:first-child { padding-top: 0; }
+
+.type-meta { width: 188px; flex-shrink: 0; }
+.type-label { font-size: 12px; font-weight: 600; color: var(--kluvs-content-light-primary); }
+.type-spec  { font-size: 11px; color: var(--kluvs-content-light-secondary); margin-top: 3px; line-height: 1.5; }
+.type-sample { flex: 1; min-width: 0; }
+
+/* ── Spacing ─────────────────────────────── */
+.spacing-rows { display: flex; flex-direction: column; gap: 10px; }
+.spacing-row  { display: flex; align-items: center; gap: 14px; }
+.spacing-bar  { height: 6px; border-radius: 3px; background: var(--kluvs-primary); opacity: 0.75; flex-shrink: 0; }
+.spacing-meta { font-size: 12px; color: var(--kluvs-content-light-secondary); }
+
+/* ── Radius ──────────────────────────────── */
+.radius-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.radius-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  border-right: 1px solid var(--kluvs-divider-light);
+}
+.radius-item:last-child { border-right: none; }
+
+.radius-block {
+  background: var(--kluvs-primary);
+  opacity: 0.8;
+}
+
+.radius-label {
+  font-size: 11px;
+  color: var(--kluvs-content-light-secondary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Icon grid ───────────────────────────── */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 8px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 8px;
+  border-radius: 8px;
+  background: #FAFAFC;
+  border: 1px solid var(--kluvs-divider-light);
+  text-align: center;
+  transition: border-color var(--kluvs-dur-fast), background var(--kluvs-dur-fast);
+}
+.icon-item:hover {
+  border-color: var(--kluvs-primary);
+  background: rgba(209,109,48,0.04);
+}
+
+.icon-item img { width: 22px; height: 22px; }
+.icon-item span {
+  font-size: 10px;
+  color: var(--kluvs-content-light-secondary);
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+/* ── Brand assets row ────────────────────── */
+.brand-assets {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.brand-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.brand-tile-dark { background: var(--kluvs-warm-dark-base); }
+.brand-tile-light { background: #FAFAFC; border: 1px solid var(--kluvs-divider-light); }
+
+/* ── Kit link card ───────────────────────── */
+.kit-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--kluvs-divider-light);
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: var(--kluvs-shadow-card);
+  transition: border-color var(--kluvs-dur-base) var(--kluvs-ease),
+              box-shadow var(--kluvs-dur-base) var(--kluvs-ease);
+  margin-bottom: 14px;
+}
+.kit-link:hover {
+  border-color: var(--kluvs-primary);
+  box-shadow: 0 0 0 3px rgba(209,109,48,0.1), var(--kluvs-shadow-card);
+}
+
+.kit-link-arrow {
+  font-size: 22px;
+  color: var(--kluvs-primary);
+  flex-shrink: 0;
+  transition: transform var(--kluvs-dur-base) var(--kluvs-ease);
+}
+.kit-link:hover .kit-link-arrow { transform: translateX(3px); }
+
+.kit-link-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--kluvs-content-light-primary);
+  margin-bottom: 3px;
+}
+
+.kit-link-desc {
+  font-size: 12px;
+  color: var(--kluvs-content-light-secondary);
+  line-height: 1.5;
+}
+
+/* ── Spec rows (icon spec) ───────────────── */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  font-size: 13px;
+}
+.spec-key {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kluvs-content-light-secondary);
+  margin-bottom: 4px;
+}
+.spec-val { font-weight: 500; color: var(--kluvs-content-light-primary); }
+.spec-val a { color: var(--kluvs-primary); text-decoration: none; }
+.spec-val a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ════ SIDEBAR ════ -->
+<nav class="sidebar" aria-label="Design system navigation">
+  <div class="sidebar-header">
+    <div class="wordmark">KLUVS <span class="wordmark-dot"></span></div>
+    <div class="sidebar-subtitle">Design System · v1.0.0</div>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Overview</div>
+    <a class="nav-link" href="#overview">Introduction</a>
+    <a class="nav-link" href="#status">Component Status</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Foundations</div>
+    <a class="nav-link" href="#color">Color</a>
+    <a class="nav-link" href="#typography">Typography</a>
+    <a class="nav-link" href="#spacing">Spacing &amp; Radius</a>
+    <a class="nav-link" href="#iconography">Iconography</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">UI Kits</div>
+    <a class="nav-link" href="#mobile-kit">Mobile Kit</a>
+  </div>
+
+  <div class="sidebar-footer">
+    <a href="https://github.com/kluvs-app/design-system" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="CHANGELOG.md" target="_blank">Changelog ↗</a>
+  </div>
+</nav>
+
+<!-- ════ MAIN ════ -->
+<main class="main">
+
+  <!-- Header ─────────────────────────────── -->
+  <header class="page-header" id="overview">
+    <div class="header-eyebrow">Kluvs · Book-club App</div>
+    <h1 class="header-title">Design System</h1>
+    <p class="header-desc">Token reference, component status, and visual foundations for Kluvs — Android, iOS, and Web.</p>
+    <div class="header-chips">
+      <span class="chip"><span class="chip-dot"></span>v1.0.0</span>
+      <span class="chip">Inter · Material Symbols</span>
+      <span class="chip">Dark-first · Warm surfaces</span>
+      <span class="chip">Android · iOS · Web</span>
+    </div>
+  </header>
+
+  <!-- Component Status ───────────────────── -->
+  <section class="section" id="status">
+    <div class="section-eyebrow">Overview</div>
+    <h2 class="section-title">Component Status</h2>
+    <p class="section-desc">Build status of every component in the Kluvs design system. Updated with each release.</p>
+
+    <div class="card-flush">
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th style="width:38%">Component</th>
+            <th style="width:16%">Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="comp-name">Button — Primary (filled)</td>
+            <td><span class="badge badge-partial">Partial</span></td>
+            <td class="comp-note">Inline CTA form only; no full variant system yet</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Button — Social (OAuth)</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Discord, Google, Apple</td>
+          </tr>
+          <tr>
+            <td class="comp-name">InputField</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">4 states: default / focused / error / disabled</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Avatar</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">3 roles × 3 sizes (sm / md / lg)</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Card — Default</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Dark surface, 12px radius, 16px padding</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Card — Accent (Next Discussion)</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Copper 1.5px border + warm tinted fill</td>
+          </tr>
+          <tr>
+            <td class="comp-name">TextDivider</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note"></td>
+          </tr>
+          <tr>
+            <td class="comp-name">MemberRow</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Includes role badge support (Owner / Admin)</td>
+          </tr>
+          <tr>
+            <td class="comp-name">TopBar</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">52px tall, warm dark bar surface</td>
+          </tr>
+          <tr>
+            <td class="comp-name">SubBar</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">40px showcase row</td>
+          </tr>
+          <tr>
+            <td class="comp-name">BottomNav</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">2 items; copper pill on selected state</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Tabs (top strip)</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">42px; 2px copper underline on active tab</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Timeline</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Discussion timeline with node states</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Reading Progress</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note"></td>
+          </tr>
+          <tr>
+            <td class="comp-name">Loading Screen</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">Static stroked ring, 1.2s linear rotate</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Error Screen</td>
+            <td><span class="badge badge-done">Done</span></td>
+            <td class="comp-note">"Something went wrong" + retry pattern</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Icon Set</td>
+            <td><span class="badge badge-substitute">Substitute</span></td>
+            <td class="comp-note">Lucide in UI kit; canonical is Material Symbols (see Iconography)</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Button System (full)</td>
+            <td><span class="badge badge-planned">Planned</span></td>
+            <td class="comp-note">Ghost, outline, destructive variants pending</td>
+          </tr>
+          <tr>
+            <td class="comp-name">Web Components</td>
+            <td><span class="badge badge-planned">Planned</span></td>
+            <td class="comp-note">Web-TBD in Figma; no spec yet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Color ──────────────────────────────── -->
+  <section class="section" id="color">
+    <div class="section-eyebrow">Foundations</div>
+    <h2 class="section-title">Color</h2>
+    <p class="section-desc">Copper is the only chromatic accent — one per view. Everything else is surface, type, and role. Dark product surfaces are warm near-black; auth and marketing use a cool-neutral light stack.</p>
+
+    <div class="card">
+      <div class="card-label">Brand</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#D16D30"></div><div class="swatch-name">Primary</div><div class="swatch-hex">#D16D30</div></div>
+        <div><div class="swatch-block" style="background:#B85A22"></div><div class="swatch-name">Primary Hover</div><div class="swatch-hex">#B85A22</div></div>
+        <div><div class="swatch-block" style="background:#E8944D"></div><div class="swatch-name">Primary Light</div><div class="swatch-hex">#E8944D</div></div>
+        <div><div class="swatch-block" style="background:#48A480"></div><div class="swatch-name">Secondary</div><div class="swatch-hex">#48A480</div></div>
+        <div><div class="swatch-block" style="background:#3A8A6A"></div><div class="swatch-name">Secondary Hover</div><div class="swatch-hex">#3A8A6A</div></div>
+        <div><div class="swatch-block" style="background:#006781"></div><div class="swatch-name">Tertiary</div><div class="swatch-hex">#006781</div></div>
+        <div><div class="swatch-block" style="background:#005568"></div><div class="swatch-name">Tertiary Hover</div><div class="swatch-hex">#005568</div></div>
+      </div>
+    </div>
+
+    <div class="card-dark">
+      <div class="card-label">Warm Dark Surfaces — Mobile / Product</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#0F0D0A;border:1px solid #332B24"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Nav</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#0F0D0A</div></div>
+        <div><div class="swatch-block" style="background:#140F0D;border:1px solid #332B24"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Base</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#140F0D</div></div>
+        <div><div class="swatch-block" style="background:#1A140F;border:1px solid #332B24"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Bar</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#1A140F</div></div>
+        <div><div class="swatch-block" style="background:#241C17;border:1px solid #332B24"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Card</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#241C17</div></div>
+        <div><div class="swatch-block" style="background:#332B24;border:1px solid #4a3830"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Card 2 / Hairline</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#332B24</div></div>
+        <div><div class="swatch-block" style="background:#382112;border:1px solid #4a3830"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Accent Fill</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#382112</div></div>
+      </div>
+    </div>
+
+    <div class="card-dark">
+      <div class="card-label">Warm Foreground</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#F2EDE5"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Primary</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#F2EDE5</div></div>
+        <div><div class="swatch-block" style="background:#C9BDA8"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Label</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#C9BDA8</div></div>
+        <div><div class="swatch-block" style="background:#8C8073"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Tertiary / Meta</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#8C8073</div></div>
+        <div><div class="swatch-block" style="background:#6B5F52"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Placeholder</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#6B5F52</div></div>
+        <div><div class="swatch-block" style="background:#4D4033"></div><div class="swatch-name" style="color:var(--kluvs-warm-fg-primary)">Disabled</div><div class="swatch-hex" style="color:var(--kluvs-warm-fg-tertiary)">#4D4033</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Light Surfaces — Auth / Marketing</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#FAFAFC;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Page</div><div class="swatch-hex">#FAFAFC</div></div>
+        <div><div class="swatch-block" style="background:#FFFFFF;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Card</div><div class="swatch-hex">#FFFFFF</div></div>
+        <div><div class="swatch-block" style="background:#F5F5F5;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Raised</div><div class="swatch-hex">#F5F5F5</div></div>
+        <div><div class="swatch-block" style="background:#EEEEEE;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Elevated</div><div class="swatch-hex">#EEEEEE</div></div>
+        <div><div class="swatch-block" style="background:#1A1A1A"></div><div class="swatch-name">Text Primary</div><div class="swatch-hex">#1A1A1A</div></div>
+        <div><div class="swatch-block" style="background:#666666"></div><div class="swatch-name">Text Secondary</div><div class="swatch-hex">#666666</div></div>
+        <div><div class="swatch-block" style="background:#E0E0E0;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Divider</div><div class="swatch-hex">#E0E0E0</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Roles &amp; Status</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#EFBF04"></div><div class="swatch-name">Owner Gold</div><div class="swatch-hex">#EFBF04 · dark surfaces only</div></div>
+        <div><div class="swatch-block" style="background:#006781"></div><div class="swatch-name">Admin Teal</div><div class="swatch-hex">#006781</div></div>
+        <div><div class="swatch-block" style="background:#EF4444"></div><div class="swatch-name">Danger</div><div class="swatch-hex">#EF4444</div></div>
+        <div><div class="swatch-block" style="background:#DC2626"></div><div class="swatch-name">Danger Hover</div><div class="swatch-hex">#DC2626</div></div>
+        <div><div class="swatch-block" style="background:#48A480"></div><div class="swatch-name">Success</div><div class="swatch-hex">#48A480</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">OAuth Providers</div>
+      <div class="swatch-grid">
+        <div><div class="swatch-block" style="background:#5865F2"></div><div class="swatch-name">Discord</div><div class="swatch-hex">#5865F2</div></div>
+        <div><div class="swatch-block" style="background:#F2F2F2;border:1px solid var(--kluvs-divider-light)"></div><div class="swatch-name">Google BG</div><div class="swatch-hex">#F2F2F2</div></div>
+        <div><div class="swatch-block" style="background:#1F1F1F"></div><div class="swatch-name">Google Text</div><div class="swatch-hex">#1F1F1F</div></div>
+        <div><div class="swatch-block" style="background:#0F0F0F"></div><div class="swatch-name">Apple BG</div><div class="swatch-hex">#0F0F0F</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography ──────────────────────────── -->
+  <section class="section" id="typography">
+    <div class="section-eyebrow">Foundations</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-desc">Inter only — Regular 400, Medium 500, Bold 700. Four content tiers, each mapped to an M3 semantic role for mobile and a utility class for web.</p>
+
+    <div class="card">
+      <div class="card-label">Content Tiers</div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-label">Tier 1 — Section Header</div>
+          <div class="type-spec">Mobile: titleMedium · onSurfaceVariant<br>Web: .kluvs-section-heading</div>
+        </div>
+        <div class="type-sample kluvs-section-heading">Current Book</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-label">Tier 2 — Primary Content</div>
+          <div class="type-spec">Mobile: bodyLarge · onSurface<br>Web: .kluvs-body-lg</div>
+        </div>
+        <div class="type-sample kluvs-body-lg">The Great Gatsby</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-label">Tier 3 — Supporting Details</div>
+          <div class="type-spec">Mobile: bodyMedium · onSurfaceVariant<br>Web: .kluvs-body</div>
+        </div>
+        <div class="type-sample kluvs-body" style="color:var(--kluvs-content-light-secondary)">F. Scott Fitzgerald · 180 pages</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-label">Tier 4 — Fine Print</div>
+          <div class="type-spec">Mobile: bodySmall · inverseOnSurface<br>Web: .kluvs-helper-sm</div>
+        </div>
+        <div class="type-sample kluvs-helper-sm">Version 1.0.0</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Type Scale</div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Display</div><div class="type-spec">48–96px · Bold · Brand surfaces</div></div>
+        <div class="type-sample" style="font:700 40px/1 var(--kluvs-font-sans);letter-spacing:-0.02em;color:#D16D30">KLUVS</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Page Heading</div><div class="type-spec">30px · 700 · -0.01em</div></div>
+        <div class="type-sample kluvs-page-heading">My Clubs</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Section Heading</div><div class="type-spec">20px · 700</div></div>
+        <div class="type-sample kluvs-section-heading">Next Discussion</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Card Heading</div><div class="type-spec">18px · 700</div></div>
+        <div class="type-sample kluvs-card-heading">Active Session</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Body Large</div><div class="type-spec">16px · 400 · lh 1.5</div></div>
+        <div class="type-sample kluvs-body-lg">The Midnight Library</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Body</div><div class="type-spec">14px · 400 · lh 1.43</div></div>
+        <div class="type-sample kluvs-body">Matt Haig · 288 pages · 2020</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Helper</div><div class="type-spec">13px · 400</div></div>
+        <div class="type-sample kluvs-helper">Member since 2026</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Helper Small</div><div class="type-spec">12px · 400</div></div>
+        <div class="type-sample kluvs-helper-sm">Version 1.0.0</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Weights</div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Bold — 700</div><div class="type-spec">Headings, CTAs, wordmark</div></div>
+        <div class="type-sample" style="font-weight:700;font-size:20px">Welcome back</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Medium — 500</div><div class="type-spec">Labels, tabs, nav items</div></div>
+        <div class="type-sample" style="font-weight:500;font-size:20px">Welcome back</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-label">Regular — 400</div><div class="type-spec">Body text, metadata</div></div>
+        <div class="type-sample" style="font-weight:400;font-size:20px">Welcome back</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing & Radius ───────────────────── -->
+  <section class="section" id="spacing">
+    <div class="section-eyebrow">Foundations</div>
+    <h2 class="section-title">Spacing &amp; Radius</h2>
+    <p class="section-desc">4-unit base scale. Page gutters at 20px. Card internal padding at 16px. Vertical rhythm between sections 16–24px.</p>
+
+    <div class="card">
+      <div class="card-label">Spacing Scale</div>
+      <div class="spacing-rows">
+        <div class="spacing-row"><div class="spacing-bar" style="width:4px"></div><div class="spacing-meta">4px · --kluvs-space-1</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:8px"></div><div class="spacing-meta">8px · --kluvs-space-2</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:12px"></div><div class="spacing-meta">12px · --kluvs-space-3</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:16px"></div><div class="spacing-meta">16px · --kluvs-space-4 · card padding</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:20px"></div><div class="spacing-meta">20px · --kluvs-space-5 · page gutter</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:24px"></div><div class="spacing-meta">24px · --kluvs-space-6</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:32px"></div><div class="spacing-meta">32px · --kluvs-space-8</div></div>
+      </div>
+    </div>
+
+    <div class="card-flush">
+      <div class="radius-row">
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:2px"></div>
+          <div class="radius-label">2px<br>Chips</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:4px"></div>
+          <div class="radius-label">4px<br>sm</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:8px"></div>
+          <div class="radius-label">8px<br>Inputs / Timeline</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:12px"></div>
+          <div class="radius-label">12px<br>Cards / Buttons</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:16px"></div>
+          <div class="radius-label">16px<br>lg</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-block" style="width:56px;height:56px;border-radius:9999px"></div>
+          <div class="radius-label">9999px<br>Avatars / Pills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iconography ─────────────────────────── -->
+  <section class="section" id="iconography">
+    <div class="section-eyebrow">Foundations</div>
+    <h2 class="section-title">Iconography</h2>
+    <p class="section-desc">Material Symbols is the canonical icon system. The UI kit uses Lucide as a placeholder — replace with Material Symbols exports when building production screens.</p>
+
+    <div class="card">
+      <div class="card-label">Material Symbols Spec</div>
+      <div class="spec-grid">
+        <div><div class="spec-key">Source</div><div class="spec-val"><a href="https://fonts.google.com/icons" target="_blank" rel="noopener">fonts.google.com/icons ↗</a></div></div>
+        <div><div class="spec-key">Weight</div><div class="spec-val">600</div></div>
+        <div><div class="spec-key">Grade</div><div class="spec-val">0</div></div>
+        <div><div class="spec-key">Optical Size</div><div class="spec-val">24px</div></div>
+        <div><div class="spec-key">Base Size</div><div class="spec-val">24px</div></div>
+        <div><div class="spec-key">File Type</div><div class="spec-val">SVG</div></div>
+        <div><div class="spec-key">Unselected</div><div class="spec-val">Unfilled</div></div>
+        <div><div class="spec-key">Selected</div><div class="spec-val">Filled</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Shipped Icons (assets/)</div>
+      <div class="icon-grid">
+        <div class="icon-item"><img src="assets/icon-arrow-back.svg" alt=""><span>arrow-back</span></div>
+        <div class="icon-item"><img src="assets/icon-book.svg" alt=""><span>book</span></div>
+        <div class="icon-item"><img src="assets/icon-check.svg" alt=""><span>check</span></div>
+        <div class="icon-item"><img src="assets/icon-crown.svg" alt=""><span>crown</span></div>
+        <div class="icon-item"><img src="assets/icon-diamond.svg" alt=""><span>diamond</span></div>
+        <div class="icon-item"><img src="assets/icon-email.svg" alt=""><span>email</span></div>
+        <div class="icon-item"><img src="assets/icon-gem.svg" alt=""><span>gem</span></div>
+        <div class="icon-item"><img src="assets/icon-help.svg" alt=""><span>help</span></div>
+        <div class="icon-item"><img src="assets/icon-hexagon.svg" alt=""><span>hexagon</span></div>
+        <div class="icon-item"><img src="assets/icon-hive.svg" alt=""><span>hive</span></div>
+        <div class="icon-item"><img src="assets/icon-honeycomb.svg" alt=""><span>honeycomb</span></div>
+        <div class="icon-item"><img src="assets/icon-info.svg" alt=""><span>info</span></div>
+        <div class="icon-item"><img src="assets/icon-location.svg" alt=""><span>location</span></div>
+        <div class="icon-item"><img src="assets/icon-logout.svg" alt=""><span>logout</span></div>
+        <div class="icon-item"><img src="assets/icon-password.svg" alt=""><span>password</span></div>
+        <div class="icon-item"><img src="assets/icon-person.svg" alt=""><span>person</span></div>
+        <div class="icon-item"><img src="assets/icon-settings.svg" alt=""><span>settings</span></div>
+        <div class="icon-item"><img src="assets/icon-shield.svg" alt=""><span>shield</span></div>
+        <div class="icon-item"><img src="assets/icon-unfold.svg" alt=""><span>unfold</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Brand Assets</div>
+      <div class="brand-assets">
+        <div class="brand-tile brand-tile-dark">
+          <img src="assets/kluvs-wordmark-light.svg" style="height:18px" alt="Kluvs wordmark (light)">
+          <img src="assets/kluvs-mark-white.svg" style="height:22px" alt="Kluvs mark (white)">
+        </div>
+        <div class="brand-tile brand-tile-light">
+          <img src="assets/kluvs-wordmark-dark.svg" style="height:18px" alt="Kluvs wordmark (dark)">
+          <img src="assets/kluvs-mark.svg" style="height:22px" alt="Kluvs mark">
+        </div>
+        <div class="brand-tile brand-tile-light" style="gap:12px">
+          <div style="text-align:center">
+            <img src="assets/role-badge-owner.svg" style="width:22px;height:22px" alt="Owner badge">
+            <div style="font-size:10px;color:var(--kluvs-content-light-secondary);margin-top:5px">Owner</div>
+          </div>
+          <div style="text-align:center">
+            <img src="assets/role-badge-admin.svg" style="width:22px;height:22px" alt="Admin badge">
+            <div style="font-size:10px;color:var(--kluvs-content-light-secondary);margin-top:5px">Admin</div>
+          </div>
+        </div>
+        <div class="brand-tile brand-tile-light" style="gap:16px">
+          <img src="assets/provider-discord.svg" style="height:20px" alt="Discord">
+          <img src="assets/provider-google.svg" style="height:20px" alt="Google">
+          <img src="assets/provider-apple.svg" style="height:20px" alt="Apple">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Kit ──────────────────────────── -->
+  <section class="section" id="mobile-kit">
+    <div class="section-eyebrow">UI Kits</div>
+    <h2 class="section-title">Mobile Kit</h2>
+    <p class="section-desc">High-fidelity recreation of every Figma mobile screen. Fully interactive — tap tabs and bottom nav to navigate between screens. Login form is live.</p>
+
+    <a class="kit-link" href="ui_kits/mobile/index.html" target="_blank" rel="noopener">
+      <div>
+        <div class="kit-link-title">Mobile UI Kit — iOS / Android</div>
+        <div class="kit-link-desc">Login → Clubs (General / Active Session / Members) → Profile<br>390×844 · iPhone 14 reference canvas</div>
+      </div>
+      <div class="kit-link-arrow">→</div>
+    </a>
+  </section>
+
+</main>
+
+<script>
+  const sections = document.querySelectorAll('[id]');
+  const links    = document.querySelectorAll('.nav-link');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
