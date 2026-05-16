@@ -11,6 +11,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `README.md` | Brand source of truth — voice, color, type, spacing, iconography rules. Read this first. |
 | `SKILL.md` | Claude Code skill front-matter for the `/kluvs-design` skill. |
 | `colors_and_type.css` | **Single token source.** CSS custom properties for all color, spacing, radius, motion, and type. Import this before anything else. |
+| `tokens.json` | **Platform-agnostic token source.** W3C/Style Dictionary compatible. Read this from any client repo to sync token values. |
 | `assets/` | Brand marks, role badges, OAuth glyphs — all SVG. Drop-in, no processing needed. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 | `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |

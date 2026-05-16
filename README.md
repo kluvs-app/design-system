@@ -22,6 +22,7 @@ The app's surface model is **dark-by-default in product, light in auth/marketing
 |---|---|
 | `README.md` | This document. Brand summary, content + visual + iconography rules, manifest. |
 | `SKILL.md` | Cross-compatible Agent Skill front-matter so this folder works as a skill in Claude Code. |
+| `tokens.json` | Platform-agnostic token source. W3C / Style Dictionary compatible (`$value` / `$type` / `$description`). Read from any client repo to sync values without build tooling. |
 | `colors_and_type.css` | Single source of truth for color, spacing, radius and type tokens. CSS custom properties + utility classes. |
 | `assets/` | Brand mark, role badges, social-provider glyphs (SVG). Drop-in. |
 | `preview/` | One small HTML card per token group — fed to the Design System review tab. |
