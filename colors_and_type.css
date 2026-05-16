@@ -1,0 +1,166 @@
+/* ============================================================
+   Kluvs Design System — Color & Type Tokens
+   Canonical sources:
+     · kluvs.com tailwind.config (web — neutral-dark surfaces)
+     · Figma "Kluvs Design System" (mobile — warm-dark surfaces)
+   The two share brand colors but ship different surface stacks.
+   Web tokens are authoritative; mobile-warm tokens are namespaced.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+:root {
+  /* ─────────── BRAND ─────────── */
+  --kluvs-primary:        #D16D30;
+  --kluvs-primary-hover:  #B85A22;
+  --kluvs-primary-light:  #E8944D;
+  --kluvs-secondary:        #48A480;   /* success, "joined" */
+  --kluvs-secondary-hover:  #3A8A6A;
+  --kluvs-tertiary:         #006781;   /* admin, info accents */
+  --kluvs-tertiary-hover:   #005568;
+  --kluvs-on-primary:     #FFFFFF;
+
+  /* ─────────── PROVIDERS ─────────── */
+  --kluvs-discord:        #5865F2;
+  --kluvs-google-bg:      #F2F2F2;
+  --kluvs-google-text:    #1F1F1F;
+  --kluvs-google-stroke:  #D1D1D1;
+  --kluvs-apple-bg:       #0F0F0F;
+  --kluvs-apple-text:     #FFFFFF;
+
+  /* ─────────── SURFACE — DARK (web canonical, neutral) ─────────── */
+  --kluvs-surface-dark:           #0A0A0A;   /* page bg */
+  --kluvs-surface-dark-raised:    #141414;   /* card */
+  --kluvs-surface-dark-elevated:  #1A1A1A;   /* card on card, sheets */
+  --kluvs-divider-dark:           #2A2A2A;
+  --kluvs-content-dark-primary:   #FFFFFF;
+  --kluvs-content-dark-secondary: #B0B0B0;
+
+  /* ─────────── SURFACE — LIGHT (web canonical) ─────────── */
+  --kluvs-surface-light:           #FFFFFF;
+  --kluvs-surface-light-raised:    #F5F5F5;
+  --kluvs-surface-light-elevated:  #EEEEEE;
+  --kluvs-divider-light:           #E0E0E0;
+  --kluvs-content-light-primary:   #1A1A1A;
+  --kluvs-content-light-secondary: #666666;
+
+  /* ─────────── SURFACE — WARM DARK (mobile / Figma) ─────────── */
+  /* Use only inside the mobile UI kit — these are the Figma source values. */
+  --kluvs-warm-dark-base:    #140F0D;
+  --kluvs-warm-dark-bar:     #1A140F;
+  --kluvs-warm-dark-nav:     #0F0D0A;
+  --kluvs-warm-dark-card:    #241C17;
+  --kluvs-warm-dark-card-2:  #332B24;
+  --kluvs-warm-dark-accent:  #382112;   /* "Next discussion" tinted fill */
+  --kluvs-warm-fg-primary:     #F2EDE5;   /* cream — body / headings */
+  --kluvs-warm-fg-label:       #C9BDA8;   /* labels / subtitles */
+  --kluvs-warm-fg-tertiary:    #8C8073;   /* meta / captions */
+  --kluvs-warm-fg-placeholder: #6B5F52;   /* placeholder text */
+  --kluvs-warm-fg-disabled:    #4D4033;   /* disabled */
+  /* aliases */
+  --kluvs-warm-fg-muted:       var(--kluvs-warm-fg-tertiary);
+  --kluvs-warm-fg-deep:        var(--kluvs-warm-fg-disabled);
+
+  /* ─────────── ROLES ─────────── */
+  --kluvs-role-owner:  #F0BF05;        /* gold (mobile-only badge) */
+  --kluvs-role-admin:  #006781;        /* tertiary teal */
+  --kluvs-role-member: transparent;
+
+  /* ─────────── STATUS ─────────── */
+  --kluvs-danger:        #EF4444;
+  --kluvs-danger-hover:  #DC2626;
+  --kluvs-success:       #48A480;      /* alias of secondary */
+
+  /* ─────────── SPACING (Tailwind 4-unit base) ─────────── */
+  --kluvs-space-1:  4px;
+  --kluvs-space-2:  8px;
+  --kluvs-space-3: 12px;
+  --kluvs-space-4: 16px;
+  --kluvs-space-5: 20px;
+  --kluvs-space-6: 24px;
+  --kluvs-space-8: 32px;
+
+  /* ─────────── RADIUS (canonical from tailwind) ─────────── */
+  --kluvs-radius-input: 8px;     /* 0.5rem */
+  --kluvs-radius-btn:  12px;     /* 0.75rem */
+  --kluvs-radius-card: 12px;     /* 0.75rem */
+  --kluvs-radius-pill: 9999px;
+  --kluvs-radius-sm:    4px;
+  --kluvs-radius-lg:   16px;
+
+  /* ─────────── ELEVATION (low-key) ─────────── */
+  --kluvs-shadow-card: 0 1px 2px rgba(0,0,0,0.05);
+  --kluvs-shadow-pop:  0 6px 20px rgba(0,0,0,0.10);
+
+  /* ─────────── MOTION ─────────── */
+  --kluvs-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --kluvs-dur-fast:    120ms;
+  --kluvs-dur-base:    180ms;
+  --kluvs-dur-screen:  260ms;
+
+  /* ─────────── TYPE ─────────── */
+  --kluvs-font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --kluvs-fw-regular: 400;
+  --kluvs-fw-medium:  500;
+  --kluvs-fw-bold:    700;
+
+  /* Tailwind named scale (web-canonical) */
+  --kluvs-page-heading-size:    30px;  --kluvs-page-heading-line:    36px;
+  --kluvs-section-heading-size: 20px;  --kluvs-section-heading-line: 28px;
+  --kluvs-card-heading-size:    18px;  --kluvs-card-heading-line:    24px;
+  --kluvs-body-lg-size:         16px;  --kluvs-body-lg-line:         24px;
+  --kluvs-body-size:            14px;  --kluvs-body-line:            20px;
+  --kluvs-helper-size:          13px;  --kluvs-helper-line:          18px;
+  --kluvs-helper-sm-size:       12px;  --kluvs-helper-sm-line:       16px;
+
+  /* Display sizes for brand surfaces */
+  --kluvs-display-1-size: 96px;
+  --kluvs-display-2-size: 48px;
+}
+
+/* ──── Semantic type classes (web-canonical names) ──── */
+.kluvs-page-heading    { font: 700 var(--kluvs-page-heading-size)/var(--kluvs-page-heading-line) var(--kluvs-font-sans); letter-spacing: -0.01em; }
+.kluvs-section-heading { font: 700 var(--kluvs-section-heading-size)/var(--kluvs-section-heading-line) var(--kluvs-font-sans); }
+.kluvs-card-heading    { font: 700 var(--kluvs-card-heading-size)/var(--kluvs-card-heading-line) var(--kluvs-font-sans); }
+.kluvs-body-lg         { font: 400 var(--kluvs-body-lg-size)/var(--kluvs-body-lg-line) var(--kluvs-font-sans); }
+.kluvs-body            { font: 400 var(--kluvs-body-size)/var(--kluvs-body-line) var(--kluvs-font-sans); }
+.kluvs-helper          { font: 400 var(--kluvs-helper-size)/var(--kluvs-helper-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
+.kluvs-helper-sm       { font: 400 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
+.kluvs-display-2       { font: 700 var(--kluvs-display-2-size)/1 var(--kluvs-font-sans); letter-spacing: -0.02em; }
+.kluvs-display-1       { font: 700 var(--kluvs-display-1-size)/1 var(--kluvs-font-sans); letter-spacing: -0.03em; }
+
+.kluvs-base {
+  font-family: var(--kluvs-font-sans);
+  color: var(--kluvs-content-light-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──── Back-compat aliases (preview cards reference older names) ──── */
+:root {
+  --kluvs-brand-primary:        var(--kluvs-primary);
+  --kluvs-brand-primary-soft:   rgba(209,109,48,0.18);
+  --kluvs-brand-on-primary:     #FFFFFF;
+  --kluvs-fg-on-light-1:        var(--kluvs-content-light-primary);
+  --kluvs-fg-on-light-2:        var(--kluvs-content-light-secondary);
+  --kluvs-fg-on-light-3:        #8C8073;
+  --kluvs-fg-on-light-4:        #999999;
+  --kluvs-fg-on-light-5:        #B3B3B3;
+  --kluvs-fg-on-dark-1:         var(--kluvs-warm-fg-primary);
+  --kluvs-fg-on-dark-2:         var(--kluvs-warm-fg-muted);
+  --kluvs-fg-on-dark-3:         var(--kluvs-warm-fg-deep);
+  --kluvs-surface-default:      #FAFAFC;
+  --kluvs-surface-card:         #FFFFFF;
+  --kluvs-surface-muted:        #F5F5F5;
+  --kluvs-surface-dark-base:    var(--kluvs-warm-dark-base);
+  --kluvs-surface-dark-bar:     var(--kluvs-warm-dark-bar);
+  --kluvs-surface-dark-nav:     var(--kluvs-warm-dark-nav);
+  --kluvs-surface-dark-card:    var(--kluvs-warm-dark-card);
+  --kluvs-surface-dark-card-2:  var(--kluvs-warm-dark-card-2);
+  --kluvs-surface-dark-accent:  var(--kluvs-warm-dark-accent);
+  --kluvs-stroke-light:         var(--kluvs-divider-light);
+  --kluvs-stroke-input:         #B0B0B0;
+  --kluvs-stroke-dark:          var(--kluvs-warm-dark-card-2);
+  --kluvs-error:                var(--kluvs-danger);
+  --kluvs-radius-md:            var(--kluvs-radius-input);
+}

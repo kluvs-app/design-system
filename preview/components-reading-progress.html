@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:700px;padding:24px;display:flex;flex-direction:column;gap:18px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+  .frame{border-radius:14px;padding:20px 18px;border:1px solid #E0E0E0}
+  .frame.dark{background:#140F0D;border-color:#241C17;color:#F5EFE6}
+  .section{font:600 14px/1 var(--kluvs-font-sans);color:#A89B8A;margin:0 0 12px}
+  .frame.light .section{color:#666}
+  .title{font:400 22px/1.3 var(--kluvs-font-sans);margin:0 0 14px;color:inherit}
+  .bar{height:4px;border-radius:2px;background:rgba(209,109,48,0.18);overflow:hidden}
+  .frame.light .bar{background:rgba(209,109,48,0.16)}
+  .fill{height:100%;background:#D16D30;border-radius:2px}
+  .meta{display:flex;justify-content:space-between;font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:8px}
+  .frame.light .meta{color:#737373}
+  .annotate{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:11px;color:#666;line-height:1.5}
+  .annotate b{display:block;color:#1A1A1A;font-weight:600;margin-bottom:2px}
+  .annotate code{font-family:ui-monospace,monospace;font-size:10px}
+</style></head>
+<body><div class="card">
+  <div>
+    <div class="label">Currently reading · dark</div>
+    <div class="frame dark">
+      <p class="section">Currently Reading</p>
+      <h3 class="title">Cien Años de Soledad</h3>
+      <div class="bar"><div class="fill" style="width:64%"></div></div>
+      <div class="meta"><span>Page 269 of 417</span><span>64%</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Currently reading · light</div>
+    <div class="frame light">
+      <p class="section">Currently Reading</p>
+      <h3 class="title">Cien Años de Soledad</h3>
+      <div class="bar"><div class="fill" style="width:64%"></div></div>
+      <div class="meta"><span>Page 269 of 417</span><span>64%</span></div>
+    </div>
+  </div>
+  <div class="annotate">
+    <div><b>Bar</b>4px · <code>r=2</code></div>
+    <div><b>Track</b>copper @ ~16–18%</div>
+    <div><b>Fill</b><code>#D16D30</code></div>
+  </div>
+</div></body></html>

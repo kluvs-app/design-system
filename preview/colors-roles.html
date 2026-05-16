@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:700px;padding:20px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.role{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;border-radius:10px;background:#FAFAFC;}
+.av{position:relative;width:68px;height:68px;}
+.av .bg{position:absolute;inset:4px;border-radius:50%;background:#D9D9D9;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500;color:#737373;}
+.av .ring{position:absolute;inset:4px;border-radius:50%;border:2px solid;}
+.av .badge{position:absolute;width:14px;height:14px;border-radius:50%;border:1.5px solid #fff;box-sizing:border-box;}
+.name{font-size:12px;font-weight:600;color:#1A1A1A;}
+.code{font-family:ui-monospace,monospace;font-size:10px;color:#8C8C8C;}
+</style></head>
+<body><div class="card">
+  <div class="role">
+    <div class="av">
+      <div class="bg">AB</div>
+      <div class="ring" style="border-color:#F0BF05"></div>
+      <div class="badge" style="background:#F0BF05;left:27px;top:-3px;"></div>
+    </div>
+    <div class="name">Owner</div>
+    <div class="code">#F0BF05</div>
+  </div>
+  <div class="role">
+    <div class="av">
+      <div class="bg">AB</div>
+      <div class="ring" style="border-color:#006682"></div>
+      <div class="badge" style="background:#006682;left:27px;top:57px;"></div>
+    </div>
+    <div class="name">Admin</div>
+    <div class="code">#006682</div>
+  </div>
+  <div class="role">
+    <div class="av"><div class="bg">AB</div></div>
+    <div class="name">Member</div>
+    <div class="code">no ring</div>
+  </div>
+</div></body></html>

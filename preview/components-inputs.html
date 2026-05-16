@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:700px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.lbl{font-size:12px;font-weight:500;}
+.input{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border-radius:8px;background:#fff;border:1px solid #B0B0B0;}
+.input .ic{width:16px;height:16px;border-radius:2px;background:#BFBFBF;}
+.input input{border:0;outline:0;flex:1;font:400 16px/1 var(--kluvs-font-sans);color:#1A1A1A;background:transparent;}
+.help{font-size:11px;color:#999;}
+.f-default .lbl{color:#666;}
+.f-focus .lbl{color:#D16E30;}
+.f-focus .input{border:2px solid #D16E30;}
+.f-focus input{color:#1A1A1A;}
+.f-error .lbl{color:#E53333;}
+.f-error .input{border:1px solid #E53333;background:#FFF7F7;}
+.f-error .help{color:#E53333;}
+.f-disabled .lbl{color:#B3B3B3;}
+.f-disabled .input{border:1px solid #E0E0E0;background:#F5F5F5;}
+.f-disabled input{color:#BFBFBF;}
+</style></head>
+<body><div class="card">
+  <div class="field f-default">
+    <div class="lbl">Label</div>
+    <div class="input"><div class="ic"></div><input placeholder="Enter text..."></div>
+    <div class="help">Supporting text</div>
+  </div>
+  <div class="field f-focus">
+    <div class="lbl">Label</div>
+    <div class="input"><div class="ic"></div><input value="Club name"></div>
+    <div class="help">Supporting text</div>
+  </div>
+  <div class="field f-error">
+    <div class="lbl">Label</div>
+    <div class="input"><div class="ic"></div><input placeholder="Enter text..."></div>
+    <div class="help">Error: this field is required</div>
+  </div>
+  <div class="field f-disabled">
+    <div class="lbl">Label</div>
+    <div class="input"><div class="ic"></div><input placeholder="Enter text..." disabled></div>
+  </div>
+</div></body></html>

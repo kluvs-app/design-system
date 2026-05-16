@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Kluvs · Mobile UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css"/>
+<style>
+  html, body { margin: 0; padding: 0; background: #F2EDE5; font-family: Inter, system-ui, sans-serif; color: #1A1A1A; }
+  .page { min-height: 100vh; padding: 40px 32px 80px; box-sizing: border-box; }
+  .head { max-width: 1200px; margin: 0 auto 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+  .head h1 { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.01em; margin: 0; }
+  .head p { color: #8C8073; font-size: 14px; max-width: 520px; margin: 0; line-height: 1.5; }
+  .grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, 410px); gap: 24px; justify-content: center; }
+  .frame {
+    width: 410px;
+    background: #1A140F;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 30px 60px rgba(20,15,13,0.18), 0 0 0 1px rgba(20,15,13,0.06);
+    display: flex; flex-direction: column;
+  }
+  .frame.light { background: #F0E9DD; }
+  .frame .label { font-size: 11px; font-weight: 600; color: rgba(242,237,229,0.7); text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 10px 8px; }
+  .frame.light .label { color: #8C8073; }
+  .frame .screen-shell {
+    border-radius: 22px; overflow: hidden;
+    width: 390px; height: 844px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    background: #000;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div>
+      <h1>Kluvs · Mobile UI Kit</h1>
+      <p>Recreated from the Figma source. Tap tabs and bottom-nav to navigate; the Login form is interactive.</p>
+    </div>
+    <div style="font-size:13px;color:#8C8073">390×844 · iPhone reference</div>
+  </div>
+  <div id="root" class="grid"></div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="screens.jsx"></script>
+<script type="text/babel">
+function Frame({ label, light, children }) {
+  return (
+    <div className={"frame" + (light ? " light" : "")}>
+      <div className="label">{label}</div>
+      <div className="screen-shell">{children}</div>
+    </div>
+  );
+}
+
+function App() {
+  const [tab, setTab] = React.useState(0);
+  const [navTab, setNavTab] = React.useState(0);
+  const clubScreen =
+    tab === 0 ? <ClubGeneralScreen onTab={setTab} onNav={setNavTab}/> :
+    tab === 1 ? <ClubActiveSessionScreen onTab={setTab} onNav={setNavTab}/> :
+                <ClubMembersScreen onTab={setTab} onNav={setNavTab}/>;
+  return (
+    <>
+      <Frame label="Login (light)" light><LoginScreen/></Frame>
+      <Frame label="Sign Up (light)" light><SignUpScreen/></Frame>
+      <Frame label="Clubs · List"><ClubsListScreen onNav={setNavTab}/></Frame>
+      <Frame label={`Club detail · ${["General","Active Session","Members"][tab]}`}>{clubScreen}</Frame>
+      <Frame label="Me · Profile"><MeScreen/></Frame>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

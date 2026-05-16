@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:700px;padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.block{padding:16px;border-radius:10px;}
+.block.light{background:#FAFAFC;box-shadow:inset 0 0 0 1px #E0E0E0;}
+.block.dark{background:#140F0D;}
+.line{display:flex;align-items:center;justify-content:space-between;padding:6px 0;}
+.line + .line{border-top:1px solid rgba(0,0,0,0.05);}
+.dark .line + .line{border-top:1px solid #332B24;}
+.code{font-family:ui-monospace,monospace;font-size:10px;}
+.dark .code{color:#8C8073;}
+.light .code{color:#737373;}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;}
+.dark .label{color:#8C8073;}
+.light .label{color:#737373;}
+</style></head>
+<body><div class="card">
+  <div class="block light">
+    <div class="label">Foreground — on light</div>
+    <div class="line"><span style="color:#1A1A1A;font-size:14px;font-weight:500">Primary text</span><span class="code">#1A1A1A</span></div>
+    <div class="line"><span style="color:#666;font-size:14px">Label</span><span class="code">#666666</span></div>
+    <div class="line"><span style="color:#8C8C8C;font-size:14px">Tertiary</span><span class="code">#8C8C8C</span></div>
+    <div class="line"><span style="color:#999;font-size:14px">Placeholder</span><span class="code">#999999</span></div>
+    <div class="line"><span style="color:#B3B3B3;font-size:14px">Disabled</span><span class="code">#B3B3B3</span></div>
+  </div>
+  <div class="block dark">
+    <div class="label">Foreground — on dark</div>
+    <div class="line"><span style="color:#F2EDE5;font-size:14px;font-weight:500">Primary text</span><span class="code">#F2EDE5</span></div>
+    <div class="line"><span style="color:#C9BDA8;font-size:14px">Label</span><span class="code">#C9BDA8</span></div>
+    <div class="line"><span style="color:#8C8073;font-size:14px">Tertiary</span><span class="code">#8C8073</span></div>
+    <div class="line"><span style="color:#6B5F52;font-size:14px">Placeholder</span><span class="code">#6B5F52</span></div>
+    <div class="line"><span style="color:#4D4033;font-size:14px">Disabled</span><span class="code">#4D4033</span></div>
+  </div>
+</div></body></html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:700px;padding:24px;display:flex;flex-direction:column;gap:14px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+  .frame{border-radius:14px;padding:6px 0;border:1px solid #E0E0E0}
+  .frame.dark{background:#140F0D;border-color:#241C17;color:#F5EFE6}
+  .row{display:flex;align-items:center;gap:14px;padding:14px 18px}
+  .row + .row{border-top:1px solid rgba(245,239,230,0.06)}
+  .frame.light .row + .row{border-top-color:#EFEAE2}
+  .av{width:44px;height:44px;border-radius:50%;flex:0 0 44px;position:relative;display:flex;align-items:center;justify-content:center;background:#A4D49B;color:#274d1f;font:700 16px/1 var(--kluvs-font-sans)}
+  .av.b{background:#D9B8FF;color:#3a235e}
+  .av.c{background:#FFB97A;color:#5a2a0a}
+  .av .ring{position:absolute;inset:0;border-radius:50%;box-sizing:border-box;pointer-events:none}
+  .av.owner .ring{border:2px solid #F0BF05}
+  .av.admin .ring{border:2px solid #006682}
+  .av .badge{position:absolute;width:14px;height:14px;border-radius:50%;box-sizing:border-box;border:1.5px solid var(--av-bg,#140F0D);left:50%;margin-left:-7px}
+  .av.owner .badge{top:-7px;background:#F0BF05}
+  .av.admin .badge{bottom:-7px;background:#006682}
+  .who{flex:1;display:flex;flex-direction:column;gap:2px}
+  .name{font:600 15px/1.2 var(--kluvs-font-sans)}
+  .handle{font:400 13px/1.2 var(--kluvs-font-sans);color:#8C8073}
+  .frame.light .handle{color:#737373}
+  .pts{font:600 13px/1 var(--kluvs-font-sans);color:#A89B8A}
+  .frame.light .pts{color:#737373}
+  .group{font:600 12px/1 var(--kluvs-font-sans);color:#A89B8A;letter-spacing:.02em;padding:14px 18px 6px;text-transform:none}
+  .frame.light .group{color:#737373}
+</style></head>
+<body><div class="card">
+  <div>
+    <div class="label">Member list · dark (canonical)</div>
+    <div class="frame dark">
+      <div class="group">Members (3)</div>
+      <div class="row">
+        <div class="av owner" style="--av-bg:#140F0D">L<span class="ring"></span><span class="badge"></span></div>
+        <div class="who"><span class="name">Lúcia Méndez</span><span class="handle">@lucia</span></div>
+        <div class="pts">128 pts.</div>
+      </div>
+      <div class="row">
+        <div class="av admin b" style="--av-bg:#140F0D">A<span class="ring"></span><span class="badge"></span></div>
+        <div class="who"><span class="name">Aarav Patel</span><span class="handle">@aarav</span></div>
+        <div class="pts">94 pts.</div>
+      </div>
+      <div class="row">
+        <div class="av c">D</div>
+        <div class="who"><span class="name">Dummy User</span><span class="handle">@dummy</span></div>
+        <div class="pts">0 pts.</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Member list · light</div>
+    <div class="frame light">
+      <div class="group">Members (3)</div>
+      <div class="row">
+        <div class="av owner" style="--av-bg:#fff">L<span class="ring"></span><span class="badge"></span></div>
+        <div class="who"><span class="name">Lúcia Méndez</span><span class="handle">@lucia</span></div>
+        <div class="pts">128 pts.</div>
+      </div>
+      <div class="row">
+        <div class="av admin b" style="--av-bg:#fff">A<span class="ring"></span><span class="badge"></span></div>
+        <div class="who"><span class="name">Aarav Patel</span><span class="handle">@aarav</span></div>
+        <div class="pts">94 pts.</div>
+      </div>
+      <div class="row">
+        <div class="av c">D</div>
+        <div class="who"><span class="name">Dummy User</span><span class="handle">@dummy</span></div>
+        <div class="pts">0 pts.</div>
+      </div>
+    </div>
+  </div>
+</div></body></html>

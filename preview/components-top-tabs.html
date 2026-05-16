@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:700px;padding:24px;display:flex;flex-direction:column;gap:18px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+  .frame{border-radius:14px;border:1px solid #E0E0E0;overflow:hidden}
+  .frame.dark{background:#140F0D;border-color:#241C17;color:#F5EFE6}
+  .frame.light{background:#FFFFFF;color:#1A1A1A}
+  .tabs{display:flex;border-bottom:1px solid rgba(255,255,255,0.06);position:relative}
+  .frame.light .tabs{border-bottom-color:#E0E0E0}
+  .tab{flex:1;text-align:center;padding:14px 8px;font-size:13px;font-weight:600;color:#D16D30;letter-spacing:.01em;position:relative}
+  .tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#D16D30}
+  .body{padding:18px 16px;font-size:12px;color:#8C8073;font-style:italic}
+  .frame.light .body{color:#737373}
+  .annotate{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:11px;color:#666;line-height:1.5}
+  .annotate b{display:block;color:#1A1A1A;font-weight:600;margin-bottom:2px}
+  .annotate code{font-family:ui-monospace,monospace;font-size:10px}
+</style></head>
+<body><div class="card">
+  <div>
+    <div class="label">Top tabs · dark (canonical)</div>
+    <div class="frame dark">
+      <div class="tabs">
+        <div class="tab active">General</div>
+        <div class="tab">Active Session</div>
+        <div class="tab">Members</div>
+      </div>
+      <div class="body">Active tab gets a copper underline; all labels stay copper.</div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Top tabs · light</div>
+    <div class="frame light">
+      <div class="tabs">
+        <div class="tab">General</div>
+        <div class="tab active">Active Session</div>
+        <div class="tab">Members</div>
+      </div>
+      <div class="body">Idle and active labels share the same copper — discriminator is the underline only.</div>
+    </div>
+  </div>
+  <div class="annotate">
+    <div><b>Label color</b><code>#D16D30</code> always</div>
+    <div><b>Active underline</b>2px · <code>#D16D30</code></div>
+    <div><b>Track</b>1px hairline · subtle</div>
+    <div><b>Type</b>13/600 · <code>+0.01em</code></div>
+  </div>
+</div></body></html>

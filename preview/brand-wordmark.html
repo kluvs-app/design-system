@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:760px;padding:28px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
+  .lockup{display:flex;align-items:center;gap:22px;padding:32px 28px;border:1px solid #E0E0E0;border-radius:14px;margin-bottom:14px;background:#FAFAFA}
+  .lockup.dark{background:#0A0A0A;border-color:#1A1A1A}
+  .lockup img{width:64px;height:64px;display:block}
+  .word{font-family:var(--kluvs-font-sans);font-weight:700;font-size:46px;letter-spacing:.06em;line-height:1;color:#1A1A1A}
+  .lockup.dark .word{color:#FFFFFF}
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px;padding-top:18px;border-top:1px dashed #E0E0E0}
+  .spec{font-size:11px;line-height:1.5}
+  .spec b{display:block;color:#666;font-weight:500;margin-bottom:2px}
+  .spec span{font-family:ui-monospace,"SF Mono",monospace;color:#1A1A1A}
+  .clearance{font-size:11px;color:#666;margin-top:12px;line-height:1.5}
+  .note{font-size:11px;color:#9A8A78;margin-top:6px;line-height:1.5}
+</style></head>
+<body><div class="card">
+  <div class="label">Wordmark · locked</div>
+  <div class="lockup">
+    <img src="../assets/kluvs-mark.svg" alt="Kluvs mark"/>
+    <div class="word">KLUVS</div>
+  </div>
+  <div class="lockup dark">
+    <img src="../assets/kluvs-mark-white.svg" alt="Kluvs mark (white)"/>
+    <div class="word">KLUVS</div>
+  </div>
+  <div class="specs">
+    <div class="spec"><b>Family</b><span>Inter</span></div>
+    <div class="spec"><b>Weight</b><span>700 · Bold</span></div>
+    <div class="spec"><b>Tracking</b><span>+0.06em</span></div>
+    <div class="spec"><b>Case</b><span>UPPERCASE</span></div>
+  </div>
+  <div class="clearance">Mark + wordmark gap = cap-height of the K. Clear space around the lockup ≥ height of the K on all sides.</div>
+  <div class="note">Mark sourced from <code>assets/kluvs-mark.svg</code> (your supplied SVG). Dark variant is <code>kluvs-mark-white.svg</code> — same paths, white fill.</div>
+</div></body></html>

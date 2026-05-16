@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:760px;padding:24px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .cell{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px;border:1px solid #E0E0E0;border-radius:10px;background:#FAFAFC}
+  .ico{width:24px;height:24px;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  .cell{color:#1A1A1A}
+  .name{font-size:11px;font-weight:600;color:#1A1A1A;text-align:center;line-height:1.2}
+  .role{font-size:9.5px;color:#666;text-align:center;line-height:1.2}
+  .swap{display:flex;gap:10px;margin-top:18px}
+  .swap .pill{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:9999px;font-size:12px;font-weight:600}
+  .swap .pill .ico{width:18px;height:18px}
+  .swap .copper{background:rgba(209,109,48,0.18);color:#D16D30}
+  .swap .dark{background:#0A0A0A;color:#D16D30;border:1px solid #1A1A1A}
+  .swap .gem{background:#FAFAFC;color:#1A1A1A;border:1px solid #E0E0E0}
+</style></head>
+<body><div class="card">
+  <div class="label">Material Symbols Rounded · 24dp · weight 600 · filled</div>
+  <div class="grid">
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></div><div class="name">hexagon</div><div class="role">Clubs · nav</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-person.svg);mask-image:url(../assets/icon-person.svg)"></div><div class="name">person</div><div class="role">Me · nav</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-hive.svg);mask-image:url(../assets/icon-hive.svg)"></div><div class="name">hive</div><div class="role">No. of clubs</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-diamond.svg);mask-image:url(../assets/icon-diamond.svg)"></div><div class="name">diamond</div><div class="role">Points</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-book.svg);mask-image:url(../assets/icon-book.svg)"></div><div class="name">book_2</div><div class="role">Books read</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-crown.svg);mask-image:url(../assets/icon-crown.svg)"></div><div class="name">crown</div><div class="role">Owner</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-shield.svg);mask-image:url(../assets/icon-shield.svg)"></div><div class="name">shield</div><div class="role">Admin</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-check.svg);mask-image:url(../assets/icon-check.svg)"></div><div class="name">check</div><div class="role">Done</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-location.svg);mask-image:url(../assets/icon-location.svg)"></div><div class="name">location_on</div><div class="role">Place</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-email.svg);mask-image:url(../assets/icon-email.svg)"></div><div class="name">alt_email</div><div class="role">Email field</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-password.svg);mask-image:url(../assets/icon-password.svg)"></div><div class="name">password</div><div class="role">Pwd field</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-settings.svg);mask-image:url(../assets/icon-settings.svg)"></div><div class="name">settings</div><div class="role">Menu</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-help.svg);mask-image:url(../assets/icon-help.svg)"></div><div class="name">help</div><div class="role">Support</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-logout.svg);mask-image:url(../assets/icon-logout.svg)"></div><div class="name">logout</div><div class="role">Sign out</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-info.svg);mask-image:url(../assets/icon-info.svg)"></div><div class="name">info</div><div class="role">Inline note</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-arrow-back.svg);mask-image:url(../assets/icon-arrow-back.svg)"></div><div class="name">arrow_back</div><div class="role">Back nav</div></div>
+    <div class="cell"><div class="ico" style="-webkit-mask-image:url(../assets/icon-unfold.svg);mask-image:url(../assets/icon-unfold.svg)"></div><div class="name">unfold_more</div><div class="role">Picker</div></div>
+  </div>
+  <div class="swap">
+    <div class="pill copper"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span>Copper-tinted</div>
+    <div class="pill dark"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span>On dark surface</div>
+    <div class="pill gem"><span class="ico" style="-webkit-mask-image:url(../assets/icon-diamond.svg);mask-image:url(../assets/icon-diamond.svg);color:#D16D30"></span>Tints with currentColor</div>
+  </div>
+</div></body></html>

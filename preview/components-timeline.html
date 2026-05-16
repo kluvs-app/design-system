@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:700px;padding:24px;background:#140F0D;color:#F5EFE6}
+  .label{font-size:11px;font-weight:600;color:#A89B8A;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+  .tl{position:relative;padding-left:50px}
+  .tl::before{content:"";position:absolute;left:18px;top:18px;bottom:18px;width:1.5px;background:rgba(209,109,48,0.30)}
+  .node{position:relative;margin-bottom:24px}
+  .node:last-child{margin-bottom:0}
+  .dot{position:absolute;left:-50px;top:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .dot .ck{width:18px;height:18px;background:#fff;-webkit-mask:url(../assets/icon-check.svg) center/contain no-repeat;mask:url(../assets/icon-check.svg) center/contain no-repeat}
+  .node.done .dot{background:rgba(209,109,48,0.45)}
+  .node.current .dot{background:#D16D30;box-shadow:0 0 0 4px rgba(209,109,48,0.18)}
+  .title{font:600 15px/1.2 var(--kluvs-font-sans);margin:6px 0 6px;color:#F5EFE6}
+  .node.done .title{color:#A89B8A}
+  .meta{display:flex;align-items:center;gap:6px;font:400 13px/1.4 var(--kluvs-font-sans);color:#8C8073;margin-bottom:2px}
+  .meta .loc{width:14px;height:14px;background:currentColor;-webkit-mask:url(../assets/icon-location.svg) center/contain no-repeat;mask:url(../assets/icon-location.svg) center/contain no-repeat}
+  .date{font:400 13px/1.4 var(--kluvs-font-sans);color:#8C8073}
+</style></head>
+<body><div class="card">
+  <div class="label">Discussion timeline · done · current</div>
+  <div class="tl">
+    <div class="node done">
+      <div class="dot"><span class="ck"></span></div>
+      <div class="title">First discussion</div>
+      <div class="meta"><span class="loc"></span>Virtual</div>
+      <div class="date">June 25, 2025 at 5:00 PM</div>
+    </div>
+    <div class="node current">
+      <div class="dot"><span class="ck"></span></div>
+      <div class="title">Final Discussion</div>
+      <div class="meta"><span class="loc"></span>Virtual</div>
+      <div class="date">July 3, 2025 at 5:00 PM</div>
+    </div>
+  </div>
+</div></body></html>

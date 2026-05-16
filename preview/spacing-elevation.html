@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:700px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.box{padding:18px;border-radius:10px;background:#FFFFFF;}
+.box.dark{background:#241C17;color:#F2EDE5;}
+.box.elev{box-shadow:0 1px 2px rgba(0,0,0,0.05),0 0 0 1px rgba(0,0,0,0.04);}
+.box.pop{box-shadow:0 6px 20px rgba(0,0,0,0.10);}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#737373;margin-bottom:6px;}
+.dark .label{color:#8C8073;}
+.title{font-size:14px;font-weight:500;}
+.code{margin-top:6px;font-family:ui-monospace,monospace;font-size:10px;color:#8C8C8C;}
+.dark .code{color:#8C8073;}
+</style></head>
+<body><div class="card">
+  <div class="box elev">
+    <div class="label">elevation / card</div>
+    <div class="title">Light card — whisper-quiet shadow</div>
+    <div class="code">0 1px 2px rgba(0,0,0,.05)</div>
+  </div>
+  <div class="box pop">
+    <div class="label">elevation / pop</div>
+    <div class="title">Modal · menu · toast</div>
+    <div class="code">0 6px 20px rgba(0,0,0,.10)</div>
+  </div>
+  <div class="box dark">
+    <div class="label">elevation / dark</div>
+    <div class="title">Lift via lighter fill, not shadow</div>
+    <div class="code">#241C17 → #332B24</div>
+  </div>
+  <div class="box dark" style="background:#382112;border:1.5px solid #D16E30;">
+    <div class="label" style="color:#8C8073">elevation / accent</div>
+    <div class="title">Highlighted card — copper border</div>
+    <div class="code" style="color:#8C8073">+1.5px #D16E30 stroke</div>
+  </div>
+</div></body></html>

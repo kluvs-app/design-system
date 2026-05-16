@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:700px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.btn{display:flex;align-items:center;justify-content:center;height:48px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;}
+.primary{background:#D16E30;color:#fff;}
+.primary:active{background:rgba(209,110,48,0.85);}
+.secondary{background:transparent;color:#D16E30;box-shadow:inset 0 0 0 1.5px #D16E30;}
+.ghost{background:transparent;color:#D16E30;font-weight:500;font-size:13px;height:auto;}
+.disabled{background:#F5F5F5;color:#B3B3B3;}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#737373;margin-bottom:8px;}
+</style></head>
+<body><div class="card">
+  <div><div class="label">Primary</div><div class="btn primary">Log in</div></div>
+  <div><div class="label">Secondary</div><div class="btn secondary">Create club</div></div>
+  <div><div class="label">Ghost / link</div><div class="btn ghost">Forgot password?</div></div>
+  <div><div class="label">Disabled</div><div class="btn disabled">Log in</div></div>
+</div></body></html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A;}
+.card{width:700px;padding:24px;box-sizing:border-box;}
+.label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px;}
+.grid{display:grid;grid-template-columns:120px repeat(3,1fr);gap:0;}
+.head{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;text-align:center;padding-bottom:12px;}
+.rowhead{font-size:12px;font-weight:600;color:#1A1A1A;display:flex;align-items:center;height:120px;}
+.cell{display:flex;flex-direction:column;align-items:center;justify-content:center;height:120px;gap:6px;}
+.cell .meta{font-size:10px;font-family:ui-monospace,"SF Mono",monospace;color:#999;}
+/* avatar primitive */
+.av{position:relative;box-sizing:border-box;}
+.bg{position:absolute;inset:4px;border-radius:50%;background:#D9D9D9;display:flex;align-items:center;justify-content:center;font-weight:500;color:#737373;}
+.ring{position:absolute;inset:4px;border-radius:50%;border:2px solid;box-sizing:border-box;pointer-events:none;}
+.badge{position:absolute;border-radius:50%;border:1.5px solid #fff;box-sizing:border-box;}
+/* sizes */
+.sm .av{width:48px;height:48px;} .sm .bg{font-size:13px;} .sm .ring{border-width:1.5px;}
+.sm .badge{width:11px;height:11px;}
+.sm .badge.top   {left:18.5px;top:-1.5px;}
+.sm .badge.bot   {left:18.5px;top:38.5px;}
+.md .av{width:68px;height:68px;} .md .bg{font-size:18px;} .md .ring{border-width:2px;}
+.md .badge{width:14px;height:14px;}
+.md .badge.top   {left:27px;top:-3px;}
+.md .badge.bot   {left:27px;top:57px;}
+.lg .av{width:88px;height:88px;} .lg .bg{font-size:24px;} .lg .ring{border-width:2.5px;}
+.lg .badge{width:18px;height:18px;}
+.lg .badge.top   {left:35px;top:-5px;}
+.lg .badge.bot   {left:35px;top:75px;}
+</style></head>
+<body><div class="card">
+  <div class="label">Avatar · sizes × roles</div>
+  <div class="grid">
+    <div></div>
+    <div class="head">sm · 48</div>
+    <div class="head">md · 68</div>
+    <div class="head">lg · 88</div>
+
+    <div class="rowhead">Owner</div>
+    <div class="cell sm"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#F0BF05"></div><div class="badge top" style="background:#F0BF05"></div></div></div>
+    <div class="cell md"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#F0BF05"></div><div class="badge top" style="background:#F0BF05"></div></div></div>
+    <div class="cell lg"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#F0BF05"></div><div class="badge top" style="background:#F0BF05"></div></div></div>
+
+    <div class="rowhead">Admin</div>
+    <div class="cell sm"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#006781"></div><div class="badge bot" style="background:#006781"></div></div></div>
+    <div class="cell md"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#006781"></div><div class="badge bot" style="background:#006781"></div></div></div>
+    <div class="cell lg"><div class="av"><div class="bg">AB</div><div class="ring" style="border-color:#006781"></div><div class="badge bot" style="background:#006781"></div></div></div>
+
+    <div class="rowhead">Member</div>
+    <div class="cell sm"><div class="av"><div class="bg">AB</div></div></div>
+    <div class="cell md"><div class="av"><div class="bg">AB</div></div></div>
+    <div class="cell lg"><div class="av"><div class="bg">AB</div></div></div>
+  </div>
+</div></body></html>

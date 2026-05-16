@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
+  .card{box-sizing:border-box;width:700px;padding:24px;display:flex;flex-direction:column;gap:18px}
+  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+  .frame{border-radius:14px;padding:14px 0 16px;display:flex;justify-content:space-around;align-items:center}
+  .frame.dark{background:#140F0D;border:1px solid #241C17}
+  .frame.light{background:#FFFFFF;border:1px solid #E0E0E0}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px}
+  .glyph{display:flex;align-items:center;justify-content:center;width:64px;height:32px;border-radius:9999px}
+  .ico{width:22px;height:22px;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  .name{font-size:11px;font-weight:600;letter-spacing:.01em}
+  .frame.dark .tab.active .glyph{background:rgba(209,109,48,0.20)}
+  .frame.dark .tab.active{color:#D16D30}
+  .frame.dark .tab.idle{color:#8C8073}
+  .frame.light .tab.active .glyph{background:rgba(209,109,48,0.14)}
+  .frame.light .tab.active{color:#D16D30}
+  .frame.light .tab.idle{color:#737373}
+  .annotate{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:11px;color:#666;line-height:1.5}
+  .annotate b{display:block;color:#1A1A1A;font-weight:600;margin-bottom:2px}
+  .annotate code{font-family:ui-monospace,monospace;font-size:10px}
+</style></head>
+<body><div class="card">
+  <div>
+    <div class="label">Bottom navigation · dark (canonical)</div>
+    <div class="frame dark">
+      <div class="tab active">
+        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span></div>
+        <div class="name">Clubs</div>
+      </div>
+      <div class="tab idle">
+        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-person.svg);mask-image:url(../assets/icon-person.svg)"></span></div>
+        <div class="name">Me</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Bottom navigation · light</div>
+    <div class="frame light">
+      <div class="tab idle">
+        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span></div>
+        <div class="name">Clubs</div>
+      </div>
+      <div class="tab active">
+        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-person.svg);mask-image:url(../assets/icon-person.svg)"></span></div>
+        <div class="name">Me</div>
+      </div>
+    </div>
+  </div>
+  <div class="annotate">
+    <div><b>Pill</b>64×32 · <code>r=9999</code></div>
+    <div><b>Active fill</b><code>copper @ 18–20%</code></div>
+    <div><b>Active</b><code>#D16D30</code></div>
+    <div><b>Idle</b>warm-tertiary on dark · light-secondary on light</div>
+  </div>
+</div></body></html>
