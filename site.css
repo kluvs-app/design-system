@@ -993,3 +993,16 @@ main.dark-surface #comp-states { border-top-color: var(--kluvs-warm-dark-card-2)
 main:not(.dark-surface) .card-dark {
   box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
 }
+
+/* ── Light Surfaces swatch card: always stays light ─────────────────── */
+/* The Light Surfaces group documents light-surface colors which must   */
+/* be seen on a white background to be meaningful. All other color       */
+/* swatch cards respond normally to the surface toggle.                  */
+main.dark-surface .card-pinned-light {
+  background: #FFFFFF !important;
+  border-color: var(--kluvs-divider-light) !important;
+  box-shadow: var(--kluvs-shadow-card) !important;
+}
+main.dark-surface .card-pinned-light .card-label { color: var(--kluvs-content-light-secondary) !important; }
+main.dark-surface .card-pinned-light .swatch-name { color: var(--kluvs-content-light-primary) !important; }
+main.dark-surface .card-pinned-light .swatch-hex  { color: var(--kluvs-content-light-secondary) !important; }
