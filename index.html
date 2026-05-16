@@ -2619,9 +2619,8 @@ main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
 
                 <!-- Navigation -->
                 <div class="comp-group" id="comp-navigation">
-                    <div class="comp-group-title">
-                        Navigation — TopBar · SubBar · Tabs · BottomNav
-                    </div>
+                    <div class="comp-group-title">Navigation — TopBar · SubBar · Tabs · BottomNav · Both Surfaces</div>
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Dark (product — canonical)</div>
                     <div class="card-dark" style="padding: 0; overflow: hidden">
                         <!-- TopBar -->
                         <div
@@ -2830,11 +2829,41 @@ main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">
-                        TopBar 52px · SubBar 32px · TabStrip 42px with 2px
-                        copper underline · BottomNav 80px with copper pill +
-                        label on selected
+                    <div class="comp-anno">Dark: warm near-black surfaces, cream text, copper active states. Navigation is dark-only in the product.</div>
+
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin:20px 0 10px">Light (web / reference)</div>
+                    <div class="card" style="padding:0;overflow:hidden">
+                        <div style="background:#FFFFFF;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E0E0E0">
+                            <span style="font:700 20px/1 var(--kluvs-font-sans);letter-spacing:.08em;color:#1A1A1A">KLUVS</span>
+                            <img src="assets/icon-settings.svg" style="width:20px;height:20px;opacity:.4" alt="">
+                        </div>
+                        <div style="background:#FFFFFF;height:32px;padding:0 20px;display:flex;align-items:center;border-bottom:1px solid #F5F5F5">
+                            <span style="font:500 12px/1 var(--kluvs-font-sans);color:#B0B0B0">The Mystery Book Club</span>
+                        </div>
+                        <div style="background:#FFFFFF;height:42px;display:flex;border-bottom:1px solid #E0E0E0">
+                            <button style="flex:1;border:none;border-bottom:2px solid #D16D30;background:none;color:#D16D30;font:500 13px/1 var(--kluvs-font-sans);cursor:default">General</button>
+                            <button style="flex:1;border:none;border-bottom:2px solid transparent;background:none;color:#B0B0B0;font:500 13px/1 var(--kluvs-font-sans);cursor:default">Active Session</button>
+                            <button style="flex:1;border:none;border-bottom:2px solid transparent;background:none;color:#B0B0B0;font:500 13px/1 var(--kluvs-font-sans);cursor:default">Members</button>
+                        </div>
+                        <div style="height:32px;background:#FAFAFC;display:flex;align-items:center;justify-content:center">
+                            <span style="font:400 11px/1 var(--kluvs-font-sans);color:#E0E0E0;letter-spacing:.04em">— screen content —</span>
+                        </div>
+                        <div style="background:#FFFFFF;height:80px;display:flex;padding:10px 0;border-top:1px solid #E0E0E0">
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+                                <div style="background:rgba(209,109,48,0.1);border-radius:9999px;width:72px;height:32px;display:flex;align-items:center;justify-content:center">
+                                    <img src="assets/icon-hive.svg" style="width:20px;height:20px;opacity:.6" alt="">
+                                </div>
+                                <span style="font:500 12px/1 var(--kluvs-font-sans);color:#D16D30">Clubs</span>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+                                <div style="width:72px;height:32px;display:flex;align-items:center;justify-content:center">
+                                    <img src="assets/icon-person.svg" style="width:20px;height:20px;opacity:.3" alt="">
+                                </div>
+                                <span style="font:500 12px/1 var(--kluvs-font-sans);color:#B0B0B0">Me</span>
+                            </div>
+                        </div>
                     </div>
+                    <div class="comp-anno">Light: white surfaces, near-black text, copper active states. For web marketing or future light-mode product consideration.</div>
                 </div>
 
                 <!-- Buttons -->
@@ -2932,217 +2961,110 @@ main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
 
                 <!-- Inputs -->
                 <div class="comp-group" id="comp-inputs">
-                    <div class="comp-group-title">InputField — 4 States</div>
+                    <div class="comp-group-title">InputField — 4 States · Both Surfaces</div>
                     <div class="comp-grid">
+                        <!-- Dark surface inputs -->
+                        <div class="comp-surface-dark">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:14px">Dark surface</div>
+                            <div class="input-wrap">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:6px">Email</div>
+                                <input type="text" value="name@example.com" readonly style="width:100%;padding:11px 14px;border-radius:8px;font:400 14px/1 var(--kluvs-font-sans);background:#241C17;color:#F2EDE5;border:1px solid #332B24;outline:none">
+                            </div>
+                            <div class="input-wrap">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#D16D30;margin-bottom:6px">Password</div>
+                                <input type="text" value="••••••••" readonly style="width:100%;padding:11px 14px;border-radius:8px;font:400 14px/1 var(--kluvs-font-sans);background:#241C17;color:#F2EDE5;border:2px solid #D16D30;outline:none">
+                            </div>
+                            <div class="input-wrap">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#EF4444;margin-bottom:6px">Email</div>
+                                <input type="text" placeholder="name@example.com" readonly style="width:100%;padding:11px 14px;border-radius:8px;font:400 14px/1 var(--kluvs-font-sans);background:#241C17;color:#F2EDE5;border:1px solid #EF4444;outline:none">
+                                <div style="font:400 12px/1 var(--kluvs-font-sans);color:#EF4444;margin-top:5px">Error: this field is required</div>
+                            </div>
+                            <div class="input-wrap">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#4D4033;margin-bottom:6px">Email</div>
+                                <input type="text" value="user@kluvs.com" disabled style="width:100%;padding:11px 14px;border-radius:8px;font:400 14px/1 var(--kluvs-font-sans);background:#140F0D;color:#4D4033;border:1px solid #241C17;outline:none;cursor:not-allowed">
+                            </div>
+                        </div>
+                        <!-- Light surface inputs (existing) -->
                         <div class="comp-surface-light">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:14px">Light surface</div>
                             <div class="input-wrap">
                                 <div class="input-label">Email</div>
-                                <input
-                                    class="input-field default"
-                                    type="text"
-                                    value="name@example.com"
-                                    readonly
-                                />
+                                <input class="input-field default" type="text" value="name@example.com" readonly/>
                             </div>
                             <div class="input-wrap">
                                 <div class="input-label focused">Password</div>
-                                <input
-                                    class="input-field focused"
-                                    type="text"
-                                    value="••••••••"
-                                    readonly
-                                />
-                            </div>
-                        </div>
-                        <div class="comp-surface-light">
-                            <div class="input-wrap">
-                                <div
-                                    class="input-label"
-                                    style="color: var(--kluvs-danger)"
-                                >
-                                    Email
-                                </div>
-                                <input
-                                    class="input-field error"
-                                    type="text"
-                                    value=""
-                                    placeholder="name@example.com"
-                                    readonly
-                                />
-                                <div class="input-error-msg">
-                                    Error: this field is required
-                                </div>
+                                <input class="input-field focused" type="text" value="••••••••" readonly/>
                             </div>
                             <div class="input-wrap">
-                                <div class="input-label" style="color: #b0b0b0">
-                                    Email
-                                </div>
-                                <input
-                                    class="input-field disabled"
-                                    type="text"
-                                    value="user@kluvs.com"
-                                    disabled
-                                />
+                                <div class="input-label" style="color:var(--kluvs-danger)">Email</div>
+                                <input class="input-field error" type="text" value="" placeholder="name@example.com" readonly/>
+                                <div class="input-error-msg">Error: this field is required</div>
+                            </div>
+                            <div class="input-wrap">
+                                <div class="input-label" style="color:#b0b0b0">Email</div>
+                                <input class="input-field disabled" type="text" value="user@kluvs.com" disabled/>
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">
-                        Default (1px #B0B0B0) · Focused (2px copper) · Error
-                        (1px red + inline message) · Disabled (muted fill)
-                    </div>
+                    <div class="comp-anno">Default · Focused (2px copper border) · Error (red border + "Error:" prefix) · Disabled (muted). Dark: warm surface fills. Light: white fills, gray borders.</div>
                 </div>
 
                 <!-- Cards -->
                 <div class="comp-group" id="comp-cards">
-                    <div class="comp-group-title">Cards — Default · Accent</div>
+                    <div class="comp-group-title">Cards — Default · Accent · Both Surfaces</div>
+
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Dark (product)</div>
+                    <div class="comp-grid" style="margin-bottom:20px">
+                        <div class="comp-surface-dark">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Default</div>
+                            <div style="background:#241C17;border-radius:12px;padding:16px">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-bottom:8px">Currently Reading</div>
+                                <div style="font:700 16px/1.3 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">The Midnight Library</div>
+                                <div style="font:400 13px/1 var(--kluvs-font-sans);color:#C9BDA8">Matt Haig · 288 pages</div>
+                                <div style="height:1px;background:#332B24;margin:12px 0"></div>
+                                <div style="font:400 12px/1 var(--kluvs-font-sans);color:#6B5F52">6 members · Active session</div>
+                            </div>
+                        </div>
+                        <div class="comp-surface-dark">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Accent (Next Discussion)</div>
+                            <div style="background:#382112;border:1.5px solid #D16D30;border-radius:12px;padding:16px">
+                                <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.1em;text-transform:uppercase;color:#D16D30;margin-bottom:10px">Next Discussion</div>
+                                <div style="font:700 15px/1.3 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">March 2, 2026 at 5:00 PM</div>
+                                <div style="font:400 13px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:10px">In person · Café Literario</div>
+                                <div style="display:flex;gap:8px;align-items:center">
+                                    <img src="assets/icon-location.svg" style="width:14px;height:14px;filter:brightness(0) invert(1);opacity:.4" alt="">
+                                    <span style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073">6 members attending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light (web / marketing)</div>
                     <div class="comp-grid">
-                        <div class="comp-surface-dark">
-                            <div
-                                style="
-                                    font: 600 10px/1 var(--kluvs-font-sans);
-                                    letter-spacing: 0.08em;
-                                    text-transform: uppercase;
-                                    color: #6b5f52;
-                                    margin-bottom: 14px;
-                                "
-                            >
-                                Default Card
-                            </div>
-                            <div
-                                style="
-                                    background: #241c17;
-                                    border-radius: 12px;
-                                    padding: 16px;
-                                "
-                            >
-                                <div
-                                    style="
-                                        font: 500 12px/1 var(--kluvs-font-sans);
-                                        color: #8c8073;
-                                        margin-bottom: 8px;
-                                    "
-                                >
-                                    Currently Reading
-                                </div>
-                                <div
-                                    style="
-                                        font: 700 16px/1.3
-                                            var(--kluvs-font-sans);
-                                        color: #f2ede5;
-                                        margin-bottom: 4px;
-                                    "
-                                >
-                                    The Midnight Library
-                                </div>
-                                <div
-                                    style="
-                                        font: 400 13px/1 var(--kluvs-font-sans);
-                                        color: #c9bda8;
-                                    "
-                                >
-                                    Matt Haig · 288 pages
-                                </div>
-                                <div
-                                    style="
-                                        height: 1px;
-                                        background: #332b24;
-                                        margin: 12px 0;
-                                    "
-                                ></div>
-                                <div
-                                    style="
-                                        font: 400 12px/1 var(--kluvs-font-sans);
-                                        color: #6b5f52;
-                                    "
-                                >
-                                    6 members · Active session
-                                </div>
+                        <div class="comp-surface-light">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Default</div>
+                            <div style="background:#FFFFFF;border:1px solid #E0E0E0;border-radius:12px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,0.05)">
+                                <div style="font:500 12px/1 var(--kluvs-font-sans);color:#999999;margin-bottom:8px">Currently Reading</div>
+                                <div style="font:700 16px/1.3 var(--kluvs-font-sans);color:#1A1A1A;margin-bottom:4px">The Midnight Library</div>
+                                <div style="font:400 13px/1 var(--kluvs-font-sans);color:#666666">Matt Haig · 288 pages</div>
+                                <div style="height:1px;background:#E0E0E0;margin:12px 0"></div>
+                                <div style="font:400 12px/1 var(--kluvs-font-sans);color:#B0B0B0">6 members · Active session</div>
                             </div>
                         </div>
-                        <div class="comp-surface-dark">
-                            <div
-                                style="
-                                    font: 600 10px/1 var(--kluvs-font-sans);
-                                    letter-spacing: 0.08em;
-                                    text-transform: uppercase;
-                                    color: #6b5f52;
-                                    margin-bottom: 14px;
-                                "
-                            >
-                                Accent Card (Next Discussion)
-                            </div>
-                            <div
-                                style="
-                                    background: #382112;
-                                    border: 1.5px solid #d16d30;
-                                    border-radius: 12px;
-                                    padding: 16px;
-                                "
-                            >
-                                <div
-                                    style="
-                                        font: 600 10px/1 var(--kluvs-font-sans);
-                                        letter-spacing: 0.1em;
-                                        text-transform: uppercase;
-                                        color: #d16d30;
-                                        margin-bottom: 10px;
-                                    "
-                                >
-                                    Next Discussion
-                                </div>
-                                <div
-                                    style="
-                                        font: 700 15px/1.3
-                                            var(--kluvs-font-sans);
-                                        color: #f2ede5;
-                                        margin-bottom: 4px;
-                                    "
-                                >
-                                    March 2, 2026 at 5:00 PM
-                                </div>
-                                <div
-                                    style="
-                                        font: 400 13px/1 var(--kluvs-font-sans);
-                                        color: #c9bda8;
-                                        margin-bottom: 10px;
-                                    "
-                                >
-                                    In person · Café Literario
-                                </div>
-                                <div
-                                    style="
-                                        display: flex;
-                                        gap: 8px;
-                                        align-items: center;
-                                    "
-                                >
-                                    <img
-                                        src="assets/icon-location.svg"
-                                        style="
-                                            width: 14px;
-                                            height: 14px;
-                                            filter: brightness(0) invert(1);
-                                            opacity: 0.4;
-                                        "
-                                        alt=""
-                                    />
-                                    <span
-                                        style="
-                                            font: 400 12px/1
-                                                var(--kluvs-font-sans);
-                                            color: #8c8073;
-                                        "
-                                        >6 members attending</span
-                                    >
+                        <div class="comp-surface-light">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Accent (Featured)</div>
+                            <div style="background:rgba(209,109,48,0.04);border:1.5px solid #D16D30;border-radius:12px;padding:16px">
+                                <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.1em;text-transform:uppercase;color:#D16D30;margin-bottom:10px">Next Discussion</div>
+                                <div style="font:700 15px/1.3 var(--kluvs-font-sans);color:#1A1A1A;margin-bottom:4px">March 2, 2026 at 5:00 PM</div>
+                                <div style="font:400 13px/1 var(--kluvs-font-sans);color:#666666;margin-bottom:10px">In person · Café Literario</div>
+                                <div style="display:flex;gap:8px;align-items:center">
+                                    <img src="assets/icon-location.svg" style="width:14px;height:14px;opacity:.4" alt="">
+                                    <span style="font:400 12px/1 var(--kluvs-font-sans);color:#999999">6 members attending</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">
-                        Default: #241C17 fill · no border · 12px radius · 16px
-                        padding. Accent: #382112 fill · 1.5px copper border ·
-                        copper "NEXT DISCUSSION" eyebrow.
-                    </div>
+                    <div class="comp-anno">Dark: warm fills (#241C17 default, #382112 accent) · no default border · 1.5px copper on accent. Light: white fill · #E0E0E0 border · subtle shadow · copper tint on accent.</div>
                 </div>
 
                 <!-- Avatars -->
@@ -3429,189 +3351,74 @@ main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
 
                 <!-- Members -->
                 <div class="comp-group" id="comp-members">
-                    <div class="comp-group-title">MemberRow · TextDivider</div>
-                    <div
-                        class="comp-surface-dark"
-                        style="padding: 0; overflow: hidden"
-                    >
-                        <!-- TextDivider -->
-                        <div
-                            style="
-                                padding: 16px 20px;
-                                display: flex;
-                                align-items: center;
-                                gap: 12px;
-                                border-bottom: 1px solid #241c17;
-                            "
-                        >
-                            <div
-                                style="
-                                    height: 1px;
-                                    flex: 1;
-                                    background: #332b24;
-                                "
-                            ></div>
-                            <span
-                                style="
-                                    font: 400 13px/1 var(--kluvs-font-sans);
-                                    color: #6b5f52;
-                                "
-                                >or</span
-                            >
-                            <div
-                                style="
-                                    height: 1px;
-                                    flex: 1;
-                                    background: #332b24;
-                                "
-                            ></div>
+                    <div class="comp-group-title">MemberRow · TextDivider · Both Surfaces</div>
+                    <div class="comp-grid">
+                        <!-- Dark -->
+                        <div class="comp-surface-dark" style="padding:0;overflow:hidden">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;padding:14px 20px 10px">Dark surface</div>
+                            <div style="padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+                                <div style="height:1px;flex:1;background:#332B24"></div>
+                                <span style="font:400 13px/1 var(--kluvs-font-sans);color:#6B5F52">or</span>
+                                <div style="height:1px;flex:1;background:#332B24"></div>
+                            </div>
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+                                <div class="avatar-ring owner" style="width:40px;height:40px;font-size:13px;flex-shrink:0">JD</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Jane Doe</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@janedoe · Member since 2026</div>
+                                </div>
+                                <img src="assets/role-badge-owner.svg" style="width:16px;height:16px;flex-shrink:0" alt="Owner">
+                            </div>
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+                                <div class="avatar-ring admin" style="width:40px;height:40px;font-size:13px;flex-shrink:0">KM</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Kira Martin</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@kiramartin · Member since 2026</div>
+                                </div>
+                                <img src="assets/role-badge-admin.svg" style="width:16px;height:16px;flex-shrink:0" alt="Admin">
+                            </div>
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px">
+                                <div class="avatar-ring" style="width:40px;height:40px;font-size:13px;flex-shrink:0">RP</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Rafael Perez</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@rafaperez · Member since 2026</div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- MemberRow: owner -->
-                        <div
-                            style="
-                                padding: 14px 20px;
-                                display: flex;
-                                align-items: center;
-                                gap: 12px;
-                                border-bottom: 1px solid #241c17;
-                            "
-                        >
-                            <div
-                                class="avatar-ring owner"
-                                style="
-                                    width: 40px;
-                                    height: 40px;
-                                    font-size: 13px;
-                                    flex-shrink: 0;
-                                "
-                            >
-                                JD
+                        <!-- Light -->
+                        <div class="comp-surface-light" style="padding:0;overflow:hidden">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);padding:14px 20px 10px">Light surface</div>
+                            <div style="padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F5F5F5">
+                                <div style="height:1px;flex:1;background:#E0E0E0"></div>
+                                <span style="font:400 13px/1 var(--kluvs-font-sans);color:#B0B0B0">or</span>
+                                <div style="height:1px;flex:1;background:#E0E0E0"></div>
                             </div>
-                            <div style="flex: 1; min-width: 0">
-                                <div
-                                    style="
-                                        font: 500 14px/1 var(--kluvs-font-sans);
-                                        color: #f2ede5;
-                                    "
-                                >
-                                    Jane Doe
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F5F5F5">
+                                <div style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:#F5F5F5;color:#1A1A1A;flex-shrink:0;box-shadow:0 0 0 2px #EFBF04;font-size:13px">JD</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#1A1A1A">Jane Doe</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#666666;margin-top:4px">@janedoe · Member since 2026</div>
                                 </div>
-                                <div
-                                    style="
-                                        font: 400 12px/1 var(--kluvs-font-sans);
-                                        color: #8c8073;
-                                        margin-top: 4px;
-                                    "
-                                >
-                                    @janedoe · Member since 2026
-                                </div>
+                                <img src="assets/role-badge-owner.svg" style="width:16px;height:16px;flex-shrink:0" alt="Owner">
                             </div>
-                            <img
-                                src="assets/role-badge-owner.svg"
-                                style="
-                                    width: 16px;
-                                    height: 16px;
-                                    flex-shrink: 0;
-                                "
-                                alt="Owner"
-                            />
-                        </div>
-                        <!-- MemberRow: admin -->
-                        <div
-                            style="
-                                padding: 14px 20px;
-                                display: flex;
-                                align-items: center;
-                                gap: 12px;
-                                border-bottom: 1px solid #241c17;
-                            "
-                        >
-                            <div
-                                class="avatar-ring admin"
-                                style="
-                                    width: 40px;
-                                    height: 40px;
-                                    font-size: 13px;
-                                    flex-shrink: 0;
-                                "
-                            >
-                                KM
-                            </div>
-                            <div style="flex: 1; min-width: 0">
-                                <div
-                                    style="
-                                        font: 500 14px/1 var(--kluvs-font-sans);
-                                        color: #f2ede5;
-                                    "
-                                >
-                                    Kira Martin
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F5F5F5">
+                                <div style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:#F5F5F5;color:#1A1A1A;flex-shrink:0;box-shadow:0 0 0 2px #006781;font-size:13px">KM</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#1A1A1A">Kira Martin</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#666666;margin-top:4px">@kiramartin · Member since 2026</div>
                                 </div>
-                                <div
-                                    style="
-                                        font: 400 12px/1 var(--kluvs-font-sans);
-                                        color: #8c8073;
-                                        margin-top: 4px;
-                                    "
-                                >
-                                    @kiramartin · Member since 2026
-                                </div>
+                                <img src="assets/role-badge-admin.svg" style="width:16px;height:16px;flex-shrink:0" alt="Admin">
                             </div>
-                            <img
-                                src="assets/role-badge-admin.svg"
-                                style="
-                                    width: 16px;
-                                    height: 16px;
-                                    flex-shrink: 0;
-                                "
-                                alt="Admin"
-                            />
-                        </div>
-                        <!-- MemberRow: member -->
-                        <div
-                            style="
-                                padding: 14px 20px;
-                                display: flex;
-                                align-items: center;
-                                gap: 12px;
-                            "
-                        >
-                            <div
-                                class="avatar-ring"
-                                style="
-                                    width: 40px;
-                                    height: 40px;
-                                    font-size: 13px;
-                                    flex-shrink: 0;
-                                "
-                            >
-                                RP
-                            </div>
-                            <div style="flex: 1; min-width: 0">
-                                <div
-                                    style="
-                                        font: 500 14px/1 var(--kluvs-font-sans);
-                                        color: #f2ede5;
-                                    "
-                                >
-                                    Rafael Perez
-                                </div>
-                                <div
-                                    style="
-                                        font: 400 12px/1 var(--kluvs-font-sans);
-                                        color: #8c8073;
-                                        margin-top: 4px;
-                                    "
-                                >
-                                    @rafaperez · Member since 2026
+                            <div style="padding:14px 20px;display:flex;align-items:center;gap:12px">
+                                <div style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:#F5F5F5;color:#1A1A1A;flex-shrink:0;font-size:13px">RP</div>
+                                <div style="flex:1;min-width:0">
+                                    <div style="font:500 14px/1 var(--kluvs-font-sans);color:#1A1A1A">Rafael Perez</div>
+                                    <div style="font:400 12px/1 var(--kluvs-font-sans);color:#666666;margin-top:4px">@rafaperez · Member since 2026</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">
-                        TextDivider: 1px #332B24 hairline with sentence-case
-                        label. MemberRow: 40px avatar + name + handle + optional
-                        role badge.
-                    </div>
+                    <div class="comp-anno">TextDivider: hairline + sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge. Dark: warm surfaces, cream text. Light: white surface, near-black text.</div>
                 </div>
 
                 <!-- States -->
