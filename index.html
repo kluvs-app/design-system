@@ -600,9 +600,119 @@ body {
 .spec-val { font-weight: 500; color: var(--kluvs-content-light-primary); }
 .spec-val a { color: var(--kluvs-primary); text-decoration: none; }
 .spec-val a:hover { text-decoration: underline; }
+
+/* ── Mobile header ───────────────────────── */
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--kluvs-warm-dark-base);
+  height: 52px;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--kluvs-warm-dark-card-2);
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--kluvs-warm-fg-label);
+  transition: background var(--kluvs-dur-fast);
+}
+
+.hamburger:hover span { background: var(--kluvs-warm-fg-primary); }
+
+/* ── Nav overlay (mobile) ────────────────── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 150;
+  backdrop-filter: blur(2px);
+}
+
+.nav-overlay.open { display: block; }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+
+  .mobile-header { display: flex; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform var(--kluvs-dur-screen) var(--kluvs-ease);
+    padding-top: 16px;
+  }
+
+  .sidebar.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,0.4); }
+
+  .main { padding: 28px 20px 64px; }
+
+  .page-header { margin-bottom: 40px; padding-bottom: 32px; }
+  .header-title { font-size: 28px; }
+  .section-title { font-size: 21px; }
+  .section { margin-bottom: 52px; }
+
+  /* Tables scroll horizontally */
+  .card-flush { overflow-x: auto; }
+  .status-table { min-width: 520px; }
+
+  /* Type rows stack vertically */
+  .type-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .type-meta { width: auto; }
+
+  /* Swatch grid tighter */
+  .swatch-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+
+  /* Spec grid tighter */
+  .spec-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+
+  /* Radius row wraps */
+  .radius-item { padding: 16px 16px; }
+
+  /* Brand assets wrap */
+  .brand-assets { flex-wrap: wrap; }
+
+  /* Component grid already 1-col at 800px, keep it */
+}
 </style>
 </head>
 <body>
+
+<!-- Mobile header (hidden on desktop) -->
+<header class="mobile-header">
+  <div class="wordmark">KLUVS <span class="wordmark-dot"></span></div>
+  <button class="hamburger" id="mobile-toggle" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Nav overlay -->
+<div class="nav-overlay" id="nav-overlay"></div>
 
 <!-- ════ SIDEBAR ════ -->
 <nav class="sidebar" aria-label="Design system navigation">
@@ -1426,6 +1536,25 @@ body {
   }, { rootMargin: '-15% 0px -75% 0px' });
 
   sections.forEach(s => io.observe(s));
+
+  // Mobile nav drawer
+  const toggle   = document.getElementById('mobile-toggle');
+  const sidebar  = document.querySelector('.sidebar');
+  const overlay  = document.getElementById('nav-overlay');
+
+  function closeNav() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+    overlay.addEventListener('click', closeNav);
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
+  }
 
   // Mobile kit iframe fallback — show message if kit fails to load on file://
   const frame    = document.getElementById('kit-frame');
