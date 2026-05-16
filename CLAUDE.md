@@ -60,6 +60,25 @@ The back-compat alias block at the bottom of `colors_and_type.css` maps older `-
 
 **To generate Kluvs-branded output:** invoke the `/kluvs-design` skill. It loads `README.md` and the token file and gives you a full design context.
 
+## Versioning
+
+This repo uses **Semantic Versioning** adapted for design systems. The current version is in `VERSION` and stamped in the header comment of `colors_and_type.css`.
+
+| Bump | When |
+|---|---|
+| **MAJOR** | Breaking token renames, removed components, color value changes that affect rendered output |
+| **MINOR** | New tokens, new components, new assets — backwards-compatible additions |
+| **PATCH** | Documentation corrections, discrepancy fixes, non-visual tweaks |
+
+**To cut a release:**
+1. Move the `[Unreleased]` section in `CHANGELOG.md` to a new `[x.y.z] — YYYY-MM-DD` heading.
+2. Add a new empty `[Unreleased]` section at the top.
+3. Update the `VERSION` file.
+4. Update the version stamp in the header comment of `colors_and_type.css`.
+5. Commit, then `git tag vX.Y.Z` and push both: `git push && git push --tags`.
+
+The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in `CHANGELOG.md` and will become **v1.0.1** once resolved.
+
 ## Open items (from README)
 
 - No full button system yet — only social-button and the inline CTA on auth.
