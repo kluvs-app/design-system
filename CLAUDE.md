@@ -1,0 +1,68 @@
+# Kluvs Design System — Claude Code Guide
+
+## What this repo is
+
+A **static design system** for Kluvs — a dark-themed book-club mobile app. No build step, no package.json, no framework dependency. Everything is plain HTML, CSS custom properties, and JSX-via-Babel (browser-compiled). The output targets designers and AI agents generating Kluvs-branded UI, not a runtime library.
+
+## File map
+
+| Path | Purpose |
+|---|---|
+| `README.md` | Brand source of truth — voice, color, type, spacing, iconography rules. Read this first. |
+| `SKILL.md` | Claude Code skill front-matter for the `/kluvs-design` skill. |
+| `colors_and_type.css` | **Single token source.** CSS custom properties for all color, spacing, radius, motion, and type. Import this before anything else. |
+| `assets/` | Brand marks, role badges, OAuth glyphs — all SVG. Drop-in, no processing needed. |
+| `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
+| `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |
+
+### `ui_kits/mobile/` breakdown
+
+| File | Role |
+|---|---|
+| `components.jsx` | Primitive component library — `KluvsTopBar`, `KluvsCard`, `KluvsButton`, `KluvsInput`, `KluvsIcon`, etc. |
+| `screens.jsx` | Assembled app screens — Login, Clubs (General / Active Session / Members), Profile. |
+| `ios-frame.jsx` | Device bezel wrapper. Use when you need a phone frame around a screen. |
+| `index.html` | Click-through demo. Open in a browser; tabs and bottom nav are interactive. |
+
+## Token namespacing
+
+The CSS has two surface stacks — **do not mix them**:
+
+- `--kluvs-surface-*` / `--kluvs-content-*` — **web-canonical**, neutral dark (`#0A0A0A` base). Use for web/marketing contexts.
+- `--kluvs-warm-dark-*` / `--kluvs-warm-fg-*` — **mobile/Figma**, warm near-black (`#140F0D` base). Use inside `ui_kits/mobile/` and any product screen.
+
+The back-compat alias block at the bottom of `colors_and_type.css` maps older `--kluvs-surface-dark-*` names to the warm-dark tokens — it exists to keep the preview cards working. Don't add to it.
+
+## Brand rules (non-negotiable)
+
+- **Accent:** copper `#D16E30` — one per view, on the primary CTA and active state only.
+- **Type:** Inter 400 / 500 / 700 only. No serifs, no italic, no monospace.
+- **No emoji.** None in the Figma source; don't introduce them.
+- **No gradients, no images, no blur.** Surfaces are flat solid steps.
+- **Casing:** Title Case for screen titles and section headers; Sentence case for body; ALL-CAPS for brand wordmarks only (KLUVS).
+- **Dark-by-default product; light for auth/marketing.** Don't apply the mobile warm-dark palette to a web marketing page.
+
+## Known discrepancies (do not silently correct without flagging)
+
+1. **Copper hex:** README states `#D16E30`; `colors_and_type.css` defines `--kluvs-primary: #D16D30` (one digit off). The CSS value is what actually renders — flag before changing either.
+2. **Card radius:** README says cards use 10px "in practice"; `--kluvs-radius-card` is 12px in CSS. The CSS drives the UI kit.
+3. **Icon assets:** `assets/` contains SVG icons (`icon-arrow-back.svg`, `icon-book.svg`, etc.). The README says no icon set is shipped — these were added without updating the docs.
+
+## Working with this system
+
+**To preview tokens:** open any file in `preview/` directly in a browser.
+
+**To run the mobile UI kit:** open `ui_kits/mobile/index.html` in a browser. No server needed.
+
+**To add a new preview card:** copy the pattern from an existing card in `preview/`, link `../../colors_and_type.css`, and use the existing CSS custom property names.
+
+**To add a new UI component:** add primitives to `components.jsx` and composed screens to `screens.jsx`. Export to `window` at the end of `components.jsx` like the existing exports. Keep tokens from `colors_and_type.css` — never hardcode hex values that already have a token.
+
+**To generate Kluvs-branded output:** invoke the `/kluvs-design` skill. It loads `README.md` and the token file and gives you a full design context.
+
+## Open items (from README)
+
+- No full button system yet — only social-button and the inline CTA on auth.
+- `Web-TBD` Figma page is intentionally empty — no web spec.
+- Lucide is a stand-in for the icon set; flagged for replacement.
+- Inter is loaded from Google Fonts CDN — no local `.ttf` bundle.
