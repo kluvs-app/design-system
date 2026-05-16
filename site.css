@@ -974,3 +974,22 @@ main.dark-surface .surface-note {
   color: var(--kluvs-warm-fg-tertiary);
 }
 .surface-note strong { color: var(--kluvs-primary); font-weight: 600; }
+
+/* ── Accessibility section dark mode ────────────────── */
+main.dark-surface #accessibility td[colspan] {
+  background: var(--kluvs-warm-dark-bar) !important;
+  color: var(--kluvs-warm-fg-tertiary) !important;
+}
+main.dark-surface #accessibility .card-label { color: var(--kluvs-warm-fg-placeholder); }
+main.dark-surface #accessibility .card p { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface #accessibility .badge.badge-partial strong { color: var(--kluvs-primary); }
+main.dark-surface #accessibility .card > div > div { border-top-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface #accessibility span[style*="font-size:13px"] { color: var(--kluvs-warm-fg-primary); }
+
+main.dark-surface #comp-states { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
+
+/* Warm-dark swatch cards always stay on dark bg — these colors
+   require dark context to be visible. Soften the contrast in light mode. */
+main:not(.dark-surface) .card-dark {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
+}
