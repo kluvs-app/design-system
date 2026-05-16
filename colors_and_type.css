@@ -62,7 +62,7 @@
   --kluvs-warm-fg-deep:        var(--kluvs-warm-fg-disabled);
 
   /* ─────────── ROLES ─────────── */
-  --kluvs-role-owner:  #EFBF04;        /* gold — role badge; high contrast on dark (10.98:1), low on light (1.73:1) — avoid as text color */
+  --kluvs-role-owner:  #C9900A;        /* mustard — role badge; ~7:1 on dark, ~3:1 on light — usable as graphical badge on both surfaces */
   --kluvs-role-admin:  #006781;        /* tertiary teal */
   --kluvs-role-member: transparent;
 

@@ -31,5 +31,5 @@ If the user invokes this skill without other guidance, ask what they want to bui
 - Type: Inter 700 / 500 / 400. No serifs, no italic, no monospace.
 - Radius: 2 (chips), 8 (inputs/timeline), 12 (cards/buttons), 9999 (pill/avatars).
 - No emoji. No gradients. No decorative illustration. No backdrop blur.
-- Gold `#EFBF04` (owner badge) — avoid as text color (low contrast on light at 1.73:1); works as a graphical badge indicator on both surfaces.
+- Mustard `#C9900A` (owner badge) — graphical badge indicator on both light and dark surfaces (~7:1 on dark, ~3:1 on light).
 - Icons: Material Symbols, weight 600, Grade 0, 24px SVG. `ui_kits/mobile/` uses Lucide as a placeholder only.
