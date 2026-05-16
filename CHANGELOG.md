@@ -15,6 +15,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+---
+
+## [1.0.1] — 2026-05-16
+
+Cross-repo audit against `kluvs-frontend` and `kluvs-mobile` reconciled all token values against the original Notion design doc. Five README/CSS discrepancies corrected, iconography canonicalized, typography tier system documented, and the hosted style guide launched at design.kluvs.com.
+
 ### Fixed
 - Copper hex: README corrected from `#D16E30` to `#D16D30` — unanimous across CSS, web, mobile, and original design doc
 - Card radius: README corrected from 10px to 12px — matches `--kluvs-radius-card` and web Tailwind config
@@ -26,10 +32,11 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 - Iconography section: replaced Lucide with Material Symbols as the canonical icon system (weight 600, Grade 0, Optical Size 24px, SVG). Lucide remains in `ui_kits/mobile/` as a placeholder pending migration.
 - `assets/` icon SVGs now documented in README index (previously undocumented)
 - Gold usage note added: dark-surface-first, never use as text color
+- `SKILL.md` hardened with an explicit reading list and do-not-read list — immune to repo growth
 
 ### Added
 - Typography tier system documented in README: four-tier hierarchy (section headers → primary content → supporting details → fine print) with M3 role mappings for mobile and web utility class equivalents
-- `index.html` — hosted style guide homepage: dark sidebar nav, inline color swatches (brand / warm-dark / light / roles / providers), type specimens, spacing + radius visuals, icon grid, brand asset showcase, component status table, mobile kit link
+- `index.html` — hosted style guide at design.kluvs.com: dark sidebar nav, inline color swatches, type specimens, spacing + radius visuals, icon grid, brand asset showcase, live component specimens (Navigation, Buttons, Inputs, Cards, Avatars, Members, States), component status table, mobile kit embed. Fully responsive with slide-in mobile nav drawer.
 
 ---
 
@@ -47,5 +54,6 @@ Initial design system foundation, generated from the Kluvs Figma file.
 
 ---
 
-[Unreleased]: https://github.com/kluvs-app/design-system/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/kluvs-app/design-system/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/kluvs-app/design-system/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/kluvs-app/design-system/releases/tag/v1.0.0
