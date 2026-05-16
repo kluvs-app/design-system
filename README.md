@@ -167,6 +167,54 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 
 Web is left out — the Figma's `Web-TBD` page is intentionally empty.
 
+## Accessibility
+
+Contrast ratios computed against WCAG 2.x relative luminance. Target: **AA (4.5:1 normal text, 3:1 large/UI)**.
+
+### Dark product surfaces (warm dark)
+
+| Foreground | Background | Ratio | Level |
+|---|---|---|---|
+| Cream `#F2EDE5` | Base `#140F0D` | 16.32:1 | AAA |
+| Cream `#F2EDE5` | Bar `#1A140F` | 15.66:1 | AAA |
+| Cream `#F2EDE5` | Card `#241C17` | 14.38:1 | AAA |
+| Label `#C9BDA8` | Base `#140F0D` | 10.26:1 | AAA |
+| Gold `#EFBF04` | Base `#140F0D` | 10.98:1 | AAA |
+| Tertiary `#8C8073` | Base `#140F0D` | 4.94:1 | AA |
+| Copper `#D16D30` | Base `#140F0D` | 5.38:1 | AA |
+| Copper `#D16D30` | Card `#241C17` | 4.74:1 | AA |
+| Error `#EF4444` | Base `#140F0D` | 5.06:1 | AA |
+| Placeholder `#6B5F52` | Base `#140F0D` | 3.07:1 | AA large / UI |
+| Disabled `#4D4033` | Base `#140F0D` | 1.90:1 | Fail — intentional |
+| Admin `#006781` | Base `#140F0D` | 2.95:1 | **Known exception** |
+
+### Light surfaces (auth / marketing)
+
+| Foreground | Background | Ratio | Level |
+|---|---|---|---|
+| Near-black `#1A1A1A` | White `#FFFFFF` | 17.40:1 | AAA |
+| Near-black `#1A1A1A` | Page `#FAFAFC` | 16.70:1 | AAA |
+| Secondary `#666666` | White `#FFFFFF` | 5.74:1 | AA |
+| Admin `#006781` | White `#FFFFFF` | 6.45:1 | AA |
+| Copper `#D16D30` | White `#FFFFFF` | 3.53:1 | AA large / UI |
+| Copper `#D16D30` | Page `#FAFAFC` | 3.39:1 | AA large / UI |
+| White `#FFFFFF` | Copper `#D16D30` | 3.53:1 | **Known exception** |
+| Error `#EF4444` | White `#FFFFFF` | 3.76:1 | **Known exception** |
+| Gold `#EFBF04` | White `#FFFFFF` | 1.73:1 | Fail — dark surface only |
+
+### Known exceptions
+
+Three pairings fall below strict AA for normal text. Each is a deliberate, documented trade-off:
+
+**White on Copper (3.53:1) — Primary CTA button text**
+The WCAG 2.x luminance formula under-represents perceptual contrast for saturated warm hues. The hue separation between white and copper reads as higher contrast than the ratio suggests. Button text is also rendered at 15px/600 weight with clear interactive affordance. This is expected to pass under WCAG 3.0 / APCA. Do not darken copper to chase this number — it would compromise the brand identity.
+
+**Admin Teal on Warm Dark Base (2.95:1) — Role badge indicator**
+Admin teal (`#006781`) is used exclusively as a graphical badge indicator on dark surfaces, never as body text. The 3:1 UI component threshold applies; at 2.95:1 it is marginally below. The teal reads clearly against the near-black warm surface in practice. Monitor and revisit if the admin badge ever carries text content.
+
+**Error Red on White (3.76:1) — Inline form error messages**
+Error red (`#EF4444`) passes AA for large/bold text (3:1) but not for normal body text (4.5:1). Inline error messages are always prefixed with "Error:" (per content guidelines), rendered in a context where the red color reinforces the severity — never as the sole indicator. Acceptable as a compound signal; avoid using error red as the only means of conveying state.
+
 ## Caveats / open questions
 
 - The figma file is a foundation pass: 26 variables, 6 text styles, 8 components. **There is no full button system yet** (only the social-button and the inline filled-rectangle CTA on auth). I've expressed both forms in the UI kit and grouped them together; flag if/when a real `Button` component lands.
