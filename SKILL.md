@@ -27,9 +27,9 @@ If the user invokes this skill without other guidance, ask what they want to bui
 
 - Copper `#D16D30` is the only accent. One per view, on the primary CTA and active state only.
 - Dark surfaces (product): `#140F0D` → `#1A140F` → `#241C17`; `#332B24` is the hairline.
-- Light surfaces (auth/marketing only): `#FAFAFC` → `#FFFFFF`.
+- Light surfaces: `#FAFAFC` → `#FFFFFF`.
 - Type: Inter 700 / 500 / 400. No serifs, no italic, no monospace.
 - Radius: 2 (chips), 8 (inputs/timeline), 12 (cards/buttons), 9999 (pill/avatars).
 - No emoji. No gradients. No decorative illustration. No backdrop blur.
-- Gold `#EFBF04` (owner badge) is dark-surface-first — never use as text color.
+- Gold `#EFBF04` (owner badge) — avoid as text color (low contrast on light at 1.73:1); works as a graphical badge indicator on both surfaces.
 - Icons: Material Symbols, weight 600, Grade 0, 24px SVG. `ui_kits/mobile/` uses Lucide as a placeholder only.

@@ -169,7 +169,7 @@
                             <tr>
                                 <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Social (OAuth)</a></td>
                                 <td><span class="badge badge-done">Done</span></td>
-                                <td class="comp-note">Provider-branded (Discord / Google / Apple). Light surface only.</td>
+                                <td class="comp-note">Provider-branded (Discord / Google / Apple). Fixed colors — works on both surfaces.</td>
                             </tr>
                             <tr>
                                 <td class="comp-name">
@@ -1541,7 +1541,7 @@
                                 <td><span style="display:inline-flex;align-items:center;gap:8px"><span style="display:inline-flex;width:28px;height:16px;border-radius:3px;background:#140F0D;border:1px solid #e0e0e0;flex-shrink:0"></span>Gold on Warm Dark Base</span></td>
                                 <td style="font-family:ui-monospace,monospace;font-size:12px">10.98:1</td>
                                 <td><span class="badge badge-done">AAA</span></td>
-                                <td class="comp-note">Owner badge — validates dark-surface-first decision</td>
+                                <td class="comp-note">Owner badge — high contrast on dark (10.98:1), low on light (1.73:1)</td>
                             </tr>
                             <tr>
                                 <td><span style="display:inline-flex;align-items:center;gap:8px"><span style="display:inline-flex;width:28px;height:16px;border-radius:3px;background:#140F0D;border:1px solid #e0e0e0;flex-shrink:0"></span>Label on Warm Dark Base</span></td>
@@ -1621,7 +1621,7 @@
                                 <td><span style="display:inline-flex;align-items:center;gap:8px"><span style="display:inline-flex;width:28px;height:16px;border-radius:3px;background:#FFFFFF;border:1px solid #e0e0e0;flex-shrink:0"></span>Gold on White</span></td>
                                 <td style="font-family:ui-monospace,monospace;font-size:12px">1.73:1</td>
                                 <td><span class="badge badge-planned">By design</span></td>
-                                <td class="comp-note">Dark surface only — never render gold on light</td>
+                                <td class="comp-note">Low contrast as text (1.73:1). Acceptable as a graphical badge at sufficient size.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1669,7 +1669,7 @@
                 <div class="comp-group" id="comp-navigation">
                     <div class="comp-group-title">Navigation — TopBar · SubBar · Tabs · BottomNav</div>
                     <div data-surface="dark">
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface — product canonical</div>
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface</div>
                     <div class="card-dark" style="padding: 0; overflow: hidden">
                         <!-- TopBar -->
                         <div
@@ -1878,10 +1878,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">TopBar 52px · SubBar 32px · TabStrip 42px, 2px copper underline · BottomNav 80px, copper pill on selected. Navigation is dark-only in the product.</div>
+                    <div class="comp-anno">TopBar 52px · SubBar 32px · TabStrip 42px, 2px copper underline · BottomNav 80px, copper pill on selected.</div>
                     </div><!-- /data-surface dark -->
                     <div data-surface="light">
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface — web / reference</div>
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface</div>
                     <div class="card" style="padding:0;overflow:hidden">
                         <div style="background:#FFFFFF;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E0E0E0">
                             <span style="font:700 20px/1 var(--kluvs-font-sans);letter-spacing:.08em;color:#1A1A1A">KLUVS</span>
@@ -1913,7 +1913,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comp-anno">White surfaces, near-black text, copper active states. Reference for web or future light-mode product.</div>
+                    <div class="comp-anno">White surfaces, near-black text, copper active states.</div>
                     </div><!-- /data-surface light -->
                 </div>
 
@@ -1937,8 +1937,10 @@
                             <button style="background:transparent;color:#EF4444;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
                             <button style="background:transparent;color:#8C8073;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
                         </div>
-                        <div class="surface-note">
-                            <span>Social OAuth buttons (Discord, Google, Apple) appear on the <strong>light auth surface only</strong> — switch to light surface to preview.</span>
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:8px">Social — OAuth</div>
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord</button>
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google</button>
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple</button>
                         </div>
                     </div>
 
@@ -1964,13 +1966,12 @@
                         </div>
                     </div>
 
-                    <div class="comp-anno">Primary: copper fill · white text · 12px radius. Outlined: copper border + text. Text: no container. Social: auth / light only.</div>
+                    <div class="comp-anno">Primary: copper fill · white text · 12px radius. Outlined: copper border + text. Text: no container. Social: provider-branded, fixed colors.</div>
                 </div>
 
                 <!-- Inputs -->
                 <div class="comp-group" id="comp-inputs">
                     <div class="comp-group-title">InputField — 4 States · Both Surfaces</div>
-                    <div class="comp-grid">
                     <div data-surface="dark"><div class="comp-surface-dark">
                             <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:14px">Dark surface</div>
                             <div class="input-wrap">
@@ -2021,7 +2022,7 @@
                     <div class="comp-group-title">Cards — Default · Accent · Both Surfaces</div>
 
                     <div data-surface="dark">
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface — product</div>
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:10px">Dark surface</div>
                     <div class="comp-grid" style="margin-bottom:0">
                         <div class="comp-surface-dark">
                             <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Default</div>
@@ -2049,7 +2050,7 @@
 
                     </div><!-- /dark -->
                     <div data-surface="light">
-                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface — web / marketing</div>
+                    <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Light surface</div>
                     <div class="comp-grid">
                         <div class="comp-surface-light">
                             <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Default</div>

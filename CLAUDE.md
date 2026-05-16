@@ -30,7 +30,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 The CSS has two surface stacks — **do not mix them**:
 
 - `--kluvs-surface-*` / `--kluvs-content-*` — **web-canonical**, neutral dark (`#0A0A0A` base). Use for web/marketing contexts.
-- `--kluvs-warm-dark-*` / `--kluvs-warm-fg-*` — **mobile/Figma**, warm near-black (`#140F0D` base). Use inside `ui_kits/mobile/` and any product screen.
+- `--kluvs-warm-dark-*` / `--kluvs-warm-fg-*` — \*\*warm-dark stack\*\*, brown-tinted near-black (`#140F0D` base). Use for dark product surfaces on any platform.
 
 The back-compat alias block at the bottom of `colors_and_type.css` maps older `--kluvs-surface-dark-*` names to the warm-dark tokens — it exists to keep the preview cards working. Don't add to it.
 
@@ -41,7 +41,7 @@ The back-compat alias block at the bottom of `colors_and_type.css` maps older `-
 - **No emoji.** None in the Figma source; don't introduce them.
 - **No gradients, no images, no blur.** Surfaces are flat solid steps.
 - **Casing:** Title Case for screen titles and section headers; Sentence case for body; ALL-CAPS for brand wordmarks only (KLUVS).
-- **Dark-by-default product; light for auth/marketing.** Don't apply the mobile warm-dark palette to a web marketing page.
+- **Both surfaces supported everywhere.** Warm-dark and light are both valid on mobile and web.
 
 ## Pending propagation to client repos
 

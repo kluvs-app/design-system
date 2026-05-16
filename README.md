@@ -50,7 +50,7 @@ The voice is **plain, warm and a little understated**. Sentences are short. The 
 ### Color
 A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to `#332B24` cards-2) carries everything in product; **light cream `#F2EDE5`** is the primary text on dark; **copper `#D16D30`** is the only chromatic accent. Auth and marketing flip to a light `#FAFAFC` page with near-black `#1A1A1A` text. There is no secondary brand color.
 
-Role accents are rare and reserved: **owner** = gold `#EFBF04` (dark-surface-first — do not use as text), **admin** = teal `#006781`, **member** = no decoration. Error red `#EF4444` is used only for inline form errors.
+Role accents are rare and reserved: **owner** = gold `#EFBF04` (avoid as text color — low contrast on light; works as badge), **admin** = teal `#006781`, **member** = no decoration. Error red `#EF4444` is used only for inline form errors.
 
 ### Type
 **Inter only**, three weights: Regular 400, Medium 500, Bold 700. Six text styles in figma — `titleLarge 22 / titleMedium 16M / bodyLarge 16 / bodyMedium 14 / labelMedium 12M / labelSmall 11M`. Plus three display sizes for brand surfaces (96 / 48 / 32). All tokens line-height 100% in figma; we relax to 1.4 for paragraphs in our utilities. No serifs, no italic, no monospace. Tracking is default.
@@ -148,7 +148,7 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 - `kluvs-app-icon.png` / `kluvs-app-icon-mark.svg` — app icon assets.
 
 *Role badges:*
-- `role-badge-owner.svg` — gold badge dot (`#EFBF04`), dark-surface-first.
+- `role-badge-owner.svg` — gold badge dot (`#EFBF04`). High contrast on dark, low on light — use as graphical indicator.
 - `role-badge-admin.svg` — teal badge dot (`#006781`).
 
 *OAuth providers:*
@@ -201,7 +201,7 @@ Contrast ratios computed against WCAG 2.x relative luminance. Target: **AA (4.5:
 | Copper `#D16D30` | Page `#FAFAFC` | 3.39:1 | AA large / UI |
 | White `#FFFFFF` | Copper `#D16D30` | 3.53:1 | **Known exception** |
 | Error `#EF4444` | White `#FFFFFF` | 3.76:1 | **Known exception** |
-| Gold `#EFBF04` | White `#FFFFFF` | 1.73:1 | Fail — dark surface only |
+| Gold `#EFBF04` | White `#FFFFFF` | 1.73:1 | Fail — low contrast as text; OK as graphical badge |
 
 ### Known exceptions
 

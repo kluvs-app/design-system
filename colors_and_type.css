@@ -45,7 +45,7 @@
   --kluvs-content-light-secondary: #666666;
 
   /* ─────────── SURFACE — WARM DARK (mobile / Figma) ─────────── */
-  /* Use only inside the mobile UI kit — these are the Figma source values. */
+  /* Warm-tinted near-blacks — the canonical product dark surface scale. */
   --kluvs-warm-dark-base:    #140F0D;
   --kluvs-warm-dark-bar:     #1A140F;
   --kluvs-warm-dark-nav:     #0F0D0A;
@@ -62,7 +62,7 @@
   --kluvs-warm-fg-deep:        var(--kluvs-warm-fg-disabled);
 
   /* ─────────── ROLES ─────────── */
-  --kluvs-role-owner:  #EFBF04;        /* gold — mobile-only badge; dark-surface-first, never use as text color */
+  --kluvs-role-owner:  #EFBF04;        /* gold — role badge; high contrast on dark (10.98:1), low on light (1.73:1) — avoid as text color */
   --kluvs-role-admin:  #006781;        /* tertiary teal */
   --kluvs-role-member: transparent;
 

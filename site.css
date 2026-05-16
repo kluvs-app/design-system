@@ -951,13 +951,13 @@ main.dark-surface .icon-item:hover { border-color: var(--kluvs-primary); backgro
 main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
 
 /* ── Preview mode: component surface visibility ──────── */
-/* Default state is dark (main.dark-surface).             */
-/* Only one surface shown at a time per toggle.           */
-[data-surface="light"] { display: none; }
-[data-surface="dark"]  { display: block; }
+/* !important needed to override inline display:flex      */
+/* on data-surface elements.                              */
+[data-surface="light"] { display: none !important; }
+[data-surface="dark"]  { display: flex !important; flex-direction: column; }
 
-main:not(.dark-surface) [data-surface="dark"]  { display: none; }
-main:not(.dark-surface) [data-surface="light"] { display: block; }
+main:not(.dark-surface) [data-surface="dark"]  { display: none !important; }
+main:not(.dark-surface) [data-surface="light"] { display: flex !important; flex-direction: column; }
 
 .surface-note {
   display: flex; align-items: center; gap: 10px;
