@@ -492,6 +492,96 @@ body {
   line-height: 1.5;
 }
 
+/* ── Component specimens ─────────────────── */
+.comp-group {
+  margin-bottom: 32px;
+  scroll-margin-top: 32px;
+}
+
+.comp-group-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--kluvs-content-light-secondary);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--kluvs-divider-light);
+}
+
+.comp-anno {
+  font-size: 11px;
+  color: var(--kluvs-content-light-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 800px) { .comp-grid { grid-template-columns: 1fr; } }
+
+.comp-surface-dark {
+  background: var(--kluvs-warm-dark-base);
+  border-radius: 12px;
+  border: 1px solid var(--kluvs-warm-dark-card-2);
+  padding: 20px;
+}
+
+.comp-surface-light {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--kluvs-divider-light);
+  padding: 20px;
+  box-shadow: var(--kluvs-shadow-card);
+}
+
+/* input specimen */
+.input-wrap { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.input-wrap:last-child { margin-bottom: 0; }
+.input-label { font-size: 12px; font-weight: 500; color: var(--kluvs-content-light-secondary); }
+.input-label.focused { color: var(--kluvs-primary); }
+.input-field {
+  width: 100%; padding: 11px 14px; border-radius: 8px;
+  font: 400 14px/1 var(--kluvs-font-sans); outline: none;
+  background: #FFFFFF; color: var(--kluvs-content-light-primary);
+}
+.input-field.default  { border: 1px solid #B0B0B0; }
+.input-field.focused  { border: 2px solid var(--kluvs-primary); }
+.input-field.error    { border: 1px solid var(--kluvs-danger); }
+.input-field.disabled { border: 1px solid #E0E0E0; background: #F5F5F5; color: #B0B0B0; cursor: not-allowed; }
+.input-error-msg { font-size: 12px; color: var(--kluvs-danger); }
+
+/* avatar specimens */
+.avatar-ring {
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--kluvs-warm-fg-primary);
+  background: var(--kluvs-warm-dark-card); flex-shrink: 0;
+}
+.avatar-ring.owner { box-shadow: 0 0 0 2px #EFBF04; }
+.avatar-ring.admin  { box-shadow: 0 0 0 2px #006781; }
+
+/* spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--kluvs-warm-dark-card-2);
+  border-top-color: var(--kluvs-primary);
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+/* table comp link */
+.comp-row-link {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px dashed var(--kluvs-divider-light);
+  transition: color var(--kluvs-dur-fast), border-color var(--kluvs-dur-fast);
+  cursor: pointer;
+}
+.comp-row-link:hover { color: var(--kluvs-primary); border-bottom-color: var(--kluvs-primary); }
+
 /* ── Spec rows (icon spec) ───────────────── */
 .spec-grid {
   display: grid;
@@ -533,6 +623,17 @@ body {
     <a class="nav-link" href="#typography">Typography</a>
     <a class="nav-link" href="#spacing">Spacing &amp; Radius</a>
     <a class="nav-link" href="#iconography">Iconography</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Components</div>
+    <a class="nav-link" href="#comp-navigation">Navigation</a>
+    <a class="nav-link" href="#comp-buttons">Buttons</a>
+    <a class="nav-link" href="#comp-inputs">Inputs</a>
+    <a class="nav-link" href="#comp-cards">Cards</a>
+    <a class="nav-link" href="#comp-avatars">Avatars</a>
+    <a class="nav-link" href="#comp-members">Members</a>
+    <a class="nav-link" href="#comp-states">States</a>
   </div>
 
   <div class="nav-group">
@@ -579,87 +680,87 @@ body {
         </thead>
         <tbody>
           <tr>
-            <td class="comp-name">Button — Primary (filled)</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Primary (filled)</a></td>
             <td><span class="badge badge-partial">Partial</span></td>
             <td class="comp-note">Inline CTA form only; no full variant system yet</td>
           </tr>
           <tr>
-            <td class="comp-name">Button — Social (OAuth)</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Social (OAuth)</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Discord, Google, Apple</td>
           </tr>
           <tr>
-            <td class="comp-name">InputField</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-inputs">InputField</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">4 states: default / focused / error / disabled</td>
           </tr>
           <tr>
-            <td class="comp-name">Avatar</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-avatars">Avatar</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">3 roles × 3 sizes (sm / md / lg)</td>
           </tr>
           <tr>
-            <td class="comp-name">Card — Default</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-cards">Card — Default</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Dark surface, 12px radius, 16px padding</td>
           </tr>
           <tr>
-            <td class="comp-name">Card — Accent (Next Discussion)</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-cards">Card — Accent (Next Discussion)</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Copper 1.5px border + warm tinted fill</td>
           </tr>
           <tr>
-            <td class="comp-name">TextDivider</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-members">TextDivider</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note"></td>
           </tr>
           <tr>
-            <td class="comp-name">MemberRow</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-members">MemberRow</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Includes role badge support (Owner / Admin)</td>
           </tr>
           <tr>
-            <td class="comp-name">TopBar</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-navigation">TopBar</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">52px tall, warm dark bar surface</td>
           </tr>
           <tr>
-            <td class="comp-name">SubBar</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-navigation">SubBar</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">40px showcase row</td>
           </tr>
           <tr>
-            <td class="comp-name">BottomNav</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-navigation">BottomNav</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">2 items; copper pill on selected state</td>
           </tr>
           <tr>
-            <td class="comp-name">Tabs (top strip)</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-navigation">Tabs (top strip)</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">42px; 2px copper underline on active tab</td>
           </tr>
           <tr>
-            <td class="comp-name">Timeline</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-states">Timeline</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Discussion timeline with node states</td>
           </tr>
           <tr>
-            <td class="comp-name">Reading Progress</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-states">Reading Progress</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note"></td>
           </tr>
           <tr>
-            <td class="comp-name">Loading Screen</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-states">Loading Screen</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">Static stroked ring, 1.2s linear rotate</td>
           </tr>
           <tr>
-            <td class="comp-name">Error Screen</td>
+            <td class="comp-name"><a class="comp-row-link" href="#comp-states">Error Screen</a></td>
             <td><span class="badge badge-done">Done</span></td>
             <td class="comp-note">"Something went wrong" + retry pattern</td>
           </tr>
           <tr>
-            <td class="comp-name">Icon Set</td>
+            <td class="comp-name"><a class="comp-row-link" href="#iconography">Icon Set</a></td>
             <td><span class="badge badge-substitute">Substitute</span></td>
             <td class="comp-note">Lucide in UI kit; canonical is Material Symbols (see Iconography)</td>
           </tr>
@@ -961,12 +1062,321 @@ body {
             <div style="font-size:10px;color:var(--kluvs-content-light-secondary);margin-top:5px">Admin</div>
           </div>
         </div>
-        <div class="brand-tile brand-tile-light" style="gap:16px">
-          <img src="assets/provider-discord.svg" style="height:20px" alt="Discord">
-          <img src="assets/provider-google.svg" style="height:20px" alt="Google">
-          <img src="assets/provider-apple.svg" style="height:20px" alt="Apple">
+        <div class="brand-tile" style="background:#5865F2;gap:10px;flex-direction:column">
+          <img src="assets/provider-discord.svg" style="height:22px" alt="Discord">
+          <span style="font-size:10px;color:rgba(255,255,255,0.7);font-weight:500">Discord</span>
+        </div>
+        <div class="brand-tile brand-tile-light" style="gap:10px;flex-direction:column">
+          <img src="assets/provider-google.svg" style="height:22px" alt="Google">
+          <span style="font-size:10px;color:var(--kluvs-content-light-secondary);font-weight:500">Google</span>
+        </div>
+        <div class="brand-tile" style="background:#0F0F0F;gap:10px;flex-direction:column">
+          <img src="assets/provider-apple.svg" style="height:22px" alt="Apple">
+          <span style="font-size:10px;color:rgba(255,255,255,0.7);font-weight:500">Apple</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Components ─────────────────────────── -->
+  <section class="section" id="components">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Components</h2>
+    <p class="section-desc">Live specimens rendered with design tokens. Click any component name in the status table above to jump to its specimen.</p>
+
+    <!-- Navigation -->
+    <div class="comp-group" id="comp-navigation">
+      <div class="comp-group-title">Navigation — TopBar · SubBar · Tabs · BottomNav</div>
+      <div class="card-dark" style="padding:0;overflow:hidden">
+        <!-- TopBar -->
+        <div style="background:#1A140F;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between">
+          <span style="font:700 20px/1 var(--kluvs-font-sans);letter-spacing:.08em;color:#F2EDE5">KLUVS</span>
+          <img src="assets/icon-settings.svg" style="width:20px;height:20px;filter:brightness(0) invert(1);opacity:.6" alt="">
+        </div>
+        <!-- SubBar -->
+        <div style="background:#1A140F;height:32px;padding:0 20px;display:flex;align-items:center;border-top:1px solid #241C17">
+          <span style="font:500 12px/1 var(--kluvs-font-sans);color:#6B5F52">The Mystery Book Club</span>
+        </div>
+        <!-- TabStrip -->
+        <div style="background:#1A140F;height:42px;display:flex;border-top:1px solid #332B24">
+          <button style="flex:1;border:none;border-bottom:2px solid #D16D30;background:none;color:#D16D30;font:500 13px/1 var(--kluvs-font-sans);cursor:default">General</button>
+          <button style="flex:1;border:none;border-bottom:2px solid transparent;background:none;color:#8C8073;font:500 13px/1 var(--kluvs-font-sans);cursor:default">Active Session</button>
+          <button style="flex:1;border:none;border-bottom:2px solid transparent;background:none;color:#8C8073;font:500 13px/1 var(--kluvs-font-sans);cursor:default">Members</button>
+        </div>
+        <!-- Content placeholder -->
+        <div style="height:32px;background:#140F0D;display:flex;align-items:center;justify-content:center">
+          <span style="font:400 11px/1 var(--kluvs-font-sans);color:#332B24;letter-spacing:.04em">— screen content —</span>
+        </div>
+        <!-- BottomNav -->
+        <div style="background:#0F0D0A;height:80px;display:flex;padding:10px 0;border-top:1px solid #332B24">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+            <div style="background:rgba(209,109,48,0.18);border-radius:9999px;width:72px;height:32px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/icon-hive.svg" style="width:20px;height:20px;filter:brightness(0) invert(1);opacity:.9" alt="">
+            </div>
+            <span style="font:500 12px/1 var(--kluvs-font-sans);color:#D16D30">Clubs</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+            <div style="width:72px;height:32px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/icon-person.svg" style="width:20px;height:20px;filter:brightness(0) invert(1);opacity:.4" alt="">
+            </div>
+            <span style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073">Me</span>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">TopBar 52px · SubBar 32px · TabStrip 42px with 2px copper underline · BottomNav 80px with copper pill + label on selected</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="comp-group" id="comp-buttons">
+      <div class="comp-group-title">Buttons — Primary CTA · Social OAuth</div>
+      <div class="comp-grid">
+        <div>
+          <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:10px">
+            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:4px">Primary CTA</div>
+            <button style="background:#D16D30;color:#fff;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
+            <button style="background:rgba(209,109,48,0.3);color:rgba(242,237,229,0.4);border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
+            <div style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52;margin-top:2px">Normal · Disabled</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">
+            <img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord
+          </button>
+          <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">
+            <img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google
+          </button>
+          <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">
+            <img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="comp-group" id="comp-inputs">
+      <div class="comp-group-title">InputField — 4 States</div>
+      <div class="comp-grid">
+        <div class="comp-surface-light">
+          <div class="input-wrap">
+            <div class="input-label">Email</div>
+            <input class="input-field default" type="text" value="name@example.com" readonly>
+          </div>
+          <div class="input-wrap">
+            <div class="input-label focused">Password</div>
+            <input class="input-field focused" type="text" value="••••••••" readonly>
+          </div>
+        </div>
+        <div class="comp-surface-light">
+          <div class="input-wrap">
+            <div class="input-label" style="color:var(--kluvs-danger)">Email</div>
+            <input class="input-field error" type="text" value="" placeholder="name@example.com" readonly>
+            <div class="input-error-msg">Error: this field is required</div>
+          </div>
+          <div class="input-wrap">
+            <div class="input-label" style="color:#B0B0B0">Email</div>
+            <input class="input-field disabled" type="text" value="user@kluvs.com" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">Default (1px #B0B0B0) · Focused (2px copper) · Error (1px red + inline message) · Disabled (muted fill)</div>
+    </div>
+
+    <!-- Cards -->
+    <div class="comp-group" id="comp-cards">
+      <div class="comp-group-title">Cards — Default · Accent</div>
+      <div class="comp-grid">
+        <div class="comp-surface-dark">
+          <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Default Card</div>
+          <div style="background:#241C17;border-radius:12px;padding:16px">
+            <div style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-bottom:8px">Currently Reading</div>
+            <div style="font:700 16px/1.3 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">The Midnight Library</div>
+            <div style="font:400 13px/1 var(--kluvs-font-sans);color:#C9BDA8">Matt Haig · 288 pages</div>
+            <div style="height:1px;background:#332B24;margin:12px 0"></div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#6B5F52">6 members · Active session</div>
+          </div>
+        </div>
+        <div class="comp-surface-dark">
+          <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Accent Card (Next Discussion)</div>
+          <div style="background:#382112;border:1.5px solid #D16D30;border-radius:12px;padding:16px">
+            <div style="font:600 10px/1 var(--kluvs-font-sans);letter-spacing:.1em;text-transform:uppercase;color:#D16D30;margin-bottom:10px">Next Discussion</div>
+            <div style="font:700 15px/1.3 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">March 2, 2026 at 5:00 PM</div>
+            <div style="font:400 13px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:10px">In person · Café Literario</div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <img src="assets/icon-location.svg" style="width:14px;height:14px;filter:brightness(0) invert(1);opacity:.4" alt="">
+              <span style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073">6 members attending</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">Default: #241C17 fill · no border · 12px radius · 16px padding. Accent: #382112 fill · 1.5px copper border · copper "NEXT DISCUSSION" eyebrow.</div>
+    </div>
+
+    <!-- Avatars -->
+    <div class="comp-group" id="comp-avatars">
+      <div class="comp-group-title">Avatar — 3 Roles × 3 Sizes</div>
+      <div class="comp-surface-dark">
+        <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap">
+          <!-- lg -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+            <div style="font:600 10px/1 var(--kluvs-font-sans);color:#6B5F52;letter-spacing:.06em;text-transform:uppercase">lg · 48px</div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="avatar-ring owner" style="width:48px;height:48px;font-size:16px">JD</div>
+              <div class="avatar-ring admin" style="width:48px;height:48px;font-size:16px">KM</div>
+              <div class="avatar-ring" style="width:48px;height:48px;font-size:16px">RP</div>
+            </div>
+          </div>
+          <!-- md -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+            <div style="font:600 10px/1 var(--kluvs-font-sans);color:#6B5F52;letter-spacing:.06em;text-transform:uppercase">md · 36px</div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="avatar-ring owner" style="width:36px;height:36px;font-size:12px">JD</div>
+              <div class="avatar-ring admin" style="width:36px;height:36px;font-size:12px">KM</div>
+              <div class="avatar-ring" style="width:36px;height:36px;font-size:12px">RP</div>
+            </div>
+          </div>
+          <!-- sm -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+            <div style="font:600 10px/1 var(--kluvs-font-sans);color:#6B5F52;letter-spacing:.06em;text-transform:uppercase">sm · 24px</div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="avatar-ring owner" style="width:24px;height:24px;font-size:8px">JD</div>
+              <div class="avatar-ring admin" style="width:24px;height:24px;font-size:8px">KM</div>
+              <div class="avatar-ring" style="width:24px;height:24px;font-size:8px">RP</div>
+            </div>
+          </div>
+          <!-- legend -->
+          <div style="display:flex;flex-direction:column;gap:10px;margin-left:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:50%;border:2px solid #EFBF04"></div>
+              <span style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8">Owner</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:50%;border:2px solid #006781"></div>
+              <span style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8">Admin</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:50%;background:#332B24"></div>
+              <span style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8">Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">Role rings: Owner gold #EFBF04 · Admin teal #006781 · Member none. Initials in Inter Bold on warm card surface.</div>
+    </div>
+
+    <!-- Members -->
+    <div class="comp-group" id="comp-members">
+      <div class="comp-group-title">MemberRow · TextDivider</div>
+      <div class="comp-surface-dark" style="padding:0;overflow:hidden">
+        <!-- TextDivider -->
+        <div style="padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+          <div style="height:1px;flex:1;background:#332B24"></div>
+          <span style="font:400 13px/1 var(--kluvs-font-sans);color:#6B5F52">or</span>
+          <div style="height:1px;flex:1;background:#332B24"></div>
+        </div>
+        <!-- MemberRow: owner -->
+        <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+          <div class="avatar-ring owner" style="width:40px;height:40px;font-size:13px;flex-shrink:0">JD</div>
+          <div style="flex:1;min-width:0">
+            <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Jane Doe</div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@janedoe · Member since 2026</div>
+          </div>
+          <img src="assets/role-badge-owner.svg" style="width:16px;height:16px;flex-shrink:0" alt="Owner">
+        </div>
+        <!-- MemberRow: admin -->
+        <div style="padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #241C17">
+          <div class="avatar-ring admin" style="width:40px;height:40px;font-size:13px;flex-shrink:0">KM</div>
+          <div style="flex:1;min-width:0">
+            <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Kira Martin</div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@kiramartin · Member since 2026</div>
+          </div>
+          <img src="assets/role-badge-admin.svg" style="width:16px;height:16px;flex-shrink:0" alt="Admin">
+        </div>
+        <!-- MemberRow: member -->
+        <div style="padding:14px 20px;display:flex;align-items:center;gap:12px">
+          <div class="avatar-ring" style="width:40px;height:40px;font-size:13px;flex-shrink:0">RP</div>
+          <div style="flex:1;min-width:0">
+            <div style="font:500 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Rafael Perez</div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@rafaperez · Member since 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">TextDivider: 1px #332B24 hairline with sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge.</div>
+    </div>
+
+    <!-- States -->
+    <div class="comp-group" id="comp-states">
+      <div class="comp-group-title">States — Loading · Error · Reading Progress · Timeline</div>
+      <div class="comp-grid">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <!-- Loading -->
+          <div class="comp-surface-dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:120px">
+            <div class="spinner"></div>
+            <span style="font:400 13px/1 var(--kluvs-font-sans);color:#6B5F52">Loading…</span>
+          </div>
+          <!-- Error -->
+          <div class="comp-surface-dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;text-align:center">
+            <div style="width:32px;height:32px;border-radius:50%;border:2px solid #EF4444;display:flex;align-items:center;justify-content:center">
+              <span style="color:#EF4444;font-weight:700;font-size:14px">!</span>
+            </div>
+            <div style="font:600 14px/1 var(--kluvs-font-sans);color:#F2EDE5">Something went wrong</div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073">Please try again</div>
+            <button style="background:#D16D30;color:#fff;border:none;border-radius:8px;padding:8px 16px;font:500 12px/1 var(--kluvs-font-sans);cursor:default;margin-top:4px">Try again</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <!-- Reading Progress -->
+          <div class="comp-surface-dark">
+            <div style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-bottom:10px">Currently Reading</div>
+            <div style="font:700 15px/1 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">The Midnight Library</div>
+            <div style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:12px">Matt Haig</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="flex:1;height:4px;background:#332B24;border-radius:4px">
+                <div style="width:47%;height:4px;background:#D16D30;border-radius:4px"></div>
+              </div>
+              <span style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;flex-shrink:0">47%</span>
+            </div>
+          </div>
+          <!-- Timeline -->
+          <div class="comp-surface-dark">
+            <div style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-bottom:14px">Discussion Timeline</div>
+            <div style="display:flex;flex-direction:column;gap:0">
+              <!-- Active node -->
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0">
+                  <div style="width:12px;height:12px;border-radius:50%;background:#D16D30;margin-top:2px"></div>
+                  <div style="width:1px;flex:1;background:#332B24;min-height:28px"></div>
+                </div>
+                <div style="padding-bottom:16px">
+                  <div style="font:600 13px/1 var(--kluvs-font-sans);color:#F2EDE5">Chapters 1–8</div>
+                  <div style="font:400 11px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">Mar 2, 2026 · Active</div>
+                </div>
+              </div>
+              <!-- Past node -->
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0">
+                  <div style="width:12px;height:12px;border-radius:50%;background:#332B24;border:2px solid #6B5F52;margin-top:2px"></div>
+                  <div style="width:1px;flex:1;background:#332B24;min-height:28px"></div>
+                </div>
+                <div style="padding-bottom:16px">
+                  <div style="font:600 13px/1 var(--kluvs-font-sans);color:#6B5F52">Chapters 9–16</div>
+                  <div style="font:400 11px/1 var(--kluvs-font-sans);color:#4D4033;margin-top:4px">Apr 6, 2026 · Upcoming</div>
+                </div>
+              </div>
+              <!-- Future node -->
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+                  <div style="width:12px;height:12px;border-radius:50%;background:#241C17;border:2px solid #332B24;margin-top:2px"></div>
+                </div>
+                <div>
+                  <div style="font:600 13px/1 var(--kluvs-font-sans);color:#4D4033">Full book</div>
+                  <div style="font:400 11px/1 var(--kluvs-font-sans);color:#4D4033;margin-top:4px">May 4, 2026 · Upcoming</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-anno">Spinner: 1.2s linear rotate, copper top-border. Error: red ring indicator. Progress bar: copper fill on #332B24 track. Timeline: copper active node, muted upcoming nodes.</div>
     </div>
   </section>
 
@@ -974,12 +1384,26 @@ body {
   <section class="section" id="mobile-kit">
     <div class="section-eyebrow">UI Kits</div>
     <h2 class="section-title">Mobile Kit</h2>
-    <p class="section-desc">High-fidelity recreation of every Figma mobile screen. Fully interactive — tap tabs and bottom nav to navigate between screens. Login form is live.</p>
+    <p class="section-desc">High-fidelity recreation of every Figma mobile screen. Fully interactive — tap tabs and bottom nav to navigate. Login form is live.</p>
+
+    <div style="background:#140F0D;border-radius:12px;overflow:hidden;margin-bottom:14px">
+      <iframe
+        src="ui_kits/mobile/index.html"
+        style="width:100%;height:640px;border:none;display:block"
+        title="Kluvs Mobile UI Kit"
+        id="kit-frame"
+      ></iframe>
+      <div id="kit-fallback" style="display:none;padding:48px 32px;text-align:center">
+        <div style="font-size:14px;font-weight:600;color:#F2EDE5;margin-bottom:8px">Interactive preview requires a web server</div>
+        <div style="font-size:13px;color:#8C8073;margin-bottom:20px">The kit uses React/Babel and can't load local files on <code style="background:#241C17;padding:2px 6px;border-radius:4px;font-size:12px">file://</code>. It works fully at <strong style="color:#D16D30">design.kluvs.com</strong>.</div>
+        <a href="ui_kits/mobile/index.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#D16D30;color:#fff;border-radius:12px;font:600 13px/1 Inter,sans-serif;text-decoration:none">Open in new tab →</a>
+      </div>
+    </div>
 
     <a class="kit-link" href="ui_kits/mobile/index.html" target="_blank" rel="noopener">
       <div>
-        <div class="kit-link-title">Mobile UI Kit — iOS / Android</div>
-        <div class="kit-link-desc">Login → Clubs (General / Active Session / Members) → Profile<br>390×844 · iPhone 14 reference canvas</div>
+        <div class="kit-link-title">Open full-page Mobile UI Kit</div>
+        <div class="kit-link-desc">Login → Clubs (General / Active Session / Members) → Profile · 390×844 iPhone 14 canvas</div>
       </div>
       <div class="kit-link-arrow">→</div>
     </a>
@@ -988,7 +1412,8 @@ body {
 </main>
 
 <script>
-  const sections = document.querySelectorAll('[id]');
+  // Active nav on scroll — only watch top-level section IDs
+  const sections = document.querySelectorAll('section[id], header[id]');
   const links    = document.querySelectorAll('.nav-link');
 
   const io = new IntersectionObserver(entries => {
@@ -1001,6 +1426,20 @@ body {
   }, { rootMargin: '-15% 0px -75% 0px' });
 
   sections.forEach(s => io.observe(s));
+
+  // Mobile kit iframe fallback — show message if kit fails to load on file://
+  const frame    = document.getElementById('kit-frame');
+  const fallback = document.getElementById('kit-fallback');
+  if (frame) {
+    const timer = setTimeout(() => {
+      // If page is on file:// protocol, the JSX files won't load via Babel XHR
+      if (window.location.protocol === 'file:') {
+        frame.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }, 100);
+    frame.addEventListener('load', () => clearTimeout(timer));
+  }
 </script>
 
 </body>
