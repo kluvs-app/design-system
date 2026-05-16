@@ -86,8 +86,9 @@ The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in
 
 ## Open items (from README)
 
-- No full button system yet — only social-button and the inline CTA on auth.
 - `Web-TBD` Figma page is intentionally empty — no web spec.
 - **Icons:** `ui_kits/mobile/` uses Lucide inline SVGs as a placeholder from the initial generation pass. Canonical icon set is Material Symbols (weight 600, Grade 0, 24px SVG). Replace Lucide references when building production screens; drop exports into `assets/icons/`.
 - Inter is loaded from Google Fonts CDN — no local `.ttf` bundle. Font family for production is TBD.
 - The four-tier typography system is documented in README; mobile M3 implementation and web utility class mapping are pending alignment.
+- **Loading state:** current pattern is appended "…" to button label (e.g. "Saving…"). Future improvement: animated vector drawable of the Kluvs mark rotating — deferred.
+- **Button text on primary:** canonical value is white `#FFFFFF` (`color.brand.on-primary`). Mobile experiment using `colorScheme.background` (adaptive near-black on dark) was evaluated — white retained for consistency and because both approaches fail AA on light surfaces equally.

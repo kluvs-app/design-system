@@ -15,6 +15,15 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Added
+- Full button system: Primary (filled), Outlined, Text/Ghost, Text Destructive, Social — all five variants with live specimens on both warm-dark and light surfaces
+- Surface toggle in sidebar — flips the style guide chrome between light and warm-dark to preview component behaviour in each context
+- Button tokens in `tokens.json` (`component.button.*`) covering shape, padding, typography, and loading pattern
+- CLAUDE.md: documented canonical button text color (white, not adaptive `colorScheme.background`) and loading state pattern
+
+### Changed
+- Component status: Button — Primary promoted from Partial → Done; Outlined, Text, Text Destructive added as Done
+
 ---
 
 ## [1.0.1] — 2026-05-16

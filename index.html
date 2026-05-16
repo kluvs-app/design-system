@@ -938,6 +938,54 @@
 
                 /* Component grid already 1-col at 800px, keep it */
             }
+
+/* ── Surface toggle button ───────────────── */
+.surface-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; background: none; border: none;
+  cursor: pointer; font: 500 12px/1 var(--kluvs-font-sans);
+  color: var(--kluvs-warm-fg-tertiary);
+  transition: color var(--kluvs-dur-fast); width: 100%; text-align: left;
+}
+.surface-toggle:hover { color: var(--kluvs-warm-fg-label); }
+.surface-toggle .ti { font-size: 15px; line-height: 1; }
+
+/* ── Dark surface mode ───────────────────── */
+main.dark-surface { background: var(--kluvs-warm-dark-base); }
+main.dark-surface .page-header { border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .header-title, main.dark-surface .section-title { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .header-desc, main.dark-surface .section-desc { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .chip { background: var(--kluvs-warm-dark-card); border-color: var(--kluvs-warm-dark-card-2); color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .card { background: var(--kluvs-warm-dark-card); border-color: var(--kluvs-warm-dark-card-2); box-shadow: none; }
+main.dark-surface .card-flush { background: var(--kluvs-warm-dark-card); border-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .card-label { color: var(--kluvs-warm-fg-placeholder); }
+main.dark-surface .status-table th { background: var(--kluvs-warm-dark-bar); color: var(--kluvs-warm-fg-tertiary); border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .status-table td { border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .status-table tbody tr:hover td { background: var(--kluvs-warm-dark-bar); }
+main.dark-surface .comp-name { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .comp-note { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .comp-row-link { color: var(--kluvs-warm-fg-primary); border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .comp-row-link:hover { color: var(--kluvs-primary); }
+main.dark-surface .type-row { border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .type-label { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .type-spec { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .type-sample { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .swatch-name { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .swatch-hex { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .spacing-meta { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .radius-label { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .spec-key { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .spec-val { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .comp-group-title { color: var(--kluvs-warm-fg-tertiary); border-bottom-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .comp-anno { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .kit-link { background: var(--kluvs-warm-dark-card); border-color: var(--kluvs-warm-dark-card-2); box-shadow: none; }
+main.dark-surface .kit-link-title { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface .kit-link-desc { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .icon-item { background: var(--kluvs-warm-dark-card); border-color: var(--kluvs-warm-dark-card-2); }
+main.dark-surface .icon-item span { color: var(--kluvs-warm-fg-tertiary); }
+main.dark-surface .icon-item img { filter: brightness(0) invert(1); opacity: 0.6; }
+main.dark-surface .icon-item:hover { border-color: var(--kluvs-primary); background: rgba(209,109,48,0.08); }
+main.dark-surface .divider { background: var(--kluvs-warm-dark-card-2); }
         </style>
     </head>
     <body>
@@ -997,6 +1045,10 @@
             </div>
 
             <div class="sidebar-footer">
+                <button class="surface-toggle" id="surface-toggle">
+                    <span class="ti">◐</span>
+                    <span id="toggle-label">Dark surface</span>
+                </button>
                 <a
                     href="https://github.com/kluvs-app/design-system"
                     target="_blank"
@@ -1047,37 +1099,29 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="comp-name">
-                                    <a
-                                        class="comp-row-link"
-                                        href="#comp-buttons"
-                                        >Button — Primary (filled)</a
-                                    >
-                                </td>
-                                <td>
-                                    <span class="badge badge-partial"
-                                        >Partial</span
-                                    >
-                                </td>
-                                <td class="comp-note">
-                                    Inline CTA form only; no full variant system
-                                    yet
-                                </td>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Primary (filled)</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">Copper filled, white text, 12px radius. Disabled: 25% opacity.</td>
                             </tr>
                             <tr>
-                                <td class="comp-name">
-                                    <a
-                                        class="comp-row-link"
-                                        href="#comp-buttons"
-                                        >Button — Social (OAuth)</a
-                                    >
-                                </td>
-                                <td>
-                                    <span class="badge badge-done">Done</span>
-                                </td>
-                                <td class="comp-note">
-                                    Discord, Google, Apple
-                                </td>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Outlined</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">Transparent fill, 1.5px copper border. Secondary actions.</td>
+                            </tr>
+                            <tr>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Text / Ghost</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">No container, copper text. Used for links and dialog actions.</td>
+                            </tr>
+                            <tr>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Text Destructive</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">No container, error red text. Used alongside a cancel dismiss.</td>
+                            </tr>
+                            <tr>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-buttons">Button — Social (OAuth)</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">Provider-branded (Discord / Google / Apple). Light surface only.</td>
                             </tr>
                             <tr>
                                 <td class="comp-name">
@@ -2795,141 +2839,95 @@
 
                 <!-- Buttons -->
                 <div class="comp-group" id="comp-buttons">
-                    <div class="comp-group-title">
-                        Buttons — Primary CTA · Social OAuth
-                    </div>
-                    <div class="comp-grid">
-                        <div>
-                            <div
-                                class="comp-surface-dark"
-                                style="
-                                    display: flex;
-                                    flex-direction: column;
-                                    gap: 10px;
-                                "
-                            >
-                                <div
-                                    style="
-                                        font: 600 10px/1 var(--kluvs-font-sans);
-                                        letter-spacing: 0.08em;
-                                        text-transform: uppercase;
-                                        color: #6b5f52;
-                                        margin-bottom: 4px;
-                                    "
-                                >
-                                    Primary CTA
-                                </div>
-                                <button
-                                    style="
-                                        background: #d16d30;
-                                        color: #fff;
-                                        border: none;
-                                        border-radius: 12px;
-                                        padding: 14px 24px;
-                                        font: 600 15px/1 var(--kluvs-font-sans);
-                                        width: 100%;
-                                        cursor: default;
-                                    "
-                                >
-                                    Sign in to Kluvs
-                                </button>
-                                <button
-                                    style="
-                                        background: rgba(209, 109, 48, 0.3);
-                                        color: rgba(242, 237, 229, 0.4);
-                                        border: none;
-                                        border-radius: 12px;
-                                        padding: 14px 24px;
-                                        font: 600 15px/1 var(--kluvs-font-sans);
-                                        width: 100%;
-                                        cursor: not-allowed;
-                                    "
-                                >
-                                    Sign in to Kluvs
-                                </button>
-                                <div
-                                    style="
-                                        font: 400 11px/1 var(--kluvs-font-sans);
-                                        color: #6b5f52;
-                                        margin-top: 2px;
-                                    "
-                                >
-                                    Normal · Disabled
-                                </div>
+                    <div class="comp-group-title">Buttons — All Variants · Both Surfaces</div>
+
+                    <!-- Primary Filled -->
+                    <div style="margin-bottom:24px">
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Primary — Filled</div>
+                        <div class="comp-grid">
+                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:10px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:2px">Dark surface</div>
+                                <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
+                                <button style="background:rgba(209,109,48,0.25);color:#4D4033;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Normal · Disabled</span>
+                            </div>
+                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:10px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:2px">Light surface</div>
+                                <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
+                                <button style="background:rgba(209,109,48,0.15);color:rgba(209,109,48,0.35);border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Normal · Disabled</span>
                             </div>
                         </div>
-                        <div
-                            style="
-                                display: flex;
-                                flex-direction: column;
-                                gap: 10px;
-                            "
-                        >
-                            <button
-                                style="
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 12px;
-                                    padding: 13px 20px;
-                                    border-radius: 12px;
-                                    background: #5865f2;
-                                    border: none;
-                                    color: #fff;
-                                    font: 500 14px/1 var(--kluvs-font-sans);
-                                    width: 100%;
-                                    cursor: default;
-                                "
-                            >
-                                <img
-                                    src="assets/provider-discord.svg"
-                                    style="height: 18px"
-                                    alt=""
-                                />Continue with Discord
-                            </button>
-                            <button
-                                style="
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 12px;
-                                    padding: 13px 20px;
-                                    border-radius: 12px;
-                                    background: #f2f2f2;
-                                    border: 1px solid #d1d1d1;
-                                    color: #1f1f1f;
-                                    font: 500 14px/1 var(--kluvs-font-sans);
-                                    width: 100%;
-                                    cursor: default;
-                                "
-                            >
-                                <img
-                                    src="assets/provider-google.svg"
-                                    style="height: 18px"
-                                    alt=""
-                                />Continue with Google
-                            </button>
-                            <button
-                                style="
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 12px;
-                                    padding: 13px 20px;
-                                    border-radius: 12px;
-                                    background: #0f0f0f;
-                                    border: none;
-                                    color: #fff;
-                                    font: 500 14px/1 var(--kluvs-font-sans);
-                                    width: 100%;
-                                    cursor: default;
-                                "
-                            >
-                                <img
-                                    src="assets/provider-apple.svg"
-                                    style="height: 18px"
-                                    alt=""
-                                />Continue with Apple
-                            </button>
+                    </div>
+
+                    <!-- Outlined -->
+                    <div style="margin-bottom:24px">
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Outlined</div>
+                        <div class="comp-grid">
+                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:10px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:2px">Dark surface</div>
+                                <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
+                                <button style="background:transparent;color:#4D4033;border:1.5px solid #4D4033;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Normal · Disabled</span>
+                            </div>
+                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:10px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:2px">Light surface</div>
+                                <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
+                                <button style="background:transparent;color:rgba(209,109,48,0.35);border:1.5px solid rgba(209,109,48,0.35);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Normal · Disabled</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Text / Ghost -->
+                    <div style="margin-bottom:24px">
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Text — Ghost</div>
+                        <div class="comp-grid">
+                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:6px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:4px">Dark surface</div>
+                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
+                                <button style="background:transparent;color:#8C8073;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
+                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">OK</button>
+                            </div>
+                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:6px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:4px">Light surface</div>
+                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
+                                <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
+                                <button style="background:transparent;color:#D16D30;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">OK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Destructive -->
+                    <div style="margin-bottom:24px">
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Text — Destructive</div>
+                        <div class="comp-grid">
+                            <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:6px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:#6B5F52;margin-bottom:4px">Dark surface</div>
+                                <button style="background:transparent;color:#EF4444;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
+                                <button style="background:transparent;color:#8C8073;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52">Destructive · Dismiss</span>
+                            </div>
+                            <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:6px">
+                                <div style="font:500 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);margin-bottom:4px">Light surface</div>
+                                <button style="background:transparent;color:#EF4444;border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
+                                <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:8px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
+                                <span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Destructive · Dismiss</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div>
+                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:10px">Social — OAuth <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">· auth / light surface only</span></div>
+                        <div style="display:flex;flex-direction:column;gap:10px;max-width:320px">
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord</button>
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google</button>
+                            <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple</button>
+                        </div>
+                    </div>
+
+                    <div class="comp-anno" style="margin-top:16px">Primary: copper fill · white text · 12px radius · 15px/600. Outlined: copper border + text · transparent fill. Text: no container · copper or error-red. Social: provider-branded · light surface only · 12px radius.</div>
                 </div>
 
                 <!-- Inputs -->
@@ -4091,7 +4089,19 @@
         </main>
 
         <script>
-            // Active nav on scroll — only watch top-level section IDs
+          
+  // Surface toggle
+  const surfaceToggle = document.getElementById('surface-toggle');
+  const mainEl        = document.querySelector('.main');
+  const toggleLabel   = document.getElementById('toggle-label');
+  if (surfaceToggle) {
+    surfaceToggle.addEventListener('click', () => {
+      const isDark = mainEl.classList.toggle('dark-surface');
+      toggleLabel.textContent = isDark ? 'Light surface' : 'Dark surface';
+    });
+  }
+
+  // Active nav on scroll — only watch top-level section IDs
             const sections = document.querySelectorAll(
                 "section[id], header[id]",
             );
