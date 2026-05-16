@@ -976,15 +976,20 @@ main.dark-surface .surface-note {
 .surface-note strong { color: var(--kluvs-primary); font-weight: 600; }
 
 /* ── Accessibility section dark mode ────────────────── */
+/* Sub-header rows */
 main.dark-surface #accessibility td[colspan] {
   background: var(--kluvs-warm-dark-bar) !important;
   color: var(--kluvs-warm-fg-tertiary) !important;
 }
-main.dark-surface #accessibility .card-label { color: var(--kluvs-warm-fg-placeholder); }
-main.dark-surface #accessibility .card p { color: var(--kluvs-warm-fg-tertiary); }
-main.dark-surface #accessibility .badge.badge-partial strong { color: var(--kluvs-primary); }
-main.dark-surface #accessibility .card > div > div { border-top-color: var(--kluvs-warm-dark-card-2); }
-main.dark-surface #accessibility span[style*="font-size:13px"] { color: var(--kluvs-warm-fg-primary); }
+/* Table cell text */
+main.dark-surface #accessibility .status-table td { color: var(--kluvs-warm-fg-primary); }
+main.dark-surface #accessibility .comp-note         { color: var(--kluvs-warm-fg-tertiary) !important; }
+/* Known exceptions card — inline color overrides need !important */
+main.dark-surface #accessibility .card-label        { color: var(--kluvs-warm-fg-placeholder) !important; }
+main.dark-surface #accessibility .card p            { color: var(--kluvs-warm-fg-tertiary) !important; }
+main.dark-surface #accessibility .card span[style*="font-weight:600"] { color: var(--kluvs-warm-fg-primary) !important; }
+/* Known exceptions dividers — inline border-top needs !important */
+main.dark-surface #accessibility .card div[style*="border-top"] { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
 
 main.dark-surface #comp-states { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
 
