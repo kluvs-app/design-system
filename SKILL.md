@@ -9,10 +9,11 @@ user-invocable: true
 Load these files in order — stop when you have enough context for the task:
 
 1. `README.md` — brand overview, content voice, visual foundations, iconography rules, typography tier system. Always read this first.
-2. `colors_and_type.css` — every color, spacing, radius, motion, and type token as CSS custom properties. Import this in any HTML artifact you produce.
-3. `assets/` — brand marks, role badges, OAuth glyphs, and icon SVGs. Reference by relative path; do not inline or re-encode SVG content.
-4. `ui_kits/mobile/components.jsx` — primitive component library (KluvsTopBar, KluvsCard, KluvsButton, KluvsInput, KluvsIcon, etc.).
-5. `ui_kits/mobile/screens.jsx` — assembled screens (Login, Clubs, Profile) for reference when recreating or extending screens.
+2. `tokens.json` — every token as structured data with values, types, and usage descriptions (contrast notes, dark-surface constraints, tier mappings). **Read this for all client repo work** (mobile or web) — it is faster to parse than the CSS and includes the reasoning behind each value.
+3. `colors_and_type.css` — tokens as CSS custom properties + utility classes. **Only needed when producing a web HTML artifact** that will link or import this file directly. Skip if working in a native (Kotlin / Swift) context.
+4. `assets/` — brand marks, role badges, OAuth glyphs, and icon SVGs. Reference by relative path; do not inline or re-encode SVG content.
+5. `ui_kits/mobile/components.jsx` — primitive component library (KluvsTopBar, KluvsCard, KluvsButton, KluvsInput, KluvsIcon, etc.).
+6. `ui_kits/mobile/screens.jsx` — assembled screens (Login, Clubs, Profile) for reference when recreating or extending screens.
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, `VERSION`, or anything in `docs/`. These are website infrastructure, not design guidance.
 
