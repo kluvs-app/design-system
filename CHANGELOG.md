@@ -16,9 +16,19 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 ## [Unreleased]
 
 ### Fixed
-- Copper hex mismatch: README states `#D16E30`; `colors_and_type.css` defines `--kluvs-primary: #D16D30`
-- Card radius mismatch: README says 10px "in practice"; `--kluvs-radius-card` is 12px in CSS
-- Icon assets in `assets/` undocumented in README index
+- Copper hex: README corrected from `#D16E30` to `#D16D30` — unanimous across CSS, web, mobile, and original design doc
+- Card radius: README corrected from 10px to 12px — matches `--kluvs-radius-card` and web Tailwind config
+- Gold (owner role): `--kluvs-role-owner` corrected from `#F0BF05` to `#EFBF04` — matches Android `Color.kt` and iOS `Colors.swift`
+- Admin teal: README corrected from `#006682` to `#006781` — matches CSS, web Tailwind, mobile, and original design doc
+- Error red: README corrected from `#E53333` to `#EF4444` — matches `--kluvs-danger` and web Tailwind config
+
+### Changed
+- Iconography section: replaced Lucide with Material Symbols as the canonical icon system (weight 600, Grade 0, Optical Size 24px, SVG). Lucide remains in `ui_kits/mobile/` as a placeholder pending migration.
+- `assets/` icon SVGs now documented in README index (previously undocumented)
+- Gold usage note added: dark-surface-first, never use as text color
+
+### Added
+- Typography tier system documented in README: four-tier hierarchy (section headers → primary content → supporting details → fine print) with M3 role mappings for mobile and web utility class equivalents
 
 ---
 

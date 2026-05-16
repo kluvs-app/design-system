@@ -62,7 +62,7 @@
   --kluvs-warm-fg-deep:        var(--kluvs-warm-fg-disabled);
 
   /* ─────────── ROLES ─────────── */
-  --kluvs-role-owner:  #F0BF05;        /* gold (mobile-only badge) */
+  --kluvs-role-owner:  #EFBF04;        /* gold — mobile-only badge; dark-surface-first, never use as text color */
   --kluvs-role-admin:  #006781;        /* tertiary teal */
   --kluvs-role-member: transparent;
 

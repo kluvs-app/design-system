@@ -47,17 +47,32 @@ The voice is **plain, warm and a little understated**. Sentences are short. The 
 ## Visual foundations
 
 ### Color
-A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to `#332B24` cards-2) carries everything in product; **light cream `#F2EDE5`** is the primary text on dark; **copper `#D16E30`** is the only chromatic accent. Auth and marketing flip to a light `#FAFAFC` page with near-black `#1A1A1A` text. There is no secondary brand color.
+A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to `#332B24` cards-2) carries everything in product; **light cream `#F2EDE5`** is the primary text on dark; **copper `#D16D30`** is the only chromatic accent. Auth and marketing flip to a light `#FAFAFC` page with near-black `#1A1A1A` text. There is no secondary brand color.
 
-Role accents are rare and reserved: **owner** = goldenrod `#F0BF05`, **admin** = teal `#006682`, **member** = no decoration. Error red `#E53333` is desaturated and used only for inline form errors.
+Role accents are rare and reserved: **owner** = gold `#EFBF04` (dark-surface-first — do not use as text), **admin** = teal `#006781`, **member** = no decoration. Error red `#EF4444` is used only for inline form errors.
 
 ### Type
 **Inter only**, three weights: Regular 400, Medium 500, Bold 700. Six text styles in figma — `titleLarge 22 / titleMedium 16M / bodyLarge 16 / bodyMedium 14 / labelMedium 12M / labelSmall 11M`. Plus three display sizes for brand surfaces (96 / 48 / 32). All tokens line-height 100% in figma; we relax to 1.4 for paragraphs in our utilities. No serifs, no italic, no monospace. Tracking is default.
 
+> **Font family is TBD for production.** Inter is loaded from Google Fonts CDN for the UI kit and web. Mobile currently uses system fonts (Roboto / SF Pro). This will be resolved in a future foundation pass.
+
+#### Typography tier system
+
+A four-tier hierarchy governs content hierarchy across both mobile (M3 roles) and web (utility class names):
+
+| Tier | Purpose | Mobile (M3) | Mobile color role | Web class |
+|---|---|---|---|---|
+| 1 — Section headers | Labels that introduce sections or cards | `titleMedium` | `onSurfaceVariant` | `.kluvs-section-heading` |
+| 2 — Primary content | The most important information on screen | `bodyLarge` | `onSurface` | `.kluvs-body-lg` |
+| 3 — Supporting details | Secondary context: counts, metadata, handles, dates | `bodyMedium` | `onSurfaceVariant` | `.kluvs-body` |
+| 4 — Fine print | Version numbers, disclaimers | `bodySmall` | `inverseOnSurface` | `.kluvs-helper-sm` |
+
+Mobile uses M3 semantic color roles (not hardcoded hex) so the tier system works in both light and dark themes automatically. Web uses the utility classes defined in `colors_and_type.css`.
+
 ### Spacing & radius
 Spacing scale is a strict **4 / 8 / 12 / 16 / 24**. Page gutters are 20px. Card internal padding is 16px. Vertical rhythm between sections is 16–24px.
 
-Radius scale is **4 (sm) / 8 (md) / 16 (lg)**. In practice product surfaces use a tight subset: cards & primary CTAs at **10**, inputs at **8**, status indicators / 16-px squares at **2**, avatars and circular badges at **9999**. Pills (selected bottom-nav indicator) use the pill radius over a 36×72 capsule.
+Radius scale is **4 (sm) / 8 (md) / 16 (lg)**. In practice product surfaces use a tight subset: cards & primary CTAs at **12**, inputs at **8**, status indicators / 16-px squares at **2**, avatars and circular badges at **9999**. Pills (selected bottom-nav indicator) use the pill radius over a 36×72 capsule.
 
 ### Backgrounds
 **No imagery, no gradients, no textures.** Surfaces are flat, solid colors stepped by ~5% lightness. The cover frame's only decoration is a **6-px copper top-edge bleed** + small orange dot punctuating the wordmark. The product never uses full-bleed photography or illustration.
@@ -105,22 +120,44 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 
 ## Iconography
 
-**Status:** the figma file does **not** ship a real icon set. Every "icon" in the JSX is a 12–20-px rounded rectangle (radius 1–4) acting as a placeholder. There is no icon font, no SVG sprite, no PNG icon library, and no emoji.
+**Canonical source: [Material Symbols](https://fonts.google.com/icons) (Google Fonts)**
 
-**Approach for this design system:** we standardize on **[Lucide](https://lucide.dev)** as the substitution layer — same metric (24-px viewBox), 1.5-px stroke, rounded line caps, monoline. This matches the figma's monoline, slightly soft-edged placeholder vibe better than Heroicons or Material Symbols. In the UI kit we link Lucide via CDN.
+| Parameter | Value |
+|---|---|
+| Weight | 600 |
+| Grade | 0 |
+| Optical Size | 24px |
+| Base size | 24px |
+| File type | SVG |
+| State — unselected | Unfilled |
+| State — selected | Filled |
 
-> ⚠️ **Substitution flag:** Lucide is a stand-in. The Kluvs Figma file lists no shipped icons; if/when the team decides on a final set (custom or otherwise), drop it into `assets/icons/` and replace the Lucide references in `ui_kits/mobile/`.
+> **UI kit note:** `ui_kits/mobile/` currently uses inline Lucide SVGs as a stand-in from the initial Figma generation pass. These should be replaced with Material Symbols exports when building production screens. `assets/icons/` is the intended drop location.
 
 **Glyph use beyond icons:**
 - Status-bar mocks use unicode dots and a triangle: `●  ▲  80%`. Treat these as decorative, not as an icon system.
 - Brand wordmark "KLUVS" is **typographic** (Inter Bold). The only graphic flourish is a single 14-px copper dot used as punctuation next to the wordmark on the cover frame, and an 8-px copper underline beneath the wordmark on the auth screen.
 - **Emoji: never.**
 
-**Where we do ship assets** (in `assets/`):
+**Shipped assets** (in `assets/`):
+
+*Brand:*
 - `kluvs-wordmark-light.svg` / `kluvs-wordmark-dark.svg` — typographic logo, two themes.
-- `kluvs-mark.svg` — a compact KL-with-dot mark for app icon / favicon use.
-- `role-badge-owner.svg`, `role-badge-admin.svg` — gold and teal badge dots.
-- `provider-discord.svg`, `provider-google.svg`, `provider-apple.svg` — official-style provider glyphs sized for the social buttons.
+- `kluvs-mark.svg` / `kluvs-mark-white.svg` — compact mark for app icon / favicon use.
+- `kluvs-app-icon.png` / `kluvs-app-icon-mark.svg` — app icon assets.
+
+*Role badges:*
+- `role-badge-owner.svg` — gold badge dot (`#EFBF04`), dark-surface-first.
+- `role-badge-admin.svg` — teal badge dot (`#006781`).
+
+*OAuth providers:*
+- `provider-discord.svg`, `provider-google.svg`, `provider-apple.svg` — official-style provider glyphs sized for social buttons.
+
+*Icons (Material Symbols exports, 24px SVG):*
+- `icon-arrow-back.svg`, `icon-book.svg`, `icon-check.svg`, `icon-crown.svg`, `icon-diamond.svg`
+- `icon-email.svg`, `icon-gem.svg`, `icon-help.svg`, `icon-hexagon.svg`, `icon-hive.svg`
+- `icon-honeycomb.svg`, `icon-info.svg`, `icon-location.svg`, `icon-logout.svg`, `icon-password.svg`
+- `icon-person.svg`, `icon-settings.svg`, `icon-shield.svg`, `icon-unfold.svg`
 
 ## UI kits
 
