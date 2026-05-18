@@ -55,9 +55,7 @@
         <!-- ════ SIDEBAR ════ -->
         <nav class="sidebar" aria-label="Design system navigation">
             <div class="sidebar-header">
-                <div class="wordmark">
-                    KLUVS <span class="wordmark-dot"></span>
-                </div>
+                <img src="assets/kluvs-lockup-light.svg" style="height: 20px" alt="KLUVS" />
                 <div class="sidebar-subtitle">Design System · v1.0.2</div>
             </div>
 
@@ -121,7 +119,7 @@
                     <span class="chip"
                         ><span class="chip-dot"></span>v1.0.2</span
                     >
-                    <span class="chip">Inter · Material Symbols</span>
+                    <span class="chip">EB Garamond + IBM Plex Sans · Material Symbols</span>
                     <span class="chip">Dark-first · Warm surfaces</span>
                     <span class="chip">Android · iOS · Web</span>
                 </div>
@@ -882,9 +880,7 @@
                 <div class="section-eyebrow">Foundations</div>
                 <h2 class="section-title">Typography</h2>
                 <p class="section-desc">
-                    Inter only — Regular 400, Medium 500, Bold 700. Four content
-                    tiers, each mapped to an M3 semantic role for mobile and a
-                    utility class for web.
+                    Two-register system — <strong>EB Garamond</strong> (serif) for wordmark, display, headings, and book titles; <strong>IBM Plex Sans</strong> for UI chrome, body, and labels. Three weights each: 400 · 500 · 700. Four content tiers mapped to M3 semantic roles for mobile and utility classes for web.
                 </p>
 
                 <div class="card">
@@ -960,8 +956,9 @@
                         <div
                             class="type-sample"
                             style="
-                                font: 700 40px/1 var(--kluvs-font-sans);
-                                letter-spacing: -0.02em;
+                                font: 700 40px/1 var(--kluvs-font-serif);
+                                letter-spacing: 0.18em;
+                                text-transform: uppercase;
                                 color: #d16d30;
                             "
                         >
@@ -980,7 +977,7 @@
                     <div class="type-row">
                         <div class="type-meta">
                             <div class="type-label">Section Heading</div>
-                            <div class="type-spec">20px · 700</div>
+                            <div class="type-spec">20px · 500 · Garamond</div>
                         </div>
                         <div class="type-sample kluvs-section-heading">
                             Next Discussion
@@ -989,10 +986,10 @@
                     <div class="type-row">
                         <div class="type-meta">
                             <div class="type-label">Card Heading</div>
-                            <div class="type-spec">18px · 700</div>
+                            <div class="type-spec">18px · 400 · Garamond italic</div>
                         </div>
                         <div class="type-sample kluvs-card-heading">
-                            Active Session
+                            The Midnight Library
                         </div>
                     </div>
                     <div class="type-row">
@@ -1372,21 +1369,21 @@
                     <div class="brand-assets">
                         <div class="brand-tile brand-tile-dark">
                             <img
-                                src="assets/kluvs-wordmark-light.svg"
-                                style="height: 18px"
-                                alt="Kluvs wordmark (light)"
+                                src="assets/kluvs-lockup-light.svg"
+                                style="height: 22px"
+                                alt="Kluvs lockup"
                             />
                             <img
                                 src="assets/kluvs-mark-white.svg"
                                 style="height: 22px"
-                                alt="Kluvs mark (white)"
+                                alt="Kluvs mark"
                             />
                         </div>
                         <div class="brand-tile brand-tile-light">
                             <img
-                                src="assets/kluvs-wordmark-dark.svg"
-                                style="height: 18px"
-                                alt="Kluvs wordmark (dark)"
+                                src="assets/kluvs-lockup-dark.svg"
+                                style="height: 22px"
+                                alt="Kluvs lockup"
                             />
                             <img
                                 src="assets/kluvs-mark.svg"
