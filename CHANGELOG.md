@@ -17,6 +17,28 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ---
 
+## [2.0.0] — 2026-05-17
+
+Two-register typography system replaces Inter as the sole typeface. Breaking change: `--kluvs-font-sans` now resolves to IBM Plex Sans; any hardcoded Inter references in client repos must be updated.
+
+### Changed
+- `--kluvs-font-sans` updated from Inter to IBM Plex Sans (400/500/700)
+- Heading utility classes (`.kluvs-display-*`, `.kluvs-page-heading`, `.kluvs-section-heading`, `.kluvs-card-heading`) updated to use EB Garamond serif; card heading is now italic
+- Wordmark assets (`kluvs-wordmark-dark/light.svg`) updated from Inter to EB Garamond
+
+### Added
+- `--kluvs-font-serif`: EB Garamond (400/500/700 + italic 400/500) — literary register for headings and book titles
+- `.kluvs-eyebrow` utility class: IBM Plex Sans, 12px, medium, uppercase, 0.1em tracking — for section labels within UI panels and tabs
+- `kluvs-lockup-dark.svg` / `kluvs-lockup-light.svg`: combined mark + KLUVS wordmark assets at canonical 42px mark / 36px text ratio
+
+### Migration
+- Replace `font-family: Inter` with `font-family: var(--kluvs-font-sans)` (IBM Plex Sans)
+- Add `font-family: var(--kluvs-font-serif)` to wordmarks, display text, page headings, section headings, and book titles
+- Replace `font-semibold` (600) with `font-bold` (700) for headings/badges or `font-medium` (500) for UI labels
+- Replace within-tab section headings with `.kluvs-eyebrow` pattern
+
+---
+
 ## [1.0.2] — 2026-05-16
 
 Major style guide overhaul. The hosted site at design.kluvs.com now supports a full surface toggle, dual-surface component specimens, responsive mobile layout, and correct dark mode rendering throughout.
