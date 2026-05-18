@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kluvs — Font Pairing Preview</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      text-align: center;
+      margin-bottom: -32px;
+    }
+
+    /* Two-column grid for side-by-side pairing comparison */
+    .pairing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      width: 900px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .pairing-card {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── Warm Dark surface ── */
+    .pairing-card.warm-dark {
+      background: #140F0D;
+    }
+    .warm-dark .wordmark {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #D16D30;
+    }
+    .warm-dark .screen-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: #F2EDE5;
+      line-height: 1.2;
+    }
+    .warm-dark .book-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #F2EDE5;
+      line-height: 1.3;
+    }
+    .warm-dark .label-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8C8073;
+    }
+    .warm-dark .body-text {
+      font-size: 15px;
+      font-weight: 400;
+      color: #C9BDA8;
+      line-height: 1.65;
+    }
+    .warm-dark .meta-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: #8C8073;
+    }
+    .warm-dark .cta {
+      display: inline-block;
+      background: #D16D30;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 10px;
+      align-self: flex-start;
+    }
+    .warm-dark .divider {
+      height: 1px;
+      background: #241C17;
+    }
+
+    /* ── Light surface ── */
+    .pairing-card.light {
+      background: #FFFFFF;
+    }
+    .light .wordmark {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #D16D30;
+    }
+    .light .screen-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: #1A1A1A;
+      line-height: 1.2;
+    }
+    .light .book-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #1A1A1A;
+      line-height: 1.3;
+    }
+    .light .label-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999999;
+    }
+    .light .body-text {
+      font-size: 15px;
+      font-weight: 400;
+      color: #444444;
+      line-height: 1.65;
+    }
+    .light .meta-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: #888888;
+    }
+    .light .cta {
+      display: inline-block;
+      background: #D16D30;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 10px;
+      align-self: flex-start;
+    }
+    .light .divider {
+      height: 1px;
+      background: #E0E0E0;
+    }
+
+    /* ── Sans font switcher ── */
+    .inter   { font-family: 'Inter', sans-serif; }
+    .ibm     { font-family: 'IBM Plex Sans', sans-serif; }
+
+    /* ── Pairing label chips ── */
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .warm-dark .chip {
+      background: #241C17;
+      color: #8C8073;
+    }
+    .light .chip {
+      background: #F0EDE8;
+      color: #888888;
+    }
+    .warm-dark .chip.serif { color: #C9BDA8; }
+    .light .chip.serif { color: #555555; }
+
+    /* ── Column header bar ── */
+    .col-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 12px 0;
+      color: #999;
+    }
+    .col-header span {
+      color: #fff;
+    }
+    .grid-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      width: 900px;
+    }
+    .col-header-cell {
+      background: #111;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 0;
+      color: #666;
+    }
+    .col-header-cell span { color: #ccc; }
+
+    /* block grouping */
+    .block { display: flex; flex-direction: column; gap: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- Column headers -->
+  <div class="grid-header">
+    <div class="col-header-cell">EB Garamond + <span>Inter</span></div>
+    <div class="col-header-cell">EB Garamond + <span>IBM Plex Sans</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ROW 1 — Warm Dark
+  ══════════════════════════════════════════ -->
+  <p class="section-label">Warm Dark Surface</p>
+  <div class="pairing-grid">
+
+    <!-- Card 1: Garamond + Inter, Warm Dark -->
+    <div class="pairing-card warm-dark">
+      <div class="chip-row">
+        <span class="chip serif">EB Garamond</span>
+        <span class="chip inter">+  Inter</span>
+      </div>
+
+      <div class="block">
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="label-text inter">Your Clubs</div>
+        <div class="screen-title">The Reading Circle</div>
+        <div class="meta-text inter">Next session · Thu, May 21</div>
+      </div>
+
+      <div class="block">
+        <div class="label-text inter">Currently Reading</div>
+        <div class="book-title">One Hundred Years of Solitude</div>
+        <div class="meta-text inter">Gabriel García Márquez · 1967</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="body-text inter">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the weight of history. Discussion begins on page 180.</div>
+      </div>
+
+      <div class="cta inter">Join Session</div>
+    </div>
+
+    <!-- Card 2: Garamond + IBM Plex Sans, Warm Dark -->
+    <div class="pairing-card warm-dark">
+      <div class="chip-row">
+        <span class="chip serif">EB Garamond</span>
+        <span class="chip ibm">+  IBM Plex Sans</span>
+      </div>
+
+      <div class="block">
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="label-text ibm">Your Clubs</div>
+        <div class="screen-title">The Reading Circle</div>
+        <div class="meta-text ibm">Next session · Thu, May 21</div>
+      </div>
+
+      <div class="block">
+        <div class="label-text ibm">Currently Reading</div>
+        <div class="book-title">One Hundred Years of Solitude</div>
+        <div class="meta-text ibm">Gabriel García Márquez · 1967</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="body-text ibm">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the weight of history. Discussion begins on page 180.</div>
+      </div>
+
+      <div class="cta ibm">Join Session</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ROW 2 — Light
+  ══════════════════════════════════════════ -->
+  <p class="section-label">Light Surface</p>
+  <div class="pairing-grid">
+
+    <!-- Card 3: Garamond + Inter, Light -->
+    <div class="pairing-card light">
+      <div class="chip-row">
+        <span class="chip serif">EB Garamond</span>
+        <span class="chip inter">+  Inter</span>
+      </div>
+
+      <div class="block">
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="label-text inter">Your Clubs</div>
+        <div class="screen-title">The Reading Circle</div>
+        <div class="meta-text inter">Next session · Thu, May 21</div>
+      </div>
+
+      <div class="block">
+        <div class="label-text inter">Currently Reading</div>
+        <div class="book-title">One Hundred Years of Solitude</div>
+        <div class="meta-text inter">Gabriel García Márquez · 1967</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="body-text inter">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the weight of history. Discussion begins on page 180.</div>
+      </div>
+
+      <div class="cta inter">Join Session</div>
+    </div>
+
+    <!-- Card 4: Garamond + IBM Plex Sans, Light -->
+    <div class="pairing-card light">
+      <div class="chip-row">
+        <span class="chip serif">EB Garamond</span>
+        <span class="chip ibm">+  IBM Plex Sans</span>
+      </div>
+
+      <div class="block">
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="label-text ibm">Your Clubs</div>
+        <div class="screen-title">The Reading Circle</div>
+        <div class="meta-text ibm">Next session · Thu, May 21</div>
+      </div>
+
+      <div class="block">
+        <div class="label-text ibm">Currently Reading</div>
+        <div class="book-title">One Hundred Years of Solitude</div>
+        <div class="meta-text ibm">Gabriel García Márquez · 1967</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="block">
+        <div class="body-text ibm">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the weight of history. Discussion begins on page 180.</div>
+      </div>
+
+      <div class="cta ibm">Join Session</div>
+    </div>
+  </div>
+
+</body>
+</html>

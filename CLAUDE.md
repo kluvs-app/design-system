@@ -37,10 +37,10 @@ The back-compat alias block at the bottom of `colors_and_type.css` maps older `-
 ## Brand rules (non-negotiable)
 
 - **Accent:** copper `#D16D30` — one per view, on the primary CTA and active state only.
-- **Type:** Inter 400 / 500 / 700 only. No serifs, no italic, no monospace.
+- **Type:** Two-register system. **EB Garamond** (serif, 400/500/700 + italic 400/500) for wordmark, display, headings, and book titles. **IBM Plex Sans** (sans, 400/500/700) for all UI chrome, body, labels, and eyebrow text. No other fonts. Italic is reserved for book titles in Garamond only.
 - **No emoji.** None in the Figma source; don't introduce them.
 - **No gradients, no images, no blur.** Surfaces are flat solid steps.
-- **Casing:** Title Case for screen titles and section headers; Sentence case for body; ALL-CAPS for brand wordmarks only (KLUVS).
+- **Casing:** Title Case for screen titles and interactive tabs; Sentence case for body; ALL-CAPS for brand wordmarks (KLUVS) and eyebrow labels only.
 - **Both surfaces supported everywhere.** Warm-dark and light are both valid on mobile and web.
 
 ## Pending propagation to client repos
@@ -49,7 +49,7 @@ These are confirmed design system decisions that have not yet been applied to `k
 
 - **Gold `#EFBF04`** — design system updated; mobile `Color.kt` and iOS `Colors.swift` still have `#EFBF04` (already correct); `colors_and_type.css` now aligned.
 - **iOS Google button text** — iOS `Colors.swift` has `googleTextGray: 0x757575`; correct value is `#1F1F1F` (matches Android + web).
-- **Web Inter weight 600** — `kluvs-frontend` loads Inter weight 600 from Google Fonts; design system specifies 400/500/700 only. Weight 600 is unused — drop from the import.
+- **Mobile typography** — `kluvs-frontend` now uses IBM Plex Sans + EB Garamond (v2.0.0). Mobile (`kluvs-mobile`) still uses system fonts. A full typography pass on mobile is pending — apply the two-register system (EB Garamond for headings/book titles, IBM Plex Sans for body/UI).
 - **Mobile M3 surface overrides** — `darkColorScheme` in `Theme.kt` only sets primary/secondary/tertiary. The warm-dark surfaces (`#140F0D`, `#1A140F`, `#241C17`, etc.) need to be explicitly set to match the Figma/design system intent.
 - **Mobile typography** — `Type.kt` only defines `bodyLarge`; the full four-tier system (titleMedium → bodyLarge → bodyMedium → bodySmall) should be explicitly set rather than relying on M3 defaults.
 

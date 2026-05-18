@@ -7,7 +7,7 @@
    Web tokens are authoritative; mobile-warm tokens are namespaced.
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;700&display=swap");
 
 :root {
   /* ─────────── BRAND ─────────── */
@@ -99,7 +99,8 @@
   --kluvs-dur-screen:  260ms;
 
   /* ─────────── TYPE ─────────── */
-  --kluvs-font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --kluvs-font-sans:  "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --kluvs-font-serif: "EB Garamond", Georgia, serif;
   --kluvs-fw-regular: 400;
   --kluvs-fw-medium:  500;
   --kluvs-fw-bold:    700;
@@ -119,15 +120,19 @@
 }
 
 /* ──── Semantic type classes (web-canonical names) ──── */
-.kluvs-page-heading    { font: 700 var(--kluvs-page-heading-size)/var(--kluvs-page-heading-line) var(--kluvs-font-sans); letter-spacing: -0.01em; }
-.kluvs-section-heading { font: 700 var(--kluvs-section-heading-size)/var(--kluvs-section-heading-line) var(--kluvs-font-sans); }
-.kluvs-card-heading    { font: 700 var(--kluvs-card-heading-size)/var(--kluvs-card-heading-line) var(--kluvs-font-sans); }
+/* Serif register: wordmark, display, headings, book titles */
+.kluvs-display-1       { font: 700 var(--kluvs-display-1-size)/1 var(--kluvs-font-serif); letter-spacing: -0.02em; }
+.kluvs-display-2       { font: 700 var(--kluvs-display-2-size)/1 var(--kluvs-font-serif); letter-spacing: -0.01em; }
+.kluvs-page-heading    { font: 500 var(--kluvs-page-heading-size)/var(--kluvs-page-heading-line) var(--kluvs-font-serif); letter-spacing: -0.01em; }
+.kluvs-section-heading { font: 500 var(--kluvs-section-heading-size)/var(--kluvs-section-heading-line) var(--kluvs-font-serif); }
+.kluvs-card-heading    { font: 400 var(--kluvs-card-heading-size)/var(--kluvs-card-heading-line) var(--kluvs-font-serif); font-style: italic; }
+/* Sans register: body, labels, UI chrome */
 .kluvs-body-lg         { font: 400 var(--kluvs-body-lg-size)/var(--kluvs-body-lg-line) var(--kluvs-font-sans); }
 .kluvs-body            { font: 400 var(--kluvs-body-size)/var(--kluvs-body-line) var(--kluvs-font-sans); }
 .kluvs-helper          { font: 400 var(--kluvs-helper-size)/var(--kluvs-helper-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
 .kluvs-helper-sm       { font: 400 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
-.kluvs-display-2       { font: 700 var(--kluvs-display-2-size)/1 var(--kluvs-font-sans); letter-spacing: -0.02em; }
-.kluvs-display-1       { font: 700 var(--kluvs-display-1-size)/1 var(--kluvs-font-sans); letter-spacing: -0.03em; }
+/* Eyebrow: section labels within UI (tabs, cards, panels) */
+.kluvs-eyebrow         { font: 500 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; }
 
 .kluvs-base {
   font-family: var(--kluvs-font-sans);

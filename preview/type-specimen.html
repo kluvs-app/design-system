@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kluvs — Type Specimen · EB Garamond + IBM Plex Sans</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans:  'IBM Plex Sans', system-ui, sans-serif;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Two-surface layout ── */
+    .surfaces {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    .surface {
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .surface--dark  { background: #140F0D; }
+    .surface--light { background: #FFFFFF; }
+
+    /* ── Section divider ── */
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .surface--dark  .section { border-color: #241C17; }
+    .surface--light .section { border-color: #E8E3DC; }
+    .section:last-child { border-bottom: none; }
+
+    /* ── Meta label ── */
+    .meta {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .surface--dark  .meta { color: #4D4033; }
+    .surface--light .meta { color: #BBBBBB; }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .meta-detail {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      font-feature-settings: "tnum" 1;
+    }
+    .surface--dark  .meta-detail { color: #4D4033; }
+    .surface--light .meta-detail { color: #C8C8C8; }
+
+    /* ── Type styles ── */
+
+    /* Display 1 – 96px */
+    .t-display-1 {
+      font-family: var(--serif);
+      font-size: 96px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    /* Display 2 – 48px */
+    .t-display-2 {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    /* Page Heading – 30px */
+    .t-page-heading {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 36px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Section Heading – 20px */
+    .t-section-heading {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 28px;
+    }
+
+    /* Card Heading – 18px */
+    .t-card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 24px;
+    }
+
+    /* Body LG – 16px */
+    .t-body-lg {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    /* Body – 14px */
+    .t-body {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    /* Helper – 13px */
+    .t-helper {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    /* Helper SM – 12px */
+    .t-helper-sm {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+
+    /* ── Colors by surface ── */
+    .surface--dark .t-display-1,
+    .surface--dark .t-display-2    { color: #F2EDE5; }
+    .surface--dark .t-page-heading { color: #F2EDE5; }
+    .surface--dark .t-section-heading { color: #F2EDE5; }
+    .surface--dark .t-card-heading  { color: #F2EDE5; }
+    .surface--dark .t-body-lg,
+    .surface--dark .t-body          { color: #C9BDA8; }
+    .surface--dark .t-helper,
+    .surface--dark .t-helper-sm     { color: #8C8073; }
+    .surface--dark .accent           { color: #D16D30; }
+
+    .surface--light .t-display-1,
+    .surface--light .t-display-2    { color: #1A1A1A; }
+    .surface--light .t-page-heading { color: #1A1A1A; }
+    .surface--light .t-section-heading { color: #1A1A1A; }
+    .surface--light .t-card-heading  { color: #1A1A1A; }
+    .surface--light .t-body-lg,
+    .surface--light .t-body          { color: #444444; }
+    .surface--light .t-helper,
+    .surface--light .t-helper-sm     { color: #888888; }
+    .surface--light .accent           { color: #D16D30; }
+
+    /* ── Numbers stress-test row ── */
+    .numbers-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .numbers-row {
+      font-family: var(--sans);
+      font-feature-settings: "tnum" 1;
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .num-xl  { font-size: 32px; font-weight: 700; }
+    .num-lg  { font-size: 20px; font-weight: 500; }
+    .num-md  { font-size: 15px; font-weight: 400; }
+    .num-sm  { font-size: 12px; font-weight: 400; }
+
+    .surface--dark  .num-xl  { color: #F2EDE5; }
+    .surface--dark  .num-lg  { color: #C9BDA8; }
+    .surface--dark  .num-md  { color: #C9BDA8; }
+    .surface--dark  .num-sm  { color: #8C8073; }
+    .surface--light .num-xl  { color: #1A1A1A; }
+    .surface--light .num-lg  { color: #333333; }
+    .surface--light .num-md  { color: #444444; }
+    .surface--light .num-sm  { color: #888888; }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #D16D30;
+    }
+
+    /* ── Surface header label ── */
+    .surface-header {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 56px;
+      border-bottom: 1px solid;
+    }
+    .surface-header--dark  { background: #0F0D0A; color: #4D4033; border-color: #241C17; }
+    .surface-header--light { background: #F5F5F5; color: #BBBBBB; border-color: #E0E0E0; }
+
+    .headers-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Surface labels -->
+  <div class="headers-row">
+    <div class="surface-header surface-header--dark">Warm Dark · #140F0D</div>
+    <div class="surface-header surface-header--light">Light · #FFFFFF</div>
+  </div>
+
+  <div class="surfaces">
+
+    <!-- ════════════ DARK ════════════ -->
+    <div class="surface surface--dark">
+
+      <!-- Wordmark -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Wordmark</span>
+          <span class="meta-detail">EB Garamond · 700 · uppercase · 0.2em tracking</span>
+        </div>
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <!-- Display 1 -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Display 1</span>
+          <span class="meta-detail">EB Garamond · 700 · 96px / 1.0</span>
+        </div>
+        <div class="t-display-1">Read.</div>
+      </div>
+
+      <!-- Display 2 -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Display 2</span>
+          <span class="meta-detail">EB Garamond · 700 · 48px / 1.0</span>
+        </div>
+        <div class="t-display-2">Your next chapter starts here</div>
+      </div>
+
+      <!-- Page Heading -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Page Heading</span>
+          <span class="meta-detail">EB Garamond · 500 · 30px / 36px</span>
+        </div>
+        <div class="t-page-heading">The Reading Circle</div>
+      </div>
+
+      <!-- Section Heading -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Section Heading</span>
+          <span class="meta-detail">EB Garamond · 500 · 20px / 28px</span>
+        </div>
+        <div class="t-section-heading">Currently Reading</div>
+      </div>
+
+      <!-- Card Heading (book title) -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Card Heading · Book Title</span>
+          <span class="meta-detail">EB Garamond · 400 italic · 18px / 24px</span>
+        </div>
+        <div class="t-card-heading">One Hundred Years of Solitude</div>
+        <div class="t-card-heading">The Master and Margarita</div>
+        <div class="t-card-heading">Middlemarch</div>
+      </div>
+
+      <!-- Body LG -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Body LG</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 16px / 24px</span>
+        </div>
+        <div class="t-body-lg">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the circular nature of time.</div>
+      </div>
+
+      <!-- Body -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Body</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 14px / 20px</span>
+        </div>
+        <div class="t-body">Discussion starts on page 180. Sebastián has flagged chapters 12–14 for the magical realism thread. Three members have added annotations this week.</div>
+      </div>
+
+      <!-- Helper -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Helper</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 13px / 18px</span>
+        </div>
+        <div class="t-helper">Next session · Thursday, May 21 · 7:00 PM</div>
+      </div>
+
+      <!-- Helper SM -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Helper SM</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 12px / 16px</span>
+        </div>
+        <div class="t-helper-sm">Last active 2 hours ago · 14 members · 3 reading now</div>
+      </div>
+
+      <!-- Numbers stress-test -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Numbers · Stress Test</span>
+          <span class="meta-detail">IBM Plex Sans · tnum · all weights</span>
+        </div>
+        <div class="numbers-block">
+          <div class="numbers-row">
+            <span class="num-xl">1,247</span>
+            <span class="num-xl">38</span>
+            <span class="num-xl">99%</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-lg">Session #12</span>
+            <span class="num-lg">p. 180–240</span>
+            <span class="num-lg">4.7 / 5</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-md">14 members · 3 online</span>
+            <span class="num-md">May 21, 2026</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-sm">ISBN 978-0-06-088328-7</span>
+            <span class="num-sm">07:00 PM UTC−5</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════ LIGHT ════════════ -->
+    <div class="surface surface--light">
+
+      <!-- Wordmark -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Wordmark</span>
+          <span class="meta-detail">EB Garamond · 700 · uppercase · 0.2em tracking</span>
+        </div>
+        <div class="wordmark">KLUVS</div>
+      </div>
+
+      <!-- Display 1 -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Display 1</span>
+          <span class="meta-detail">EB Garamond · 700 · 96px / 1.0</span>
+        </div>
+        <div class="t-display-1">Read.</div>
+      </div>
+
+      <!-- Display 2 -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Display 2</span>
+          <span class="meta-detail">EB Garamond · 700 · 48px / 1.0</span>
+        </div>
+        <div class="t-display-2">Your next chapter starts here</div>
+      </div>
+
+      <!-- Page Heading -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Page Heading</span>
+          <span class="meta-detail">EB Garamond · 500 · 30px / 36px</span>
+        </div>
+        <div class="t-page-heading">The Reading Circle</div>
+      </div>
+
+      <!-- Section Heading -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Section Heading</span>
+          <span class="meta-detail">EB Garamond · 500 · 20px / 28px</span>
+        </div>
+        <div class="t-section-heading">Currently Reading</div>
+      </div>
+
+      <!-- Card Heading (book title) -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Card Heading · Book Title</span>
+          <span class="meta-detail">EB Garamond · 400 italic · 18px / 24px</span>
+        </div>
+        <div class="t-card-heading">One Hundred Years of Solitude</div>
+        <div class="t-card-heading">The Master and Margarita</div>
+        <div class="t-card-heading">Middlemarch</div>
+      </div>
+
+      <!-- Body LG -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Body LG</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 16px / 24px</span>
+        </div>
+        <div class="t-body-lg">A sweeping saga of the Buendía family across seven generations — and a meditation on solitude, memory, and the circular nature of time.</div>
+      </div>
+
+      <!-- Body -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Body</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 14px / 20px</span>
+        </div>
+        <div class="t-body">Discussion starts on page 180. Sebastián has flagged chapters 12–14 for the magical realism thread. Three members have added annotations this week.</div>
+      </div>
+
+      <!-- Helper -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Helper</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 13px / 18px</span>
+        </div>
+        <div class="t-helper">Next session · Thursday, May 21 · 7:00 PM</div>
+      </div>
+
+      <!-- Helper SM -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Helper SM</span>
+          <span class="meta-detail">IBM Plex Sans · 400 · 12px / 16px</span>
+        </div>
+        <div class="t-helper-sm">Last active 2 hours ago · 14 members · 3 reading now</div>
+      </div>
+
+      <!-- Numbers stress-test -->
+      <div class="section">
+        <div class="meta-row">
+          <span class="meta">Numbers · Stress Test</span>
+          <span class="meta-detail">IBM Plex Sans · tnum · all weights</span>
+        </div>
+        <div class="numbers-block">
+          <div class="numbers-row">
+            <span class="num-xl">1,247</span>
+            <span class="num-xl">38</span>
+            <span class="num-xl">99%</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-lg">Session #12</span>
+            <span class="num-lg">p. 180–240</span>
+            <span class="num-lg">4.7 / 5</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-md">14 members · 3 online</span>
+            <span class="num-md">May 21, 2026</span>
+          </div>
+          <div class="numbers-row">
+            <span class="num-sm">ISBN 978-0-06-088328-7</span>
+            <span class="num-sm">07:00 PM UTC−5</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

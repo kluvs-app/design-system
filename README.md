@@ -53,9 +53,15 @@ A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to
 Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical badge on both surfaces), **admin** = teal `#006781`, **member** = no decoration. Error red `#EF4444` is used only for inline form errors.
 
 ### Type
-**Inter only**, three weights: Regular 400, Medium 500, Bold 700. Six text styles in figma — `titleLarge 22 / titleMedium 16M / bodyLarge 16 / bodyMedium 14 / labelMedium 12M / labelSmall 11M`. Plus three display sizes for brand surfaces (96 / 48 / 32). All tokens line-height 100% in figma; we relax to 1.4 for paragraphs in our utilities. No serifs, no italic, no monospace. Tracking is default.
+**Two-register system** — EB Garamond (serif) for literary content, IBM Plex Sans for UI chrome. Three weights each: Regular 400, Medium 500, Bold 700. No other weights.
 
-> **Font family is TBD for production.** Inter is loaded from Google Fonts CDN for the UI kit and web. Mobile currently uses system fonts (Roboto / SF Pro). This will be resolved in a future foundation pass.
+**Serif register (EB Garamond):** wordmark, display text, page headings, section headings, and book titles. Book titles use italic. This is the literary layer — it signals "here is the thing you care about."
+
+**Sans register (IBM Plex Sans):** all UI chrome — body text, labels, buttons, tabs, modal titles, helper text, eyebrow labels. This is the interface layer — neutral and readable at all sizes.
+
+**Eyebrow pattern:** section labels within UI panels and tabs use IBM Plex Sans at `helper-sm` size, weight 500, uppercase, `letter-spacing: 0.1em`. Do not use a heading class for these — use `.kluvs-eyebrow`.
+
+**Rule of thumb:** if the text is *about something you're reading or discussing* → serif. If the text is *telling the interface what to do* → sans.
 
 #### Typography tier system
 

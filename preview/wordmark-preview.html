@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kluvs — Wordmark Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      background: #1A1A1A;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px 0;
+      border-bottom: 1px solid #333;
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+
+    .cell {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .cell--dark  { background: #140F0D; }
+    .cell--light { background: #FFFFFF; }
+
+    /* ── Wordmark text ── */
+    .wm {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+    .cell--dark  .wm { color: #F2EDE5; }
+    .cell--light .wm { color: #1A1A1A; }
+
+    .wm--64 { font-size: 64px; }
+    .wm--48 { font-size: 48px; }
+    .wm--36 { font-size: 36px; }
+    .wm--20 { font-size: 20px; }
+    .wm--14 { font-size: 14px; }
+
+    /* ── Lockup ── */
+    .lk { display: flex; align-items: center; }
+    .lk svg { flex-shrink: 0; }
+
+    /* ── Cell label ── */
+    .cell-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: -16px;
+    }
+    .cell--dark  .cell-label { color: #4D4033; }
+    .cell--light .cell-label { color: #C0C0C0; }
+
+    /* ── Tracking variants ── */
+    .track-item { display: flex; flex-direction: column; gap: 6px; }
+    .track-note {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .cell--dark  .track-note { color: #4D4033; }
+    .cell--light .track-note { color: #C0C0C0; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ SECTION 1: Text-only size scale ══ -->
+  <div class="section">
+    <p class="section-label">Text-only · size scale</p>
+    <div class="two-col">
+      <div class="cell cell--dark">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <span class="wm wm--64">KLUVS</span>
+          <span class="wm wm--48">KLUVS</span>
+          <span class="wm wm--36">KLUVS</span>
+          <span class="wm wm--20">KLUVS</span>
+          <span class="wm wm--14">KLUVS</span>
+        </div>
+      </div>
+      <div class="cell cell--light">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <span class="wm wm--64">KLUVS</span>
+          <span class="wm wm--48">KLUVS</span>
+          <span class="wm wm--36">KLUVS</span>
+          <span class="wm wm--20">KLUVS</span>
+          <span class="wm wm--14">KLUVS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2: Tracking variants ══ -->
+  <div class="section">
+    <p class="section-label">Tracking variants · 36px · wide (0.18em) is current favourite</p>
+    <div class="two-col">
+      <div class="cell cell--dark">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.08em">KLUVS</span><span class="track-note">0.08em — tight</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.14em">KLUVS</span><span class="track-note">0.14em — normal</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.18em">KLUVS</span><span class="track-note">0.18em — wide ← current</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.24em">KLUVS</span><span class="track-note">0.24em — widest</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.32em">KLUVS</span><span class="track-note">0.32em — ultra</span></div>
+        </div>
+      </div>
+      <div class="cell cell--light">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.08em">KLUVS</span><span class="track-note">0.08em — tight</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.14em">KLUVS</span><span class="track-note">0.14em — normal</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.18em">KLUVS</span><span class="track-note">0.18em — wide ← current</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.24em">KLUVS</span><span class="track-note">0.24em — widest</span></div>
+          <div class="track-item"><span class="wm wm--36" style="letter-spacing:0.32em">KLUVS</span><span class="track-note">0.32em — ultra</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3: Mark + text ratio tuning ══
+       Text fixed at 36px (large) and 20px (small).
+       Mark sizes: B=36px(1.0×em), mid=41px(1.15×em), C=44px(1.22×em)
+  ══ -->
+  <div class="section">
+    <p class="section-label">Mark + text lockup · B (1.1×) vs midpoint (1.15×) vs C (1.22×)</p>
+
+    <!-- Dark -->
+    <div class="three-col">
+
+      <div class="cell cell--dark">
+        <span class="cell-label">B · 1.1×</span>
+        <div class="lk" style="gap:14px">
+          <svg width="36" height="36" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="20" height="20" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+      <div class="cell cell--dark">
+        <span class="cell-label">Midpoint · 1.15× ← new</span>
+        <div class="lk" style="gap:14px">
+          <svg width="41" height="41" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="23" height="23" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+      <div class="cell cell--dark">
+        <span class="cell-label">C · 1.22× (previous)</span>
+        <div class="lk" style="gap:14px">
+          <svg width="44" height="44" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="24" height="24" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Light -->
+    <div class="three-col">
+
+      <div class="cell cell--light">
+        <span class="cell-label">B · 1.1×</span>
+        <div class="lk" style="gap:14px">
+          <svg width="36" height="36" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="20" height="20" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+      <div class="cell cell--light">
+        <span class="cell-label">Midpoint · 1.15× ← new</span>
+        <div class="lk" style="gap:14px">
+          <svg width="41" height="41" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="23" height="23" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+      <div class="cell cell--light">
+        <span class="cell-label">C · 1.22× (previous)</span>
+        <div class="lk" style="gap:14px">
+          <svg width="44" height="44" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--36">KLUVS</span>
+        </div>
+        <div class="lk" style="gap:9px">
+          <svg width="24" height="24" viewBox="0 0 394.41 402.02" xmlns="http://www.w3.org/2000/svg"><g fill="#D16D30" stroke="#D16D30" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"><polygon fill="none" points="11,68.51 110.6,11 197.21,61 283.81,11 383.41,68.51 383.41,183.52 296.81,233.52 296.81,333.52 197.21,391.02 97.6,333.52 97.6,233.52 11,183.52"></polygon><polygon stroke="none" points="191.58,79.26 191.58,172.76 110.6,219.51 29.63,172.76 29.63,79.26 110.6,32.51"></polygon><polygon stroke="none" points="364.78,79.26 364.78,172.76 283.81,219.51 202.83,172.76 202.83,79.26 283.81,32.51"></polygon><polygon stroke="none" points="278.18,229.26 278.18,322.76 197.21,369.51 116.23,322.76 116.23,229.26 197.21,182.51"></polygon></g></svg>
+          <span class="wm wm--20">KLUVS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
