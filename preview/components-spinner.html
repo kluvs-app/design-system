@@ -1,0 +1,105 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
+.card{width:760px;padding:24px;display:flex;flex-direction:column;gap:24px;}
+
+/* size specimens */
+.row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.specimen{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.surface-dark{background:#140F0D;border-radius:12px;padding:24px;display:flex;align-items:center;justify-content:center;gap:32px;flex:1;}
+.surface-light{background:#FAFAFC;border-radius:12px;padding:24px;border:1px solid #E0E0E0;display:flex;align-items:center;justify-content:center;gap:32px;flex:1;}
+.label-dark{font:400 11px/1 var(--kluvs-font-sans);color:#6B5F52;margin-top:4px;}
+.label-light{font:400 11px/1 var(--kluvs-font-sans);color:#999;margin-top:4px;}
+
+/* usage table */
+.section-title{font:500 11px/1 var(--kluvs-font-sans);color:#999;text-transform:uppercase;letter-spacing:.08em;margin:0;}
+table{width:100%;border-collapse:collapse;font:400 13px/1.5 var(--kluvs-font-sans);color:#1A1A1A;}
+th{text-align:left;font-weight:500;font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.06em;padding:0 0 8px;border-bottom:1px solid #E0E0E0;}
+td{padding:10px 0;border-bottom:1px solid #F0F0F0;vertical-align:top;}
+td:first-child{width:120px;color:#666;font-size:12px;}
+.do{color:#1A7A4A;}
+.dont{color:#B00020;}
+code{font-family:monospace;font-size:12px;background:#F5F5F5;padding:2px 5px;border-radius:3px;}
+</style></head>
+<body><div class="card">
+
+  <!-- Specimens — warm-dark and light surfaces, three sizes -->
+  <div class="row">
+    <div class="surface-dark">
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="16" height="16" alt="Loading">
+        <span class="label-dark">16 px</span>
+      </div>
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="32" height="32" alt="Loading">
+        <span class="label-dark">32 px · default</span>
+      </div>
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="64" height="64" alt="Loading">
+        <span class="label-dark">64 px · large</span>
+      </div>
+    </div>
+    <div class="surface-light">
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="16" height="16" alt="Loading">
+        <span class="label-light">16 px</span>
+      </div>
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="32" height="32" alt="Loading">
+        <span class="label-light">32 px · default</span>
+      </div>
+      <div class="specimen">
+        <img src="../assets/spinner-kluvs.svg" width="64" height="64" alt="Loading">
+        <span class="label-light">64 px · large</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Usage table -->
+  <p class="section-title">Usage</p>
+  <table>
+    <tr><th>Size</th><th>Use when</th></tr>
+    <tr><td>16 px</td><td>Inline within body text or a table cell. Use sparingly — the mark becomes very small.</td></tr>
+    <tr><td>32 px</td><td>Button loading state, list-level loading, card skeleton. This is the default.</td></tr>
+    <tr><td>64 px</td><td>Section or panel loading takeover — e.g. club feed refreshing.</td></tr>
+    <tr><td>128 px</td><td>Full-screen page-level loading only. Above 128 px the stroke starts to look thin.</td></tr>
+  </table>
+
+  <table>
+    <tr><th>Rule</th><th></th></tr>
+    <tr>
+      <td class="do">Do</td>
+      <td>Always pair with "Loading…" copy (Sentence case, secondary color) in page-level contexts.</td>
+    </tr>
+    <tr>
+      <td class="do">Do</td>
+      <td>Use <code>alt="Loading"</code> on the <code>&lt;img&gt;</code> or <code>aria-label="Loading"</code> on inline SVG.</td>
+    </tr>
+    <tr>
+      <td class="dont">Don't</td>
+      <td>Use more than one spinner per screen. Multiple spinners signal a broken loading architecture.</td>
+    </tr>
+    <tr>
+      <td class="dont">Don't</td>
+      <td>Change the color. The spinner always uses <code>--kluvs-primary</code> (#D16D30). It reads on both surfaces.</td>
+    </tr>
+    <tr>
+      <td class="dont">Don't</td>
+      <td>Override the animation duration. The 4 s rhythm is intentional.</td>
+    </tr>
+  </table>
+
+  <!-- Animation spec summary -->
+  <p class="section-title">Animation — Breathe · Tidal</p>
+  <table>
+    <tr><th>Property</th><th>Rest (exhale)</th><th>Apex (inhale)</th></tr>
+    <tr><td>Duration</td><td colspan="2">4 000 ms per cycle · 240° per cycle · loops seamlessly</td></tr>
+    <tr><td>Easing</td><td colspan="2"><code>cubic-bezier(0.4, 0, 0.4, 1)</code> on transitions · <code>linear</code> on holds</td></tr>
+    <tr><td>Scale</td><td>0.96</td><td>1.08</td></tr>
+    <tr><td>Opacity</td><td>0.94</td><td>1.00</td></tr>
+    <tr><td>Reduced motion</td><td colspan="2">Static rest pose — no animation. Respects <code>prefers-reduced-motion: reduce</code>.</td></tr>
+  </table>
+
+</div></body></html>

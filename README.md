@@ -85,7 +85,7 @@ Radius scale is **4 (sm) / 8 (md) / 16 (lg)**. In practice product surfaces use 
 **No imagery, no gradients, no textures.** Surfaces are flat, solid colors stepped by ~5% lightness. The cover frame's only decoration is a **6-px copper top-edge bleed** + small orange dot punctuating the wordmark. The product never uses full-bleed photography or illustration.
 
 ### Animation
-Not specified in figma. House style implied by the surface model: **soft fades, no bounces.** Suggested: 150–200ms ease-out for hover/press, 250ms for screen transitions, identity easing `cubic-bezier(0.2, 0.8, 0.2, 1)`. Never spin a logo. Loading uses a static stroked ring with a 1.2s linear rotate.
+Not specified in figma. House style implied by the surface model: **soft fades, no bounces.** Suggested: 150–200ms ease-out for hover/press, 250ms for screen transitions, identity easing `cubic-bezier(0.2, 0.8, 0.2, 1)`. Never spin a logo. Loading uses the **Breathe·Tidal spinner** — the Kluvs mark with a 4s box-breathing animation (scale 0.96↔1.08, opacity 0.94↔1, 120° per step). See `assets/spinner-kluvs.svg` and `docs/spinner-kluvs.md`.
 
 ### Hover & press states
 Targets a **mobile** product, so press matters most.

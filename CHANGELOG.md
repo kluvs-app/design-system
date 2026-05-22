@@ -17,6 +17,26 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ---
 
+## [2.1.0] — 2026-05-22
+
+Loading spinner — Breathe·Tidal — shipped across all three platforms. Establishes `docs/` as the design system's integration guide home.
+
+### Added
+- **Loading spinner — Breathe·Tidal variant.** Kluvs mark (three hexagons) with a 4s box-breathing animation: 120° step on inhale (scale 0.96→1.08, opacity 0.94→1), hold, 120° step on exhale, hold. Easing: `cubic-bezier(0.4, 0, 0.4, 1)` on transitions, `linear` on holds. Reduced-motion fallback: static rest pose (no animation). Three platform exports:
+  - `assets/spinner-kluvs.svg` — self-contained animated SVG for web (CSS animation + `prefers-reduced-motion` rule)
+  - `assets/android/drawable/spinner_kluvs.xml` + `spinner_kluvs_animation.xml` — AnimatedVectorDrawable with full keyframe fidelity via `assets/android/animator/` + `assets/android/interpolator/kluvs_breathe_tidal.xml`
+  - `assets/ios/KluvsSpinner.swift` — SwiftUI view using `KeyframeAnimator` (iOS 17+); respects `accessibilityReduceMotion`
+- `preview/components-spinner.html` — spinner preview card with size specimens (16/32/64 px, both surfaces), usage table, and animation spec summary
+- `docs/spinner-kluvs.md` — developer guide covering web (`<img>` and inline SVG), Android (file placement, XML layout, Kotlin View system, Jetpack Compose, reduced motion), and iOS (SwiftUI) with copy-paste snippets. Establishes `docs/` as the home for all future per-component integration guides.
+
+### Changed
+- `index.html` States specimen: replaced placeholder border-spin `<div>` with `<img src="assets/spinner-kluvs.svg">` on both warm-dark and light surfaces
+- `site.css`: removed `@keyframes spin` and `.spinner` border-ring class; replaced with `.kluvs-spinner` sizing-only class (animation is self-contained in the SVG)
+- `README.md`: animation section updated — loading spinner is now Breathe·Tidal, not a static stroked ring
+- `CLAUDE.md`: loading state open item resolved; file map expanded with spinner and `docs/` entries
+
+---
+
 ## [2.0.0] — 2026-05-17
 
 Two-register typography system replaces Inter as the sole typeface. Breaking change: `--kluvs-font-sans` now resolves to IBM Plex Sans; any hardcoded Inter references in client repos must be updated.
@@ -120,7 +140,9 @@ Initial design system foundation, generated from the Kluvs Figma file.
 
 ---
 
-[Unreleased]: https://github.com/kluvs-app/design-system/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/kluvs-app/design-system/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/kluvs-app/design-system/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/kluvs-app/design-system/compare/v1.0.2...v2.0.0
 [1.0.2]: https://github.com/kluvs-app/design-system/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/kluvs-app/design-system/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/kluvs-app/design-system/releases/tag/v1.0.0

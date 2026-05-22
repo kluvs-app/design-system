@@ -12,7 +12,12 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `SKILL.md` | Claude Code skill front-matter for the `/kluvs-design` skill. |
 | `colors_and_type.css` | **Single token source.** CSS custom properties for all color, spacing, radius, motion, and type. Import this before anything else. |
 | `tokens.json` | **Platform-agnostic token source.** W3C/Style Dictionary compatible. Read this from any client repo to sync token values. |
-| `assets/` | Brand marks, role badges, OAuth glyphs — all SVG. Drop-in, no processing needed. |
+| `assets/` | Brand marks, role badges, OAuth glyphs, and the loading spinner — all SVG. Drop-in, no processing needed. |
+| `assets/spinner-kluvs.svg` | **Loading spinner** — Breathe·Tidal animated SVG. Use as `<img>` or inline. |
+| `assets/android/` | Android AVD files (5 XML files). See `docs/spinner-kluvs.md` for import instructions. |
+| `assets/ios/KluvsSpinner.swift` | SwiftUI loading spinner view (iOS 17+). |
+| `docs/` | Developer guides — one file per component/asset. Start here when integrating anything into a client repo. |
+| `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with copy-paste snippets. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 | `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |
 
@@ -90,5 +95,5 @@ The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in
 - **Icons:** `ui_kits/mobile/` uses Lucide inline SVGs as a placeholder from the initial generation pass. Canonical icon set is Material Symbols (weight 600, Grade 0, 24px SVG). Replace Lucide references when building production screens; drop exports into `assets/icons/`.
 - Inter is loaded from Google Fonts CDN — no local `.ttf` bundle. Font family for production is TBD.
 - The four-tier typography system is documented in README; mobile M3 implementation and web utility class mapping are pending alignment.
-- **Loading state:** current pattern is appended "…" to button label (e.g. "Saving…"). Future improvement: animated vector drawable of the Kluvs mark rotating — deferred.
+- **Loading state:** full-page/section loading uses the Breathe·Tidal spinner (`assets/spinner-kluvs.svg`). Button loading state still uses appended "…" to the label (e.g. "Saving…") — the spinner is too large for inline button use.
 - **Button text on primary:** canonical value is white `#FFFFFF` (`color.brand.on-primary`). Mobile experiment using `colorScheme.background` (adaptive near-black on dark) was evaluated — white retained for consistency and because both approaches fail AA on light surfaces equally.
