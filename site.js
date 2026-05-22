@@ -1,4 +1,11 @@
 
+  // Stamp version into every [data-version] element from version.js
+  if (window.KLUVS_VERSION) {
+    document.querySelectorAll('[data-version]').forEach(el => {
+      el.textContent = 'v' + window.KLUVS_VERSION;
+    });
+  }
+
   // Surface toggle — default is dark (class set on <main> in HTML)
   const surfaceToggle = document.getElementById('surface-toggle');
   const mainEl        = document.querySelector('.main');

@@ -85,7 +85,8 @@ This repo uses **Semantic Versioning** adapted for design systems. The current v
 2. Add a new empty `[Unreleased]` section at the top.
 3. Update the `VERSION` file.
 4. Update the version stamp in the header comment of `colors_and_type.css`.
-5. Commit, then `git tag vX.Y.Z` and push both: `git push && git push --tags`.
+5. Update `version.js` — this is the browser-side source of truth; `index.html` reads from it automatically.
+6. Commit, then `git tag vX.Y.Z` and push both: `git push && git push --tags`.
 
 The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in `CHANGELOG.md` and will become **v1.0.1** once resolved.
 
