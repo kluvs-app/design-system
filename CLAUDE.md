@@ -18,6 +18,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `assets/ios/KluvsSpinner.swift` | SwiftUI loading spinner view (iOS 17+). |
 | `docs/` | Developer guides — one file per component/asset. Start here when integrating anything into a client repo. |
 | `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with copy-paste snippets. |
+| `docs/modal.md` | Modal anatomy spec — three-zone layout, all tokens, platform notes for web/Android/iOS. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 | `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |
 

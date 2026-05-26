@@ -1,0 +1,110 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: #0A0A0A; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 24px; padding: 32px; align-items: flex-start; flex-wrap: wrap; }
+
+/* Modal shell */
+.modal { width: 320px; border-radius: var(--kluvs-radius-modal); overflow: hidden; background: #141414; border: 1px solid #2A2A2A; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #2A2A2A; }
+.modal-label-default  { font-family: var(--kluvs-font-sans); font-size: var(--kluvs-modal-label-size); font-weight: 500; letter-spacing: var(--kluvs-modal-label-tracking); text-transform: uppercase; color: var(--kluvs-primary); }
+.modal-label-destructive { font-family: var(--kluvs-font-sans); font-size: var(--kluvs-modal-label-size); font-weight: 500; letter-spacing: var(--kluvs-modal-label-tracking); text-transform: uppercase; color: var(--kluvs-danger); }
+.modal-close { width: 16px; height: 16px; color: #B0B0B0; display: block; }
+.modal-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+.modal-danger-zone { padding: 12px 24px; border-top: 1px solid #2A2A2A; }
+.modal-footer { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-top: 1px solid #2A2A2A; }
+
+/* Fields */
+.field-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #B0B0B0; margin-bottom: 8px; }
+.field-label-opt { font-weight: 400; text-transform: none; letter-spacing: 0; }
+.field-input { background: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 12px 16px; font-size: 14px; color: #FFFFFF; font-family: var(--kluvs-font-sans); }
+.field-input.placeholder { color: #666; }
+
+/* Warning boxes */
+.warn-box { border-radius: 8px; padding: 12px 16px; }
+.warn-copper { background: var(--kluvs-primary-subtle); border: 1px solid var(--kluvs-primary-border-soft); color: var(--kluvs-primary); font-size: 14px; line-height: 1.5; }
+.warn-danger { background: var(--kluvs-danger-subtle); border: 1px solid var(--kluvs-danger-border-soft); }
+.warn-danger-lbl { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--kluvs-danger); margin-bottom: 8px; }
+.warn-danger-item { font-size: 14px; color: #B0B0B0; line-height: 1.7; }
+
+/* Buttons */
+.btn-cancel  { font-size: 14px; font-weight: 500; color: #B0B0B0; background: none; border: none; cursor: pointer; font-family: var(--kluvs-font-sans); padding: 0; }
+.btn-primary { display: flex; align-items: center; gap: 8px; background: var(--kluvs-primary); border: none; border-radius: 12px; padding: 8px 20px; font-size: 14px; font-weight: 500; color: #FFFFFF; font-family: var(--kluvs-font-sans); cursor: pointer; }
+.btn-danger  { display: flex; align-items: center; gap: 8px; background: var(--kluvs-danger); border: none; border-radius: 12px; padding: 8px 20px; font-size: 14px; font-weight: 500; color: #FFFFFF; font-family: var(--kluvs-font-sans); cursor: pointer; }
+.btn-danger-text { font-size: 14px; font-weight: 500; color: var(--kluvs-danger); background: none; border: none; cursor: pointer; font-family: var(--kluvs-font-sans); padding: 0; }
+
+/* Body text */
+.body-text { font-size: 14px; color: #FFFFFF; line-height: 1.5; margin: 0; }
+
+/* Variant labels */
+.variant-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.variant-tag.default    { color: rgba(209,109,48,0.6); }
+.variant-tag.destructive { color: rgba(239,68,68,0.6); }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- Default variant: Edit modal -->
+  <div>
+    <div class="variant-tag default">Default variant</div>
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-label-default">Edit Club</span>
+        <svg class="modal-close" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="field-label">Club Name</div>
+          <div class="field-input">Fantasy Book Club</div>
+        </div>
+        <div class="warn-box warn-copper">
+          You're disconnecting this club from Discord. Bot notifications will stop until a new channel is connected.
+        </div>
+        <div>
+          <div class="field-label">Founded Date <span class="field-label-opt">(optional)</span></div>
+          <div class="field-input placeholder">2024-03-15</div>
+        </div>
+        <div class="warn-box warn-danger">
+          <div class="warn-danger-lbl" style="color:#B0B0B0">Danger Zone</div>
+          <button style="background:transparent;border:1px solid #B0B0B0;border-radius:12px;padding:6px 14px;font:500 13px/1 var(--kluvs-font-sans);color:#B0B0B0;cursor:pointer">Delete club</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Destructive variant: Delete modal -->
+  <div>
+    <div class="variant-tag destructive">Destructive variant</div>
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-label-destructive">Delete Club</span>
+        <svg class="modal-close" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </div>
+      <div class="modal-body">
+        <p class="body-text">Are you sure you want to delete <strong>"Fantasy Book Club"</strong>? This action cannot be undone.</p>
+        <div class="warn-box warn-danger">
+          <div class="warn-danger-lbl">This will permanently delete:</div>
+          <div class="warn-danger-item">All reading sessions and books</div>
+          <div class="warn-danger-item">All discussions and events</div>
+          <div class="warn-danger-item">All member associations</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-danger">Delete Club</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>

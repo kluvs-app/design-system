@@ -17,6 +17,30 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ---
 
+## [2.2.0] — 2026-05-26
+
+Modal pattern — anatomy spec, new tokens, and preview card. Establishes the three-zone modal shell as a named, cross-platform design system pattern.
+
+### Added
+- **Modal anatomy spec** (`docs/modal.md`) — full developer guide covering container, Header, Body, Footer, optional DangerZone, warning boxes, behavior rules, and platform implementation notes for web (React/Tailwind), Android (M3), and iOS (SwiftUI).
+- **`component.modal`** in `tokens.json` — named component token group with container, header, and footer sub-tokens; mirrors the existing `component.button` structure.
+- **New color tokens** — warning-box tints for both copper and danger contexts:
+  - `color.status.primary-subtle` / `--kluvs-primary-subtle` — `rgba(209,109,48,0.08)` copper tinted fill
+  - `color.status.primary-border-soft` / `--kluvs-primary-border-soft` — `rgba(209,109,48,0.25)` copper soft border
+  - `color.status.danger-subtle` / `--kluvs-danger-subtle` — `rgba(239,68,68,0.08)` danger tinted fill
+  - `color.status.danger-border-soft` / `--kluvs-danger-border-soft` — `rgba(239,68,68,0.20)` danger soft border
+- **New overlay tokens** — backdrop colors for modals and drawers:
+  - `color.overlay.light` / `--kluvs-overlay-light` — `rgba(0,0,0,0.50)` light-surface backdrop
+  - `color.overlay.dark` / `--kluvs-overlay-dark` — `rgba(0,0,0,0.70)` dark-surface backdrop
+- **`radius.modal`** / `--kluvs-radius-modal` — `16px`; semantic alias of `radius.lg` for dialog/sheet containers
+- **Typography tokens for modal label** — `typography.modal-label` group in `tokens.json`; `--kluvs-modal-label-size` (11px) and `--kluvs-modal-label-tracking` (0.14em) in CSS; `.kluvs-modal-label` utility class
+- `preview/components-modal.html` — preview card showing both default (copper eyebrow) and destructive (danger eyebrow) variants on a dark background
+
+### Changed
+- `SKILL.md` — step 4a updated to document `docs/` as the home for per-component integration guides; "Do not read" corrected to allow targeted doc reads
+
+---
+
 ## [2.1.0] — 2026-05-22
 
 Loading spinner — Breathe·Tidal — shipped across all three platforms. Establishes `docs/` as the design system's integration guide home.

@@ -1,5 +1,5 @@
 /* ============================================================
-   Kluvs Design System — Color & Type Tokens  v2.1.0
+   Kluvs Design System — Color & Type Tokens  v2.2.0
    Canonical sources:
      · kluvs.com tailwind.config (web — neutral-dark surfaces)
      · Figma "Kluvs Design System" (mobile — warm-dark surfaces)
@@ -70,6 +70,10 @@
   --kluvs-danger:        #EF4444;
   --kluvs-danger-hover:  #DC2626;
   --kluvs-success:       #48A480;      /* alias of secondary */
+  --kluvs-primary-subtle:       rgba(209, 109, 48, 0.08);  /* copper tinted fill — advisory warning boxes */
+  --kluvs-primary-border-soft:  rgba(209, 109, 48, 0.25);  /* copper soft border */
+  --kluvs-danger-subtle:        rgba(239,  68, 68, 0.08);  /* danger tinted fill — destructive warning boxes */
+  --kluvs-danger-border-soft:   rgba(239,  68, 68, 0.20);  /* danger soft border */
 
   /* ─────────── SPACING (Tailwind 4-unit base) ─────────── */
   --kluvs-space-1:  4px;
@@ -87,10 +91,15 @@
   --kluvs-radius-pill: 9999px;
   --kluvs-radius-sm:    4px;
   --kluvs-radius-lg:   16px;
+  --kluvs-radius-modal: 16px;  /* dialog / sheet containers — semantic alias of radius-lg */
 
   /* ─────────── ELEVATION (low-key) ─────────── */
   --kluvs-shadow-card: 0 1px 2px rgba(0,0,0,0.05);
   --kluvs-shadow-pop:  0 6px 20px rgba(0,0,0,0.10);
+
+  /* ─────────── OVERLAY ─────────── */
+  --kluvs-overlay-light: rgba(0, 0, 0, 0.50);  /* modal / drawer backdrop — light surfaces */
+  --kluvs-overlay-dark:  rgba(0, 0, 0, 0.70);  /* modal / drawer backdrop — dark surfaces */
 
   /* ─────────── MOTION ─────────── */
   --kluvs-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -117,6 +126,10 @@
   /* Display sizes for brand surfaces */
   --kluvs-display-1-size: 96px;
   --kluvs-display-2-size: 48px;
+
+  /* Modal header label — 11px / 0.14em; intentionally tighter than general eyebrow (12px / 0.1em) */
+  --kluvs-modal-label-size:     11px;
+  --kluvs-modal-label-tracking: 0.14em;
 }
 
 /* ──── Semantic type classes (web-canonical names) ──── */
@@ -133,6 +146,8 @@
 .kluvs-helper-sm       { font: 400 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
 /* Eyebrow: section labels within UI (tabs, cards, panels) */
 .kluvs-eyebrow         { font: 500 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; }
+/* Modal label: header eyebrow for dialog/sheet titles — 11px, 0.14em tracking */
+.kluvs-modal-label     { font: 500 var(--kluvs-modal-label-size)/1 var(--kluvs-font-sans); letter-spacing: var(--kluvs-modal-label-tracking); text-transform: uppercase; }
 
 .kluvs-base {
   font-family: var(--kluvs-font-sans);

@@ -985,7 +985,8 @@ main.dark-surface #accessibility .card span[style*="font-weight:600"] { color: v
 /* Known exceptions dividers — inline border-top needs !important */
 main.dark-surface #accessibility .card div[style*="border-top"] { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
 
-main.dark-surface #comp-states { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
+main.dark-surface #comp-states  { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
+main.dark-surface #comp-modals { border-top-color: var(--kluvs-warm-dark-card-2) !important; }
 
 /* Warm-dark swatch cards always stay on dark bg — these colors
    require dark context to be visible. Soften the contrast in light mode. */

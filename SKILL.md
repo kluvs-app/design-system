@@ -12,11 +12,13 @@ Load these files in order — stop when you have enough context for the task:
 2. `tokens.json` — every token as structured data with values, types, and usage descriptions (contrast notes, dark-surface constraints, tier mappings). **Read this for all client repo work** (mobile or web) — it is faster to parse than the CSS and includes the reasoning behind each value.
 3. `colors_and_type.css` — tokens as CSS custom properties + utility classes. **Only needed when producing a web HTML artifact** that will link or import this file directly. Skip if working in a native (Kotlin / Swift) context.
 4. `assets/` — brand marks, role badges, OAuth glyphs, icon SVGs, and the Breathe·Tidal loading spinner (`spinner-kluvs.svg`). Reference by relative path; do not inline or re-encode SVG content.
-4a. `docs/spinner-kluvs.md` — copy-paste integration guide for the spinner (web, Android, iOS). Read when producing a loading state.
+4a. `docs/` — per-component integration guides. Read the relevant guide when implementing that component:
+  - `docs/spinner-kluvs.md` — loading state (web, Android, iOS copy-paste snippets)
+  - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes
 5. `ui_kits/mobile/components.jsx` — primitive component library (KluvsTopBar, KluvsCard, KluvsButton, KluvsInput, KluvsIcon, etc.).
 6. `ui_kits/mobile/screens.jsx` — assembled screens (Login, Clubs, Profile) for reference when recreating or extending screens.
 
-**Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, `VERSION`, or anything in `docs/`. These are website infrastructure, not design guidance.
+**Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 
 ## What to do
 

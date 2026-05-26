@@ -83,6 +83,7 @@
                 <a class="nav-link" href="#comp-avatars">Avatars</a>
                 <a class="nav-link" href="#comp-members">Members</a>
                 <a class="nav-link" href="#comp-states">States</a>
+                <a class="nav-link" href="#comp-modals">Modals</a>
             </div>
 
             <div class="nav-group">
@@ -359,6 +360,16 @@
                                 <td class="comp-note">
                                     "Something went wrong" + retry pattern
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-modals">Modal — Default</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">Three-zone shell: Header / Body / Footer. Copper eyebrow. Optional DangerZone strip.</td>
+                            </tr>
+                            <tr>
+                                <td class="comp-name"><a class="comp-row-link" href="#comp-modals">Modal — Destructive</a></td>
+                                <td><span class="badge badge-done">Done</span></td>
+                                <td class="comp-note">Same shell; danger-red eyebrow, filled danger CTA.</td>
                             </tr>
                             <tr>
                                 <td class="comp-name">
@@ -2302,6 +2313,119 @@
                     </div>
 
                     <div class="comp-anno">Spinner: Breathe·Tidal — Kluvs mark, 4s box-breathing (scale 0.96↔1.08, opacity 0.94↔1, 240°/cycle). Error: red ring + retry. Progress: copper fill on surface-matched track. Timeline: copper active node, muted upcoming.</div>
+                </div>
+
+                <!-- Modals -->
+                <div class="comp-group" id="comp-modals" style="border-top:1px solid var(--kluvs-divider-light);padding-top:32px;margin-top:4px">
+                    <div class="comp-group-title">Modals — Default · Destructive</div>
+
+                    <div data-surface="dark" style="background:#0A0A0A;border-radius:12px;padding:32px">
+                    <div class="comp-grid" style="align-items:start">
+
+                        <!-- Default variant -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:rgba(209,109,48,0.6);margin-bottom:10px">Default variant</div>
+                            <div style="width:100%;max-width:360px;border-radius:16px;overflow:hidden;background:#141414;border:1px solid #2A2A2A">
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #2A2A2A">
+                                    <span style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#D16D30">Edit Club</span>
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#B0B0B0" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                                </div>
+                                <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+                                    <div>
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#B0B0B0;margin-bottom:8px">Club Name</div>
+                                        <div style="background:#1A1A1A;border:1px solid #2A2A2A;border-radius:8px;padding:11px 14px;font:400 14px/1 var(--kluvs-font-sans);color:#FFFFFF">Fantasy Book Club</div>
+                                    </div>
+                                    <div style="background:rgba(209,109,48,0.08);border:1px solid rgba(209,109,48,0.25);border-radius:8px;padding:11px 14px;font:400 13px/1.5 var(--kluvs-font-sans);color:#D16D30">Disconnecting this club from Discord. Bot notifications will stop.</div>
+                                    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.20);border-radius:8px;padding:12px 14px">
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#B0B0B0;margin-bottom:10px">Danger Zone</div>
+                                        <button style="background:transparent;border:1px solid #B0B0B0;border-radius:12px;padding:6px 14px;font:500 13px/1 var(--kluvs-font-sans);color:#B0B0B0;cursor:default">Delete club</button>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2A2A2A">
+                                    <span style="font:500 14px/1 var(--kluvs-font-sans);color:#B0B0B0">Cancel</span>
+                                    <button style="background:#D16D30;border:none;border-radius:12px;padding:8px 20px;font:500 14px/1 var(--kluvs-font-sans);color:#FFFFFF;cursor:default">Save</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Destructive variant -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:rgba(239,68,68,0.6);margin-bottom:10px">Destructive variant</div>
+                            <div style="width:100%;max-width:360px;border-radius:16px;overflow:hidden;background:#141414;border:1px solid #2A2A2A">
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #2A2A2A">
+                                    <span style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#EF4444">Delete Club</span>
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#B0B0B0" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                                </div>
+                                <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+                                    <p style="font:400 14px/1.5 var(--kluvs-font-sans);color:#FFFFFF;margin:0">Are you sure you want to delete <strong>"Fantasy Book Club"</strong>? This cannot be undone.</p>
+                                    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.20);border-radius:8px;padding:11px 14px">
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#EF4444;margin-bottom:8px">This will permanently delete:</div>
+                                        <div style="font:400 13px/1.7 var(--kluvs-font-sans);color:#B0B0B0">All reading sessions and books<br>All discussions and events<br>All member associations</div>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #2A2A2A">
+                                    <span style="font:500 14px/1 var(--kluvs-font-sans);color:#B0B0B0">Cancel</span>
+                                    <button style="background:#EF4444;border:none;border-radius:12px;padding:8px 20px;font:500 14px/1 var(--kluvs-font-sans);color:#FFFFFF;cursor:default">Delete Club</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div></div>
+
+                    <div data-surface="light" style="background:#FAFAFC;border-radius:12px;padding:32px">
+                    <div class="comp-grid" style="align-items:start">
+
+                        <!-- Default variant — light -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:rgba(209,109,48,0.7);margin-bottom:10px">Default variant</div>
+                            <div style="width:100%;max-width:360px;border-radius:16px;overflow:hidden;background:#FFFFFF;border:1px solid #E0E0E0">
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #E0E0E0">
+                                    <span style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#D16D30">Edit Club</span>
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#666666" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                                </div>
+                                <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+                                    <div>
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#666666;margin-bottom:8px">Club Name</div>
+                                        <div style="background:#F5F5F5;border:1px solid #E0E0E0;border-radius:8px;padding:11px 14px;font:400 14px/1 var(--kluvs-font-sans);color:#1A1A1A">Fantasy Book Club</div>
+                                    </div>
+                                    <div style="background:rgba(209,109,48,0.08);border:1px solid rgba(209,109,48,0.25);border-radius:8px;padding:11px 14px;font:400 13px/1.5 var(--kluvs-font-sans);color:#D16D30">Disconnecting this club from Discord. Bot notifications will stop.</div>
+                                    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.20);border-radius:8px;padding:12px 14px">
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#666666;margin-bottom:10px">Danger Zone</div>
+                                        <button style="background:transparent;border:1px solid #666666;border-radius:12px;padding:6px 14px;font:500 13px/1 var(--kluvs-font-sans);color:#666666;cursor:default">Delete club</button>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #E0E0E0">
+                                    <span style="font:500 14px/1 var(--kluvs-font-sans);color:#666666">Cancel</span>
+                                    <button style="background:#D16D30;border:none;border-radius:12px;padding:8px 20px;font:500 14px/1 var(--kluvs-font-sans);color:#FFFFFF;cursor:default">Save</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Destructive variant — light -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:rgba(239,68,68,0.7);margin-bottom:10px">Destructive variant</div>
+                            <div style="width:100%;max-width:360px;border-radius:16px;overflow:hidden;background:#FFFFFF;border:1px solid #E0E0E0">
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #E0E0E0">
+                                    <span style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;color:#EF4444">Delete Club</span>
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#666666" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                                </div>
+                                <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+                                    <p style="font:400 14px/1.5 var(--kluvs-font-sans);color:#1A1A1A;margin:0">Are you sure you want to delete <strong>"Fantasy Book Club"</strong>? This cannot be undone.</p>
+                                    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.20);border-radius:8px;padding:11px 14px">
+                                        <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#EF4444;margin-bottom:8px">This will permanently delete:</div>
+                                        <div style="font:400 13px/1.7 var(--kluvs-font-sans);color:#666666">All reading sessions and books<br>All discussions and events<br>All member associations</div>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #E0E0E0">
+                                    <span style="font:500 14px/1 var(--kluvs-font-sans);color:#666666">Cancel</span>
+                                    <button style="background:#EF4444;border:none;border-radius:12px;padding:8px 20px;font:500 14px/1 var(--kluvs-font-sans);color:#FFFFFF;cursor:default">Delete Club</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div></div>
+
+                    <div class="comp-anno">Three-zone shell: Header (eyebrow label + ×) / Body / Footer (Cancel ← → Action). Default: copper eyebrow, primary CTA. Destructive: danger-red eyebrow, danger CTA. Danger zone box lives at the bottom of the body when a secondary destructive action exists — danger tint fill, "DANGER ZONE" eyebrow, outlined danger button. Warning boxes: copper tint (advisory) or danger tint (permanent consequences).</div>
                 </div>
             </section>
 
