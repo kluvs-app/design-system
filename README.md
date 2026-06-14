@@ -138,8 +138,6 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 | State — unselected | Unfilled |
 | State — selected | Filled |
 
-> **UI kit note:** `ui_kits/mobile/` currently uses inline Lucide SVGs as a stand-in from the initial Figma generation pass. These should be replaced with Material Symbols exports when building production screens. `assets/icons/` is the intended drop location.
-
 **Glyph use beyond icons:**
 - Status-bar mocks use unicode dots and a triangle: `●  ▲  80%`. Treat these as decorative, not as an icon system.
 - Brand wordmark "KLUVS" is **typographic** (Inter Bold). The only graphic flourish is a single 14-px copper dot used as punctuation next to the wordmark on the cover frame, and an 8-px copper underline beneath the wordmark on the auth screen.
