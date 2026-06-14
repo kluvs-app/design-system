@@ -17,6 +17,8 @@ Circular, generated member avatar. Shows an uploaded image if present, otherwise
 | Own-user override | `component.avatar.own-color` → `--kluvs-primary` | copper |
 | Hue palette | `component.avatar.hue-palette` | 10 fixed colors, picked by `userId % 10` |
 
+Role is **never** shown on the avatar — no ring, no corner badge. Role identification is handled entirely by Role Eyebrow, placed next to the member's name (see below).
+
 ### Sizes
 
 | Size | Dimension | Font size |
@@ -40,6 +42,7 @@ Overlapping row of avatars (e.g. club member preview on a club card), with a `+N
 | Property | Token | Value |
 |---|---|---|
 | Overlap | `component.avatar-stack.overlap` | `-8px` margin-left on all but first |
+| Stack order | `component.avatar-stack.stack-order` | first avatar on top, descending z-index thereafter |
 | Ring | `component.avatar-stack.ring` | `2px solid` surface-elevated color, separates overlapping avatars |
 | Max shown | `component.avatar-stack.max-shown` | 3 |
 | Overflow chip | `component.avatar-stack.overflow-chip` | same size as `md` avatar, `+N` |
@@ -69,17 +72,22 @@ Thin reading-progress indicator: fill bar + a label row with an inline "Update" 
 | Track radius | `component.progress-bar.track.radius` | `radius.pill` |
 | Track color | `component.progress-bar.track.background` | `--kluvs-divider-dark` |
 | Fill color | `component.progress-bar.fill.background` | `--kluvs-primary` |
-| Action | `component.progress-bar.action` | `component.button.secondary` (sm), label "Update" |
+| Action | `component.progress-bar.action` | `component.button.secondary` (sm), label "Update", sits beside the track |
+| Status label | `component.progress-bar.label` | copper, IBM Plex Sans medium 12px, right-aligned below the track. Text depends on `progress_type`: `"{current} of {total} pages"` (page-tracking), `"{percent}% complete"` (percent-tracking), or `"Finished"` once completed |
+| Optional left label | `component.progress-bar.left-label` | italic EB Garamond book title, or an uppercase eyebrow — left-aligned on the same row as the status label |
 
 ### Web
 
 ```html
-<div class="kluvs-progress-track">
-  <div class="kluvs-progress-fill" style="width: 64%"></div>
+<div style="display:flex;align-items:center;gap:10px">
+  <div class="kluvs-progress-track" style="flex:1">
+    <div class="kluvs-progress-fill" style="width: 64%"></div>
+  </div>
+  <button class="kluvs-btn-secondary kluvs-btn-secondary--sm">Update</button>
 </div>
 <div style="display:flex;justify-content:space-between;margin-top:8px">
-  <span class="kluvs-eyebrow" style="color:var(--kluvs-primary)">Currently Reading</span>
-  <span class="kluvs-helper-sm" style="color:var(--kluvs-primary)">269 of 417 pages</span>
+  <span style="font:italic 500 17px/1 var(--kluvs-font-serif);color:var(--kluvs-content-dark-secondary)">The Midnight Library</span>
+  <span style="font:500 12px/1 var(--kluvs-font-sans);color:var(--kluvs-primary)">269 of 417 pages</span>
 </div>
 ```
 

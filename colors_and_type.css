@@ -176,7 +176,7 @@
 }
 .kluvs-btn-secondary:hover  { background: var(--kluvs-surface-dark-elevated); }
 .kluvs-btn-secondary:active { transform: scale(0.97); }
-.kluvs-btn-secondary--sm    { padding: 6px 12px; font-size: 12px; }
+.kluvs-btn-secondary--sm    { padding: 6px 12px; font-size: 12px; border-radius: 8px; }
 
 /* ──── Read status indicators — corner ribbon and circular badge ──── */
 /* Marks a book cover as "read" / finished. Two variants for different cover sizes. */
@@ -308,6 +308,10 @@
   box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
 }
 .kluvs-avatar-stack > *:not(:first-child) { margin-left: -8px; }
+.kluvs-avatar-stack > *:nth-child(1) { z-index: 4; }
+.kluvs-avatar-stack > *:nth-child(2) { z-index: 3; }
+.kluvs-avatar-stack > *:nth-child(3) { z-index: 2; }
+.kluvs-avatar-stack > *:nth-child(4) { z-index: 1; }
 .kluvs-avatar-stack__overflow {
   width: 24px;
   height: 24px;

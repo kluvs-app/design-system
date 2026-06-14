@@ -59,11 +59,27 @@ The standalone "Composite" section dumped all eight second-pass patterns togethe
 - **Progress Bar** → de-duplicated. The States section's existing "Currently Reading" bar now uses the real `.kluvs-progress-track`/`.kluvs-progress-fill` classes instead of one-off inline styles, and the standalone Composite copy was removed.
 - **Read Indicators**, **Book Cover Placeholder** (renamed "No-Cover Fallback"), and **Empty State** → kept together as a new **"Book Cover States"** section (both surfaces), replacing "Composite". Switched its wrapper from a custom `background:#0A0A0A` box to the standard `.comp-surface-dark`/`.comp-surface-light` cards used everywhere else, fixing the overly-bright divider contrast above the section.
 
+### Fixed — Avatars and Members sections were never accurate to the shipped app
+
+The "Avatar — 3 Roles × 3 Sizes" block used an undefined `.avatar-ring` class (no CSS rule existed anywhere — these rendered as bare, unstyled divs), wrong sizes (48/36/24px instead of the real sm/md/lg/xl/2xl scale), and a role-colored-ring legend that has never existed in `kluvs-frontend`. The Members section showed the same broken `.avatar-ring` plus `role-badge-*.svg` icons that are not used by any shipped member row, with Role Eyebrow demoted to a disconnected swatch list below.
+
+- **Avatars**: replaced `.avatar-ring` with `.kluvs-avatar` (EB Garamond Medium initials, hue-palette backgrounds) at the correct sizes (sm 20px/8px, md 24px/10px, lg 40px/12px, xl 88px/35px), added a hue-palette swatch row, and removed the fictitious role-ring legend. Annotation now explicitly states role is never shown on the avatar.
+- **Avatar Stack**: fixed the "+N" overflow chip rendering smaller than its siblings (avatars were 32px, the chip's CSS default is 24px — now both use 24px/md). Added `z-index` stacking (`.kluvs-avatar-stack > *:nth-child(1..4)`, descending) so the first avatar sits on top, matching `ProfilePage`'s `AvatarStack`.
+- **Members**: removed `.avatar-ring` and the unused `role-badge-*.svg` icons from MemberRow; rows now use `.kluvs-avatar` (lg, hue colors) with **Role Eyebrow inline at the trailing edge** — matching how `ClubDetailPage` actually places `RoleEyebrow` next to a member's name — instead of as a separate swatch block underneath.
+- `tokens.json`: added `component.avatar-stack.stack-order` documenting the new z-index convention, and clarified `component.avatar.$description` that role is never encoded on the avatar.
+
+### Fixed — States section's "Currently Reading" progress bar didn't match the shipped `ProgressRow`
+
+The track had a "47%" label floating at its trailing end — `ProgressRow` doesn't render a bare percentage there at all. The real layout is: track + small secondary "Update" button on one row, then a copper status label (`"X of Y pages"` / `"Z% complete"` / `"Finished"`, depending on the club's tracking type) right-aligned on the row below.
+
+- `index.html` States section now renders `.kluvs-progress-track`/`.kluvs-progress-fill` beside a `.kluvs-btn-secondary--sm` "Update" button, with the "203 of 432 pages" status label below, for both surfaces.
+- `docs/composite-components.md` Progress Bar spec rewritten to document the action-beside-track layout and the three status-label variants (page / percent / finished).
+- Progress Bar remains documented as its own `component.progress-bar` token group (already the case) but isn't broken out into its own site section — it's shown in context as part of the "Currently Reading" card, which matches how it's actually used.
+
 ### Known follow-ups
 
 - **Avatar hue palette** (`ui/Avatar.tsx`, `AVATAR_HUES`) — still hardcoded inline in `kluvs-frontend`, now documented in `tokens.json` but not yet referenced from a shared source. Lower priority; revisit if other clients need generated-avatar parity.
 - **`preview/components-member-row.html`** — documents the unshipped ring/corner-dot avatar role pattern; should be updated or replaced to reflect `component.role-eyebrow` in a future pass.
-- **`preview/components-composite.html`** — still single-surface (dark canvas only); update to show light-surface variants alongside dark, matching the new `index.html` treatment.
 - **Reading progress row** (`ProgressRow.tsx`) — an in-progress exploration of richer progress treatments lives in `preview/explore-reading-progress.html` (untracked) — reconcile before specing `component.reading-progress` updates.
 - **App navigation shell** (`AppSidebar.tsx` + `MobileTopBar.tsx`) — first real implementation of the Material Symbols icon system from `README.md`; worth a future icon-sourcing convention doc.
 - **BookCover / CoverSlot** (`ui/BookCover.tsx`) — standardized 2:3 cover slot (56×84 / 80×120 / 128×192) — candidate for a future `component.book-cover` token group.
