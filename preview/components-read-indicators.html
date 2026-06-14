@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: #0A0A0A; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 32px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: #B0B0B0; }
+.cover { width: 100px; height: 150px; border-radius: 8px; background: #1A1A1A; border: 1px solid #2A2A2A; }
+.cover-sm { width: 64px; height: 96px; }
+.relative { position: relative; }
+.row { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #141414; border: 1px solid #2A2A2A; border-radius: 8px; }
+.row-text { color: #FFFFFF; font-size: 14px; }
+</style></head>
+<body><div class="canvas">
+
+  <div class="group">
+    <div class="relative">
+      <div class="cover"></div>
+      <span class="kluvs-read-ribbon kluvs-read-ribbon--full" title="Read" aria-label="Read"></span>
+    </div>
+    <span class="label">Ribbon — full</span>
+  </div>
+
+  <div class="group">
+    <div class="relative">
+      <div class="cover cover-sm"></div>
+      <span class="kluvs-read-ribbon kluvs-read-ribbon--compact" title="Read" aria-label="Read"></span>
+    </div>
+    <span class="label">Ribbon — compact</span>
+  </div>
+
+  <div class="group">
+    <div class="row">
+      <span class="kluvs-read-badge" title="Read" aria-label="Read">
+        <svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true">
+          <path d="M264.65-107 48.74-480l215.91-373h430.7l215.91 373-215.91 373h-430.7Z" />
+        </svg>
+      </span>
+      <span class="row-text">Cien Años de Soledad</span>
+    </div>
+    <span class="label">Badge — list row</span>
+  </div>
+
+</div></body></html>

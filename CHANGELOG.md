@@ -15,6 +15,39 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Added — formalizing patterns from `kluvs-frontend`
+
+`kluvs-frontend` has shipped ~30 PRs since v2.2.0. The following new patterns and discrepancies were audited and formalized:
+
+- **`component.read-ribbon` / `component.read-badge`** in `tokens.json`, `.kluvs-read-ribbon`(`--compact`/`--full`) and `.kluvs-read-badge` classes in `colors_and_type.css`, plus `docs/read-indicators.md` and `preview/components-read-indicators.html` — covers the "read"/finished book indicators (`KluvsReadRibbon`, `KluvsReadBadge`) shipped in the frontend.
+- **`component.button.secondary`** in `tokens.json` + `.kluvs-btn-secondary` (`--sm` modifier) in `colors_and_type.css` — documents the ghost/outlined secondary button pattern (frontend's `GhostButton`) alongside the existing primary button spec.
+- **`--kluvs-role-admin-on-dark`** (`#7BA8B8`) and **`--kluvs-role-member-label`** (`#48A480`) — new role-label text colors. `--kluvs-role-admin` (`#006781`) fails AA as text on dark and should only be used for the badge/dot; admin label text and member label text needed their own tokens.
+- **`color.status.success-subtle`** / `--kluvs-success-subtle` (`rgba(72,164,128,0.15)`) — success tint for pressed states (e.g. "yes" in a segmented RSVP control), mirroring the existing danger/primary subtle tokens.
+
+### Propagated to `kluvs-frontend`
+
+- `tailwind.config.js` — added `role.admin` (`#006781`), `role['admin-on-dark']` (`#7BA8B8`), `role['member-label']` (`#48A480`), matching the new DS role tokens. `success`/`danger` Tailwind colors already existed and now back the success/danger token aliases.
+- `RoleEyebrow.tsx` — replaced hardcoded `#C9900A`/`#7BA8B8`/`#48A480`/`#006781` with `text-role-owner`/`text-role-admin-on-dark`/`text-role-member-label`/`bg-role-owner`/`bg-role-admin`.
+- `AttendanceControl.tsx` — replaced raw `green-500`/`red-500`/`green-400`/`red-400` with `success`/`danger` (using Tailwind's `/opacity` modifier for the subtle tints, equivalent to `--kluvs-success-subtle`/`--kluvs-danger-subtle`).
+
+### Added — second pass of composite patterns from `kluvs-frontend`
+
+- **`docs/composite-components.md`** + **`preview/components-composite.html`** — formalizes six more shipped patterns:
+  - **Avatar / Avatar Stack** (`component.avatar`, `component.avatar-stack`) — generated avatar (10-color hue palette, sizes sm–2xl) and the overlapping member-avatar row with `+N` overflow chip. `.kluvs-avatar`, `.kluvs-avatar-stack` in `colors_and_type.css`.
+  - **Progress Bar** (`component.progress-bar`) — the *currently shipped* `ProgressRow` (4px fill bar + label row + secondary "Update" action). `.kluvs-progress-track` / `.kluvs-progress-fill`. Explicitly scoped to today's version — `preview/explore-reading-progress.html` redesign is still undecided.
+  - **Pill Button** (`component.button.pill`) — tiny rounded-full outlined chip (e.g. "Copy Club ID") with a transient success state. `.kluvs-btn-pill` / `.kluvs-btn-pill--success`.
+  - **Segmented Control** (`component.segmented-control`) — generalizes two shipped patterns: the filled Track-By (Page/Percent) toggle and the icon-only, status-tinted RSVP control. `.kluvs-segmented`, `.kluvs-segmented--icon`.
+  - **Role Eyebrow** (`component.role-eyebrow`) — uppercase role label + optional dot, using the new role-label tokens from the previous entry. `.kluvs-role-eyebrow`. **Supersedes** the avatar-ring + corner-dot pattern in `preview/components-member-row.html`, which was never shipped.
+  - **Empty States + Book Cover Placeholder** (`component.empty-state`, `component.book-cover-placeholder`) — page-level "nothing here" state (stacked tilted placeholder covers + italic heading + body + CTA) and the single-cover diagonal-stripe "no cover" fallback. `.kluvs-empty-covers`, `.kluvs-empty-heading`, `.kluvs-empty-body`, `.kluvs-cover-placeholder`.
+
+### Known follow-ups
+
+- **Avatar hue palette** (`ui/Avatar.tsx`, `AVATAR_HUES`) — still hardcoded inline in `kluvs-frontend`, now documented in `tokens.json` but not yet referenced from a shared source. Lower priority; revisit if other clients need generated-avatar parity.
+- **`preview/components-member-row.html`** — documents the unshipped ring/corner-dot avatar role pattern; should be updated or replaced to reflect `component.role-eyebrow` in a future pass.
+- **Reading progress row** (`ProgressRow.tsx`) — an in-progress exploration of richer progress treatments lives in `preview/explore-reading-progress.html` (untracked) — reconcile before specing `component.reading-progress` updates.
+- **App navigation shell** (`AppSidebar.tsx` + `MobileTopBar.tsx`) — first real implementation of the Material Symbols icon system from `README.md`; worth a future icon-sourcing convention doc.
+- **BookCover / CoverSlot** (`ui/BookCover.tsx`) — standardized 2:3 cover slot (56×84 / 80×120 / 128×192) — candidate for a future `component.book-cover` token group.
+
 ---
 
 ## [2.2.0] — 2026-05-26

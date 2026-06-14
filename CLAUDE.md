@@ -19,6 +19,8 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/` | Developer guides — one file per component/asset. Start here when integrating anything into a client repo. |
 | `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with copy-paste snippets. |
 | `docs/modal.md` | Modal anatomy spec — three-zone layout, all tokens, platform notes for web/Android/iOS. |
+| `docs/read-indicators.md` | "Read"/finished book indicators — corner ribbon and circular badge, tokens and platform notes. |
+| `docs/composite-components.md` | Avatar/avatar-stack, progress bar, pill button, segmented control, role eyebrow, empty states, book cover placeholder — patterns extracted from shipped `kluvs-frontend` code. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 | `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |
 
@@ -58,6 +60,7 @@ These are confirmed design system decisions that have not yet been applied to `k
 - **Mobile typography** — `kluvs-frontend` now uses IBM Plex Sans + EB Garamond (v2.0.0). Mobile (`kluvs-mobile`) still uses system fonts. A full typography pass on mobile is pending — apply the two-register system (EB Garamond for headings/book titles, IBM Plex Sans for body/UI).
 - **Mobile M3 surface overrides** — `darkColorScheme` in `Theme.kt` only sets primary/secondary/tertiary. The warm-dark surfaces (`#140F0D`, `#1A140F`, `#241C17`, etc.) need to be explicitly set to match the Figma/design system intent.
 - **Mobile typography** — `Type.kt` only defines `bodyLarge`; the full four-tier system (titleMedium → bodyLarge → bodyMedium → bodySmall) should be explicitly set rather than relying on M3 defaults.
+- **`kluvs-frontend` token discrepancies (found 2026-06-14)** — `AttendanceControl.tsx` uses raw Tailwind `green-500`/`red-500` instead of `--kluvs-success`/`--kluvs-danger` for RSVP states; `RoleEyebrow.tsx` uses an undocumented `#7BA8B8` for admin label text (vs. `#006781` for the role dot) and `#48A480` for the member role label, neither of which exist as named role tokens yet. See `CHANGELOG.md` [Unreleased] audit for the full list of new frontend patterns (read ribbon/badge, GhostButton, Avatar hue palette, nav shell, book cover) pending formalization into the design system.
 
 ## Working with this system
 

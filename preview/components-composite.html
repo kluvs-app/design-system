@@ -1,0 +1,100 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: #0A0A0A; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 32px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 260px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: #B0B0B0; }
+.card { background: #141414; border: 1px solid #2A2A2A; border-radius: 8px; padding: 16px; width: 100%; box-sizing: border-box; }
+</style></head>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">Avatar stack</span>
+    <div class="card">
+      <div class="kluvs-avatar-stack">
+        <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5865F2">LM</div>
+        <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5BAA5C">AP</div>
+        <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#D16D30">DU</div>
+        <div class="kluvs-avatar-stack__overflow">+2</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Progress bar</span>
+    <div class="card">
+      <div class="kluvs-progress-track">
+        <div class="kluvs-progress-fill" style="width:64%"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:8px">
+        <span class="kluvs-eyebrow" style="color:var(--kluvs-primary)">Currently Reading</span>
+        <span class="kluvs-helper-sm" style="color:var(--kluvs-primary)">269 of 417 pages</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Pill button</span>
+    <div class="card" style="display:flex;gap:10px">
+      <button class="kluvs-btn-pill">Copy Club ID</button>
+      <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Segmented — filled</span>
+    <div class="card">
+      <div class="kluvs-segmented">
+        <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
+        <button class="kluvs-segmented__option">Percent</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Segmented — RSVP</span>
+    <div class="card">
+      <div class="kluvs-segmented kluvs-segmented--icon">
+        <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
+        <button class="kluvs-segmented__option">?</button>
+        <button class="kluvs-segmented__option">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Role eyebrow</span>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px">
+      <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
+      <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
+      <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Book cover placeholder</span>
+    <div class="card">
+      <div class="kluvs-cover-placeholder" style="width:80px;height:120px;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px">
+        <span class="kluvs-cover-placeholder__label">No cover</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="group" style="width:380px">
+    <span class="label">Empty state — stacked covers</span>
+    <div class="card" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:32px 16px">
+      <div class="kluvs-empty-covers" style="width:160px;height:140px">
+        <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(-33px,3px) rotate(-7deg)"></div>
+        <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(0,-3px) rotate(4deg)"></div>
+        <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(33px,3px) rotate(10deg)"></div>
+      </div>
+      <div>
+        <p class="kluvs-empty-heading" style="font-size:22px">Nothing shelved yet.</p>
+        <p class="kluvs-empty-body" style="margin-top:8px">Search for a book and add it to Want to Read, Read, or Not Finished — it'll show up here.</p>
+      </div>
+    </div>
+  </div>
+
+</div></body></html>

@@ -63,8 +63,10 @@
 
   /* ─────────── ROLES ─────────── */
   --kluvs-role-owner:  #C9900A;        /* mustard — role badge; ~7:1 on dark, ~3:1 on light — usable as graphical badge on both surfaces */
-  --kluvs-role-admin:  #006781;        /* tertiary teal */
+  --kluvs-role-admin:  #006781;        /* tertiary teal — role badge / dot */
+  --kluvs-role-admin-on-dark: #7BA8B8; /* lighter teal — admin role *label text* on dark surfaces; --kluvs-role-admin fails AA as text on dark */
   --kluvs-role-member: transparent;
+  --kluvs-role-member-label: #48A480;  /* member role label text — alias of --kluvs-secondary */
 
   /* ─────────── STATUS ─────────── */
   --kluvs-danger:        #EF4444;
@@ -74,6 +76,7 @@
   --kluvs-primary-border-soft:  rgba(209, 109, 48, 0.25);  /* copper soft border */
   --kluvs-danger-subtle:        rgba(239,  68, 68, 0.08);  /* danger tinted fill — destructive warning boxes */
   --kluvs-danger-border-soft:   rgba(239,  68, 68, 0.20);  /* danger soft border */
+  --kluvs-success-subtle:       rgba( 72, 164, 128, 0.15); /* success tinted fill — e.g. pressed "yes" RSVP state */
 
   /* ─────────── SPACING (Tailwind 4-unit base) ─────────── */
   --kluvs-space-1:  4px;
@@ -154,6 +157,221 @@
   color: var(--kluvs-content-light-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──── Secondary (ghost) button — outlined, transparent fill ──── */
+/* Companion to component.button.primary; for secondary actions (e.g. "Update", "Edit") */
+.kluvs-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 13px/1 var(--kluvs-font-sans);
+  padding: 10px 16px;
+  border-radius: var(--kluvs-radius-btn);
+  background: transparent;
+  border: 1px solid var(--kluvs-divider-dark);
+  color: var(--kluvs-content-dark-primary);
+  cursor: pointer;
+  transition: background var(--kluvs-dur-fast) var(--kluvs-ease), transform var(--kluvs-dur-fast) var(--kluvs-ease);
+}
+.kluvs-btn-secondary:hover  { background: var(--kluvs-surface-dark-elevated); }
+.kluvs-btn-secondary:active { transform: scale(0.97); }
+.kluvs-btn-secondary--sm    { padding: 6px 12px; font-size: 12px; }
+
+/* ──── Read status indicators — corner ribbon and circular badge ──── */
+/* Marks a book cover as "read" / finished. Two variants for different cover sizes. */
+.kluvs-read-ribbon {
+  position: absolute;
+  top: 0;
+  background: var(--kluvs-primary);
+  clip-path: polygon(18% 0, 82% 0, 82% 50%, 100% 75%, 82% 100%, 18% 100%, 0% 75%, 18% 50%);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+.kluvs-read-ribbon--compact { width: 20px; height: 35px; right: 8px; }
+.kluvs-read-ribbon--full    { width: 30px; height: 52px; right: 14px; }
+
+.kluvs-read-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--kluvs-radius-pill);
+  border: 1px solid var(--kluvs-primary);
+  color: var(--kluvs-primary);
+}
+.kluvs-read-badge svg { width: 16px; height: 16px; }
+
+/* ──── Pill button (e.g. "Copy Club ID") — tiny rounded-full outlined chip ──── */
+.kluvs-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  font: 500 11px/1 var(--kluvs-font-sans);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: var(--kluvs-radius-pill);
+  background: transparent;
+  border: 1px solid var(--kluvs-divider-dark);
+  color: var(--kluvs-content-dark-secondary);
+  cursor: pointer;
+  transition: color var(--kluvs-dur-fast) var(--kluvs-ease), border-color var(--kluvs-dur-fast) var(--kluvs-ease);
+}
+.kluvs-btn-pill--success {
+  border-color: var(--kluvs-success);
+  color: var(--kluvs-success);
+}
+
+/* ──── Segmented control — pill-shaped multi-option toggle ──── */
+.kluvs-segmented {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--kluvs-divider-dark);
+  border-radius: var(--kluvs-radius-pill);
+  overflow: hidden;
+}
+.kluvs-segmented__option {
+  flex: 1;
+  padding: 8px 0;
+  font: 500 12px/1 var(--kluvs-font-sans);
+  text-align: center;
+  background: transparent;
+  color: var(--kluvs-content-dark-secondary);
+  border: none;
+  border-left: 1px solid var(--kluvs-divider-dark);
+  cursor: pointer;
+  transition: background var(--kluvs-dur-base) var(--kluvs-ease), color var(--kluvs-dur-base) var(--kluvs-ease);
+}
+.kluvs-segmented__option:first-child { border-left: none; }
+.kluvs-segmented__option--active {
+  background: var(--kluvs-primary);
+  color: var(--kluvs-on-primary);
+}
+/* Icon-only variant (e.g. RSVP attendance) — fixed-size square segments, status-tinted active state */
+.kluvs-segmented--icon .kluvs-segmented__option {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.kluvs-segmented--icon .kluvs-segmented__option--yes-active {
+  background: var(--kluvs-success-subtle);
+  color: var(--kluvs-success);
+}
+.kluvs-segmented--icon .kluvs-segmented__option--maybe-active {
+  background: var(--kluvs-surface-dark-elevated);
+  color: var(--kluvs-content-dark-primary);
+}
+.kluvs-segmented--icon .kluvs-segmented__option--no-active {
+  background: var(--kluvs-danger-subtle);
+  color: var(--kluvs-danger);
+}
+
+/* ──── Progress bar — thin fill bar for reading progress ──── */
+.kluvs-progress-track {
+  height: 4px;
+  border-radius: var(--kluvs-radius-pill);
+  background: var(--kluvs-divider-dark);
+  overflow: hidden;
+}
+.kluvs-progress-fill {
+  height: 100%;
+  background: var(--kluvs-primary);
+  border-radius: var(--kluvs-radius-pill);
+  transition: width 300ms;
+}
+
+/* ──── Avatar & avatar stack ──── */
+.kluvs-avatar {
+  border-radius: var(--kluvs-radius-pill);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: var(--kluvs-font-serif);
+  font-weight: 500;
+}
+.kluvs-avatar-stack { display: flex; }
+.kluvs-avatar-stack > * {
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
+}
+.kluvs-avatar-stack > *:not(:first-child) { margin-left: -8px; }
+.kluvs-avatar-stack__overflow {
+  width: 24px;
+  height: 24px;
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kluvs-radius-pill);
+  font: 500 10px/1 var(--kluvs-font-sans);
+  background: var(--kluvs-warm-dark-card-2);
+  color: var(--kluvs-warm-fg-label);
+  box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
+}
+
+/* ──── Role eyebrow — uppercase role label + optional dot ──── */
+.kluvs-role-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 11px/1 var(--kluvs-font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.kluvs-role-eyebrow__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--kluvs-radius-pill);
+}
+.kluvs-role-eyebrow--owner  { color: var(--kluvs-role-owner); }
+.kluvs-role-eyebrow--owner  .kluvs-role-eyebrow__dot { background: var(--kluvs-role-owner); }
+.kluvs-role-eyebrow--admin  { color: var(--kluvs-role-admin-on-dark); }
+.kluvs-role-eyebrow--admin  .kluvs-role-eyebrow__dot { background: var(--kluvs-role-admin); }
+.kluvs-role-eyebrow--member { color: var(--kluvs-role-member-label); }
+
+/* ──── Empty state — stacked placeholder covers ──── */
+.kluvs-empty-covers { position: relative; flex-shrink: 0; }
+.kluvs-empty-covers__cover {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.03);
+  background: repeating-linear-gradient(135deg, var(--kluvs-surface-dark-elevated) 0 5px, var(--kluvs-divider-dark) 5px 10px);
+}
+.kluvs-empty-heading {
+  font: 500 28px/1 var(--kluvs-font-serif);
+  font-style: italic;
+  letter-spacing: -0.012em;
+  color: var(--kluvs-content-dark-secondary);
+}
+.kluvs-empty-body {
+  font: 400 13px/1.6 var(--kluvs-font-sans);
+  color: var(--kluvs-warm-fg-tertiary);
+  max-width: 340px;
+  text-align: center;
+}
+
+/* ──── Book cover placeholder — "no cover" fallback fill ──── */
+.kluvs-cover-placeholder {
+  background: repeating-linear-gradient(45deg, var(--kluvs-divider-dark) 0 3px, var(--kluvs-surface-dark-elevated) 3px 6px);
+}
+.kluvs-cover-placeholder__label {
+  font: 400 8px/1 ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kluvs-warm-fg-tertiary);
+  opacity: 0.7;
 }
 
 /* ──── Back-compat aliases (preview cards reference older names) ──── */
