@@ -2418,20 +2418,15 @@
             </section>
 
             <!-- Components ─────────────────────────── -->
-            <section class="section" id="components">
+            <section class="section" id="comp-navigation">
                 <div class="section-eyebrow">Components</div>
-                <h2 class="section-title">Components</h2>
+                <h2 class="section-title">Navigation</h2>
                 <p class="section-desc">
-                    Live specimens rendered with design tokens. Click any
-                    component name in the status table above to jump to its
-                    specimen.
+                    Application shell structure: Top bars, sub-headers, and
+                    primary navigation anchors.
                 </p>
 
-                <!-- Navigation -->
-                <div class="comp-group" id="comp-navigation">
-                    <div class="comp-group-title">
-                        Navigation — TopBar · SubBar · Tabs · BottomNav
-                    </div>
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-navigation"
@@ -2443,10 +2438,17 @@
                         preview/components-navigation.html.
                     </div>
                 </div>
+            </section>
 
-                <!-- Buttons -->
-                <div class="comp-group" id="comp-buttons">
-                    <div class="comp-group-title">Buttons — All Variants</div>
+            <section class="section" id="comp-buttons">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Buttons</h2>
+                <p class="section-desc">
+                    Primary actions, social providers, and utility-scale buttons
+                    for compact interfaces.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-buttons"
@@ -2459,10 +2461,17 @@
                         preview/components-buttons.html.
                     </div>
                 </div>
+            </section>
 
-                <!-- Inputs -->
-                <div class="comp-group" id="comp-inputs">
-                    <div class="comp-group-title">InputField — 4 States</div>
+            <section class="section" id="comp-inputs">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Inputs</h2>
+                <p class="section-desc">
+                    Form fields for text entry, supporting four distinct
+                    validation and interaction states.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-inputs"
@@ -2473,10 +2482,17 @@
                         surface fills. Light: white fills, gray borders.
                     </div>
                 </div>
+            </section>
 
-                <!-- Cards -->
-                <div class="comp-group" id="comp-cards">
-                    <div class="comp-group-title">Cards</div>
+            <section class="section" id="comp-cards">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Cards</h2>
+                <p class="section-desc">
+                    Surface-level containers for primary content and upcoming
+                    events.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-cards"
@@ -2487,12 +2503,17 @@
                         shadow, copper tint on accent.
                     </div>
                 </div>
+            </section>
 
-                <!-- Avatars -->
-                <div class="comp-group" id="comp-avatars">
-                    <div class="comp-group-title">
-                        Avatar — Sizes, Hue Palette &amp; Avatar Stack
-                    </div>
+            <section class="section" id="comp-avatars">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Avatars</h2>
+                <p class="section-desc">
+                    User representation through initials or images, using a
+                    deterministic 12-hue brand palette.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-avatars"
@@ -2500,22 +2521,24 @@
                     <div class="comp-anno">
                         Avatar: circle, EB Garamond Medium initials, white text.
                         Background is either the copper primary (own user) or
-                        one of 10 fixed hue colors picked deterministically by
-                        user ID. Sizes: sm 20px/8px · md 24px/10px · lg
-                        40px/12px · xl 88px/35px (2xl 112px/45px not shown).
-                        Role is never shown on the avatar itself — see Role
-                        Eyebrow in Members. Avatar Stack: -8px overlap, first
-                        avatar on top (descending z-index), 2px ring matching
-                        the surface, "+N" overflow chip sized to match the
-                        avatars.
+                        one of 12 thematic chocolate/cream hues picked
+                        deterministically by user ID. Sizes: sm 20px/8px · md
+                        24px/10px · lg 40px/12px · xl 88px/35px. Avatar Stack:
+                        -8px overlap, first avatar on top, 2px ring matching the
+                        surface.
                     </div>
                 </div>
+            </section>
 
-                <!-- Members -->
-                <div class="comp-group" id="comp-members">
-                    <div class="comp-group-title">
-                        MemberRow — Hierarchy &amp; Role Indicators
-                    </div>
+            <section class="section" id="comp-members">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Members</h2>
+                <p class="section-desc">
+                    Member profile rows and the role indicator system used
+                    throughout the app.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-members"
@@ -2523,96 +2546,72 @@
                     <div class="comp-anno">
                         TextDivider: hairline + sentence-case label. MemberRow:
                         lg (40px) avatar + name + handle, with Role Eyebrow at
-                        the trailing edge for Owner/Admin/Member — the shipped
-                        pattern for role identification (no ring or badge on the
-                        avatar itself).
+                        the trailing edge for Owner/Admin/Member.
                     </div>
                 </div>
+            </section>
 
-                <!-- States -->
-                <div
-                    class="comp-group"
-                    id="comp-states"
-                    style="
-                        border-top: 1px solid var(--kluvs-divider-light);
-                        padding-top: 32px;
-                        margin-top: 4px;
-                    "
-                >
-                    <div class="comp-group-title">
-                        States — Loading · Error · Empty · Reading Progress ·
-                        Timeline
-                    </div>
+            <section class="section" id="comp-states">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">System States</h2>
+                <p class="section-desc">
+                    Functional states for loading, error recovery, and empty
+                    views.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-states"
                     ></div>
                     <div class="comp-anno">
-                        Spinner: Breathe·Tidal — Kluvs mark, 4s box-breathing
-                        (scale 0.96↔1.08, opacity 0.94↔1, 240°/cycle). Error:
-                        red ring + retry. Empty State: tilted stacked-cover
-                        illustration + italic serif heading + helper text +
-                        primary CTA (not shown). Progress: 4px copper fill on
-                        track with a small secondary "Update" action alongside
-                        it, and a copper status label right-aligned below.
-                        Timeline: copper active node, muted upcoming.
+                        Spinner: Breathe·Tidal mark. Error: red ring + retry.
+                        Empty State: tilted stacked-cover illustration.
+                        Progress: 4px copper fill on track with "Update" action.
+                        Timeline: copper active node.
                     </div>
                 </div>
+            </section>
 
-                <!-- Modals -->
-                <div
-                    class="comp-group"
-                    id="comp-modals"
-                    style="
-                        border-top: 1px solid var(--kluvs-divider-light);
-                        padding-top: 32px;
-                        margin-top: 4px;
-                    "
-                >
-                    <div class="comp-group-title">
-                        Modals — Default · Destructive
-                    </div>
+            <section class="section" id="comp-modals">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Modals</h2>
+                <p class="section-desc">
+                    Three-zone dialog shells for configuration, information, and
+                    destructive actions.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-modals"
                     ></div>
                     <div class="comp-anno">
-                        Three-zone shell: Header (eyebrow label + ×) / Body /
-                        Footer (Cancel ← → Action). Default: copper eyebrow,
-                        primary CTA. Destructive: danger-red eyebrow, danger
-                        CTA. Danger zone box lives at the bottom of the body
-                        when a secondary destructive action exists — danger tint
-                        fill, "DANGER ZONE" eyebrow, outlined danger button.
-                        Warning boxes: copper tint (advisory) or danger tint
-                        (permanent consequences).
+                        Three-zone shell: Header / Body / Footer. Default:
+                        copper eyebrow. Destructive: danger-red eyebrow. Warning
+                        boxes: copper/danger tints.
                     </div>
                 </div>
+            </section>
 
-                <!-- Book Cover -->
-                <div
-                    class="comp-group"
-                    id="comp-book-cover"
-                    style="
-                        border-top: 1px solid var(--kluvs-divider-light);
-                        padding-top: 32px;
-                        margin-top: 4px;
-                    "
-                >
-                    <div class="comp-group-title">
-                        Book Cover — Kluvs Reading Indicators · No-Cover
-                        Fallback
-                    </div>
+            <section class="section" id="comp-book-cover">
+                <div class="section-eyebrow">Components</div>
+                <h2 class="section-title">Book Cover</h2>
+                <p class="section-desc">
+                    Standardized 2:3 aspect ratio imagery with status ribbons
+                    and branded fallbacks.
+                </p>
+
+                <div class="comp-group">
                     <div
                         class="preview-embed"
                         data-preview="components-book-cover"
                     ></div>
                     <div class="comp-anno">
-                        Read Indicators: corner ribbon (full 30×52, copper, drop
-                        shadow) and circular badge (36px, copper outline +
-                        hexagon) mark a book "read" — never both on the same
-                        item; copper works unchanged on both surfaces. No-Cover
-                        Fallback: fine diagonal stripe + mono label, using
-                        surface-matched fill on both light and dark.
+                        Read Indicators: corner ribbon (scaled sm/md/lg) and
+                        circular badge (hexagon glyph). No-Cover Fallback:
+                        mathematical honeycomb "hive" SVG pattern using
+                        reactive theme colors.
                     </div>
                 </div>
             </section>

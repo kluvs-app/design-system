@@ -520,13 +520,6 @@
   color: var(--kluvs-content-light-secondary);
 }
 
-[data-surface="light"] .kluvs-cover-placeholder {
-  background: repeating-linear-gradient(45deg, var(--kluvs-divider-light) 0 3px, #F5F5F5 3px 6px);
-}
-[data-surface="light"] .kluvs-cover-placeholder__label {
-  color: var(--kluvs-content-light-secondary);
-}
-
 /* ──── Back-compat aliases (preview cards reference older names) ──── */
 :root {
   --kluvs-brand-primary:        var(--kluvs-primary);
