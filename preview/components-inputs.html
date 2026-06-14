@@ -4,11 +4,7 @@
 <style>
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
-.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 320px; }
-.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
-[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
-
-.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 320px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
 [data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
 
 .input-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
@@ -33,8 +29,6 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 </style></head>
 <body><div class="canvas">
 
-  <div class="group">
-    <span class="label">Input States</span>
     <div class="card">
       <div class="input-wrap">
         <div class="input-label">Email</div>
@@ -54,6 +48,5 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         <input class="input-field input-field--disabled" type="text" value="user@kluvs.com" disabled>
       </div>
     </div>
-  </div>
 
 </div></body></html>

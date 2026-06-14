@@ -4,11 +4,7 @@
 <style>
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
-.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 360px; }
-.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
-[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
-
-.modal-shell { width: 100%; border-radius: 16px; overflow: hidden; background: var(--kluvs-warm-dark-bar); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; }
+.modal-shell { width: 360px; border-radius: 16px; overflow: hidden; background: var(--kluvs-warm-dark-bar); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; }
 [data-surface="light"] .modal-shell { background: #FFFFFF; border-color: #E0E0E0; box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
 
 .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--kluvs-warm-dark-card-2); }
@@ -48,8 +44,6 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 </style></head>
 <body><div class="canvas">
 
-  <div class="group">
-    <span class="label">Modal: Edit (Default)</span>
     <div class="modal-shell">
       <div class="modal-header">
         <span class="modal-eyebrow modal-eyebrow--default">Edit Club</span>
@@ -71,10 +65,7 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         <button class="btn-save">Save</button>
       </div>
     </div>
-  </div>
 
-  <div class="group">
-    <span class="label">Modal: Delete (Destructive)</span>
     <div class="modal-shell">
       <div class="modal-header">
         <span class="modal-eyebrow modal-eyebrow--danger">Delete Club</span>
@@ -92,6 +83,5 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         <button class="btn-delete">Delete Club</button>
       </div>
     </div>
-  </div>
 
 </div></body></html>

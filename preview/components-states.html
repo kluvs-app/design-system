@@ -4,11 +4,7 @@
 <style>
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
-.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 340px; }
-.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
-[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
-
-.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; }
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 340px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; }
 [data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
 
 .state-box { background: var(--kluvs-warm-dark-base); border-radius: 12px; padding: 16px; border: 1px solid var(--kluvs-warm-dark-card-2); }
@@ -27,8 +23,6 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 </style></head>
 <body><div class="canvas">
 
-  <div class="group">
-    <span class="label">System States</span>
     <div class="card">
       <div class="state-box" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:120px">
         <img class="kluvs-spinner" src="../assets/spinner-kluvs.svg" alt="Loading" width="36" height="36">
@@ -41,7 +35,6 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         <button style="background:var(--kluvs-primary);color:#fff;border:none;border-radius:8px;padding:8px 16px;font:500 12px/1 var(--kluvs-font-sans);cursor:default;margin-top:4px">Try again</button>
       </div>
       <div class="state-box" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:24px 16px">
-        <div class="t-sub" style="font:500 10px/1 var(--kluvs-font-sans);text-transform:uppercase;letter-spacing:0.1em;align-self:flex-start;margin-bottom:-10px">Empty State</div>
         <div class="kluvs-empty-covers" style="width:160px;height:140px">
           <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(-33px,3px) rotate(-7deg)"></div>
           <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(0,-3px) rotate(4deg)"></div>
@@ -70,6 +63,5 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         </div>
       </div>
     </div>
-  </div>
 
 </div></body></html>

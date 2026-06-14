@@ -4,11 +4,7 @@
 <style>
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
-.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 340px; }
-.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
-[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
-
-.card-spec { border-radius: 12px; padding: 16px; width: 100%; box-sizing: border-box; }
+.card-spec { border-radius: 12px; padding: 16px; width: 340px; box-sizing: border-box; }
 .card-spec--default { background: var(--kluvs-warm-dark-card); }
 [data-surface="light"] .card-spec--default { background: #FFFFFF; border: 1px solid #E0E0E0; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
 
@@ -36,8 +32,6 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 </style></head>
 <body><div class="canvas">
 
-  <div class="group">
-    <span class="label">Cards</span>
     <div class="card-spec card-spec--default">
       <div class="card-eyebrow t-label">Currently Reading</div>
       <div class="card-title t-main">The Midnight Library</div>
@@ -53,6 +47,5 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
         <span class="card-subtitle t-label" style="font-size:12px">6 members attending</span>
       </div>
     </div>
-  </div>
 
 </div></body></html>
