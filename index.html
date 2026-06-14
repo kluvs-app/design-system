@@ -84,6 +84,7 @@
                 <a class="nav-link" href="#comp-members">Members</a>
                 <a class="nav-link" href="#comp-states">States</a>
                 <a class="nav-link" href="#comp-modals">Modals</a>
+                <a class="nav-link" href="#comp-composite">Composite</a>
             </div>
 
             <div class="nav-group">
@@ -2426,6 +2427,116 @@
                     </div></div>
 
                     <div class="comp-anno">Three-zone shell: Header (eyebrow label + ×) / Body / Footer (Cancel ← → Action). Default: copper eyebrow, primary CTA. Destructive: danger-red eyebrow, danger CTA. Danger zone box lives at the bottom of the body when a secondary destructive action exists — danger tint fill, "DANGER ZONE" eyebrow, outlined danger button. Warning boxes: copper tint (advisory) or danger tint (permanent consequences).</div>
+                </div>
+
+                <!-- Composite -->
+                <div class="comp-group" id="comp-composite" style="border-top:1px solid var(--kluvs-divider-light);padding-top:32px;margin-top:4px">
+                    <div class="comp-group-title">Composite — Read Indicators · Role Eyebrow · Avatars · Progress · Pills · Segmented · Empty States</div>
+
+                    <div data-surface="dark" style="background:#0A0A0A;border-radius:12px;padding:32px">
+                    <div class="comp-grid" style="align-items:start">
+
+                        <!-- Read indicators -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Read Indicators</div>
+                            <div style="display:flex;gap:24px;align-items:flex-end">
+                                <div style="position:relative">
+                                    <div style="width:80px;height:120px;border-radius:4px;background:#1A1A1A;border:1px solid #2A2A2A"></div>
+                                    <span class="kluvs-read-ribbon kluvs-read-ribbon--full" title="Read" aria-label="Read"></span>
+                                </div>
+                                <span class="kluvs-read-badge" title="Read" aria-label="Read">
+                                    <svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M264.65-107 48.74-480l215.91-373h430.7l215.91 373-215.91 373h-430.7Z"/></svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Role eyebrow -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Role Eyebrow</div>
+                            <div style="display:flex;flex-direction:column;gap:10px">
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
+                            </div>
+                        </div>
+
+                        <!-- Avatar stack -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Avatar Stack</div>
+                            <div class="kluvs-avatar-stack">
+                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5865F2">LM</div>
+                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5BAA5C">AP</div>
+                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#D16D30">DU</div>
+                                <div class="kluvs-avatar-stack__overflow">+2</div>
+                            </div>
+                        </div>
+
+                        <!-- Progress bar -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Progress Bar</div>
+                            <div style="width:220px">
+                                <div class="kluvs-progress-track">
+                                    <div class="kluvs-progress-fill" style="width:64%"></div>
+                                </div>
+                                <div style="display:flex;justify-content:space-between;margin-top:8px">
+                                    <span class="kluvs-eyebrow" style="color:var(--kluvs-primary)">Currently Reading</span>
+                                    <span class="kluvs-helper-sm" style="color:var(--kluvs-primary)">269 of 417 pages</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pill buttons -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Pill Button</div>
+                            <div style="display:flex;gap:10px">
+                                <button class="kluvs-btn-pill">Copy Club ID</button>
+                                <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
+                            </div>
+                        </div>
+
+                        <!-- Segmented controls -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Segmented Controls</div>
+                            <div style="display:flex;flex-direction:column;gap:14px;width:200px">
+                                <div class="kluvs-segmented">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
+                                    <button class="kluvs-segmented__option">Percent</button>
+                                </div>
+                                <div class="kluvs-segmented kluvs-segmented--icon">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
+                                    <button class="kluvs-segmented__option">?</button>
+                                    <button class="kluvs-segmented__option">✕</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book cover placeholder -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Book Cover Placeholder</div>
+                            <div class="kluvs-cover-placeholder" style="width:80px;height:120px;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px">
+                                <span class="kluvs-cover-placeholder__label">No cover</span>
+                            </div>
+                        </div>
+
+                        <!-- Empty state -->
+                        <div style="grid-column:span 2">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Empty State — Stacked Covers</div>
+                            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:24px 16px">
+                                <div class="kluvs-empty-covers" style="width:160px;height:140px">
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(-33px,3px) rotate(-7deg)"></div>
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(0,-3px) rotate(4deg)"></div>
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(33px,3px) rotate(10deg)"></div>
+                                </div>
+                                <div>
+                                    <p class="kluvs-empty-heading" style="font-size:22px">Nothing shelved yet.</p>
+                                    <p class="kluvs-empty-body" style="margin-top:8px">Search for a book and add it to Want to Read, Read, or Not Finished — it'll show up here.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div></div>
+
+                    <div class="comp-anno">Read Indicators: corner ribbon (full 30×52, copper, drop shadow) and circular badge (36px, copper outline + hexagon) mark a book "read" — never both on the same item. Role Eyebrow: dot + uppercase label — Owner (mustard), Admin (light teal text / teal dot), Member (green, no dot) — supersedes the older avatar-ring role pattern. Avatar Stack: -8px overlap, 2px ring, "+N" overflow chip. Progress Bar: 4px fill, secondary "Update" action (not shown) — current shipped version only. Pill Button: rounded-full outlined chip, success state on copy. Segmented Controls: filled variant (Track-By) and icon-only status-tinted variant (RSVP). Book Cover Placeholder: fine diagonal stripe + mono label. Empty State: tilted stacked-cover illustration + italic serif heading + helper text + primary CTA.</div>
                 </div>
             </section>
 
