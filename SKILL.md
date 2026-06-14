@@ -15,8 +15,6 @@ Load these files in order — stop when you have enough context for the task:
 4a. `docs/` — per-component integration guides. Read the relevant guide when implementing that component:
   - `docs/spinner-kluvs.md` — loading state (web, Android, iOS copy-paste snippets)
   - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes
-5. `ui_kits/mobile/components.jsx` — primitive component library (KluvsTopBar, KluvsCard, KluvsButton, KluvsInput, KluvsIcon, etc.).
-6. `ui_kits/mobile/screens.jsx` — assembled screens (Login, Clubs, Profile) for reference when recreating or extending screens.
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 
@@ -35,4 +33,4 @@ If the user invokes this skill without other guidance, ask what they want to bui
 - Radius: 2 (chips), 8 (inputs/timeline), 12 (cards/buttons), 9999 (pill/avatars).
 - No emoji. No gradients. No decorative illustration. No backdrop blur.
 - Mustard `#C9900A` (owner badge) — graphical badge indicator on both light and dark surfaces (~7:1 on dark, ~3:1 on light).
-- Icons: Material Symbols, weight 600, Grade 0, 24px SVG. `ui_kits/mobile/` uses Lucide as a placeholder only.
+- Icons: Material Symbols, weight 600, Grade 0, 24px SVG.

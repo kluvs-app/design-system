@@ -26,7 +26,6 @@ The app's surface model is **dark-by-default in product, light in auth/marketing
 | `colors_and_type.css` | Single source of truth for color, spacing, radius and type tokens. CSS custom properties + utility classes. |
 | `assets/` | Brand mark, role badges, social-provider glyphs (SVG). Drop-in. |
 | `preview/` | One small HTML card per token group — fed to the Design System review tab. |
-| `ui_kits/mobile/` | High-fidelity recreation of the mobile product (auth → club → profile). React + JSX components + an interactive `index.html`. |
 
 ## Content fundamentals
 

@@ -22,16 +22,6 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/read-indicators.md` | "Read"/finished book indicators — corner ribbon and circular badge, tokens and platform notes. |
 | `docs/composite-components.md` | Avatar/avatar-stack, progress bar, pill button, segmented control, role eyebrow, empty states, book cover placeholder — patterns extracted from shipped `kluvs-frontend` code. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
-| `ui_kits/mobile/` | Full mobile UI kit (React via Babel CDN). See below. |
-
-### `ui_kits/mobile/` breakdown
-
-| File | Role |
-|---|---|
-| `components.jsx` | Primitive component library — `KluvsTopBar`, `KluvsCard`, `KluvsButton`, `KluvsInput`, `KluvsIcon`, etc. |
-| `screens.jsx` | Assembled app screens — Login, Clubs (General / Active Session / Members), Profile. |
-| `ios-frame.jsx` | Device bezel wrapper. Use when you need a phone frame around a screen. |
-| `index.html` | Click-through demo. Open in a browser; tabs and bottom nav are interactive. |
 
 ## Token namespacing
 
@@ -66,11 +56,7 @@ These are confirmed design system decisions that have not yet been applied to `k
 
 **To preview tokens:** open any file in `preview/` directly in a browser.
 
-**To run the mobile UI kit:** open `ui_kits/mobile/index.html` in a browser. No server needed.
-
 **To add a new preview card:** copy the pattern from an existing card in `preview/`, link `../../colors_and_type.css`, and use the existing CSS custom property names.
-
-**To add a new UI component:** add primitives to `components.jsx` and composed screens to `screens.jsx`. Export to `window` at the end of `components.jsx` like the existing exports. Keep tokens from `colors_and_type.css` — never hardcode hex values that already have a token.
 
 **To generate Kluvs-branded output:** invoke the `/kluvs-design` skill. It loads `README.md` and the token file and gives you a full design context.
 
@@ -98,7 +84,7 @@ The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in
 ## Open items (from README)
 
 - `Web-TBD` Figma page is intentionally empty — no web spec.
-- **Icons:** `ui_kits/mobile/` uses Lucide inline SVGs as a placeholder from the initial generation pass. Canonical icon set is Material Symbols (weight 600, Grade 0, 24px SVG). Replace Lucide references when building production screens; drop exports into `assets/icons/`.
+- **Icons:** Canonical icon set is Material Symbols (weight 600, Grade 0, 24px SVG). Drop exports into `assets/icons/`.
 - Inter is loaded from Google Fonts CDN — no local `.ttf` bundle. Font family for production is TBD.
 - The four-tier typography system is documented in README; mobile M3 implementation and web utility class mapping are pending alignment.
 - **Loading state:** full-page/section loading uses the Breathe·Tidal spinner (`assets/spinner-kluvs.svg`). Button loading state still uses appended "…" to the label (e.g. "Saving…") — the spinner is too large for inline button use.
