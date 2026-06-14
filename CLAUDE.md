@@ -16,11 +16,16 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `assets/spinner-kluvs.svg` | **Loading spinner** — Breathe·Tidal animated SVG. Use as `<img>` or inline. |
 | `assets/android/` | Android AVD files (5 XML files). See `docs/spinner-kluvs.md` for import instructions. |
 | `assets/ios/KluvsSpinner.swift` | SwiftUI loading spinner view (iOS 17+). |
-| `docs/` | Developer guides — one file per component/asset. Start here when integrating anything into a client repo. |
-| `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with copy-paste snippets. |
-| `docs/modal.md` | Modal anatomy spec — three-zone layout, all tokens, platform notes for web/Android/iOS. |
-| `docs/read-indicators.md` | "Read"/finished book indicators — corner ribbon and circular badge, tokens and platform notes. |
-| `docs/composite-components.md` | Avatar/avatar-stack, progress bar, pill button, segmented control, role eyebrow, empty states, book cover placeholder — patterns extracted from shipped `kluvs-frontend` code. |
+| `docs/avatars.md` | Avatar and Avatar Stack specifications — sizes and 12-hue palette rules. |
+| `docs/book-cover.md` | Book Cover components — sizes, scaled ribbons, and the hexagon hive grid fallback. |
+| `docs/buttons.md` | Button hierarchy — Primary, Secondary, Pill, and Segmented controls. |
+| `docs/cards.md` | Card containers — Standard and Highlighted variants. |
+| `docs/inputs.md` | Form field states and anatomy. |
+| `docs/members.md` | Member rows and Role Eyebrow identification. |
+| `docs/modal.md` | Modal anatomy spec — three-zone layout and platform notes. |
+| `docs/navigation.md` | App shell navigation — TopBar, Tabs, and BottomNav. |
+| `docs/states.md` | Functional states — Loading, Error, Empty Shelf, and Progress. |
+| `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with snippets. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 
 ## Token namespacing

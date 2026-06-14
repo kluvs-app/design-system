@@ -24,8 +24,8 @@ Every dialog in Kluvs — edit forms, confirmations, destructive actions — sha
 
 | Property     | Token                                               | Value     |
 |---|---|---|
-| Background   | `color.dark-web.raised` → `--kluvs-surface-dark-raised` | `#141414` |
-| Border       | `color.dark-web.divider` → `--kluvs-divider-dark`       | `1px solid #2A2A2A` |
+| Background   | `surface.warm-dark.bar` → `--kluvs-warm-dark-bar`      | `#1A140F` |
+| Border       | `surface.warm-dark.card-2` → `--kluvs-warm-dark-card-2` | `1px solid #332B24` |
 | Corner radius | `radius.modal` → `--kluvs-radius-modal`                | `16px` |
 | Max width    | `component.modal.container.max-width`                    | `384px` |
 | Overflow     | —                                                        | `hidden` (clips children to border-radius) |
@@ -188,8 +188,8 @@ The three-zone anatomy still applies inside the sheet — Header with eyebrow la
 | DS token | Android | iOS |
 |---|---|---|
 | `radius.modal` (16px) | `RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)` (sheet) · `RoundedCornerShape(16.dp)` (dialog) | `.clipShape(RoundedRectangle(cornerRadius: 16))` |
-| `color.dark-web.raised` (#141414) | `containerColor = Color(0xFF141414)` | `.presentationBackground(Color(hex: "#141414"))` |
-| `color.dark-web.divider` (#2A2A2A) | `HorizontalDivider(color = Color(0xFF2A2A2A))` | `Divider().overlay(Color(hex: "#2A2A2A"))` |
+| `surface.warm-dark.bar` (#1A140F) | `containerColor = Color(0xFF1A140F)` | `.presentationBackground(Color(hex: "#1A140F"))` |
+| `surface.warm-dark.card-2` (#332B24) | `HorizontalDivider(color = Color(0xFF332B24))` | `Divider().overlay(Color(hex: "#332B24"))` |
 | Eyebrow label | `fontSize = 11.sp`, `fontWeight = Medium`, `letterSpacing = 0.14.em`, `textTransform = Uppercase` | `.font(.custom("IBMPlexSans-Medium", size: 11)).tracking(1.54).textCase(.uppercase)` |
 | `color.status.danger-subtle` | `Color(0x14EF4444)` (0.08 × 255 ≈ 0x14) | `Color(hex: "#EF4444").opacity(0.08)` |
 | `color.status.danger-border-soft` | `Color(0x33EF4444)` (0.20 × 255 ≈ 0x33) | `Color(hex: "#EF4444").opacity(0.20)` |
