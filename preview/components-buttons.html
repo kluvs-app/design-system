@@ -2,19 +2,84 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="../colors_and_type.css">
 <style>
-html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
-.card{width:700px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.btn{display:flex;align-items:center;justify-content:center;height:48px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;}
-.primary{background:#D16E30;color:#fff;}
-.primary:active{background:rgba(209,110,48,0.85);}
-.secondary{background:transparent;color:#D16E30;box-shadow:inset 0 0 0 1.5px #D16E30;}
-.ghost{background:transparent;color:#D16E30;font-weight:500;font-size:13px;height:auto;}
-.disabled{background:#F5F5F5;color:#B3B3B3;}
-.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:#737373;margin-bottom:8px;}
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 300px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
+[data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
+
+/* Section labels */
+.section-label { font: 600 11px/1 var(--kluvs-font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--kluvs-warm-fg-placeholder); margin-bottom: 4px; }
+[data-surface="light"] .section-label { color: var(--kluvs-content-light-secondary); }
+
+/* Buttons */
+.btn-primary { background: var(--kluvs-primary); color: #FFFFFF; border: none; border-radius: 12px; padding: 14px 24px; font: 600 15px/1 var(--kluvs-font-sans); width: 100%; cursor: pointer; }
+.btn-primary:disabled { background: rgba(209, 109, 48, 0.25); color: var(--kluvs-warm-fg-disabled); cursor: not-allowed; }
+[data-surface="light"] .btn-primary:disabled { background: rgba(209, 109, 48, 0.15); color: rgba(209, 109, 48, 0.35); }
+
+.btn-outlined { background: transparent; color: var(--kluvs-primary); border: 1.5px solid var(--kluvs-primary); border-radius: 12px; padding: 13px 24px; font: 600 14px/1 var(--kluvs-font-sans); width: 100%; cursor: pointer; }
+.btn-outlined--muted { color: var(--kluvs-warm-fg-tertiary); border-color: var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .btn-outlined--muted { color: var(--kluvs-content-light-secondary); border-color: var(--kluvs-divider-light); }
+
+.btn-ghost { background: transparent; color: var(--kluvs-primary); border: none; padding: 6px 0; font: 500 14px/1 var(--kluvs-font-sans); cursor: pointer; text-align: left; }
+.btn-ghost--secondary { color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .btn-ghost--secondary { color: var(--kluvs-content-light-secondary); }
+
+.btn-social { display: flex; align-items: center; gap: 12px; padding: 13px 20px; border-radius: 12px; border: none; color: #fff; font: 500 14px/1 var(--kluvs-font-sans); cursor: pointer; width: 100%; }
+.btn-social img { height: 18px; }
+.btn-social--discord { background: #5865F2; }
+.btn-social--google { background: #F2F2F2; border: 1px solid #D1D1D1; color: #1F1F1F; }
+.btn-social--apple { background: #0F0F0F; }
 </style></head>
-<body><div class="card">
-  <div><div class="label">Primary</div><div class="btn primary">Log in</div></div>
-  <div><div class="label">Secondary</div><div class="btn secondary">Create club</div></div>
-  <div><div class="label">Ghost / link</div><div class="btn ghost">Forgot password?</div></div>
-  <div><div class="label">Disabled</div><div class="btn disabled">Log in</div></div>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">Main Variants</span>
+    <div class="card">
+      <div class="section-label">Primary</div>
+      <button class="btn-primary">Sign in to Kluvs</button>
+      <button class="btn-primary" disabled>Sign in to Kluvs</button>
+      
+      <div class="section-label" style="margin-top:8px">Outlined</div>
+      <button class="btn-outlined">Add Discussion</button>
+      <button class="btn-outlined btn-outlined--muted">Add Discussion</button>
+      
+      <div class="section-label" style="margin-top:8px">Text / Ghost</div>
+      <button class="btn-ghost">Forgot password?</button>
+      <button class="btn-ghost btn-ghost--secondary">Don't have an account? <span style="color:var(--kluvs-primary)">Sign up</span></button>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Social & Utility</span>
+    <div class="card">
+      <div class="section-label">Social</div>
+      <button class="btn-social btn-social--discord"><img src="../assets/provider-discord.svg" alt="">Continue with Discord</button>
+      <button class="btn-social btn-social--google"><img src="../assets/provider-google.svg" alt="">Continue with Google</button>
+      <button class="btn-social btn-social--apple"><img src="../assets/provider-apple.svg" alt="">Continue with Apple</button>
+
+      <div class="section-label" style="margin-top:12px">Pill Button</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="kluvs-btn-pill">Copy Club ID</button>
+        <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
+      </div>
+      
+      <div class="section-label" style="margin-top:8px">Segmented Control</div>
+      <div style="display:flex;flex-direction:column;gap:12px;width:160px">
+        <div class="kluvs-segmented">
+          <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
+          <button class="kluvs-segmented__option">Percent</button>
+        </div>
+        <div class="kluvs-segmented kluvs-segmented--icon">
+          <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
+          <button class="kluvs-segmented__option">?</button>
+          <button class="kluvs-segmented__option">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div></body></html>

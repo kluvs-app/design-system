@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 340px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 0; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; }
+[data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
+
+.member-row { padding: 14px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .member-row { border-bottom-color: #F5F5F5; }
+.member-row:last-child { border-bottom: none; }
+
+.member-info { flex: 1; min-width: 0; }
+.member-name { font: 500 14px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-primary); }
+[data-surface="light"] .member-name { color: #1A1A1A; }
+.member-meta { font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-tertiary); margin-top: 4px; }
+[data-surface="light"] .member-meta { color: #666666; }
+
+.divider-row { padding: 10px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .divider-row { border-bottom-color: #F5F5F5; }
+.divider-line { height: 1px; flex: 1; background: var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .divider-line { background: #E0E0E0; }
+.divider-text { font: 400 13px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-placeholder); }
+[data-surface="light"] .divider-text { color: #B0B0B0; }
+</style></head>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">Member List</span>
+    <div class="card">
+      <div class="divider-row">
+        <div class="divider-line"></div>
+        <span class="divider-text">or</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="member-row">
+        <div class="kluvs-avatar" style="width:40px;height:40px;font-size:12px;background:#5865F2;flex-shrink:0">JD</div>
+        <div class="member-info">
+          <div class="member-name">Jane Doe</div>
+          <div class="member-meta">@janedoe · Member since 2026</div>
+        </div>
+        <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
+      </div>
+      <div class="member-row">
+        <div class="kluvs-avatar" style="width:40px;height:40px;font-size:12px;background:#5BAA5C;flex-shrink:0">KM</div>
+        <div class="member-info">
+          <div class="member-name">Kira Martin</div>
+          <div class="member-meta">@kiramartin · Member since 2026</div>
+        </div>
+        <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
+      </div>
+      <div class="member-row">
+        <div class="kluvs-avatar" style="width:40px;height:40px;font-size:12px;background:#9B59B6;flex-shrink:0">RP</div>
+        <div class="member-info">
+          <div class="member-name">Rafael Perez</div>
+          <div class="member-meta">@rafaperez · Member since 2026</div>
+        </div>
+        <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
+      </div>
+    </div>
+  </div>
+
+</div></body></html>

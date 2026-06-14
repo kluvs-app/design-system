@@ -39,6 +39,59 @@
 
   sections.forEach(s => io.observe(s));
 
+  // Preview Loader — Embeds preview/*.html files into placeholders
+  // <div class="preview-embed" data-preview="components-buttons"></div>
+  const embeds = document.querySelectorAll('.preview-embed');
+  
+  embeds.forEach(async el => {
+    const name = el.getAttribute('data-preview');
+    if (!name) return;
+
+    try {
+      const response = await fetch(`preview/${name}.html`);
+      const html     = await response.text();
+      
+      // Fix asset paths for production (Vercel) and root-level injection
+      // Replaces "../assets/" with "assets/"
+      const fixedHtml = html.replace(/\.\.\/assets\//g, 'assets/');
+      
+      const parser   = new DOMParser();
+      const doc      = parser.parseFromString(fixedHtml, 'text/html');
+      
+      // Create shadow root for isolation
+      const shadow = el.attachShadow({ mode: 'open' });
+      
+      // Inject CSS into shadow root
+      const link = document.createElement('link');
+      link.rel   = 'stylesheet';
+      link.href  = 'colors_and_type.css';
+      shadow.appendChild(link);
+      
+      // Inject preview styles
+      const styles = doc.querySelectorAll('style');
+      styles.forEach(s => shadow.appendChild(s.cloneNode(true)));
+      
+      // Inject preview body content
+      const container = document.createElement('div');
+      container.innerHTML = doc.body.innerHTML;
+      shadow.appendChild(container);
+
+      // Handle surface toggling for the embedded content
+      const syncSurface = () => {
+        const isDark = mainEl.classList.contains('dark-surface');
+        container.setAttribute('data-surface', isDark ? 'dark' : 'light');
+      };
+      
+      // Initial sync and listen for site-wide toggle
+      syncSurface();
+      surfaceToggle.addEventListener('click', syncSurface);
+
+    } catch (err) {
+      console.error(`Failed to load preview: ${name}`, err);
+      el.textContent = `Error loading preview: ${name}`;
+    }
+  });
+
   // Mobile nav drawer
   const toggle   = document.getElementById('mobile-toggle');
   const sidebar  = document.querySelector('.sidebar');

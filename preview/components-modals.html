@@ -1,0 +1,97 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 360px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.modal-shell { width: 100%; border-radius: 16px; overflow: hidden; background: var(--kluvs-warm-dark-bar); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; }
+[data-surface="light"] .modal-shell { background: #FFFFFF; border-color: #E0E0E0; box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .modal-header { border-bottom-color: #E0E0E0; }
+
+.modal-eyebrow { font: 500 11px/1 var(--kluvs-font-sans); letter-spacing: 0.14em; text-transform: uppercase; }
+.modal-eyebrow--default { color: var(--kluvs-primary); }
+.modal-eyebrow--danger { color: var(--kluvs-danger); }
+
+.modal-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.modal-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; border-top: 1px solid var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .modal-footer { border-top-color: #E0E0E0; }
+
+/* Reactive Text */
+.t-main { color: var(--kluvs-warm-fg-primary); }
+[data-surface="light"] .t-main { color: #1A1A1A; }
+.t-sub { color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .t-sub { color: #666666; }
+.t-label { color: var(--kluvs-warm-fg-label); }
+[data-surface="light"] .t-label { color: var(--kluvs-content-light-secondary); }
+
+.btn-save { background: var(--kluvs-primary); border: none; border-radius: 12px; padding: 8px 20px; font: 500 14px/1 var(--kluvs-font-sans); color: #FFFFFF; cursor: pointer; }
+.btn-delete { background: var(--kluvs-danger); border: none; border-radius: 12px; padding: 8px 20px; font: 500 14px/1 var(--kluvs-font-sans); color: #FFFFFF; cursor: pointer; }
+.btn-cancel { font: 500 14px/1 var(--kluvs-font-sans); cursor: pointer; }
+
+.info-box { border-radius: 8px; padding: 11px 14px; font: 400 13px/1.5 var(--kluvs-font-sans); }
+.info-box--copper { background: rgba(209, 109, 48, 0.08); border: 1px solid rgba(209, 109, 48, 0.25); color: var(--kluvs-primary); }
+.info-box--danger { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.20); color: var(--kluvs-danger); }
+
+.danger-zone { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.20); border-radius: 8px; padding: 12px 14px; }
+.danger-zone-eyebrow { font: 500 11px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+
+.close-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+.input-mock { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 8px; padding: 11px 14px; font: 400 14px/1 var(--kluvs-font-sans); }
+[data-surface="light"] .input-mock { background:#F5F5F5; border-color:#E0E0E0; }
+</style></head>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">Modal: Edit (Default)</span>
+    <div class="modal-shell">
+      <div class="modal-header">
+        <span class="modal-eyebrow modal-eyebrow--default">Edit Club</span>
+        <div class="t-sub"><svg class="close-icon"><path d="M6 18L18 6M6 6l12 12"/></svg></div>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="t-label" style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px">Club Name</div>
+          <div class="input-mock t-main">Fantasy Book Club</div>
+        </div>
+        <div class="info-box info-box--copper">Disconnecting this club from Discord. Bot notifications will stop.</div>
+        <div class="danger-zone">
+          <div class="danger-zone-eyebrow t-sub">Danger Zone</div>
+          <button class="t-sub" style="background:transparent;border:1px solid currentColor;border-radius:12px;padding:6px 14px;font:500 13px/1 var(--kluvs-font-sans);cursor:default">Delete club</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="btn-cancel t-sub">Cancel</span>
+        <button class="btn-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="label">Modal: Delete (Destructive)</span>
+    <div class="modal-shell">
+      <div class="modal-header">
+        <span class="modal-eyebrow modal-eyebrow--danger">Delete Club</span>
+        <div class="t-sub"><svg class="close-icon"><path d="M6 18L18 6M6 6l12 12"/></svg></div>
+      </div>
+      <div class="modal-body">
+        <p class="t-main" style="font:400 14px/1.5 var(--kluvs-font-sans);margin:0">Are you sure you want to delete <strong>"Fantasy Book Club"</strong>? This cannot be undone.</p>
+        <div class="info-box info-box--danger">
+          <div style="font:500 11px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">This will permanently delete:</div>
+          <div class="t-sub" style="font:400 13px/1.7 var(--kluvs-font-sans)">All reading sessions and books<br>All discussions and events<br>All member associations</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="btn-cancel t-sub">Cancel</span>
+        <button class="btn-delete">Delete Club</button>
+      </div>
+    </div>
+  </div>
+
+</div></body></html>

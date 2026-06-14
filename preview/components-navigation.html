@@ -1,57 +1,79 @@
 <!doctype html>
-<html><head><meta charset="utf-8"/><link rel="stylesheet" href="../colors_and_type.css"/>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
 <style>
-  html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);color:#1A1A1A}
-  .card{box-sizing:border-box;width:700px;padding:24px;display:flex;flex-direction:column;gap:18px}
-  .label{font-size:11px;font-weight:600;color:#666;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
-  .frame{border-radius:14px;padding:14px 0 16px;display:flex;justify-content:space-around;align-items:center}
-  .frame.dark{background:#140F0D;border:1px solid #241C17}
-  .frame.light{background:#FFFFFF;border:1px solid #E0E0E0}
-  .tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px}
-  .glyph{display:flex;align-items:center;justify-content:center;width:64px;height:32px;border-radius:9999px}
-  .ico{width:22px;height:22px;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
-  .name{font-size:11px;font-weight:600;letter-spacing:.01em}
-  .frame.dark .tab.active .glyph{background:rgba(209,109,48,0.20)}
-  .frame.dark .tab.active{color:#D16D30}
-  .frame.dark .tab.idle{color:#8C8073}
-  .frame.light .tab.active .glyph{background:rgba(209,109,48,0.14)}
-  .frame.light .tab.active{color:#D16D30}
-  .frame.light .tab.idle{color:#737373}
-  .annotate{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:11px;color:#666;line-height:1.5}
-  .annotate b{display:block;color:#1A1A1A;font-weight:600;margin-bottom:2px}
-  .annotate code{font-family:ui-monospace,monospace;font-size:10px}
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 340px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.nav-shell { width: 100%; border-radius: 12px; overflow: hidden; background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; display: flex; flex-direction: column; }
+[data-surface="light"] .nav-shell { background: #FFFFFF; border-color: #E0E0E0; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
+
+/* TopBar */
+.top-bar { height: 52px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: var(--kluvs-warm-dark-bar); }
+[data-surface="light"] .top-bar { background: #FFFFFF; border-bottom: 1px solid #E0E0E0; }
+.logo { font: 700 20px/1 var(--kluvs-font-sans); letter-spacing: 0.08em; color: var(--kluvs-warm-fg-primary); }
+[data-surface="light"] .logo { color: #1A1A1A; }
+
+/* SubBar */
+.sub-bar { height: 32px; padding: 0 20px; display: flex; align-items: center; border-top: 1px solid var(--kluvs-warm-dark-card-2); background: var(--kluvs-warm-dark-bar); }
+[data-surface="light"] .sub-bar { background: #FFFFFF; border-bottom: 1px solid #F5F5F5; border-top: none; }
+.sub-text { font: 500 12px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-placeholder); }
+[data-surface="light"] .sub-text { color: #B0B0B0; }
+
+/* Tabs */
+.tab-strip { height: 42px; display: flex; border-top: 1px solid var(--kluvs-warm-dark-card-2); background: var(--kluvs-warm-dark-bar); }
+[data-surface="light"] .tab-strip { background: #FFFFFF; border-bottom: 1px solid #E0E0E0; border-top: none; }
+.tab-item { flex: 1; border: none; background: none; font: 500 13px/1 var(--kluvs-font-sans); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.tab-item--active { border-bottom: 2px solid var(--kluvs-primary); color: var(--kluvs-primary); }
+.tab-item--idle { color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .tab-item--idle { color: #B0B0B0; }
+
+/* BottomNav */
+.bottom-nav { height: 80px; display: flex; padding: 10px 0; border-top: 1px solid var(--kluvs-warm-dark-card-2); background: var(--kluvs-warm-dark-nav); }
+[data-surface="light"] .bottom-nav { background: #FFFFFF; border-top: 1px solid #E0E0E0; }
+.nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+.nav-pill { width: 72px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; }
+.nav-pill--active { background: rgba(209, 109, 48, 0.18); }
+[data-surface="light"] .nav-pill--active { background: rgba(209, 109, 48, 0.1); }
+.nav-label { font: 500 12px/1 var(--kluvs-font-sans); }
+.nav-label--active { color: var(--kluvs-primary); }
+.nav-label--idle { color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .nav-label--idle { color: #B0B0B0; }
+
+.ico-wrap img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+[data-surface="light"] .ico-wrap img { filter: none; }
 </style></head>
-<body><div class="card">
-  <div>
-    <div class="label">Bottom navigation · dark (canonical)</div>
-    <div class="frame dark">
-      <div class="tab active">
-        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span></div>
-        <div class="name">Clubs</div>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">App Navigation Shell</span>
+    <div class="nav-shell">
+      <div class="top-bar">
+        <span class="logo">KLUVS</span>
+        <div class="ico-wrap" style="opacity:0.6"><img src="../assets/icon-settings.svg" alt=""></div>
       </div>
-      <div class="tab idle">
-        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-person.svg);mask-image:url(../assets/icon-person.svg)"></span></div>
-        <div class="name">Me</div>
+      <div class="sub-bar">
+        <span class="sub-text">The Mystery Book Club</span>
+      </div>
+      <div class="tab-strip">
+        <div class="tab-item tab-item--active">General</div>
+        <div class="tab-item tab-item--idle">Members</div>
+      </div>
+      <div style="height:40px;display:flex;align-items:center;justify-content:center;opacity:0.1"><span style="font:400 11px/1 var(--kluvs-font-sans);color:var(--kluvs-warm-fg-primary)">— content —</span></div>
+      <div class="bottom-nav">
+        <div class="nav-item">
+          <div class="nav-pill nav-pill--active"><div class="ico-wrap" style="opacity:0.9"><img src="../assets/icon-hive.svg" alt=""></div></div>
+          <span class="nav-label nav-label--active">Clubs</span>
+        </div>
+        <div class="nav-item">
+          <div class="nav-pill"><div class="ico-wrap" style="opacity:0.4"><img src="../assets/icon-person.svg" alt=""></div></div>
+          <span class="nav-label nav-label--idle">Me</span>
+        </div>
       </div>
     </div>
   </div>
-  <div>
-    <div class="label">Bottom navigation · light</div>
-    <div class="frame light">
-      <div class="tab idle">
-        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-hexagon.svg);mask-image:url(../assets/icon-hexagon.svg)"></span></div>
-        <div class="name">Clubs</div>
-      </div>
-      <div class="tab active">
-        <div class="glyph"><span class="ico" style="-webkit-mask-image:url(../assets/icon-person.svg);mask-image:url(../assets/icon-person.svg)"></span></div>
-        <div class="name">Me</div>
-      </div>
-    </div>
-  </div>
-  <div class="annotate">
-    <div><b>Pill</b>64×32 · <code>r=9999</code></div>
-    <div><b>Active fill</b><code>copper @ 18–20%</code></div>
-    <div><b>Active</b><code>#D16D30</code></div>
-    <div><b>Idle</b>warm-tertiary on dark · light-secondary on light</div>
-  </div>
+
 </div></body></html>

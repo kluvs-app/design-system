@@ -2,15 +2,23 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="../colors_and_type.css">
 <style>
-html, body { margin: 0; padding: 0; background: #0A0A0A; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 32px; align-items: flex-start; flex-wrap: wrap; }
-.group { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: #B0B0B0; }
-.cover { width: 100px; height: 150px; border-radius: 8px; background: #1A1A1A; border: 1px solid #2A2A2A; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 320px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.cover { width: 100px; height: 150px; border-radius: 8px; background: var(--kluvs-warm-dark-bar); border: 1px solid var(--kluvs-warm-dark-card-2); }
+[data-surface="light"] .cover { background: #F5F5F5; border-color: #E0E0E0; }
+
 .cover-sm { width: 64px; height: 96px; }
 .relative { position: relative; }
-.row { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #141414; border: 1px solid #2A2A2A; border-radius: 8px; }
-.row-text { color: #FFFFFF; font-size: 14px; }
+
+.row { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 8px; }
+[data-surface="light"] .row { background: #FFFFFF; border-color: #E0E0E0; box-shadow: var(--kluvs-shadow-card); }
+
+.row-text { color: var(--kluvs-warm-fg-primary); font-size: 14px; }
+[data-surface="light"] .row-text { color: #1A1A1A; }
 </style></head>
 <body><div class="canvas">
 

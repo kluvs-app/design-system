@@ -2,43 +2,58 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="../colors_and_type.css">
 <style>
-html,body{margin:0;background:#fff;font-family:var(--kluvs-font-sans);}
-.card{width:700px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.field{display:flex;flex-direction:column;gap:6px;}
-.lbl{font-size:12px;font-weight:500;}
-.input{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border-radius:8px;background:#fff;border:1px solid #B0B0B0;}
-.input .ic{width:16px;height:16px;border-radius:2px;background:#BFBFBF;}
-.input input{border:0;outline:0;flex:1;font:400 16px/1 var(--kluvs-font-sans);color:#1A1A1A;background:transparent;}
-.help{font-size:11px;color:#999;}
-.f-default .lbl{color:#666;}
-.f-focus .lbl{color:#D16E30;}
-.f-focus .input{border:2px solid #D16E30;}
-.f-focus input{color:#1A1A1A;}
-.f-error .lbl{color:#E53333;}
-.f-error .input{border:1px solid #E53333;background:#FFF7F7;}
-.f-error .help{color:#E53333;}
-.f-disabled .lbl{color:#B3B3B3;}
-.f-disabled .input{border:1px solid #E0E0E0;background:#F5F5F5;}
-.f-disabled input{color:#BFBFBF;}
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.group { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; width: 320px; }
+.label { font: 500 12px/1 var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .label { color: var(--kluvs-content-light-secondary); }
+
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
+[data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
+
+.input-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.input-label { font: 500 12px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-label); }
+[data-surface="light"] .input-label { color: var(--kluvs-content-light-secondary); }
+
+.input-field { width: 100%; padding: 11px 14px; border-radius: 8px; font: 400 14px/1 var(--kluvs-font-sans); outline: none; box-sizing: border-box; }
+
+/* Dark (Default) */
+.input-field { background: var(--kluvs-warm-dark-card); color: var(--kluvs-warm-fg-primary); border: 1px solid var(--kluvs-warm-dark-card-2); }
+.input-field--focus { border: 2px solid var(--kluvs-primary); }
+.input-field--error { border: 1px solid var(--kluvs-danger); }
+.input-field--disabled { background: var(--kluvs-warm-dark-base); color: var(--kluvs-warm-fg-disabled); border: 1px solid var(--kluvs-warm-dark-card); cursor: not-allowed; }
+
+/* Light overrides */
+[data-surface="light"] .input-field { background: #ffffff; color: var(--kluvs-content-light-primary); border: 1px solid #b0b0b0; }
+[data-surface="light"] .input-field--focus { border: 2px solid var(--kluvs-primary); }
+[data-surface="light"] .input-field--error { border: 1px solid var(--kluvs-danger); }
+[data-surface="light"] .input-field--disabled { background: #f5f5f5; color: #b0b0b0; border: 1px solid #e0e0e0; }
+
+.error-msg { font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-danger); margin-top: -2px; }
 </style></head>
-<body><div class="card">
-  <div class="field f-default">
-    <div class="lbl">Label</div>
-    <div class="input"><div class="ic"></div><input placeholder="Enter text..."></div>
-    <div class="help">Supporting text</div>
+<body><div class="canvas">
+
+  <div class="group">
+    <span class="label">Input States</span>
+    <div class="card">
+      <div class="input-wrap">
+        <div class="input-label">Email</div>
+        <input class="input-field" type="text" value="name@example.com" readonly>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label" style="color:var(--kluvs-primary)">Password</div>
+        <input class="input-field input-field--focus" type="text" value="••••••••" readonly>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label" style="color:var(--kluvs-danger)">Email</div>
+        <input class="input-field input-field--error" type="text" placeholder="name@example.com" readonly>
+        <div class="error-msg">Error: this field is required</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label" style="opacity:0.5">Email</div>
+        <input class="input-field input-field--disabled" type="text" value="user@kluvs.com" disabled>
+      </div>
+    </div>
   </div>
-  <div class="field f-focus">
-    <div class="lbl">Label</div>
-    <div class="input"><div class="ic"></div><input value="Club name"></div>
-    <div class="help">Supporting text</div>
-  </div>
-  <div class="field f-error">
-    <div class="lbl">Label</div>
-    <div class="input"><div class="ic"></div><input placeholder="Enter text..."></div>
-    <div class="help">Error: this field is required</div>
-  </div>
-  <div class="field f-disabled">
-    <div class="lbl">Label</div>
-    <div class="input"><div class="ic"></div><input placeholder="Enter text..." disabled></div>
-  </div>
+
 </div></body></html>
