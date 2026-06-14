@@ -239,17 +239,21 @@ Use `.kluvs-book-cover` combined with a size modifier (`--sm`, `--md`, `--lg`) a
 
 ## Book Cover Placeholder
 
-"No cover available" fallback fill for a single `CoverSlot`/`BookCover` — a finer diagonal stripe than the empty-state stacked covers, with an optional small mono label (e.g. "NO COVER").
+"No cover available" fallback fill for a single `CoverSlot`/`BookCover` — a tessellating hexagon "hive" grid pattern, optionally paired with a small mono label (e.g. "NO COVER").
 
 | Property | Token | Value |
 |---|---|---|
-| Fill | `component.book-cover-placeholder.fill` | `repeating-linear-gradient(45deg, divider 0 3px, surface-elevated 3px 6px)` |
+| Background | `component.book-cover-placeholder.fill` | Hexagon grid SVG (`#332B24` stroke on dark, `#E0E0E0` stroke on light) |
 | Label | `component.book-cover-placeholder.label` | 8px monospace, uppercase, 0.12em tracking, `--kluvs-warm-fg-tertiary`, 70% opacity |
+
+### Implementation Notes
+
+To render this in a client repo (like `kluvs-frontend` or `kluvs-mobile`), do not attempt to draw the hexagons using pure CSS gradients. Use the data-encoded SVG defined in `colors_and_type.css` under the `.kluvs-cover-placeholder` rule as a repeating `backgroundImage`. It scales infinitely.
 
 ### Web
 
 ```html
-<div class="kluvs-cover-placeholder" style="width:80px;height:120px;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px">
+<div class="kluvs-book-cover kluvs-book-cover--md kluvs-cover-placeholder" style="align-items:flex-end;padding-bottom:6px">
   <span class="kluvs-cover-placeholder__label">No cover</span>
 </div>
 ```

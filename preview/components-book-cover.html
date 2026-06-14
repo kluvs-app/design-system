@@ -103,13 +103,16 @@
                     </div>
                     <div>
                         <div class="item-label">No-Cover Fallback</div>
-                        <div
-                            class="kluvs-book-cover kluvs-book-cover--md kluvs-cover-placeholder"
-                            style="align-items: flex-end; padding-bottom: 6px"
-                        >
-                            <span class="kluvs-cover-placeholder__label"
-                                >No cover</span
-                            >
+                        <div class="kluvs-book-cover kluvs-book-cover--md kluvs-cover-placeholder">
+                            <svg class="kluvs-cover-placeholder__grid" width="100%" height="100%" style="position:absolute; inset:0;">
+                                <defs>
+                                    <pattern id="honeycomb" width="28" height="48.4974" patternUnits="userSpaceOnUse" viewBox="0 0 28 48.4974">
+                                        <path d="M14 0 l14 8.0829 v16.1645 l-14 8.0829 l-14 -8.0829 v-16.1645 z M0 24.2487 l14 8.0829 v16.1645 l-14 8.0829 l-14 -8.0829 v-16.1645 z M28 24.2487 l14 8.0829 v16.1645 l-14 8.0829 l-14 -8.0829 v-16.1645 z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#honeycomb)" />
+                            </svg>
+                            <span class="kluvs-cover-placeholder__label" style="position:absolute; bottom:6px;">No cover</span>
                         </div>
                     </div>
                 </div>

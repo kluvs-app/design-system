@@ -374,6 +374,7 @@
 
 /* ──── Book Cover ──── */
 .kluvs-book-cover {
+  box-sizing: border-box;
   border-radius: var(--kluvs-radius-sm);
   overflow: hidden;
   position: relative;
@@ -396,10 +397,12 @@
 
 /* ──── Book cover placeholder — "no cover" fallback fill ──── */
 .kluvs-cover-placeholder {
-  background: repeating-linear-gradient(45deg, var(--kluvs-warm-dark-card-2) 0 3px, var(--kluvs-warm-dark-bar) 3px 6px);
+  background-color: var(--kluvs-warm-dark-bar);
+  color: var(--kluvs-warm-dark-card-2);
 }
 [data-surface="light"] .kluvs-cover-placeholder {
-  background: repeating-linear-gradient(45deg, var(--kluvs-divider-light) 0 3px, var(--kluvs-surface-muted) 3px 6px);
+  background-color: var(--kluvs-surface-muted);
+  color: var(--kluvs-divider-light);
 }
 .kluvs-cover-placeholder__label {
   font: 400 8px/1 ui-monospace, monospace;
