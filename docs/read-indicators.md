@@ -23,17 +23,20 @@ A diagonal corner banner overlaid on a book cover.
 
 ### Sizes
 
-| Variant | Width | Height | Offset (`right`) | Use |
+Proportional to the `component.book-cover` sizes, establishing a bookmark that takes up ~15–20% of the cover width.
+
+| Variant | Width | Height | Offset (`right`) | Used with |
 |---|---|---|---|---|
-| `compact` | 20px | 35px | 8px  | Small/list-row covers |
-| `full`    | 30px | 52px | 14px | Card/detail covers |
+| `sm` | 12px | 21px | 6px  | `.kluvs-book-cover--sm` (56×84) |
+| `md` | 16px | 28px | 8px  | `.kluvs-book-cover--md` (80×120) |
+| `lg` | 24px | 42px | 12px | `.kluvs-book-cover--lg` (128×192) |
 
 ### Web
 
 ```html
-<div class="relative">
-  <img class="cover" src="..." />
-  <span class="kluvs-read-ribbon kluvs-read-ribbon--full" title="Read" aria-label="Read"></span>
+<div class="kluvs-book-cover kluvs-book-cover--md">
+  <img src="..." />
+  <span class="kluvs-read-ribbon kluvs-read-ribbon--md" title="Read" aria-label="Read"></span>
 </div>
 ```
 

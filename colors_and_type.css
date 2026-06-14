@@ -187,8 +187,10 @@
   clip-path: polygon(18% 0, 82% 0, 82% 50%, 100% 75%, 82% 100%, 18% 100%, 0% 75%, 18% 50%);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
 }
-.kluvs-read-ribbon--compact { width: 20px; height: 35px; right: 8px; }
-.kluvs-read-ribbon--full    { width: 30px; height: 52px; right: 14px; }
+/* Scaled to be ~15-20% of the book cover width, acting as a proportional bookmark */
+.kluvs-read-ribbon--sm { width: 12px; height: 21px; right: 6px; }  /* For 56x84 cover */
+.kluvs-read-ribbon--md { width: 16px; height: 28px; right: 8px; }  /* For 80x120 cover */
+.kluvs-read-ribbon--lg { width: 24px; height: 42px; right: 12px; } /* For 128x192 cover */
 
 .kluvs-read-badge {
   display: inline-flex;
@@ -380,10 +382,12 @@
   justify-content: center;
   flex-shrink: 0;
   /* Dark surface defaults */
-  background-color: var(--kluvs-warm-dark-card);
+  background-color: var(--kluvs-warm-dark-bar);
+  border: 1px solid var(--kluvs-warm-dark-card-2);
 }
 [data-surface="light"] .kluvs-book-cover {
   background-color: var(--kluvs-surface-muted);
+  border-color: var(--kluvs-divider-light);
 }
 .kluvs-book-cover--sm { width: 56px; height: 84px; }
 .kluvs-book-cover--md { width: 80px; height: 120px; }
@@ -392,7 +396,10 @@
 
 /* ──── Book cover placeholder — "no cover" fallback fill ──── */
 .kluvs-cover-placeholder {
-  background: repeating-linear-gradient(45deg, var(--kluvs-divider-dark) 0 3px, var(--kluvs-surface-dark-elevated) 3px 6px);
+  background: repeating-linear-gradient(45deg, var(--kluvs-warm-dark-card-2) 0 3px, var(--kluvs-warm-dark-bar) 3px 6px);
+}
+[data-surface="light"] .kluvs-cover-placeholder {
+  background: repeating-linear-gradient(45deg, var(--kluvs-divider-light) 0 3px, var(--kluvs-surface-muted) 3px 6px);
 }
 .kluvs-cover-placeholder__label {
   font: 400 8px/1 ui-monospace, monospace;
