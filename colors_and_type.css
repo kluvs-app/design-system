@@ -370,6 +370,26 @@
   text-align: center;
 }
 
+/* ──── Book Cover ──── */
+.kluvs-book-cover {
+  border-radius: var(--kluvs-radius-sm);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Dark surface defaults */
+  background-color: var(--kluvs-warm-dark-card);
+}
+[data-surface="light"] .kluvs-book-cover {
+  background-color: var(--kluvs-surface-muted);
+}
+.kluvs-book-cover--sm { width: 56px; height: 84px; }
+.kluvs-book-cover--md { width: 80px; height: 120px; }
+.kluvs-book-cover--lg { width: 128px; height: 192px; }
+.kluvs-book-cover--shadow { box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+
 /* ──── Book cover placeholder — "no cover" fallback fill ──── */
 .kluvs-cover-placeholder {
   background: repeating-linear-gradient(45deg, var(--kluvs-divider-dark) 0 3px, var(--kluvs-surface-dark-elevated) 3px 6px);

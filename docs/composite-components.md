@@ -207,6 +207,34 @@ For book-related empty states (e.g. "Nothing shelved yet"): three placeholder co
 </div>
 ```
 
+## Book Cover
+
+A standardized 2:3 aspect ratio container for book cover imagery, mirroring `BookCover.tsx` in `kluvs-frontend`.
+
+| Property | Token / Rule |
+|---|---|
+| Aspect Ratio | `2:3` strict |
+| Sizes | `sm` (56×84), `md` (80×120), `lg` (128×192) |
+| Radius | `radius.sm` (4px) |
+| Shadow | Optional: `0 3px 8px rgba(0,0,0,0.35)` |
+| Fallback | If no image exists, render the `.kluvs-cover-placeholder` pattern inside it. |
+
+### Web
+
+Use `.kluvs-book-cover` combined with a size modifier (`--sm`, `--md`, `--lg`) and an optional `--shadow`.
+
+```html
+<!-- Medium cover with image -->
+<div class="kluvs-book-cover kluvs-book-cover--md">
+  <img src="..." alt="Book title" style="width:100%; height:100%; object-fit:cover;">
+</div>
+
+<!-- Small cover fallback with shadow -->
+<div class="kluvs-book-cover kluvs-book-cover--sm kluvs-book-cover--shadow kluvs-cover-placeholder" style="align-items:flex-end; padding-bottom:6px">
+  <span class="kluvs-cover-placeholder__label">No cover</span>
+</div>
+```
+
 ---
 
 ## Book Cover Placeholder
