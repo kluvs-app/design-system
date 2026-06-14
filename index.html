@@ -84,7 +84,7 @@
                 <a class="nav-link" href="#comp-members">Members</a>
                 <a class="nav-link" href="#comp-states">States</a>
                 <a class="nav-link" href="#comp-modals">Modals</a>
-                <a class="nav-link" href="#comp-composite">Composite</a>
+                <a class="nav-link" href="#comp-book-states">Book Cover States</a>
             </div>
 
             <div class="nav-group">
@@ -1931,37 +1931,53 @@
                     <div class="comp-group-title">Buttons — All Variants</div>
 
                     <!-- Dark surface buttons -->
-                    <div data-surface="dark" style="display:flex;flex-direction:column;gap:20px">
+                    <div data-surface="dark">
                         <div class="comp-surface-dark" style="display:flex;flex-direction:column;gap:12px">
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-bottom:4px">Primary — Filled</div>
                             <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
                             <button style="background:rgba(209,109,48,0.25);color:#4D4033;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Outlined</div>
                             <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
-                            <button style="background:transparent;color:#4D4033;border:1.5px solid #4D4033;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                            <button style="background:transparent;color:var(--kluvs-content-dark-secondary);border:1.5px solid var(--kluvs-divider-dark);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Text — Ghost</div>
                             <button style="background:transparent;color:#D16D30;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
                             <button style="background:transparent;color:#8C8073;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Text — Destructive</div>
                             <button style="background:transparent;color:#EF4444;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Delete club</button>
                             <button style="background:transparent;color:#8C8073;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Cancel</button>
-                        </div>
-                        <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:8px">Social — OAuth</div>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Social — OAuth</div>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Pill — Utility Chip (e.g. Copy Club ID)</div>
+                            <div style="display:flex;gap:10px;align-items:center">
+                                <button class="kluvs-btn-pill">Copy Club ID</button>
+                                <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
+                            </div>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:#6B5F52;margin-top:8px;margin-bottom:4px">Segmented Control</div>
+                            <div style="display:flex;flex-direction:column;gap:12px;width:160px">
+                                <div class="kluvs-segmented">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
+                                    <button class="kluvs-segmented__option">Percent</button>
+                                </div>
+                                <div class="kluvs-segmented kluvs-segmented--icon">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
+                                    <button class="kluvs-segmented__option">?</button>
+                                    <button class="kluvs-segmented__option">✕</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Light surface buttons -->
-                    <div data-surface="light" style="display:flex;flex-direction:column;gap:20px">
+                    <div data-surface="light">
                         <div class="comp-surface-light" style="display:flex;flex-direction:column;gap:12px">
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:4px">Primary — Filled</div>
                             <button style="background:#D16D30;color:#FFFFFF;border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:default">Sign in to Kluvs</button>
                             <button style="background:rgba(209,109,48,0.15);color:rgba(209,109,48,0.35);border:none;border-radius:12px;padding:14px 24px;font:600 15px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Sign in to Kluvs</button>
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Outlined</div>
                             <button style="background:transparent;color:#D16D30;border:1.5px solid #D16D30;border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
-                            <button style="background:transparent;color:rgba(209,109,48,0.35);border:1.5px solid rgba(209,109,48,0.35);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:not-allowed">Add Discussion</button>
+                            <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:1.5px solid var(--kluvs-divider-light);border-radius:12px;padding:13px 24px;font:600 14px/1 var(--kluvs-font-sans);width:100%;cursor:default">Add Discussion</button>
                             <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Text — Ghost</div>
                             <button style="background:transparent;color:#D16D30;border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Forgot password?</button>
                             <button style="background:transparent;color:var(--kluvs-content-light-secondary);border:none;padding:6px 0;font:500 14px/1 var(--kluvs-font-sans);cursor:default;text-align:left">Don't have an account? <span style="color:#D16D30">Sign up</span></button>
@@ -1972,10 +1988,27 @@
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#5865F2;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-discord.svg" style="height:18px" alt="">Continue with Discord</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#F2F2F2;border:1px solid #D1D1D1;color:#1F1F1F;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-google.svg" style="height:18px" alt="">Continue with Google</button>
                             <button style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;background:#0F0F0F;border:none;color:#fff;font:500 14px/1 var(--kluvs-font-sans);cursor:default"><img src="assets/provider-apple.svg" style="height:18px" alt="">Continue with Apple</button>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Pill — Utility Chip (e.g. Copy Club ID)</div>
+                            <div style="display:flex;gap:10px;align-items:center">
+                                <button class="kluvs-btn-pill">Copy Club ID</button>
+                                <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
+                            </div>
+                            <div style="font:600 11px/1 var(--kluvs-font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-top:8px;margin-bottom:4px">Segmented Control</div>
+                            <div style="display:flex;flex-direction:column;gap:12px;width:160px">
+                                <div class="kluvs-segmented">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
+                                    <button class="kluvs-segmented__option">Percent</button>
+                                </div>
+                                <div class="kluvs-segmented kluvs-segmented--icon">
+                                    <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
+                                    <button class="kluvs-segmented__option">?</button>
+                                    <button class="kluvs-segmented__option">✕</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="comp-anno">Primary: copper fill · white text · 12px radius. Outlined: copper border + text. Text: no container. Social: provider-branded, fixed colors.</div>
+                    <div class="comp-anno">Primary: copper fill · white text · 12px radius (with a low-emphasis disabled state). Outlined: copper border + text (active), or grey border + text — its own muted/secondary state, not disabled. Text: no container. Social: provider-branded, fixed colors. Pill: rounded-full outlined chip for compact inline actions — intentionally low-emphasis (not a disabled state), with a transient success state on copy. Segmented: filled Track-By toggle and icon-only status-tinted RSVP variant.</div>
                 </div>
 
                 <!-- Inputs -->
@@ -2125,6 +2158,15 @@
                                 <div style="display:flex;align-items:center;gap:8px"><div style="width:10px;height:10px;border-radius:50%;background:#332B24"></div><span style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8">Member</span></div>
                             </div>
                         </div>
+                        <div style="margin-top:20px;padding-top:20px;border-top:1px solid #241C17;display:flex;align-items:center;gap:16px">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);color:#6B5F52;letter-spacing:.06em;text-transform:uppercase">Avatar Stack</div>
+                            <div class="kluvs-avatar-stack">
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#5865F2">LM</div>
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#5BAA5C">AP</div>
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#D16D30">DU</div>
+                                <div class="kluvs-avatar-stack__overflow">+2</div>
+                            </div>
+                        </div>
                     </div>
                     </div>
 
@@ -2161,10 +2203,19 @@
                                 <div style="display:flex;align-items:center;gap:8px"><div style="width:10px;height:10px;border-radius:50%;background:#E0E0E0"></div><span style="font:400 12px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary)">Member</span></div>
                             </div>
                         </div>
+                        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--kluvs-divider-light);display:flex;align-items:center;gap:16px">
+                            <div style="font:600 10px/1 var(--kluvs-font-sans);color:var(--kluvs-content-light-secondary);letter-spacing:.06em;text-transform:uppercase">Avatar Stack</div>
+                            <div class="kluvs-avatar-stack">
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#5865F2">LM</div>
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#5BAA5C">AP</div>
+                                <div class="kluvs-avatar" style="width:32px;height:32px;font-size:12px;background:#D16D30">DU</div>
+                                <div class="kluvs-avatar-stack__overflow">+2</div>
+                            </div>
+                        </div>
                     </div>
                     </div>
 
-                    <div class="comp-anno">Role rings: Owner gold #C9900A · Admin teal #006781 · Member none. Initials in Inter Bold.</div>
+                    <div class="comp-anno">Role rings: Owner gold #C9900A · Admin teal #006781 · Member none. Initials in Inter Bold. Avatar Stack: -8px overlap, 2px ring (white on light, surface-elevated on dark), "+N" overflow chip for compact member previews.</div>
                 </div>
 
                 <!-- Members -->
@@ -2200,6 +2251,12 @@
                                     <div style="font:400 12px/1 var(--kluvs-font-sans);color:#8C8073;margin-top:4px">@rafaperez · Member since 2026</div>
                                 </div>
                             </div>
+                            <div style="padding:14px 20px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #241C17">
+                                <span style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#6B5F52;margin-bottom:4px">Role Eyebrow (shipped web pattern)</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
+                            </div>
                         </div>
                     </div></div><!-- /dark -->
                     <div data-surface="light"><div class="comp-surface-light" style="padding:0;overflow:hidden">
@@ -2232,9 +2289,15 @@
                                     <div style="font:400 12px/1 var(--kluvs-font-sans);color:#666666;margin-top:4px">@rafaperez · Member since 2026</div>
                                 </div>
                             </div>
+                            <div style="padding:14px 20px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #F5F5F5">
+                                <span style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:4px">Role Eyebrow (shipped web pattern)</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
+                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
+                            </div>
                         </div>
                     </div></div><!-- /light -->
-                    <div class="comp-anno">TextDivider: hairline + sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge.</div>
+                    <div class="comp-anno">TextDivider: hairline + sentence-case label. MemberRow: 40px avatar + name + handle + optional role badge. Role Eyebrow: dot + uppercase label — the shipped web pattern for role identification, superseding the avatar-ring + corner-badge treatment shown above.</div>
                 </div>
 
                 <!-- States -->
@@ -2261,7 +2324,7 @@
                                     <div style="font:700 15px/1 var(--kluvs-font-sans);color:#F2EDE5;margin-bottom:4px">The Midnight Library</div>
                                     <div style="font:400 12px/1 var(--kluvs-font-sans);color:#C9BDA8;margin-bottom:12px">Matt Haig</div>
                                     <div style="display:flex;align-items:center;gap:10px">
-                                        <div style="flex:1;height:4px;background:#332B24;border-radius:4px"><div style="width:47%;height:4px;background:#D16D30;border-radius:4px"></div></div>
+                                        <div class="kluvs-progress-track" style="flex:1"><div class="kluvs-progress-fill" style="width:47%"></div></div>
                                         <span style="font:500 12px/1 var(--kluvs-font-sans);color:#8C8073;flex-shrink:0">47%</span>
                                     </div>
                                 </div>
@@ -2313,7 +2376,7 @@
                         </div>
                     </div>
 
-                    <div class="comp-anno">Spinner: Breathe·Tidal — Kluvs mark, 4s box-breathing (scale 0.96↔1.08, opacity 0.94↔1, 240°/cycle). Error: red ring + retry. Progress: copper fill on surface-matched track. Timeline: copper active node, muted upcoming.</div>
+                    <div class="comp-anno">Spinner: Breathe·Tidal — Kluvs mark, 4s box-breathing (scale 0.96↔1.08, opacity 0.94↔1, 240°/cycle). Error: red ring + retry. Progress: 4px copper fill on track (.kluvs-progress-track / .kluvs-progress-fill), paired with a secondary "Update" action — current shipped version. Timeline: copper active node, muted upcoming.</div>
                 </div>
 
                 <!-- Modals -->
@@ -2429,16 +2492,17 @@
                     <div class="comp-anno">Three-zone shell: Header (eyebrow label + ×) / Body / Footer (Cancel ← → Action). Default: copper eyebrow, primary CTA. Destructive: danger-red eyebrow, danger CTA. Danger zone box lives at the bottom of the body when a secondary destructive action exists — danger tint fill, "DANGER ZONE" eyebrow, outlined danger button. Warning boxes: copper tint (advisory) or danger tint (permanent consequences).</div>
                 </div>
 
-                <!-- Composite -->
-                <div class="comp-group" id="comp-composite" style="border-top:1px solid var(--kluvs-divider-light);padding-top:32px;margin-top:4px">
-                    <div class="comp-group-title">Composite — Read Indicators · Role Eyebrow · Avatars · Progress · Pills · Segmented · Empty States</div>
+                <!-- Book cover states -->
+                <div class="comp-group" id="comp-book-states" style="border-top:1px solid var(--kluvs-divider-light);padding-top:32px;margin-top:4px">
+                    <div class="comp-group-title">Book Cover States — Read Indicators · No-Cover Fallback · Empty Shelf</div>
 
-                    <div data-surface="dark" style="background:#0A0A0A;border-radius:12px;padding:32px">
+                    <div data-surface="dark">
+                    <div class="comp-surface-dark">
                     <div class="comp-grid" style="align-items:start">
 
                         <!-- Read indicators -->
                         <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Read Indicators</div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Read Indicators</div>
                             <div style="display:flex;gap:24px;align-items:flex-end">
                                 <div style="position:relative">
                                     <div style="width:80px;height:120px;border-radius:4px;background:#1A1A1A;border:1px solid #2A2A2A"></div>
@@ -2450,69 +2514,9 @@
                             </div>
                         </div>
 
-                        <!-- Role eyebrow -->
-                        <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Role Eyebrow</div>
-                            <div style="display:flex;flex-direction:column;gap:10px">
-                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--owner"><span class="kluvs-role-eyebrow__dot"></span>Owner</span>
-                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--admin"><span class="kluvs-role-eyebrow__dot"></span>Admin</span>
-                                <span class="kluvs-role-eyebrow kluvs-role-eyebrow--member">Member</span>
-                            </div>
-                        </div>
-
-                        <!-- Avatar stack -->
-                        <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Avatar Stack</div>
-                            <div class="kluvs-avatar-stack">
-                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5865F2">LM</div>
-                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5BAA5C">AP</div>
-                                <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#D16D30">DU</div>
-                                <div class="kluvs-avatar-stack__overflow">+2</div>
-                            </div>
-                        </div>
-
-                        <!-- Progress bar -->
-                        <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Progress Bar</div>
-                            <div style="width:220px">
-                                <div class="kluvs-progress-track">
-                                    <div class="kluvs-progress-fill" style="width:64%"></div>
-                                </div>
-                                <div style="display:flex;justify-content:space-between;margin-top:8px">
-                                    <span class="kluvs-eyebrow" style="color:var(--kluvs-primary)">Currently Reading</span>
-                                    <span class="kluvs-helper-sm" style="color:var(--kluvs-primary)">269 of 417 pages</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pill buttons -->
-                        <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Pill Button</div>
-                            <div style="display:flex;gap:10px">
-                                <button class="kluvs-btn-pill">Copy Club ID</button>
-                                <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
-                            </div>
-                        </div>
-
-                        <!-- Segmented controls -->
-                        <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Segmented Controls</div>
-                            <div style="display:flex;flex-direction:column;gap:14px;width:200px">
-                                <div class="kluvs-segmented">
-                                    <button class="kluvs-segmented__option kluvs-segmented__option--active">Page</button>
-                                    <button class="kluvs-segmented__option">Percent</button>
-                                </div>
-                                <div class="kluvs-segmented kluvs-segmented--icon">
-                                    <button class="kluvs-segmented__option kluvs-segmented__option--yes-active">✓</button>
-                                    <button class="kluvs-segmented__option">?</button>
-                                    <button class="kluvs-segmented__option">✕</button>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Book cover placeholder -->
                         <div>
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Book Cover Placeholder</div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">No-Cover Fallback</div>
                             <div class="kluvs-cover-placeholder" style="width:80px;height:120px;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px">
                                 <span class="kluvs-cover-placeholder__label">No cover</span>
                             </div>
@@ -2520,7 +2524,7 @@
 
                         <!-- Empty state -->
                         <div style="grid-column:span 2">
-                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#8C8073;margin-bottom:14px">Empty State — Stacked Covers</div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:#6B5F52;margin-bottom:14px">Empty State — Stacked Covers</div>
                             <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:24px 16px">
                                 <div class="kluvs-empty-covers" style="width:160px;height:140px">
                                     <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(-33px,3px) rotate(-7deg)"></div>
@@ -2534,9 +2538,57 @@
                             </div>
                         </div>
 
-                    </div></div>
+                    </div>
+                    </div>
+                    </div>
 
-                    <div class="comp-anno">Read Indicators: corner ribbon (full 30×52, copper, drop shadow) and circular badge (36px, copper outline + hexagon) mark a book "read" — never both on the same item. Role Eyebrow: dot + uppercase label — Owner (mustard), Admin (light teal text / teal dot), Member (green, no dot) — supersedes the older avatar-ring role pattern. Avatar Stack: -8px overlap, 2px ring, "+N" overflow chip. Progress Bar: 4px fill, secondary "Update" action (not shown) — current shipped version only. Pill Button: rounded-full outlined chip, success state on copy. Segmented Controls: filled variant (Track-By) and icon-only status-tinted variant (RSVP). Book Cover Placeholder: fine diagonal stripe + mono label. Empty State: tilted stacked-cover illustration + italic serif heading + helper text + primary CTA.</div>
+                    <div data-surface="light">
+                    <div class="comp-surface-light">
+                    <div class="comp-grid" style="align-items:start">
+
+                        <!-- Read indicators -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Read Indicators</div>
+                            <div style="display:flex;gap:24px;align-items:flex-end">
+                                <div style="position:relative">
+                                    <div style="width:80px;height:120px;border-radius:4px;background:#F5F5F5;border:1px solid #E0E0E0"></div>
+                                    <span class="kluvs-read-ribbon kluvs-read-ribbon--full" title="Read" aria-label="Read"></span>
+                                </div>
+                                <span class="kluvs-read-badge" title="Read" aria-label="Read">
+                                    <svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M264.65-107 48.74-480l215.91-373h430.7l215.91 373-215.91 373h-430.7Z"/></svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Book cover placeholder -->
+                        <div>
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">No-Cover Fallback</div>
+                            <div class="kluvs-cover-placeholder" style="width:80px;height:120px;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px">
+                                <span class="kluvs-cover-placeholder__label">No cover</span>
+                            </div>
+                        </div>
+
+                        <!-- Empty state -->
+                        <div style="grid-column:span 2">
+                            <div style="font:500 10px/1 var(--kluvs-font-sans);letter-spacing:0.1em;text-transform:uppercase;color:var(--kluvs-content-light-secondary);margin-bottom:14px">Empty State — Stacked Covers</div>
+                            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:24px 16px">
+                                <div class="kluvs-empty-covers" style="width:160px;height:140px">
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(-33px,3px) rotate(-7deg)"></div>
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(0,-3px) rotate(4deg)"></div>
+                                    <div class="kluvs-empty-covers__cover" style="width:80px;height:114px;transform:translate(33px,3px) rotate(10deg)"></div>
+                                </div>
+                                <div>
+                                    <p class="kluvs-empty-heading" style="font-size:22px">Nothing shelved yet.</p>
+                                    <p class="kluvs-empty-body" style="margin-top:8px">Search for a book and add it to Want to Read, Read, or Not Finished — it'll show up here.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="comp-anno">Read Indicators: corner ribbon (full 30×52, copper, drop shadow) and circular badge (36px, copper outline + hexagon) mark a book "read" — never both on the same item; copper works unchanged on both surfaces. No-Cover Fallback: fine diagonal stripe + mono label, using surface-matched fill on both light and dark. Empty State: tilted stacked-cover illustration + italic serif heading + helper text + primary CTA (not shown).</div>
                 </div>
             </section>
 

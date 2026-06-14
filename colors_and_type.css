@@ -250,6 +250,10 @@
   color: var(--kluvs-on-primary);
 }
 /* Icon-only variant (e.g. RSVP attendance) — fixed-size square segments, status-tinted active state */
+.kluvs-segmented--icon {
+  width: auto;
+  align-self: flex-start;
+}
 .kluvs-segmented--icon .kluvs-segmented__option {
   flex: none;
   width: 28px;
@@ -372,6 +376,73 @@
   letter-spacing: 0.12em;
   color: var(--kluvs-warm-fg-tertiary);
   opacity: 0.7;
+}
+
+/* ──── Light-surface overrides for composite components ──── */
+/* Kluvs is dark-first, not dark-only — every component above must work on */
+/* light surfaces too. Scope these with [data-surface="light"] (web) or by  */
+/* re-declaring the same class inside a light-themed container.            */
+[data-surface="light"] .kluvs-btn-secondary {
+  border-color: var(--kluvs-divider-light);
+  color: var(--kluvs-content-light-primary);
+}
+[data-surface="light"] .kluvs-btn-secondary:hover { background: #F5F5F5; }
+
+[data-surface="light"] .kluvs-btn-pill {
+  border-color: var(--kluvs-divider-light);
+  color: var(--kluvs-content-light-secondary);
+}
+[data-surface="light"] .kluvs-btn-pill--success {
+  border-color: var(--kluvs-success);
+  color: var(--kluvs-success);
+}
+
+[data-surface="light"] .kluvs-segmented {
+  border-color: var(--kluvs-divider-light);
+}
+[data-surface="light"] .kluvs-segmented__option {
+  color: var(--kluvs-content-light-secondary);
+  border-left-color: var(--kluvs-divider-light);
+}
+[data-surface="light"] .kluvs-segmented__option--active {
+  color: var(--kluvs-on-primary);
+}
+[data-surface="light"] .kluvs-segmented--icon .kluvs-segmented__option--maybe-active {
+  background: #F5F5F5;
+  color: var(--kluvs-content-light-primary);
+}
+
+[data-surface="light"] .kluvs-progress-track {
+  background: var(--kluvs-divider-light);
+}
+
+[data-surface="light"] .kluvs-avatar-stack > * {
+  box-shadow: 0 0 0 2px #FFFFFF;
+}
+[data-surface="light"] .kluvs-avatar-stack__overflow {
+  background: #F5F5F5;
+  color: var(--kluvs-content-light-secondary);
+  box-shadow: 0 0 0 2px #FFFFFF;
+}
+
+[data-surface="light"] .kluvs-role-eyebrow--admin {
+  color: var(--kluvs-role-admin);
+}
+
+[data-surface="light"] .kluvs-empty-covers__cover {
+  background: repeating-linear-gradient(135deg, #F5F5F5 0 5px, var(--kluvs-divider-light) 5px 10px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(0,0,0,0.03);
+}
+[data-surface="light"] .kluvs-empty-heading,
+[data-surface="light"] .kluvs-empty-body {
+  color: var(--kluvs-content-light-secondary);
+}
+
+[data-surface="light"] .kluvs-cover-placeholder {
+  background: repeating-linear-gradient(45deg, var(--kluvs-divider-light) 0 3px, #F5F5F5 3px 6px);
+}
+[data-surface="light"] .kluvs-cover-placeholder__label {
+  color: var(--kluvs-content-light-secondary);
 }
 
 /* ──── Back-compat aliases (preview cards reference older names) ──── */

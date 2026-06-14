@@ -40,10 +40,30 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
   - **Role Eyebrow** (`component.role-eyebrow`) — uppercase role label + optional dot, using the new role-label tokens from the previous entry. `.kluvs-role-eyebrow`. **Supersedes** the avatar-ring + corner-dot pattern in `preview/components-member-row.html`, which was never shipped.
   - **Empty States + Book Cover Placeholder** (`component.empty-state`, `component.book-cover-placeholder`) — page-level "nothing here" state (stacked tilted placeholder covers + italic heading + body + CTA) and the single-cover diagonal-stripe "no cover" fallback. `.kluvs-empty-covers`, `.kluvs-empty-heading`, `.kluvs-empty-body`, `.kluvs-cover-placeholder`.
 
+### Fixed — light-surface support for second-pass composite patterns
+
+The second pass above shipped with hardcoded dark-stack tokens (`--kluvs-divider-dark`, `--kluvs-content-dark-*`, `--kluvs-surface-dark-elevated`) and no light-surface equivalents — Kluvs is dark-first, not dark-only, and these components needed to work on light surfaces too.
+
+- Added `[data-surface="light"]`-scoped overrides in `colors_and_type.css` for `.kluvs-btn-secondary`, `.kluvs-btn-pill`(`--success`), `.kluvs-segmented`(`--icon`), `.kluvs-progress-track`, `.kluvs-avatar-stack`(`__overflow`), `.kluvs-role-eyebrow--admin`, `.kluvs-empty-covers__cover`, `.kluvs-empty-heading`/`.kluvs-empty-body`, and `.kluvs-cover-placeholder`(`__label`).
+- Added matching `light-surface` sub-objects to the relevant `component.*` groups in `tokens.json` (`button.secondary`, `button.pill`, `segmented-control`, `avatar-stack`, `progress-bar`, `role-eyebrow`, `empty-state`(`.stacked-covers`), `book-cover-placeholder`).
+- `role-eyebrow--admin`: light surface uses `--kluvs-role-admin` (#006781) directly instead of `--kluvs-role-admin-on-dark` (#7BA8B8), which fails AA on light backgrounds.
+- Fixed `.kluvs-segmented--icon` (RSVP variant) stretching to the parent's full `width: 100%` — icon segments now size to content (`width: auto` on the container).
+
+### Site (`index.html`) — restructured to surface new patterns in their natural homes
+
+The standalone "Composite" section dumped all eight second-pass patterns together, dark-only, with no clear identity. Redistributed:
+
+- **Pill Button** + **Segmented Control** → moved into the **Buttons** section (both surfaces), with an annotation clarifying the pill's low-emphasis styling is intentional, not a disabled state.
+- **Avatar Stack** → added to the **Avatars** section (both surfaces).
+- **Role Eyebrow** → added to the **Members** section (both surfaces), with a note that it supersedes the avatar-ring + corner-badge pattern shown above it.
+- **Progress Bar** → de-duplicated. The States section's existing "Currently Reading" bar now uses the real `.kluvs-progress-track`/`.kluvs-progress-fill` classes instead of one-off inline styles, and the standalone Composite copy was removed.
+- **Read Indicators**, **Book Cover Placeholder** (renamed "No-Cover Fallback"), and **Empty State** → kept together as a new **"Book Cover States"** section (both surfaces), replacing "Composite". Switched its wrapper from a custom `background:#0A0A0A` box to the standard `.comp-surface-dark`/`.comp-surface-light` cards used everywhere else, fixing the overly-bright divider contrast above the section.
+
 ### Known follow-ups
 
 - **Avatar hue palette** (`ui/Avatar.tsx`, `AVATAR_HUES`) — still hardcoded inline in `kluvs-frontend`, now documented in `tokens.json` but not yet referenced from a shared source. Lower priority; revisit if other clients need generated-avatar parity.
 - **`preview/components-member-row.html`** — documents the unshipped ring/corner-dot avatar role pattern; should be updated or replaced to reflect `component.role-eyebrow` in a future pass.
+- **`preview/components-composite.html`** — still single-surface (dark canvas only); update to show light-surface variants alongside dark, matching the new `index.html` treatment.
 - **Reading progress row** (`ProgressRow.tsx`) — an in-progress exploration of richer progress treatments lives in `preview/explore-reading-progress.html` (untracked) — reconcile before specing `component.reading-progress` updates.
 - **App navigation shell** (`AppSidebar.tsx` + `MobileTopBar.tsx`) — first real implementation of the Material Symbols icon system from `README.md`; worth a future icon-sourcing convention doc.
 - **BookCover / CoverSlot** (`ui/BookCover.tsx`) — standardized 2:3 cover slot (56×84 / 80×120 / 128×192) — candidate for a future `component.book-cover` token group.

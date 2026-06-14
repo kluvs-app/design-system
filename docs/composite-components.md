@@ -2,6 +2,8 @@
 
 These patterns were extracted from `kluvs-frontend` (shipped, in production) and formalized here. Web classes live in `colors_and_type.css`; token groups live in `tokens.json` under `component.*`.
 
+**Both surfaces:** Kluvs is dark-first, not dark-only. Every class below has a light-surface override scoped via `[data-surface="light"] .kluvs-*` in `colors_and_type.css`, with the corresponding values documented in a `light-surface` sub-object on each `component.*` token group in `tokens.json`. Owner/member role colors and the copper read-ribbon/badge are validated AA on both surfaces and need no override.
+
 ---
 
 ## Avatar
