@@ -133,6 +133,36 @@
   /* Modal header label — 11px / 0.14em; intentionally tighter than general eyebrow (12px / 0.1em) */
   --kluvs-modal-label-size:     11px;
   --kluvs-modal-label-tracking: 0.14em;
+
+  /* ─────────── AVATAR HUES (Dark / Chocolate Theme) ─────────── */
+  --kluvs-avatar-hue-0: #331F17;
+  --kluvs-avatar-hue-1: #38271A;
+  --kluvs-avatar-hue-2: #2B231D;
+  --kluvs-avatar-hue-3: #42251A;
+  --kluvs-avatar-hue-4: #261A14;
+  --kluvs-avatar-hue-5: #3D2E24;
+  --kluvs-avatar-hue-6: #4A2E1F;
+  --kluvs-avatar-hue-7: #2E2218;
+  --kluvs-avatar-hue-8: #3A1E16;
+  --kluvs-avatar-hue-9: #453325;
+  --kluvs-avatar-hue-10: #302018;
+  --kluvs-avatar-hue-11: #3D2115;
+}
+
+[data-surface="light"] {
+  /* ─────────── AVATAR HUES (Light / Cream Theme) ─────────── */
+  --kluvs-avatar-hue-0: #F9EDE6;
+  --kluvs-avatar-hue-1: #F4EBD9;
+  --kluvs-avatar-hue-2: #EBE6E0;
+  --kluvs-avatar-hue-3: #F8E3D8;
+  --kluvs-avatar-hue-4: #F1EBE6;
+  --kluvs-avatar-hue-5: #F5E8DF;
+  --kluvs-avatar-hue-6: #F9E6D5;
+  --kluvs-avatar-hue-7: #EBE8D8;
+  --kluvs-avatar-hue-8: #F6E2DD;
+  --kluvs-avatar-hue-9: #EFE4D6;
+  --kluvs-avatar-hue-10: #EFE1D2;
+  --kluvs-avatar-hue-11: #F2E1DC;
 }
 
 /* ──── Semantic type classes (web-canonical names) ──── */
@@ -299,10 +329,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: var(--kluvs-warm-fg-primary);
   font-family: var(--kluvs-font-serif);
   font-weight: 500;
 }
+[data-surface="light"] .kluvs-avatar {
+  color: var(--kluvs-content-light-primary);
+}
+
+.kluvs-avatar--primary { background-color: var(--kluvs-primary) !important; color: #FFFFFF !important; }
+.kluvs-avatar--hue-0 { background-color: var(--kluvs-avatar-hue-0); }
+.kluvs-avatar--hue-1 { background-color: var(--kluvs-avatar-hue-1); }
+.kluvs-avatar--hue-2 { background-color: var(--kluvs-avatar-hue-2); }
+.kluvs-avatar--hue-3 { background-color: var(--kluvs-avatar-hue-3); }
+.kluvs-avatar--hue-4 { background-color: var(--kluvs-avatar-hue-4); }
+.kluvs-avatar--hue-5 { background-color: var(--kluvs-avatar-hue-5); }
+.kluvs-avatar--hue-6 { background-color: var(--kluvs-avatar-hue-6); }
+.kluvs-avatar--hue-7 { background-color: var(--kluvs-avatar-hue-7); }
+.kluvs-avatar--hue-8 { background-color: var(--kluvs-avatar-hue-8); }
+.kluvs-avatar--hue-9 { background-color: var(--kluvs-avatar-hue-9); }
+.kluvs-avatar--hue-10 { background-color: var(--kluvs-avatar-hue-10); }
+.kluvs-avatar--hue-11 { background-color: var(--kluvs-avatar-hue-11); }
+
 .kluvs-avatar-stack { display: flex; }
 .kluvs-avatar-stack > * {
   position: relative;

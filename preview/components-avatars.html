@@ -15,7 +15,8 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 [data-surface="light"] .size-label { color: var(--kluvs-content-light-secondary); }
 
 .hue-grid { display: flex; gap: 6px; flex-wrap: wrap; max-width: 140px; }
-.hue-dot { width: 18px; height: 18px; border-radius: 50%; }
+.hue-dot { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); }
+[data-surface="light"] .hue-dot { border-color: rgba(0,0,0,0.05); }
 
 .divider { height: 1px; background: var(--kluvs-warm-dark-card-2); width: 100%; }
 [data-surface="light"] .divider { background: var(--kluvs-divider-light); }
@@ -26,35 +27,37 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
     <span class="label">Avatar Variations</span>
     <div class="card">
       <div style="display:flex;gap:32px;align-items:flex-end">
-        <div><div class="size-label">sm · 20px</div><div class="kluvs-avatar" style="width:20px;height:20px;font-size:8px;background:#5865F2">JD</div></div>
-        <div><div class="size-label">md · 24px</div><div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5BAA5C">KM</div></div>
-        <div><div class="size-label">lg · 40px</div><div class="kluvs-avatar" style="width:40px;height:40px;font-size:12px;background:#9B59B6">RP</div></div>
-        <div><div class="size-label">xl · 88px</div><div class="kluvs-avatar" style="width:88px;height:88px;font-size:35px;background:var(--kluvs-primary)">Me</div></div>
+        <div><div class="size-label">sm · 20px</div><div class="kluvs-avatar kluvs-avatar--hue-0" style="width:20px;height:20px;font-size:8px;">JD</div></div>
+        <div><div class="size-label">md · 24px</div><div class="kluvs-avatar kluvs-avatar--hue-1" style="width:24px;height:24px;font-size:10px;">KM</div></div>
+        <div><div class="size-label">lg · 40px</div><div class="kluvs-avatar kluvs-avatar--hue-2" style="width:40px;height:40px;font-size:12px;">RP</div></div>
+        <div><div class="size-label">xl · 88px</div><div class="kluvs-avatar kluvs-avatar--primary" style="width:88px;height:88px;font-size:35px;">Me</div></div>
       </div>
       <div class="divider"></div>
       <div style="display:flex;gap:24px;align-items:center">
         <div>
-          <div class="size-label" style="text-align:left">Hue palette</div>
+          <div class="size-label" style="text-align:left">Thematic Hue palette</div>
           <div class="hue-grid">
-            <div class="hue-dot" style="background:#5865F2"></div>
-            <div class="hue-dot" style="background:#5BAA5C"></div>
-            <div class="hue-dot" style="background:#9B59B6"></div>
-            <div class="hue-dot" style="background:#0097A7"></div>
-            <div class="hue-dot" style="background:#3498DB"></div>
-            <div class="hue-dot" style="background:#E74C3C"></div>
-            <div class="hue-dot" style="background:#16A085"></div>
-            <div class="hue-dot" style="background:#5C6BC0"></div>
-            <div class="hue-dot" style="background:#8E44AD"></div>
-            <div class="hue-dot" style="background:#2ECC71"></div>
-            <div class="hue-dot" style="background:var(--kluvs-primary)" title="own user"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-0)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-1)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-2)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-3)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-4)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-5)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-6)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-7)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-8)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-9)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-10)"></div>
+            <div class="hue-dot" style="background:var(--kluvs-avatar-hue-11)"></div>
+            <div class="hue-dot kluvs-avatar--primary" title="own user" style="border:none"></div>
           </div>
         </div>
         <div style="flex:1">
           <div class="size-label">Avatar Stack</div>
           <div class="kluvs-avatar-stack">
-            <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5865F2">LM</div>
-            <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:#5BAA5C">AP</div>
-            <div class="kluvs-avatar" style="width:24px;height:24px;font-size:10px;background:var(--kluvs-primary)">DU</div>
+            <div class="kluvs-avatar kluvs-avatar--hue-3" style="width:24px;height:24px;font-size:10px;">LM</div>
+            <div class="kluvs-avatar kluvs-avatar--hue-4" style="width:24px;height:24px;font-size:10px;">AP</div>
+            <div class="kluvs-avatar kluvs-avatar--primary" style="width:24px;height:24px;font-size:10px;">DU</div>
             <div class="kluvs-avatar-stack__overflow">+2</div>
           </div>
         </div>

@@ -14,8 +14,8 @@ Circular, generated member avatar. Shows an uploaded image if present, otherwise
 |---|---|---|
 | Shape | `component.avatar.shape` | circle |
 | Initials | `component.avatar.initials` | 1-2 letters, EB Garamond, white |
-| Own-user override | `component.avatar.own-color` → `--kluvs-primary` | copper |
-| Hue palette | `component.avatar.hue-palette` | 10 fixed colors, picked by `userId % 10` |
+| Own-user override | `component.avatar.own-color` → `--kluvs-primary` | copper, white text |
+| Hue palette | `component.avatar.hue-palette` | 12 thematic hues (chocolate on dark, cream on light), picked by `userId % 12` |
 
 Role is **never** shown on the avatar — no ring, no corner badge. Role identification is handled entirely by Role Eyebrow, placed next to the member's name (see below).
 
