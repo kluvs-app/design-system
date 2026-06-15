@@ -5,7 +5,7 @@
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
 .card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 320px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
-[data-surface="light"] .card { background: #FFFFFF; border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
+[data-surface="light"] .card { background: var(--kluvs-surface-light-raised); border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
 
 .input-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
 .input-label { font: 500 12px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-label); }
@@ -20,10 +20,10 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 .input-field--disabled { background: var(--kluvs-warm-dark-base); color: var(--kluvs-warm-fg-disabled); border: 1px solid var(--kluvs-warm-dark-card); cursor: not-allowed; }
 
 /* Light overrides */
-[data-surface="light"] .input-field { background: #ffffff; color: var(--kluvs-content-light-primary); border: 1px solid #b0b0b0; }
+[data-surface="light"] .input-field { background: var(--kluvs-surface-light-elevated); color: var(--kluvs-content-light-primary); border: 1px solid #b0b0b0; }
 [data-surface="light"] .input-field--focus { border: 2px solid var(--kluvs-primary); }
 [data-surface="light"] .input-field--error { border: 1px solid var(--kluvs-danger); }
-[data-surface="light"] .input-field--disabled { background: #f5f5f5; color: #b0b0b0; border: 1px solid #e0e0e0; }
+[data-surface="light"] .input-field--disabled { background: var(--kluvs-surface-light-deep); color: #b0b0b0; border: 1px solid #e0e0e0; }
 
 .error-msg { font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-danger); margin-top: -2px; }
 </style></head>

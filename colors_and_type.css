@@ -37,9 +37,11 @@
   --kluvs-content-dark-secondary: #B0B0B0;
 
   /* ─────────── SURFACE — LIGHT (web canonical) ─────────── */
-  --kluvs-surface-light:           #FFFFFF;
-  --kluvs-surface-light-raised:    #F5F5F5;
-  --kluvs-surface-light-elevated:  #EEEEEE;
+  /* Cream-based — mirrors the warm-dark scale (chocolate bg / cream text) in reverse */
+  --kluvs-surface-light:           #F2EDE5;   /* cream — page bg */
+  --kluvs-surface-light-raised:    #FAF6EF;   /* mayonnaise — card, lighter than page */
+  --kluvs-surface-light-elevated:  #F0E9DC;   /* deeper cream — muted fill, sheets */
+  --kluvs-surface-light-deep:      #E8DECC;   /* deepest cream — further-elevated surface */
   --kluvs-divider-light:           #E0E0E0;
   --kluvs-content-light-primary:   #1A1A1A;
   --kluvs-content-light-secondary: #666666;
@@ -334,7 +336,8 @@
   font-weight: 500;
 }
 [data-surface="light"] .kluvs-avatar {
-  color: var(--kluvs-content-light-primary);
+  /* Inverse of the dark-mode pairing: cream text on dark-chocolate bg becomes dark-chocolate text on cream bg */
+  color: var(--kluvs-warm-dark-base);
 }
 
 .kluvs-avatar--primary { background-color: var(--kluvs-primary) !important; color: #FFFFFF !important; }
@@ -533,9 +536,9 @@
   --kluvs-fg-on-dark-1:         var(--kluvs-warm-fg-primary);
   --kluvs-fg-on-dark-2:         var(--kluvs-warm-fg-muted);
   --kluvs-fg-on-dark-3:         var(--kluvs-warm-fg-deep);
-  --kluvs-surface-default:      #FAFAFC;
-  --kluvs-surface-card:         #FFFFFF;
-  --kluvs-surface-muted:        #F5F5F5;
+  --kluvs-surface-default:      var(--kluvs-surface-light);
+  --kluvs-surface-card:         var(--kluvs-surface-light-raised);
+  --kluvs-surface-muted:        var(--kluvs-surface-light-elevated);
   --kluvs-surface-dark-base:    var(--kluvs-warm-dark-base);
   --kluvs-surface-dark-bar:     var(--kluvs-warm-dark-bar);
   --kluvs-surface-dark-nav:     var(--kluvs-warm-dark-nav);

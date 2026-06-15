@@ -111,8 +111,17 @@ The original 10-color saturated palette (blues/purples/greens) didn't match the 
 - Split `docs/composite-components.md` and `docs/read-indicators.md` into nine per-component guides: `docs/avatars.md`, `docs/book-cover.md`, `docs/buttons.md`, `docs/cards.md`, `docs/inputs.md`, `docs/members.md`, `docs/modal.md`, `docs/navigation.md`, `docs/states.md`.
 - `CLAUDE.md` and `README.md` file maps updated to list the new per-component docs instead of the two combined files.
 
+### Changed — light surfaces redesigned from white/grey to a cream scale
+
+- `--kluvs-surface-light` (`#FFFFFF` → `#F2EDE5`, cream), `--kluvs-surface-light-raised` (`#FAFAFC` → `#FAF6EF`, mayonnaise), `--kluvs-surface-light-elevated` (`#F5F5F5` → `#F0E9DC`), and new `--kluvs-surface-light-deep` (`#E8DECC`) — light mode now mirrors the warm-dark scale (dark-chocolate base / chocolate raised) using a cream base / mayonnaise raised pairing instead of neutral white/grey. Back-compat aliases (`--kluvs-surface-default`, `--kluvs-surface-card`, `--kluvs-surface-muted`) updated to match.
+- `.kluvs-avatar` text on `[data-surface="light"]` now uses `--kluvs-warm-dark-base` (`#140F0D`, dark chocolate) instead of `#1A1A1A` — the inverse of the dark-mode pairing, where the same role uses cream (`#F2EDE5`) text on a dark-chocolate background.
+- `tokens.json` — `color.light` group updated to the cream scale with descriptions documenting the inverse relationship to `color.warm-dark`; `component.avatar.initials` updated to describe the cream/dark-chocolate swap.
+- Propagated across `index.html` (Light Surfaces swatches, Accessibility table contrast pairings recalculated against the new cream background), `site.css` (shell, chips, cards, status tables, inputs, `.card-pinned-light`), and all light-mode component previews (Navigation, Modals, Inputs, States, Cards, Members, Avatars, Buttons, Composite, Book Cover) — replacing hardcoded `#FFFFFF`/`#F5F5F5`/`#FAFAFC` backgrounds with the new surface tokens. Navigation's bar hierarchy (shell/bars/bottom-nav) now mirrors the dark-mode layering using cream → mayonnaise → deeper-cream tones.
+- Recalculated WCAG contrast ratios for cream-background text pairings: Near-black on Cream 14.94:1 (AAA), Secondary text on Cream 4.93:1 (AA), Admin Teal on Cream 5.54:1 (AA), Error Red on Cream 3.23:1 (Exception, unchanged rationale), Gold on Cream 1.49:1 (by design).
+
 ### Known follow-ups
 
+- **Token-naming consolidation** — adopt human-meaningful names ("dark chocolate", "chocolate", "cream", "mayonnaise") alongside or instead of hex-derived names for the warm-dark and light surface scales, now that both follow the same paired structure.
 - **`preview/components-member-row.html`** — documents the unshipped ring/corner-dot avatar role pattern; should be updated or replaced to reflect `component.role-eyebrow` in a future pass.
 - **Reading progress row** (`ProgressRow.tsx`) — an in-progress exploration of richer progress treatments lives in `preview/explore-reading-progress.html` (untracked) — reconcile before specing `component.reading-progress` updates.
 - **App navigation shell** (`AppSidebar.tsx` + `MobileTopBar.tsx`) — first real implementation of the Material Symbols icon system from `README.md`; worth a future icon-sourcing convention doc.

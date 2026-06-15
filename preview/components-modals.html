@@ -5,7 +5,7 @@
 html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
 .canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
 .modal-shell { width: 360px; border-radius: 16px; overflow: hidden; background: var(--kluvs-warm-dark-bar); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; }
-[data-surface="light"] .modal-shell { background: #FFFFFF; border-color: #E0E0E0; box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+[data-surface="light"] .modal-shell { background: var(--kluvs-surface-light-raised); border-color: #E0E0E0; box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
 
 .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--kluvs-warm-dark-card-2); }
 [data-surface="light"] .modal-header { border-bottom-color: #E0E0E0; }
@@ -40,7 +40,7 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 .close-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
 
 .input-mock { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 8px; padding: 11px 14px; font: 400 14px/1 var(--kluvs-font-sans); }
-[data-surface="light"] .input-mock { background:#F5F5F5; border-color:#E0E0E0; }
+[data-surface="light"] .input-mock { background:var(--kluvs-surface-light-elevated); border-color:#E0E0E0; }
 </style></head>
 <body><div class="canvas">
 
