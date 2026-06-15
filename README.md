@@ -164,14 +164,6 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 - `icon-honeycomb.svg`, `icon-info.svg`, `icon-location.svg`, `icon-logout.svg`, `icon-password.svg`
 - `icon-person.svg`, `icon-settings.svg`, `icon-shield.svg`, `icon-unfold.svg`
 
-## UI kits
-
-| Kit | Path | Surfaces |
-|---|---|---|
-| Mobile (iOS / Android) | `ui_kits/mobile/` | Login → Clubs (General / Active Session / Members) → Profile. Click-thru prototype. |
-
-Web is left out — the Figma's `Web-TBD` page is intentionally empty.
-
 ## Accessibility
 
 Contrast ratios computed against WCAG 2.x relative luminance. Target: **AA (4.5:1 normal text, 3:1 large/UI)**.
@@ -222,8 +214,7 @@ Error red (`#EF4444`) passes AA for large/bold text (3:1) but not for normal bod
 
 ## Caveats / open questions
 
-- The figma file is a foundation pass: 26 variables, 6 text styles, 8 components. **There is no full button system yet** (only the social-button and the inline filled-rectangle CTA on auth). I've expressed both forms in the UI kit and grouped them together; flag if/when a real `Button` component lands.
+- The figma file is a foundation pass: 26 variables, 6 text styles, 8 components. **There is no full button system yet** (only the social-button and the inline filled-rectangle CTA on auth); flag if/when a real `Button` component lands.
 - **No web frames** — `Web-TBD` is empty. Don't extrapolate the dark mobile palette to a marketing site without a designer's review.
-- **No icon set** (see Iconography above). Lucide is a flagged substitute.
 - **No motion spec.** Defaults are conservative best-guesses.
 - **Inter** is loaded from Google Fonts CDN; we did not find a hosted `.ttf` to copy locally. If the team wants a fully offline kit, drop Inter `.ttf`s into `fonts/` and adjust `colors_and_type.css`.

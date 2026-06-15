@@ -76,13 +76,46 @@ The track had a "47%" label floating at its trailing end — `ProgressRow` doesn
 - `docs/composite-components.md` Progress Bar spec rewritten to document the action-beside-track layout and the three status-label variants (page / percent / finished).
 - Progress Bar remains documented as its own `component.progress-bar` token group (already the case) but isn't broken out into its own site section — it's shown in context as part of the "Currently Reading" card, which matches how it's actually used.
 
+### Added — Book Cover component formalized
+
+`ui/BookCover.tsx`'s standardized 2:3 cover slot is now a named design system component, with proportionally-scaled read indicators and a redesigned "no cover" fallback.
+
+- **`component.book-cover`** in `tokens.json` + `.kluvs-book-cover` (`--sm` 56×84, `--md` 80×120, `--lg` 128×192, optional `--shadow` modifier) in `colors_and_type.css` — strict 2:3 aspect ratio, `radius.sm`, surface-aware fill/border.
+- **Read ribbon rescale** — `.kluvs-read-ribbon--compact`/`--full` renamed to `--sm`/`--md`/`--lg` and resized (12×21 / 16×28 / 24×42) to read as a proportional bookmark (~15–20% of cover width) on each book cover size, instead of two fixed sizes independent of the cover.
+- **Hexagon "hive" fallback** — `.kluvs-cover-placeholder` now pairs with an inline tessellating hexagon-grid SVG pattern (instead of a diagonal stripe gradient), stroked with `currentColor` so it adapts per-surface (`card-2` on dark, `divider` on light); `docs/book-cover.md` documents the markup for client repos (don't recreate with CSS gradients).
+- New `preview/components-book-cover.html` and `docs/book-cover.md` consolidate Read Indicators + No-Cover Fallback under a single "Book Cover" site section (previously the dangling "Book Cover States"/"Composite" section).
+
+### Changed — Avatar hue palette redesigned with 12 thematic hues
+
+The original 10-color saturated palette (blues/purples/greens) didn't match the warm chocolate/cream Kluvs palette.
+
+- `--kluvs-avatar-hue-0` through `-11` — 12 chocolate tones on dark surfaces, 12 cream tones on light surfaces (`[data-surface="light"]` override), plus `.kluvs-avatar--hue-0..11` and `.kluvs-avatar--primary` classes.
+- `component.avatar.hue-palette` in `tokens.json` updated to the 12-entry palette (`userId % 12`); `docs/avatars.md` updated to match.
+- Avatar initials color now resolves to `--kluvs-warm-fg-primary` / `--kluvs-content-light-primary` instead of hardcoded `#FFFFFF`, so it adapts per-surface.
+
+### Changed — Site overhaul: high-fidelity component sections with reactive previews
+
+- Each component group (Navigation, Buttons, Inputs, Cards, Avatars, Members, States, Modals, Book Cover) is now its own top-level `<section>` with an eyebrow/title/description, replacing the single catch-all "Components" section and its inline `.comp-group-title` headers.
+- Removed the static `.comp-anno` description blocks beneath each preview — component specimens in `preview/*.html` are now self-contained and reactive to the surface toggle.
+- `site.js` — added a preview-embed loader: fetches `preview/*.html`, rewrites `../assets/` → `assets/` for production, renders into a shadow root with `colors_and_type.css` injected, and syncs `data-surface` with the site-wide dark/light toggle.
+
+### Removed — deprecated mobile UI kit and Lucide placeholders
+
+`ui_kits/mobile/` was an early Figma-generation artifact, superseded by the shipped `kluvs-frontend`/`kluvs-mobile` code as the source of truth for formalizing patterns.
+
+- Deleted `ui_kits/mobile/` (`components.jsx`, `screens.jsx`, `ios-frame.jsx`, `index.html`) and all references in `CLAUDE.md`, `README.md`, `SKILL.md`, and `tokens.json`.
+- Removed the Lucide-as-placeholder notes in `README.md`/`SKILL.md`/`tokens.json` — Material Symbols (weight 600, Grade 0, 24px SVG) is the sole canonical icon system, with no remaining caveats.
+
+### Docs — modularized into per-component files, 1:1 with site sections
+
+- Split `docs/composite-components.md` and `docs/read-indicators.md` into nine per-component guides: `docs/avatars.md`, `docs/book-cover.md`, `docs/buttons.md`, `docs/cards.md`, `docs/inputs.md`, `docs/members.md`, `docs/modal.md`, `docs/navigation.md`, `docs/states.md`.
+- `CLAUDE.md` and `README.md` file maps updated to list the new per-component docs instead of the two combined files.
+
 ### Known follow-ups
 
-- **Avatar hue palette** (`ui/Avatar.tsx`, `AVATAR_HUES`) — still hardcoded inline in `kluvs-frontend`, now documented in `tokens.json` but not yet referenced from a shared source. Lower priority; revisit if other clients need generated-avatar parity.
 - **`preview/components-member-row.html`** — documents the unshipped ring/corner-dot avatar role pattern; should be updated or replaced to reflect `component.role-eyebrow` in a future pass.
 - **Reading progress row** (`ProgressRow.tsx`) — an in-progress exploration of richer progress treatments lives in `preview/explore-reading-progress.html` (untracked) — reconcile before specing `component.reading-progress` updates.
 - **App navigation shell** (`AppSidebar.tsx` + `MobileTopBar.tsx`) — first real implementation of the Material Symbols icon system from `README.md`; worth a future icon-sourcing convention doc.
-- **BookCover / CoverSlot** (`ui/BookCover.tsx`) — standardized 2:3 cover slot (56×84 / 80×120 / 128×192) — candidate for a future `component.book-cover` token group.
 
 ---
 

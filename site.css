@@ -686,24 +686,6 @@
         color: var(--kluvs-danger);
     }
 
-    /* avatar specimens */
-    .avatar-ring {
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        color: var(--kluvs-warm-fg-primary);
-        background: var(--kluvs-warm-dark-card);
-        flex-shrink: 0;
-    }
-    .avatar-ring.owner {
-        box-shadow: 0 0 0 2px #efbf04;
-    }
-    .avatar-ring.admin {
-        box-shadow: 0 0 0 2px #006781;
-    }
-
     /* spinner — sized here; animation is self-contained in assets/spinner-kluvs.svg */
     .kluvs-spinner {
         width: 36px;

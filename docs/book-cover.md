@@ -57,6 +57,6 @@ A corner "bookmark" overlaid on a cover to mark it as read.
 
 ## 4. Read Badge (`.kluvs-read-badge`)
 
-A circular circular badge with the Kluvs hexagon glyph for list rows.
+A circular badge with the Kluvs hexagon glyph for list rows.
 - **Size:** 36px diameter.
 - **Style:** 1px copper border, copper hexagon icon.
