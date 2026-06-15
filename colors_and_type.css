@@ -1,5 +1,5 @@
 /* ============================================================
-   Kluvs Design System — Color & Type Tokens  v2.2.0
+   Kluvs Design System — Color & Type Tokens  v2.3.0
    Canonical sources:
      · kluvs.com tailwind.config (web — neutral-dark surfaces)
      · Figma "Kluvs Design System" (mobile — warm-dark surfaces)
@@ -37,14 +37,18 @@
   --kluvs-content-dark-secondary: #B0B0B0;
 
   /* ─────────── SURFACE — LIGHT (web canonical) ─────────── */
-  /* Cream-based — mirrors the warm-dark scale (chocolate bg / cream text) in reverse */
-  --kluvs-surface-light:           #F2EDE5;   /* cream — page bg */
-  --kluvs-surface-light-raised:    #FAF6EF;   /* mayonnaise — card, lighter than page */
-  --kluvs-surface-light-elevated:  #F0E9DC;   /* deeper cream — muted fill, sheets */
-  --kluvs-surface-light-deep:      #E8DECC;   /* deepest cream — further-elevated surface */
-  --kluvs-divider-light:           #E0E0E0;
-  --kluvs-content-light-primary:   #1A1A1A;
-  --kluvs-content-light-secondary: #666666;
+  /* Cream-based — mirrors the warm-dark scale 1:1 (chocolate bg / cream text), in reverse */
+  --kluvs-surface-light:           #F2EDE5;   /* cream — page bg. Mirrors warm-dark-base */
+  --kluvs-surface-light-bar:       #F6F0E7;   /* mirrors warm-dark-bar */
+  --kluvs-surface-light-raised:    #FAF6EF;   /* mayonnaise — card, lighter than page. Mirrors warm-dark-card. Also the input-well surface, mirroring how warm-dark-card doubles as the dark input well */
+  --kluvs-surface-light-deep:      #E8DECC;   /* deepest cream — nav / chrome. Mirrors warm-dark-nav */
+  --kluvs-surface-light-accent:    rgba(209, 109, 48, 0.04); /* copper tinted fill. Mirrors warm-dark-accent */
+  --kluvs-divider-light:           #E5DCCB;   /* warm divider/hairline. Mirrors warm-dark-card-2 */
+  --kluvs-content-light-primary:     #1A1A1A;   /* mirrors content-dark-primary (white) */
+  --kluvs-content-light-secondary:   #666666;   /* mirrors content-dark-secondary */
+  --kluvs-content-light-tertiary:    #7A6C5E;   /* meta / captions. Mirrors warm-fg-tertiary */
+  --kluvs-content-light-placeholder: #9A8C7E;   /* placeholder text. Mirrors warm-fg-placeholder */
+  --kluvs-content-light-disabled:    #C2B6A8;   /* disabled. Mirrors warm-fg-disabled */
 
   /* ─────────── SURFACE — WARM DARK (mobile / Figma) ─────────── */
   /* Warm-tinted near-blacks — the canonical product dark surface scale. */
@@ -54,8 +58,7 @@
   --kluvs-warm-dark-card:    #241C17;
   --kluvs-warm-dark-card-2:  #332B24;
   --kluvs-warm-dark-accent:  #382112;   /* "Next discussion" tinted fill */
-  --kluvs-warm-fg-primary:     #F2EDE5;   /* cream — body / headings */
-  --kluvs-warm-fg-label:       #C9BDA8;   /* labels / subtitles */
+  --kluvs-warm-fg-primary:     #F2EDE5;   /* cream — label / variant / accent text. Inverts to --kluvs-warm-dark-base (dark chocolate) on light surfaces. */
   --kluvs-warm-fg-tertiary:    #8C8073;   /* meta / captions */
   --kluvs-warm-fg-placeholder: #6B5F52;   /* placeholder text */
   --kluvs-warm-fg-disabled:    #4D4033;   /* disabled */
@@ -68,7 +71,7 @@
   --kluvs-role-admin:  #006781;        /* tertiary teal — role badge / dot */
   --kluvs-role-admin-on-dark: #7BA8B8; /* lighter teal — admin role *label text* on dark surfaces; --kluvs-role-admin fails AA as text on dark */
   --kluvs-role-member: transparent;
-  --kluvs-role-member-label: #48A480;  /* member role label text — alias of --kluvs-secondary */
+  --kluvs-role-member-label: var(--kluvs-warm-fg-primary); /* cream on dark — inverted to dark chocolate on light, same swap as avatar initials */
 
   /* ─────────── STATUS ─────────── */
   --kluvs-danger:        #EF4444;
@@ -375,7 +378,7 @@
   border-radius: var(--kluvs-radius-pill);
   font: 500 10px/1 var(--kluvs-font-sans);
   background: var(--kluvs-warm-dark-card-2);
-  color: var(--kluvs-warm-fg-label);
+  color: var(--kluvs-warm-fg-primary);
   box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
 }
 
@@ -505,13 +508,17 @@
   box-shadow: 0 0 0 2px #FFFFFF;
 }
 [data-surface="light"] .kluvs-avatar-stack__overflow {
-  background: #F5F5F5;
-  color: var(--kluvs-content-light-secondary);
-  box-shadow: 0 0 0 2px #FFFFFF;
+  background: var(--kluvs-divider-light);
+  color: var(--kluvs-warm-dark-base);
+  box-shadow: 0 0 0 2px var(--kluvs-surface-light-raised);
 }
 
 [data-surface="light"] .kluvs-role-eyebrow--admin {
   color: var(--kluvs-role-admin);
+}
+
+[data-surface="light"] .kluvs-role-eyebrow--member {
+  color: var(--kluvs-warm-dark-base);
 }
 
 [data-surface="light"] .kluvs-empty-covers__cover {
@@ -538,7 +545,7 @@
   --kluvs-fg-on-dark-3:         var(--kluvs-warm-fg-deep);
   --kluvs-surface-default:      var(--kluvs-surface-light);
   --kluvs-surface-card:         var(--kluvs-surface-light-raised);
-  --kluvs-surface-muted:        var(--kluvs-surface-light-elevated);
+  --kluvs-surface-muted:        var(--kluvs-surface-light-bar);
   --kluvs-surface-dark-base:    var(--kluvs-warm-dark-base);
   --kluvs-surface-dark-bar:     var(--kluvs-warm-dark-bar);
   --kluvs-surface-dark-nav:     var(--kluvs-warm-dark-nav);

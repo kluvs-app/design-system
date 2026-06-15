@@ -15,6 +15,26 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.3.0] — 2026-06-14
+
+### Added — 1:1 Dark/Light surface and foreground parity
+
+The Color section's dark and light panels are now structured as direct mirrors of each other, role for role, with exactly 6 swatches each — no extra, unmirrored colors on either side, and one consolidated name per token.
+
+- **New light surface tokens**: `--kluvs-surface-light-bar` (`#F6F0E7`, mirrors `warm-dark-bar`) and `--kluvs-surface-light-accent` (`rgba(209,109,48,0.04)`, mirrors `warm-dark-accent`). `--kluvs-surface-light-deep` (`#E8DECC`) is now framed as the light "Nav" surface (mirrors `warm-dark-nav`).
+- **Retired `--kluvs-surface-light-elevated` (`#F0E9DC`)** — it was the one unmirrored "extra" light color, used only for input wells. Dark already reuses its Card tier (`--kluvs-warm-dark-card`) for input wells, so light now does the same: input fields, the input-mock preview, and disabled-input states all use `--kluvs-surface-light-raised` (Mayonnaise). The avatar-stack overflow chip and bottom-nav, which used the old elevated token for different reasons, now use `--kluvs-divider-light` (Hairline, mirrors dark's Card-2 usage) and `--kluvs-surface-light-deep` (Nav, mirrors dark's Nav usage) respectively. The `--kluvs-surface-muted` back-compat alias (book cover / cover placeholder) now points to `--kluvs-surface-light-bar`, mirroring their dark `--kluvs-warm-dark-bar` usage.
+- **`--kluvs-divider-light` changed from `#E0E0E0` (cool grey) to `#E5DCCB`** (warm, mirrors `warm-dark-card-2`/hairline). Propagated to `colors_and_type.css`, `tokens.json` (4 component specs referencing `color.light.divider`), `preview/components-modals.html`, `preview/components-states.html`, `preview/components-inputs.html`.
+- **New light foreground tokens**: `--kluvs-content-light-tertiary` (`#7A6C5E`), `--kluvs-content-light-placeholder` (`#9A8C7E`), `--kluvs-content-light-disabled` (`#C2B6A8`) — mirror `warm-fg-tertiary`/`placeholder`/`disabled`. The existing Cream/Dark-Chocolate label swap fills the "Label" role on both sides.
+- **Consolidated swatch names** — every dual-named swatch now has one name, shared by both modes: "Card 2 / Hairline" → **Hairline**, "Label / Variant (...)" → **Label (...)**, "Tertiary / Meta" → **Tertiary**.
+- **`index.html`**: removed the outdated "— Mobile / Product" subtitle from "Warm Dark Surfaces"; added Primary (`#FFFFFF`)/Secondary (`#B0B0B0`) swatches to "Warm Foreground" so it has 6 roles matching the new light panel; split the old mixed "Light Surfaces" card into a 6-swatch "Light Surfaces" panel (Nav, Base, Bar, Card, Hairline, Accent Fill) and a new 6-swatch "Light Foreground" panel (Primary, Secondary, Label, Tertiary, Placeholder, Disabled) — both now directly comparable, swatch-for-swatch, with their dark counterparts.
+- `tokens.json` — added `color.light.bar`, `color.light.accent-fill`, `color.foreground-light.label-variant`/`tertiary`/`placeholder`/`disabled`; renamed `color.light.elevated` → `color.light.deep` and removed `color.light.raised` (`#F0E9DC`, the retired token); updated `color.light.divider`.
+
+### Fixed — Light Surfaces/Foreground cards and Member role swatch
+
+- **`.card-pinned-light` now always renders on a Cream background**, in both page modes. Previously it only pinned to Cream when the page itself was in dark mode (`main.dark-surface .card-pinned-light` override); in light mode it fell through to the default `.card` background (Mayonnaise), so the "Light Surfaces"/"Light Foreground" panels' base color changed depending on the page's own surface toggle — same bug the rest of this release was fixing, just on the light side. `site.css`.
+- **Reordered Roles & Status**: Member now sits right after Admin (was last, after Success).
+- **Member swatch now actually swaps color with the page surface** — cream (`#F2EDE5`) on dark, dark chocolate (`#140F0D`) on light, matching `--kluvs-role-member-label`'s real behavior — instead of a static cream swatch with a "#F2EDE5 on dark · #140F0D on light" caption. New `.swatch-role-member` rule in `site.css`.
+
 ### Added — formalizing patterns from `kluvs-frontend`
 
 `kluvs-frontend` has shipped ~30 PRs since v2.2.0. The following new patterns and discrepancies were audited and formalized:
@@ -118,6 +138,14 @@ The original 10-color saturated palette (blues/purples/greens) didn't match the 
 - `tokens.json` — `color.light` group updated to the cream scale with descriptions documenting the inverse relationship to `color.warm-dark`; `component.avatar.initials` updated to describe the cream/dark-chocolate swap.
 - Propagated across `index.html` (Light Surfaces swatches, Accessibility table contrast pairings recalculated against the new cream background), `site.css` (shell, chips, cards, status tables, inputs, `.card-pinned-light`), and all light-mode component previews (Navigation, Modals, Inputs, States, Cards, Members, Avatars, Buttons, Composite, Book Cover) — replacing hardcoded `#FFFFFF`/`#F5F5F5`/`#FAFAFC` backgrounds with the new surface tokens. Navigation's bar hierarchy (shell/bars/bottom-nav) now mirrors the dark-mode layering using cream → mayonnaise → deeper-cream tones.
 - Recalculated WCAG contrast ratios for cream-background text pairings: Near-black on Cream 14.94:1 (AAA), Secondary text on Cream 4.93:1 (AA), Admin Teal on Cream 5.54:1 (AA), Error Red on Cream 3.23:1 (Exception, unchanged rationale), Gold on Cream 1.49:1 (by design).
+
+### Named the brand palette and fixed a primary-text mislabel
+
+- **Color naming** — Brand and role colors now have human-meaningful names alongside hex values, documented in `index.html`'s Color section: Primary = Copper (`#D16D30`), Secondary = Jade (`#48A480`), Tertiary = Teal (`#006781`), Dark Chocolate (`#140F0D`), Chocolate (`#241C17`), Cream (`#F2EDE5`), Mayonnaise (`#FAF6EF`), Owner = Mustard (`#C9900A`), Admin = Teal (same as Tertiary), Danger = Coral (`#EF4444`), Success = Jade.
+- **Fixed Owner swatch** — the "Owner" swatch in `index.html` rendered the old gold `#EFBF04` while its label already said `#C9900A` (Mustard); the swatch now matches the label. `CLAUDE.md`'s "Pending propagation" note about Gold `#EFBF04` updated to reflect that the canonical owner color is Mustard `#C9900A` (mobile/iOS `Color.kt`/`Colors.swift` still need updating to match).
+- **`--kluvs-role-member-label`** changed from Jade (`#48A480`) to Cream (`#F2EDE5`) on dark / Dark Chocolate (`#140F0D`) on light — same swap as avatar initials. Updated in `colors_and_type.css`, `tokens.json`, `docs/members.md`.
+- **Fixed primary-text mislabel** — `--kluvs-warm-fg-primary` (`#F2EDE5`, Cream) was documented as "primary body text" on dark surfaces, but `kluvs-frontend` (source of truth) uses white (`#FFFFFF`) for primary dark text; Cream is actually the label/variant/accent role (wordmark, avatar initials, member role label, input labels, card subtitles), which inverts to Dark Chocolate (`#140F0D`) on light. Retired `--kluvs-warm-fg-label` (`#C9BDA8`, unused in `kluvs-frontend`) entirely — its three usages (card subtitles, input labels, modal labels, avatar-stack overflow) now use the cream/dark-chocolate label-variant pairing instead. Updated `colors_and_type.css`, `tokens.json`, `site.css`, `README.md`, and affected previews (`components-cards.html`, `components-inputs.html`, `components-modals.html`).
+- Fixed two more leftover `#F5F5F5`/`#FFFFFF` light-mode backgrounds found during this pass: `.kluvs-avatar-stack__overflow` now uses `--kluvs-surface-light-elevated` / `--kluvs-surface-light-raised`.
 
 ### Known follow-ups
 
@@ -275,7 +303,8 @@ Initial design system foundation, generated from the Kluvs Figma file.
 
 ---
 
-[Unreleased]: https://github.com/kluvs-app/design-system/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/kluvs-app/design-system/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/kluvs-app/design-system/compare/v2.2.0...v2.3.0
 [2.1.0]: https://github.com/kluvs-app/design-system/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/kluvs-app/design-system/compare/v1.0.2...v2.0.0
 [1.0.2]: https://github.com/kluvs-app/design-system/compare/v1.0.1...v1.0.2

@@ -48,9 +48,9 @@ The voice is **plain, warm and a little understated**. Sentences are short. The 
 ## Visual foundations
 
 ### Color
-A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to `#332B24` cards-2) carries everything in product; **light cream `#F2EDE5`** is the primary text on dark; **copper `#D16D30`** is the only chromatic accent. Auth and marketing flip to a light `#FAFAFC` page with near-black `#1A1A1A` text. There is no secondary brand color.
+A **monochrome warm-black scale** (five surfaces from `#0F0D0A` bottom-nav up to `#332B24` cards-2) carries everything in product; **white `#FFFFFF`** is the primary text on dark, with **cream `#F2EDE5`** reserved for label/variant/accent text (wordmark, avatar initials, member role label, input labels); **copper `#D16D30`** is the only chromatic accent. Auth and marketing flip to a light **cream `#F2EDE5`** page with near-black `#1A1A1A` text — cream/dark-chocolate (`#140F0D`) is the inverse pairing for the label/variant/accent role on light surfaces. There is no secondary brand color.
 
-Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical badge on both surfaces), **admin** = teal `#006781`, **member** = no decoration. Error red `#EF4444` is used only for inline form errors.
+Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical badge on both surfaces), **admin** = teal `#006781`, **member** = cream on dark / dark chocolate on light (no decoration). Error red `#EF4444` is used only for inline form errors.
 
 ### Type
 **Two-register system** — EB Garamond (serif) for literary content, IBM Plex Sans for UI chrome. Three weights each: Regular 400, Medium 500, Bold 700. No other weights.
@@ -98,7 +98,7 @@ Targets a **mobile** product, so press matters most.
 ### Borders & strokes
 - Inputs: 1-px stroke `#B0B0B0`, focused → 2-px copper, error → 1-px error-red.
 - Cards on dark: no border by default. Highlighted cards (Next Discussion) get **1.5-px copper** + a deeper warm fill `#382112`.
-- Dividers on dark: `#332B24` 1-px line. On light: `#E0E0E0`.
+- Dividers on dark: `#332B24` 1-px line. On light: `#E5DCCB` (warm, mirrors the dark hairline).
 
 ### Shadows
 The figma metadata records `rgba(0,0,0,0.05)` shadows 12×, all on light surfaces. **Elevation is whisper-quiet.** Use `0 1px 2px rgba(0,0,0,0.05)` for cards on light. Dark cards earn elevation via lighter fills, not shadows.
@@ -175,7 +175,6 @@ Contrast ratios computed against WCAG 2.x relative luminance. Target: **AA (4.5:
 | Cream `#F2EDE5` | Base `#140F0D` | 16.32:1 | AAA |
 | Cream `#F2EDE5` | Bar `#1A140F` | 15.66:1 | AAA |
 | Cream `#F2EDE5` | Card `#241C17` | 14.38:1 | AAA |
-| Label `#C9BDA8` | Base `#140F0D` | 10.26:1 | AAA |
 | Mustard `#C9900A` | Base `#140F0D` | ~7:1 | AA |
 | Tertiary `#8C8073` | Base `#140F0D` | 4.94:1 | AA |
 | Copper `#D16D30` | Base `#140F0D` | 5.38:1 | AA |

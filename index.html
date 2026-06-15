@@ -511,9 +511,10 @@
                 <h2 class="section-title">Color</h2>
                 <p class="section-desc">
                     Copper is the only chromatic accent — one per view.
-                    Everything else is surface, type, and role. Dark product
-                    surfaces are warm near-black; auth and marketing use a
-                    cool-neutral light stack.
+                    Everything else is surface, type, and role. Dark and
+                    light are both warm-toned scales — chocolate near-black
+                    and cream near-white — and mirror each other 1:1, role
+                    for role.
                 </p>
 
                 <div class="card">
@@ -524,7 +525,7 @@
                                 class="swatch-block"
                                 style="background: #d16d30"
                             ></div>
-                            <div class="swatch-name">Primary</div>
+                            <div class="swatch-name">Primary (Copper)</div>
                             <div class="swatch-hex">#D16D30</div>
                         </div>
                         <div>
@@ -548,7 +549,7 @@
                                 class="swatch-block"
                                 style="background: #48a480"
                             ></div>
-                            <div class="swatch-name">Secondary</div>
+                            <div class="swatch-name">Secondary (Jade)</div>
                             <div class="swatch-hex">#48A480</div>
                         </div>
                         <div>
@@ -564,7 +565,7 @@
                                 class="swatch-block"
                                 style="background: #006781"
                             ></div>
-                            <div class="swatch-name">Tertiary</div>
+                            <div class="swatch-name">Tertiary (Teal)</div>
                             <div class="swatch-hex">#006781</div>
                         </div>
                         <div>
@@ -579,9 +580,7 @@
                 </div>
 
                 <div class="card-dark">
-                    <div class="card-label">
-                        Warm Dark Surfaces — Mobile / Product
-                    </div>
+                    <div class="card-label">Warm Dark Surfaces</div>
                     <div class="swatch-grid">
                         <div>
                             <div
@@ -616,7 +615,7 @@
                                 class="swatch-name"
                                 style="color: var(--kluvs-warm-fg-primary)"
                             >
-                                Base
+                                Base (Dark Chocolate)
                             </div>
                             <div
                                 class="swatch-hex"
@@ -658,7 +657,7 @@
                                 class="swatch-name"
                                 style="color: var(--kluvs-warm-fg-primary)"
                             >
-                                Card
+                                Card (Chocolate)
                             </div>
                             <div
                                 class="swatch-hex"
@@ -679,7 +678,7 @@
                                 class="swatch-name"
                                 style="color: var(--kluvs-warm-fg-primary)"
                             >
-                                Card 2 / Hairline
+                                Hairline
                             </div>
                             <div
                                 class="swatch-hex"
@@ -718,7 +717,7 @@
                         <div>
                             <div
                                 class="swatch-block"
-                                style="background: #f2ede5"
+                                style="background: #ffffff"
                             ></div>
                             <div
                                 class="swatch-name"
@@ -730,25 +729,43 @@
                                 class="swatch-hex"
                                 style="color: var(--kluvs-warm-fg-tertiary)"
                             >
-                                #F2EDE5
+                                #FFFFFF
                             </div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
-                                style="background: #c9bda8"
+                                style="background: #b0b0b0"
                             ></div>
                             <div
                                 class="swatch-name"
                                 style="color: var(--kluvs-warm-fg-primary)"
                             >
-                                Label
+                                Secondary
                             </div>
                             <div
                                 class="swatch-hex"
                                 style="color: var(--kluvs-warm-fg-tertiary)"
                             >
-                                #C9BDA8
+                                #B0B0B0
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
+                                style="background: #f2ede5"
+                            ></div>
+                            <div
+                                class="swatch-name"
+                                style="color: var(--kluvs-warm-fg-primary)"
+                            >
+                                Label (Cream)
+                            </div>
+                            <div
+                                class="swatch-hex"
+                                style="color: var(--kluvs-warm-fg-tertiary)"
+                            >
+                                #F2EDE5 · inverts to #140F0D on light
                             </div>
                         </div>
                         <div>
@@ -760,7 +777,7 @@
                                 class="swatch-name"
                                 style="color: var(--kluvs-warm-fg-primary)"
                             >
-                                Tertiary / Meta
+                                Tertiary
                             </div>
                             <div
                                 class="swatch-hex"
@@ -815,12 +832,34 @@
                             <div
                                 class="swatch-block"
                                 style="
+                                    background: var(--kluvs-surface-light-deep);
+                                    border: 1px solid var(--kluvs-divider-light);
+                                "
+                            ></div>
+                            <div class="swatch-name">Nav</div>
+                            <div class="swatch-hex">#E8DECC</div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
+                                style="
                                     background: var(--kluvs-surface-light);
                                     border: 1px solid var(--kluvs-divider-light);
                                 "
                             ></div>
-                            <div class="swatch-name">Page</div>
+                            <div class="swatch-name">Base (Cream)</div>
                             <div class="swatch-hex">#F2EDE5</div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
+                                style="
+                                    background: var(--kluvs-surface-light-bar);
+                                    border: 1px solid var(--kluvs-divider-light);
+                                "
+                            ></div>
+                            <div class="swatch-name">Bar</div>
+                            <div class="swatch-hex">#F6F0E7</div>
                         </div>
                         <div>
                             <div
@@ -830,57 +869,100 @@
                                     border: 1px solid var(--kluvs-divider-light);
                                 "
                             ></div>
-                            <div class="swatch-name">Card</div>
+                            <div class="swatch-name">Card (Mayonnaise)</div>
                             <div class="swatch-hex">#FAF6EF</div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
                                 style="
-                                    background: var(--kluvs-surface-light-elevated);
-                                    border: 1px solid var(--kluvs-divider-light);
+                                    background: var(--kluvs-divider-light);
+                                    border: 1px solid #d9cdb8;
                                 "
                             ></div>
-                            <div class="swatch-name">Raised</div>
-                            <div class="swatch-hex">#F0E9DC</div>
+                            <div class="swatch-name">Hairline</div>
+                            <div class="swatch-hex">#E5DCCB</div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
                                 style="
-                                    background: var(--kluvs-surface-light-deep);
+                                    background: var(--kluvs-surface-light-accent);
                                     border: 1px solid var(--kluvs-divider-light);
                                 "
                             ></div>
-                            <div class="swatch-name">Elevated</div>
-                            <div class="swatch-hex">#E8DECC</div>
+                            <div class="swatch-name">Accent Fill</div>
+                            <div class="swatch-hex">
+                                copper @ 4% · mirrors #382112
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="card card-pinned-light">
+                    <div class="card-label">Light Foreground</div>
+                    <div class="swatch-grid">
                         <div>
                             <div
                                 class="swatch-block"
-                                style="background: #1a1a1a"
+                                style="
+                                    background: var(--kluvs-content-light-primary);
+                                "
                             ></div>
-                            <div class="swatch-name">Text Primary</div>
+                            <div class="swatch-name">Primary</div>
                             <div class="swatch-hex">#1A1A1A</div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
-                                style="background: #666666"
+                                style="
+                                    background: var(--kluvs-content-light-secondary);
+                                "
                             ></div>
-                            <div class="swatch-name">Text Secondary</div>
+                            <div class="swatch-name">Secondary</div>
                             <div class="swatch-hex">#666666</div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
+                                style="background: #140f0d"
+                            ></div>
+                            <div class="swatch-name">
+                                Label (Dark Chocolate)
+                            </div>
+                            <div class="swatch-hex">
+                                #140F0D · inverts to #F2EDE5 on dark
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
                                 style="
-                                    background: #e0e0e0;
-                                    border: 1px solid var(--kluvs-divider-light);
+                                    background: var(--kluvs-content-light-tertiary);
                                 "
                             ></div>
-                            <div class="swatch-name">Divider</div>
-                            <div class="swatch-hex">#E0E0E0</div>
+                            <div class="swatch-name">Tertiary</div>
+                            <div class="swatch-hex">#7A6C5E</div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
+                                style="
+                                    background: var(--kluvs-content-light-placeholder);
+                                "
+                            ></div>
+                            <div class="swatch-name">Placeholder</div>
+                            <div class="swatch-hex">#9A8C7E</div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block"
+                                style="
+                                    background: var(--kluvs-content-light-disabled);
+                                "
+                            ></div>
+                            <div class="swatch-name">Disabled</div>
+                            <div class="swatch-hex">#C2B6A8</div>
                         </div>
                     </div>
                 </div>
@@ -891,9 +973,9 @@
                         <div>
                             <div
                                 class="swatch-block"
-                                style="background: #efbf04"
+                                style="background: #c9900a"
                             ></div>
-                            <div class="swatch-name">Owner Gold</div>
+                            <div class="swatch-name">Owner (Mustard)</div>
                             <div class="swatch-hex">
                                 #C9900A · dark surfaces only
                             </div>
@@ -903,15 +985,25 @@
                                 class="swatch-block"
                                 style="background: #006781"
                             ></div>
-                            <div class="swatch-name">Admin Teal</div>
+                            <div class="swatch-name">Admin (Teal)</div>
                             <div class="swatch-hex">#006781</div>
+                        </div>
+                        <div>
+                            <div
+                                class="swatch-block swatch-role-member"
+                                style="border: 1px solid var(--kluvs-divider-light)"
+                            ></div>
+                            <div class="swatch-name">Member (Cream / Dark Chocolate)</div>
+                            <div class="swatch-hex">
+                                #F2EDE5 on dark · #140F0D on light
+                            </div>
                         </div>
                         <div>
                             <div
                                 class="swatch-block"
                                 style="background: #ef4444"
                             ></div>
-                            <div class="swatch-name">Danger</div>
+                            <div class="swatch-name">Danger (Coral)</div>
                             <div class="swatch-hex">#EF4444</div>
                         </div>
                         <div>
@@ -927,7 +1019,7 @@
                                 class="swatch-block"
                                 style="background: #48a480"
                             ></div>
-                            <div class="swatch-name">Success</div>
+                            <div class="swatch-name">Success (Jade)</div>
                             <div class="swatch-hex">#48A480</div>
                         </div>
                     </div>
@@ -1675,7 +1767,7 @@
                                 <td>
                                     <span class="badge badge-done">AAA</span>
                                 </td>
-                                <td class="comp-note">Primary body text</td>
+                                <td class="comp-note">Label / variant / accent text — wordmark, avatar initials, member role label, input labels. Primary body text on dark is white.</td>
                             </tr>
                             <tr>
                                 <td>

@@ -23,7 +23,7 @@ Uppercase semantic labels for role identification. **Supercedes** previous avata
 |---|---|---|
 | Owner | Mustard `#C9900A` | Yes (Mustard) |
 | Admin | Teal `#7BA8B8` (dark) / `#006781` (light) | Yes (Teal) |
-| Member | Green `#48A480` | No |
+| Member | Cream `#F2EDE5` (dark) / Dark Chocolate `#140F0D` (light) | No |
 
 ## Web Snippet
 

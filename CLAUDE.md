@@ -50,7 +50,7 @@ The back-compat alias block at the bottom of `colors_and_type.css` maps older `-
 
 These are confirmed design system decisions that have not yet been applied to `kluvs-mobile` or `kluvs-frontend`:
 
-- **Gold `#EFBF04`** — design system updated; mobile `Color.kt` and iOS `Colors.swift` still have `#EFBF04` (already correct); `colors_and_type.css` now aligned.
+- **Owner role color (Mustard `#C9900A`)** — the design system's owner role color is `--kluvs-role-owner: #C9900A` (Mustard), not gold `#EFBF04`. Mobile `Color.kt` and iOS `Colors.swift` still have `#EFBF04` and need to be updated to `#C9900A` to match.
 - **iOS Google button text** — iOS `Colors.swift` has `googleTextGray: 0x757575`; correct value is `#1F1F1F` (matches Android + web).
 - **Mobile typography** — `kluvs-frontend` now uses IBM Plex Sans + EB Garamond (v2.0.0). Mobile (`kluvs-mobile`) still uses system fonts. A full typography pass on mobile is pending — apply the two-register system (EB Garamond for headings/book titles, IBM Plex Sans for body/UI).
 - **Mobile M3 surface overrides** — `darkColorScheme` in `Theme.kt` only sets primary/secondary/tertiary. The warm-dark surfaces (`#140F0D`, `#1A140F`, `#241C17`, etc.) need to be explicitly set to match the Figma/design system intent.
