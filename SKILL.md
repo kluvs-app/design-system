@@ -14,7 +14,8 @@ Load these files in order — stop when you have enough context for the task:
 4. `assets/` — brand marks, role badges, OAuth glyphs, icon SVGs, and the Breathe·Tidal loading spinner (`spinner-kluvs.svg`). Reference by relative path; do not inline or re-encode SVG content.
 4a. `docs/` — per-component integration guides. Read the relevant guide when implementing that component:
   - `docs/spinner-kluvs.md` — loading state (web, Android, iOS copy-paste snippets)
-  - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes
+  - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes; includes an applied sheet-vs-dialog decision table for the Clubs/Books/Me action set
+  - `docs/navigation.md` — top bar contextual modes (root vs. detail), bottom nav destination rules, FAB usage, and screen-level shortcuts that skip a modal entirely (inline edit, OS image picker, OS share sheet)
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 

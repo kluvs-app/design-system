@@ -15,7 +15,15 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
-## [2.3.0] — 2026-06-14
+## [2.4.0] — 2026-07-18
+
+### Added — Android screen composition patterns, formalized from the kluvs-mobile screen audit
+
+`kluvs-mobile`'s Android target has shipped Clubs and Me with no documented screen-composition rules — the following formalizes the decisions made while planning its five core screens (Me, Clubs list, Club detail, Book Shelves, Book Search) against the more feature-complete `kluvs-frontend` mobile-web experience. Token propagation to `kluvs-mobile` (see `CLAUDE.md`'s pending-propagation list) and the actual Compose implementation are separate, not-yet-scheduled work — this release is docs only.
+
+- **`docs/navigation.md`** — new sections: Top Bar contextual modes (Root vs. Detail, derived from back-stack depth, not set per-screen), Bottom Nav destination-set rule (a screen earns a tab only if it's a true top-level always-reachable destination — Books qualifies, Book Search does not), Floating Action Button usage (primary creation actions on a list-root screen use a FAB, not a top-bar icon, to avoid conflating "create" with the top bar's "utility" slot), and Screen-level shortcuts that skip a modal entirely (OS image picker for avatar change, inline tap-to-edit for short fields, OS share sheet for sharing, inline stepper for small numeric bumps alongside the full-precision sheet).
+- **`docs/modal.md`** — new "Applied decisions" table under the existing Mobile section, mapping every Clubs/Books/Me create/edit/delete action to sheet vs. dialog vs. inline, including the corrected call on the discussion "food for thought" note (bottom sheet, drag-to-expand — it holds structured lists and cross-references, not a caption).
+- **`SKILL.md`** — `docs/navigation.md` added to the per-component read list (was previously unlisted despite existing).
 
 ### Added — 1:1 Dark/Light surface and foreground parity
 

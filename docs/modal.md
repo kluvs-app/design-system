@@ -196,6 +196,27 @@ The three-zone anatomy still applies inside the sheet — Header with eyebrow la
 | `color.status.primary-subtle` | `Color(0x14D16D30)` | `Color(hex: "#D16D30").opacity(0.08)` |
 | `color.status.primary-border-soft` | `Color(0x40D16D30)` (0.25 × 255 ≈ 0x40) | `Color(hex: "#D16D30").opacity(0.25)` |
 
+#### Applied decisions — Clubs/Books/Me action set
+
+The generic rule above ("forms → sheet, hard confirms → dialog") applied to every edit/create/delete action across Clubs, Books, and Me. Before reaching for either, check `docs/navigation.md` §6 — some of these are cheaper as an inline or OS-native action and never need a modal at all.
+
+| Action | Pattern | Why |
+|---|---|---|
+| Create/edit club | Bottom sheet | Multi-field form. |
+| Delete club | Dialog, launched from a danger-zone box inside the edit sheet | Confirm-only; never its own footer button on the edit sheet. |
+| Add member | Bottom sheet | Handle + role, multi-field. |
+| Remove member | Dialog | Confirm-only. |
+| View member detail | Inline row expansion | Reading detail isn't editing — no modal needed at all. |
+| Change member role | Bottom sheet | Single-choice picker with more than a binary outcome. |
+| Create/edit discussion | Bottom sheet | Title, location, date — multi-field. |
+| Delete discussion | Dialog | Confirm-only. |
+| Discussion note ("food for thought") | Bottom sheet, drag-to-expand for long entries | Holds structured lists and cross-references, not a caption — do not treat as inline text. |
+| Start/edit reading session | Bottom sheet | Book + due date, multi-field. |
+| End session | Dialog | Decisive, no fields. |
+| Update reading progress | Bottom sheet (Page/Percent toggle) for precise entry, paired with the inline stepper from `docs/navigation.md` §6 for quick bumps | Two different weights of the same action. |
+| Sign out | Dialog | Confirm-only. |
+| Link/unlink Discord | Dialog with a copper advisory box | Short advisory + confirm, not a form. |
+
 ---
 
 ## Anti-patterns

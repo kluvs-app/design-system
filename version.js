@@ -1,1 +1,1 @@
-window.KLUVS_VERSION = "2.3.0";
+window.KLUVS_VERSION = "2.4.0";
