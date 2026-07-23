@@ -67,5 +67,3 @@ Practical implication: Android and iOS should never invent their own pixel value
 - **`label.large`** — hypothesized (possibly button-adjacent), not yet backed by a real observed case. Don't add it speculatively.
 - **`highlight` on Headline** — plausible (would parallel the Title case) but unconfirmed; no real screen has exercised it yet.
 - **Mono typeface** — currently system-stack only; a deliberate typeface choice (and possibly a bundled webfont/mobile font file) is future work, not yet scheped.
-- **Frontend adoption** — none of this is implemented in `kluvs-frontend` yet (the frontend's *current* code was the input to this audit, not a consumer of it). `colors_and_type.css`'s `.kluvs-*` typography classes and `tailwind.config.js`'s parallel `fontSize` keys both still reflect the pre-v2 model and need to be reconciled once frontend work on this starts.
-- **Mobile (`kluvs-mobile`) adoption** — Android's `Type.kt`/`Theme.kt` currently borrow Material 3's `Typography`/`ColorScheme` slots directly; none of this family/modifier model is implemented there yet. See `CLAUDE.md`'s pending-propagation list.

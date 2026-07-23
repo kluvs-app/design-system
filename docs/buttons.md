@@ -4,7 +4,7 @@ Action triggers used throughout the app. Kluvs uses a hierarchy of action weight
 
 ## Action Hierarchy
 
-### 1. Primary (`.btn-primary` / Android `PrimaryButton`)
+### 1. Primary (`PrimaryButton` / `.btn-primary`)
 The single most important action on a screen. High-contrast copper fill.
 - **Rules:** Only one primary CTA per view (exception: Login/SignUp pairs).
 - **Style:** Copper `#D16D30` fill, white text, 12px radius.
@@ -14,26 +14,23 @@ Supporting actions or secondary options. Two independent components, not two sta
 each usable on its own:
 - **`SecondaryButton`** (`.kluvs-btn-secondary`) — outlined copper border/text. The "active"
   emphasis variant.
-- **`OutlinedButton`** — outlined grey border/text. The "muted" variant; on web this was
-  previously implemented as `GhostButton` (renamed on Android to avoid clashing with the
-  Ghost/Text role below, which is a different, container-less style).
+- **`OutlinedButton`** — outlined grey border/text. The "muted" variant. Distinct from the
+  Ghost/Text role below, which has no container at all.
 - **Style:** 12px radius on both.
 
-### 3. Ghost / Text (`.btn-ghost` / Android `TextButton`)
+### 3. Ghost / Text (`TextButton` / `.btn-ghost`)
 Low-emphasis actions like "Forgot password?" or "Cancel."
 - **Style:** No container. Copper or grey text, selected via an `emphasized` flag — `emphasized
   = true` for copper (e.g. "Forgot password?"), `false` (default) for grey (e.g. "Cancel").
 
-### 4. Social / OAuth (`.btn-social` / Android `SocialButton`)
+### 4. Social / OAuth (`SocialButton` / `.btn-social`)
 Fixed brand-branded buttons for authentication.
 - **Providers:** Discord (`#5865F2`), Google (`#F2F2F2` / `#1F1F1F`), Apple (`#0F0F0F`).
 - **Style:** 12px radius, brand fill is fixed regardless of light/dark theme.
 
-### 5. Icon-only (Android `IconButton`)
+### 5. Icon-only (`IconButton`)
 A tappable icon with no container of its own — not a member of the filled/outlined/text
-hierarchy above, just the icon system's `Icon` composable made clickable, with a 48dp touch
-target and ripple. (Icon system itself is undocumented here as of this writing — see Android's
-`IconType`/`Icon` in `:designsystem`.)
+hierarchy above, just the icon made clickable, with a 48dp touch target and ripple.
 
 ---
 
