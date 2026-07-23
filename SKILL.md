@@ -16,6 +16,7 @@ Load these files in order — stop when you have enough context for the task:
   - `docs/spinner-kluvs.md` — loading state (web, Android, iOS copy-paste snippets)
   - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes; includes an applied sheet-vs-dialog decision table for the Clubs/Books/Me action set
   - `docs/navigation.md` — top bar contextual modes (root vs. detail), bottom nav destination rules, FAB usage, and screen-level shortcuts that skip a modal entirely (inline edit, OS image picker, OS share sheet)
+  - `docs/typography.md` — the family/rung/modifier typography model (supersedes the old four-tier system) — read before implementing any text style, not just when "typography" is explicitly the task
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 

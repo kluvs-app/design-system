@@ -15,6 +15,20 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.5.0] — 2026-07-22
+
+### Added — Typography v2: family/rung/modifier model (docs only, not yet propagated)
+
+Retires the four-tier (`tier.1-section-header`→`4-fine-print`) / type-scale split, which mapped Kluvs values directly into Material 3's `Typography` roles and lost real distinctions Material has no concept of (register-switching between serif/sans, italic-as-emphasis). Derived from a ground-up audit of `kluvs-frontend`'s actual authenticated app screens (Profile, Clubs, Club Detail, Books, Discussions, Members, all modals) — not from the design system's prior docs, which turned out to be mostly dead code the frontend never imported, and not from frontend's own shipped implementation either, which was itself inconsistently applied. This is a normalization of real recurring shapes, not a transcription of an existing clean system.
+
+- **New: `docs/typography.md`** — full model: 9 families (Display, Headline, Title, Body, Caption, Eyebrow, Label, Fine print, Mono), each a fixed font/weight/style shape with 1–3 sized rungs (S/M/L), plus two modifiers layered on top instead of being their own tiers — `feature` (roman→italic register flip; Headline/Title/Caption) and `highlight` (step up one rung within the same family for the singular emphasized item in a repeating list; confirmed on Title, creates no new token). Documents the cross-platform sizing principle: the numeric scale is universal, platforms differ in which rungs they reach for (mobile never uses Display), not in what a rung is worth.
+- **`tokens.json`** — `typography` object restructured: `tier`/`scale` replaced by `family` (the 9 families above) and a new `modifier` object (`feature`, `highlight`). Added `font-family.mono` (system-stack placeholder, no dedicated typeface chosen yet).
+- **`index.html`** — Typography section rebuilt to preview the new families and both modifiers directly (roman-vs-italic and step-up-highlight shown side by side), replacing the old Content Tiers / Type Scale cards.
+- **`README.md`** — Typography section rewritten to point at `docs/typography.md`; eyebrow spec corrected to match real usage (11px / 0.14em — the old text said 12px/`helper-sm`/0.1em, which didn't match any real instance found in the audit).
+- **`SKILL.md`** — `docs/typography.md` added to the per-component read list, flagged as relevant whenever any text style is being implemented, not only when typography is explicitly the task.
+- **`CLAUDE.md`** — pending-propagation note corrected (Android's `Type.kt`/`Theme.kt` already bundle both fonts and a full M3 scale, contradicting the previous note that it "only defines bodyLarge"/"uses system fonts" — the real gap is that it's Material-*shaped*, not incomplete) and repointed at this new model.
+- **Not yet done, by design**: `colors_and_type.css`'s `.kluvs-*` typography classes and `kluvs-frontend`'s `tailwind.config.js` `fontSize` keys both still reflect the pre-v2 model — reconciling those is separate follow-up work (Android or web adoption), deliberately sequenced after this spec, not bundled into it.
+
 ## [2.4.0] — 2026-07-18
 
 ### Added — Android screen composition patterns, formalized from the kluvs-mobile screen audit

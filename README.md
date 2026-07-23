@@ -59,22 +59,29 @@ Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical bad
 
 **Sans register (IBM Plex Sans):** all UI chrome — body text, labels, buttons, tabs, modal titles, helper text, eyebrow labels. This is the interface layer — neutral and readable at all sizes.
 
-**Eyebrow pattern:** section labels within UI panels and tabs use IBM Plex Sans at `helper-sm` size, weight 500, uppercase, `letter-spacing: 0.1em`. Do not use a heading class for these — use `.kluvs-eyebrow`.
+**Eyebrow pattern:** section labels, modal titles, status/role badges, and stat-value labels all use IBM Plex Sans, 11px, weight 500, uppercase, `letter-spacing: 0.14em`. Eyebrow is its own standalone family — not a smaller rung of Label — because nothing else in the system shares its uppercase+tracked shape.
 
 **Rule of thumb:** if the text is *about something you're reading or discussing* → serif. If the text is *telling the interface what to do* → sans.
 
-#### Typography tier system
+#### Typography families
 
-A four-tier hierarchy governs content hierarchy across both mobile (M3 roles) and web (utility class names):
+**See `docs/typography.md` for the full model** — this replaces the old four-tier / type-scale split (which mapped Kluvs values directly into Material 3's `Typography` roles and lost real distinctions, like register-switching and italic-as-emphasis, that Material has no concept of).
 
-| Tier | Purpose | Mobile (M3) | Mobile color role | Web class |
+Nine families, each a fixed shape (font-family + weight + default style) with 1–3 sized rungs (small/medium/large), plus two modifiers (`feature` = italic, `highlight` = step up one rung) layered on top instead of being their own tiers:
+
+| Family | Font | Weight | Rungs (px) | Modifiers |
 |---|---|---|---|---|
-| 1 — Section headers | Labels that introduce sections or cards | `titleMedium` | `onSurfaceVariant` | `.kluvs-section-heading` |
-| 2 — Primary content | The most important information on screen | `bodyLarge` | `onSurface` | `.kluvs-body-lg` |
-| 3 — Supporting details | Secondary context: counts, metadata, handles, dates | `bodyMedium` | `onSurfaceVariant` | `.kluvs-body` |
-| 4 — Fine print | Version numbers, disclaimers | `bodySmall` | `inverseOnSurface` | `.kluvs-helper-sm` |
+| Display | Serif | Bold | S 48 · M 64 · L 96 | — (web-only; mobile never uses it) |
+| Headline | Serif | Medium | S 30 · M 34 · L 40 | `feature` |
+| Title | Serif | Medium | S 15 · M 19 · L 24 | `feature`, `highlight` |
+| Body | Sans | Regular | L 16 · M 14 | — |
+| Caption | Sans | Regular | 13 | `feature` |
+| Eyebrow | Sans | Medium | 11 | — (standalone, not a Label rung) |
+| Label | Sans | Medium | 14 | — |
+| Fine print | Sans | Regular | 12 | — |
+| Mono | Mono (system stack, reserved) | Regular | 13 | — |
 
-Mobile uses M3 semantic color roles (not hardcoded hex) so the tier system works in both light and dark themes automatically. Web uses the utility classes defined in `colors_and_type.css`.
+The numeric scale is shared across every platform — a given rung is worth the same number everywhere. Platforms differ in *which* rungs they reach for (mobile never uses Display), not in what a rung means.
 
 ### Spacing & radius
 Spacing scale is a strict **4 / 8 / 12 / 16 / 24**. Page gutters are 20px. Card internal padding is 16px. Vertical rhythm between sections is 16–24px.

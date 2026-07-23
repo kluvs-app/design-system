@@ -1073,158 +1073,205 @@
                 <h2 class="section-title">Typography</h2>
                 <p class="section-desc">
                     Two-register system — <strong>EB Garamond</strong> (serif)
-                    for wordmark, display, headings, and book titles;
-                    <strong>IBM Plex Sans</strong> for UI chrome, body, and
-                    labels. Three weights each: 400 · 500 · 700. Four content
-                    tiers mapped to M3 semantic roles for mobile and utility
-                    classes for web.
+                    for identity content (Display / Headline / Title);
+                    <strong>IBM Plex Sans</strong> for reading content and UI
+                    chrome (Body / Caption / Eyebrow / Label / Fine Print). A
+                    reserved <strong>Mono</strong> family covers tabular
+                    metadata. Nine families, each a fixed shape with 1–3 sized
+                    rungs (S/M/L) — plus two modifiers,
+                    <code>feature</code> (italic) and
+                    <code>highlight</code> (step up one rung), layered on top
+                    instead of being their own tiers. See
+                    <code>docs/typography.md</code> for the full rationale —
+                    this replaces the old four-tier / type-scale split, which
+                    borrowed Material's shape too literally for a system that
+                    also switches font register and italics.
                 </p>
 
                 <div class="card">
-                    <div class="card-label">Content Tiers</div>
+                    <div class="card-label">
+                        Display · Headline · Title — identity content
+                        (serif)
+                    </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">
-                                Tier 1 — Section Header
-                            </div>
+                            <div class="type-label">Display — S / M / L</div>
                             <div class="type-spec">
-                                Mobile: titleMedium · onSurfaceVariant<br />Web:
-                                .kluvs-section-heading
+                                48 / 64 / 96px · Bold · Roman only<br />Web-only
+                                — hero &amp; desktop masthead, mobile never
+                                uses this family
                             </div>
                         </div>
-                        <div class="type-sample kluvs-section-heading">
-                            Current Book
+                        <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+                            <div class="type-sample" style="font: 700 48px/1 var(--kluvs-font-serif); letter-spacing: -0.01em">Kluvs</div>
+                            <div class="type-sample" style="font: 700 64px/1 var(--kluvs-font-serif); letter-spacing: -0.015em">Kluvs</div>
+                            <div class="type-sample" style="font: 700 96px/1 var(--kluvs-font-serif); letter-spacing: -0.02em">Kluvs</div>
                         </div>
                     </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">
-                                Tier 2 — Primary Content
-                            </div>
+                            <div class="type-label">Headline — S / M / L</div>
                             <div class="type-spec">
-                                Mobile: bodyLarge · onSurface<br />Web:
-                                .kluvs-body-lg
+                                30 / 34 / 40px · Medium · Roman default,
+                                <code>feature</code>-capable
                             </div>
                         </div>
-                        <div class="type-sample kluvs-body-lg">
-                            The Great Gatsby
+                        <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+                            <div class="type-sample" style="font: 500 30px/1.15 var(--kluvs-font-serif); letter-spacing: -0.01em">My Clubs</div>
+                            <div class="type-sample" style="font: 500 34px/1.1 var(--kluvs-font-serif); letter-spacing: -0.012em">My Shelf</div>
+                            <div class="type-sample" style="font: 500 40px/1.1 var(--kluvs-font-serif); letter-spacing: -0.015em">Iván Garza Bermea</div>
                         </div>
                     </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">
-                                Tier 3 — Supporting Details
-                            </div>
+                            <div class="type-label">Headline + feature (italic)</div>
                             <div class="type-spec">
-                                Mobile: bodyMedium · onSurfaceVariant<br />Web:
-                                .kluvs-body
+                                Same rungs, roman → italic — the featured/current thing, empty-states
                             </div>
                         </div>
-                        <div
-                            class="type-sample kluvs-body"
-                            style="color: var(--kluvs-content-light-secondary)"
-                        >
-                            F. Scott Fitzgerald · 180 pages
+                        <div class="type-sample" style="font: italic 500 40px/1.1 var(--kluvs-font-serif); letter-spacing: -0.015em">
+                            Start reading together.
                         </div>
                     </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">Tier 4 — Fine Print</div>
+                            <div class="type-label">Title — S / M / L</div>
                             <div class="type-spec">
-                                Mobile: bodySmall · inverseOnSurface<br />Web:
-                                .kluvs-helper-sm
+                                15 / 19 / 24px · Medium · Roman default,
+                                <code>feature</code> + <code>highlight</code>-capable
                             </div>
                         </div>
-                        <div class="type-sample kluvs-helper-sm">
-                            Version 1.0.0
+                        <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+                            <div class="type-sample" style="font: 500 15px/1.25 var(--kluvs-font-serif)">Showcase Kluv</div>
+                            <div class="type-sample" style="font: 500 19px/1.2 var(--kluvs-font-serif)">Reading &#39;droids</div>
+                            <div class="type-sample" style="font: 500 24px/1.2 var(--kluvs-font-serif)">End-of-Year Check-in</div>
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">
+                            <div class="type-label">Title + feature (italic)</div>
+                            <div class="type-spec">
+                                Roman = structural identity (a club name) · Italic = the
+                                featured thing (a book/session title)
+                            </div>
+                        </div>
+                        <div class="type-sample" style="font: italic 500 19px/1.2 var(--kluvs-font-serif)">
+                            The Midnight Library
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-label">Type Scale</div>
+                    <div class="card-label">Body · Caption — reading content &amp; metadata (sans)</div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">Display</div>
+                            <div class="type-label">Body — Large / Medium</div>
+                            <div class="type-spec">16 / 14px · Regular · No modifiers</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+                            <div class="type-sample" style="font: 400 16px/1.5 var(--kluvs-font-sans)">F. Scott Fitzgerald</div>
+                            <div class="type-sample" style="font: 400 14px/1.43 var(--kluvs-font-sans)">288 pages · 2020</div>
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">
+                            <div class="type-label">Caption</div>
                             <div class="type-spec">
-                                48–96px · Bold · Brand surfaces
+                                13px · Regular · Muted color baked in ·
+                                <code>feature</code>-capable
                             </div>
                         </div>
-                        <div
-                            class="type-sample"
-                            style="
-                                font: 700 40px/1 var(--kluvs-font-serif);
-                                letter-spacing: 0.18em;
-                                text-transform: uppercase;
-                                color: #d16d30;
-                            "
-                        >
-                            KLUVS
+                        <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+                            <div class="type-sample" style="font: 400 13px/1.4 var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary)">Member since 2026</div>
+                            <div class="type-sample" style="font: italic 400 13px/1.4 var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary)">3 books in progress</div>
                         </div>
                     </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Eyebrow · Label · Fine Print · Mono — UI chrome</div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">Page Heading</div>
-                            <div class="type-spec">30px · 700 · -0.01em</div>
+                            <div class="type-label">Eyebrow</div>
+                            <div class="type-spec">
+                                11px · Medium · Uppercase · 0.14em tracking ·
+                                standalone family, not a Label rung — color
+                                always supplied externally
+                            </div>
                         </div>
-                        <div class="type-sample kluvs-page-heading">
-                            My Clubs
-                        </div>
-                    </div>
-                    <div class="type-row">
-                        <div class="type-meta">
-                            <div class="type-label">Section Heading</div>
-                            <div class="type-spec">20px · 500 · Garamond</div>
-                        </div>
-                        <div class="type-sample kluvs-section-heading">
+                        <div class="type-sample" style="font: 500 11px/1 var(--kluvs-font-sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--kluvs-content-light-secondary)">
                             Next Discussion
                         </div>
                     </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">Card Heading</div>
+                            <div class="type-label">Label</div>
                             <div class="type-spec">
-                                18px · 400 · Garamond italic
+                                14px · Medium · Sentence case · nav items and
+                                button/CTA text — measured identical, one
+                                rung covers both
                             </div>
                         </div>
-                        <div class="type-sample kluvs-card-heading">
-                            The Midnight Library
+                        <div class="type-sample" style="font: 500 14px/1 var(--kluvs-font-sans)">
+                            Continue
                         </div>
                     </div>
                     <div class="type-row">
                         <div class="type-meta">
-                            <div class="type-label">Body Large</div>
-                            <div class="type-spec">16px · 400 · lh 1.5</div>
+                            <div class="type-label">Fine Print</div>
+                            <div class="type-spec">
+                                12px · Regular · Muted · standalone family
+                            </div>
                         </div>
-                        <div class="type-sample kluvs-body-lg">
-                            The Midnight Library
-                        </div>
-                    </div>
-                    <div class="type-row">
-                        <div class="type-meta">
-                            <div class="type-label">Body</div>
-                            <div class="type-spec">14px · 400 · lh 1.43</div>
-                        </div>
-                        <div class="type-sample kluvs-body">
-                            Matt Haig · 288 pages · 2020
-                        </div>
-                    </div>
-                    <div class="type-row">
-                        <div class="type-meta">
-                            <div class="type-label">Helper</div>
-                            <div class="type-spec">13px · 400</div>
-                        </div>
-                        <div class="type-sample kluvs-helper">
-                            Member since 2026
-                        </div>
-                    </div>
-                    <div class="type-row">
-                        <div class="type-meta">
-                            <div class="type-label">Helper Small</div>
-                            <div class="type-spec">12px · 400</div>
-                        </div>
-                        <div class="type-sample kluvs-helper-sm">
+                        <div class="type-sample" style="font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-content-light-tertiary)">
                             Version 1.0.0
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">
+                            <div class="type-label">Mono <span style="opacity:.6">(reserved)</span></div>
+                            <div class="type-spec">
+                                13px · Regular · System monospace stack —
+                                tabular metadata (dates, ISBNs), no dedicated
+                                typeface chosen yet
+                            </div>
+                        </div>
+                        <div class="type-sample" style="font: 400 13px/1 ui-monospace, 'SF Mono', monospace; letter-spacing: 0.02em; color: var(--kluvs-content-light-secondary)">
+                            THU · DEC 31
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Modifiers — layered on top, not tiers of their own</div>
+                    <div class="type-row">
+                        <div class="type-meta">
+                            <div class="type-label"><code>feature</code></div>
+                            <div class="type-spec">
+                                Roman → italic register flip. Headline,
+                                Title, Caption only — signals "the
+                                featured/current thing," not a size or
+                                weight change.
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 18px; align-items: baseline">
+                            <div class="type-sample" style="font: 500 19px/1.2 var(--kluvs-font-serif)">Showcase Kluv</div>
+                            <div class="type-sample" style="font: italic 500 19px/1.2 var(--kluvs-font-serif)">The Odyssey</div>
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">
+                            <div class="type-label"><code>highlight</code></div>
+                            <div class="type-spec">
+                                Step up exactly one rung within the same
+                                family for the singular emphasized instance
+                                in a repeating list. No new token — reuses
+                                an existing rung.
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 18px; align-items: baseline">
+                            <div class="type-sample" style="font: 500 15px/1.25 var(--kluvs-font-serif); opacity: .6">Book Club — Feb 3</div>
+                            <div class="type-sample" style="font: 500 19px/1.2 var(--kluvs-font-serif); color: #d16d30">Book Club — Feb 10 (next)</div>
                         </div>
                     </div>
                 </div>
