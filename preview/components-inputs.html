@@ -25,7 +25,19 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 [data-surface="light"] .input-field--error { border: 1px solid var(--kluvs-danger); }
 [data-surface="light"] .input-field--disabled { background: var(--kluvs-surface-light); color: var(--kluvs-content-light-disabled); border: 1px solid var(--kluvs-surface-light-raised); }
 
+.input-adorned { position: relative; display: flex; align-items: center; }
+.input-adorn { position: absolute; left: 14px; font: 400 14px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-tertiary); pointer-events: none; }
+[data-surface="light"] .input-adorn { color: var(--kluvs-content-light-secondary); }
+.input-adorned .input-field { padding-left: 26px; }
+
 .error-msg { font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-danger); margin-top: -2px; }
+.helper-msg { font: 400 12px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-tertiary); margin-top: -2px; }
+[data-surface="light"] .helper-msg { color: var(--kluvs-content-light-secondary); }
+
+/* PickerField: same border/label/radius as input-field, but no raised background —
+   blends into the surrounding card instead, signaling "tap, don't type". */
+.picker-field { background: transparent; }
+[data-surface="light"] .picker-field { background: transparent; }
 </style></head>
 <body><div class="canvas">
 
@@ -46,6 +58,29 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
       <div class="input-wrap">
         <div class="input-label" style="opacity:0.5">Email</div>
         <input class="input-field input-field--disabled" type="text" value="user@kluvs.com" disabled>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">Page</div>
+        <div class="input-adorned">
+          <span class="input-adorn">#</span>
+          <input class="input-field" type="text" value="42" readonly>
+        </div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">Note</div>
+        <textarea class="input-field" rows="3" placeholder="Add a note…" readonly></textarea>
+        <div class="helper-msg">Only visible to you.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="input-wrap">
+        <div class="input-label">Date</div>
+        <input class="input-field picker-field" type="text" value="Jan 15, 2026" readonly>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label" style="opacity:0.5">Date</div>
+        <input class="input-field picker-field" type="text" value="Jan 15, 2026" readonly disabled style="cursor:not-allowed">
       </div>
     </div>
 
