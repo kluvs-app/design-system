@@ -34,14 +34,18 @@ Page-level "nothing here" state, used when a collection (like a bookshelf) has n
 
 ## 4. Reading Progress (`.kluvs-progress-*`)
 
-The **currently shipped** version (`ProgressRow`) used on cards and detail views.
+`ProgressBar` is the bar itself — a plain pill-shaped track with a pill-shaped fill, nothing
+else. No gap or seam between the filled and unfilled portion, and no "stop indicator" dot at
+the end — some UI toolkits' default progress bar draws both by default; this spec has neither.
 
 | Property | Token | Value |
 |---|---|---|
 | Height | — | 4px |
 | Track Color | `surface.warm-dark.card-2` | `#332B24` (dark) |
 | Fill Color | `brand.primary` | Copper `#D16D30` |
-| Action | — | small `.kluvs-btn-secondary` "Update" button |
+
+`OwnProgressRow` is the composite built from it: the bar, a status label pair, and a small
+`.kluvs-btn-secondary` "Update" action, used on cards and detail views.
 
 ### Web
 
