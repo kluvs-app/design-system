@@ -36,6 +36,19 @@ components:
 - **Keyboard type** — numeric fields (page number, percentage) should request a numeric
   keyboard; email fields an email keyboard, etc.
 
+## `SearchField`
+
+Label-less filter-as-you-type field — e.g. filtering an already-visible list from a top app
+bar. Not an `InputField` mode: no label at all (vs. `InputField`'s always-present label), and
+its icon is structural rather than optional decoration.
+
+- **Leading icon:** search glyph by default; swapped for a small spinner while a search is in
+  flight (`isLoading`).
+- **Trailing:** a clear button, shown only when there's text to clear.
+- **Not the same as** the search-and-select combobox (e.g. picking a book when creating a
+  session) — that's a bigger, separate, async trigger→results→selection flow, not a field at
+  all. Reserved package name for whenever that gets built: `search` (distinct from `fields`).
+
 ## `PickerField`
 
 Read-only field that opens a picker or dialog on tap instead of accepting keyboard input —

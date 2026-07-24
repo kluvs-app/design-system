@@ -38,6 +38,14 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
    blends into the surrounding card instead, signaling "tap, don't type". */
 .picker-field { background: transparent; }
 [data-surface="light"] .picker-field { background: transparent; }
+
+/* SearchField: no label, leading icon, trailing clear button. */
+.search-field { position: relative; display: flex; align-items: center; }
+.search-field .input-field { padding-left: 38px; padding-right: 34px; }
+.search-icon { position: absolute; left: 12px; color: var(--kluvs-warm-fg-tertiary); pointer-events: none; }
+[data-surface="light"] .search-icon { color: var(--kluvs-content-light-secondary); }
+.search-clear { position: absolute; right: 10px; width: 20px; height: 20px; border-radius: 999px; border: none; background: transparent; color: var(--kluvs-warm-fg-tertiary); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+[data-surface="light"] .search-clear { color: var(--kluvs-content-light-secondary); }
 </style></head>
 <body><div class="canvas">
 
@@ -81,6 +89,22 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
       <div class="input-wrap">
         <div class="input-label" style="opacity:0.5">Date</div>
         <input class="input-field picker-field" type="text" value="Jan 15, 2026" readonly disabled style="cursor:not-allowed">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="input-wrap">
+        <div class="search-field">
+          <span class="search-icon">&#128269;</span>
+          <input class="input-field" type="text" placeholder="Search books" readonly>
+        </div>
+      </div>
+      <div class="input-wrap">
+        <div class="search-field">
+          <span class="search-icon">&#128269;</span>
+          <input class="input-field" type="text" value="One Hundred Years" readonly>
+          <button class="search-clear">&#10005;</button>
+        </div>
       </div>
     </div>
 
