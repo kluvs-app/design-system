@@ -32,7 +32,7 @@ tracked) always shown in the top row, optionally paired with a big serif **title
 - **Action:** optional, trailing, in the header row — a single icon or an arbitrary composable
   (e.g. a button), not a fixed slot type.
 
-Distinct from the Sub Bar/Tab Strip below, and from the FAB (§5) — the top bar's trailing
+Distinct from the Sub Bar/Tab Strip below, and from the FAB (§6) — the top bar's trailing
 action is a screen-level utility (search, overflow), never a primary creation action.
 
 ### Search (`SearchTopAppBar`)
@@ -44,7 +44,25 @@ one-row or two-row mode beforehand. See `docs/inputs.md`'s `SearchField` for the
 
 ---
 
-## 2. Sub Bar
+## 2. Action Menu (`ActionMenu`)
+
+Small anchored popover of plain-text actions (e.g. "Share"/"Edit"/"Delete", "Change Role"/
+"Remove Member") — not a bottom sheet, not a modal. Real usage across the app is uniformly 1-3
+items with no icons or subtext; a bottom-sheet action list is a different, heavier component
+reserved for a genuinely longer or richer menu, not built until one is actually needed.
+
+- **Trigger:** a "..." (overflow) icon button, or any icon.
+- **Item style:** Eyebrow family (uppercase, tracked) — menu actions are interface chrome, not
+  content, matching `TopAppBar`/modal headers. Destructive items (Delete, Remove) tint danger-red.
+- **Width:** not overridden — inherits the platform menu's own default content-based clamp
+  (112dp minimum, 280dp maximum), so a single short label doesn't render as an odd tiny square
+  and a long one doesn't stretch edge-to-edge.
+- Distinct from `Dropdown` (`docs/dropdowns.md`) — same anchored-popover mechanism, different
+  represented concept: `Dropdown` picks a persisted value, `ActionMenu` fires a one-shot command.
+
+---
+
+## 3. Sub Bar
 
 Secondary context header (e.g. Club Name).
 - **Height:** 32px.
@@ -52,14 +70,14 @@ Secondary context header (e.g. Club Name).
 
 ---
 
-## 3. Tab Strip
+## 4. Tab Strip
 
 - **Height:** 42px.
 - **Style:** 13px labels, 2px copper underline on the active tab.
 
 ---
 
-## 4. Bottom Nav
+## 5. Bottom Nav
 
 Primary mobile-first navigation anchor.
 - **Height:** 80px.
@@ -78,13 +96,13 @@ Grow the tab count deliberately, not by default — a screen that's only ever re
 
 ---
 
-## 5. Floating Action Button (FAB)
+## 6. Floating Action Button (FAB)
 
 Primary creation actions on a list-root screen (e.g. "New Club") use a FAB, not a top-bar icon. The top bar's trailing slot is reserved for a screen-level utility (search, filter) — conflating "create" with "utility" in the same slot reads ambiguous. One FAB per screen, bottom-right, `radius.lg` (16px), copper fill, white icon.
 
 ---
 
-## 6. Screen-level shortcuts (skip the sheet)
+## 7. Screen-level shortcuts (skip the sheet)
 
 Not every action needs a modal or bottom sheet — some are cheaper done inline or handed off to the OS. Reach for a sheet only after ruling these out:
 
