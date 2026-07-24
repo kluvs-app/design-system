@@ -20,6 +20,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/book-cover.md` | Book Cover components — sizes, scaled ribbons, and the hexagon hive grid fallback. |
 | `docs/buttons.md` | Button hierarchy — Primary, Secondary, Pill, and Segmented controls. |
 | `docs/cards.md` | Card containers — Standard and Highlighted variants. |
+| `docs/dropdowns.md` | Dropdown value selector — pill trigger + popover option list. |
 | `docs/inputs.md` | Form field states and anatomy. |
 | `docs/members.md` | Member rows and Role Eyebrow identification. |
 | `docs/modal.md` | Modal anatomy spec — three-zone layout and platform notes. |

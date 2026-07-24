@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html, body { margin: 0; padding: 0; background: transparent; font-family: var(--kluvs-font-sans); -webkit-font-smoothing: antialiased; }
+.canvas { display: flex; gap: 32px; padding: 24px; align-items: flex-start; flex-wrap: wrap; }
+.card { background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 12px; padding: 20px; width: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; }
+[data-surface="light"] .card { background: var(--kluvs-surface-light-raised); border-color: var(--kluvs-divider-light); box-shadow: var(--kluvs-shadow-card); }
+
+.section-label { font: 600 11px/1 var(--kluvs-font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--kluvs-warm-fg-placeholder); margin-bottom: 4px; }
+[data-surface="light"] .section-label { color: var(--kluvs-content-light-secondary); }
+
+.kluvs-dropdown-trigger { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1.5px solid var(--kluvs-warm-dark-card-2); border-radius: 999px; padding: 8px 16px; font: 500 14px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-tertiary); cursor: pointer; }
+.kluvs-dropdown-trigger--active { border-color: var(--kluvs-primary); color: var(--kluvs-primary); }
+.kluvs-dropdown-trigger .chevron { font-size: 10px; transition: transform 0.15s; }
+.kluvs-dropdown-trigger--open .chevron { transform: rotate(180deg); }
+[data-surface="light"] .kluvs-dropdown-trigger { border-color: var(--kluvs-divider-light); color: var(--kluvs-content-light-secondary); }
+[data-surface="light"] .kluvs-dropdown-trigger--active { border-color: var(--kluvs-primary); color: var(--kluvs-primary); }
+
+.kluvs-dropdown-menu { margin-top: 6px; background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); border-radius: 8px; padding: 4px; display: flex; flex-direction: column; min-width: 180px; }
+[data-surface="light"] .kluvs-dropdown-menu { background: var(--kluvs-surface-light-raised); border-color: var(--kluvs-divider-light); }
+.kluvs-dropdown-menu-item { padding: 8px 12px; border-radius: 6px; font: 400 14px/1 var(--kluvs-font-sans); color: var(--kluvs-warm-fg-primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+[data-surface="light"] .kluvs-dropdown-menu-item { color: var(--kluvs-content-light-primary); }
+.kluvs-dropdown-menu-item--selected { color: var(--kluvs-primary); }
+</style></head>
+<body><div class="canvas">
+
+    <div class="card">
+      <div class="section-label">Dropdown — closed, no selection</div>
+      <button class="kluvs-dropdown-trigger">Add to Shelf <span class="chevron">▾</span></button>
+
+      <div class="section-label" style="margin-top:8px">Dropdown — open, selection made</div>
+      <div>
+        <button class="kluvs-dropdown-trigger kluvs-dropdown-trigger--active kluvs-dropdown-trigger--open">Currently Reading <span class="chevron">▾</span></button>
+        <div class="kluvs-dropdown-menu">
+          <div class="kluvs-dropdown-menu-item">None</div>
+          <div class="kluvs-dropdown-menu-item kluvs-dropdown-menu-item--selected">Currently Reading ✓</div>
+          <div class="kluvs-dropdown-menu-item">Read</div>
+          <div class="kluvs-dropdown-menu-item">Want to Read</div>
+        </div>
+      </div>
+    </div>
+
+</div></body></html>
