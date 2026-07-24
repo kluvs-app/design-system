@@ -1,10 +1,11 @@
 # Inputs
 
-Kluvs form fields use a warm, high-fidelity style to match the literary brand. Two components,
-not variants of one another — they share visual chrome (radius, border, label, supporting
-text) but represent different things: `InputField` is something you type into, `PickerField`
-is something you tap to open a picker or dialog. Neither takes a `T`-generic option list —
-both are hollow, single-purpose fields.
+Kluvs form fields use a warm, high-fidelity style to match the literary brand. Components
+are not variants of one another — they share visual chrome (radius, border, label, supporting
+text) but represent different things: `InputField` is something you type into, `PasswordField`
+is a categorically different typed input (permanently masked), `PickerField` is something you
+tap to open a picker or dialog. Neither takes a `T`-generic option list — all are hollow,
+single-purpose fields.
 
 ## Anatomy
 
@@ -35,6 +36,17 @@ components:
 - **Multiline** — a textarea variant (`singleLine = false`), same chrome, grows with content.
 - **Keyboard type** — numeric fields (page number, percentage) should request a numeric
   keyboard; email fields an email keyboard, etc.
+- **Keyboard actions** — supports an IME action callback (e.g. `Done`/`Go` on the last field
+  of a form submitting it, `Next` advancing focus) alongside `keyboardOptions`.
+
+## `PasswordField`
+
+Editable text field dedicated to password entry — a separate component from `InputField`,
+not a boolean flag on it, matching the same categorical split `InputField` already draws
+against `PickerField`. Always single-line and permanently masked (no show/hide reveal
+toggle — matches no existing pattern on any Kluvs platform today). Shares `InputField`'s
+visual chrome exactly; only the masking behavior differs. Supports the same keyboard-action
+callback as `InputField` for submitting a form on IME `Go`/`Done`.
 
 ## `SearchField`
 
