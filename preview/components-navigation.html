@@ -41,8 +41,35 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 
 .ico-wrap img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
 [data-surface="light"] .ico-wrap img { filter: none; }
+
+/* TopAppBar — eyebrow + expressive title, per docs/navigation.md */
+.topappbar-shell { width: 340px; border-radius: 12px; overflow: hidden; background: var(--kluvs-warm-dark-card); border: 1px solid var(--kluvs-warm-dark-card-2); box-sizing: border-box; }
+[data-surface="light"] .topappbar-shell { background: var(--kluvs-surface-light-raised); border-color: var(--kluvs-divider-light); }
+.tab-header { padding: 0 16px; display: flex; align-items: center; gap: 8px; height: 56px; }
+.tab-eyebrow { flex: 1; font: 500 11px/1 var(--kluvs-font-sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); }
+[data-surface="light"] .tab-eyebrow { color: var(--kluvs-content-light-secondary); }
+.tab-title { padding: 0 16px 16px; font: 500 30px/36px var(--kluvs-font-serif); color: var(--kluvs-warm-fg-primary); }
+[data-surface="light"] .tab-title { color: var(--kluvs-content-light-primary); }
+.tab-icon { width: 20px; height: 20px; color: var(--kluvs-warm-fg-primary); }
+[data-surface="light"] .tab-icon { color: var(--kluvs-content-light-primary); }
 </style></head>
 <body><div class="canvas">
+
+    <div class="topappbar-shell">
+      <div class="tab-header">
+        <span class="tab-icon">&#8592;</span>
+        <span class="tab-eyebrow">Club</span>
+        <span class="tab-icon">&#8942;</span>
+      </div>
+      <div class="tab-title">The Great Gatsby Book Club</div>
+    </div>
+
+    <div class="topappbar-shell">
+      <div class="tab-header">
+        <span class="tab-icon">&#8592;</span>
+        <span class="tab-eyebrow">Settings</span>
+      </div>
+    </div>
 
     <div class="nav-shell">
       <div class="top-bar">

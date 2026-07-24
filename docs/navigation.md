@@ -2,23 +2,31 @@
 
 The primary structural anchors of the Kluvs application.
 
-## 1. Top Bar
+## 1. Top Bar (`TopAppBar`)
 
-Main application header.
-- **Height:** 52px.
-- **Background:** `surface.warm-dark.bar` (`#1A140F`) on dark / White on light.
-- **Content:** Brand wordmark "KLUVS" (Garamond, Bold, 20px) + trailing context actions (e.g. Settings).
+Editorial page header — not a fixed wordmark bar. An eyebrow-style **header** label (e.g.
+"Profile", "Club", "Library" — Eyebrow family, uppercase, tracked) always shown in the top
+row, optionally paired with a big serif **title** underneath (Headline family — the actual
+name/value: a profile name, a club name, "My Shelf").
 
-### Contextual modes
+- **Height:** 56px header row; +64px when a title is present.
+- **Two modalities, one component:** passing a title puts the bar in its full two-row form;
+  omitting it collapses the bar to the single header row. Not two separate components — a
+  screen picks the mode by whether it has a title to show, the same way a detail screen has
+  something to name and a settings screen doesn't.
+- **Back button:** optional, leading, in the header row.
+- **Action:** optional, trailing, in the header row — a single icon or an arbitrary composable
+  (e.g. a button), not a fixed slot type.
 
-The top bar is not one fixed layout — it switches mode based on navigation depth:
+Distinct from the Sub Bar/Tab Strip below, and from the FAB (§5) — the top bar's trailing
+action is a screen-level utility (search, overflow), never a primary creation action.
 
-| Mode | When | Content |
-|---|---|---|
-| **Root** | Top-level destinations (Clubs list, Books shelf, Me) | Wordmark or screen title, centered or leading, EB Garamond. No back affordance. Trailing icon reserved for a screen-level utility (e.g. search on Books) — not for creation, see FAB below. |
-| **Detail** | Any screen reached by drilling in (Club detail, Book detail) | Back chevron leading, screen title in place of the wordmark (IBM Plex Sans, not serif), optional trailing kebab for overflow actions. |
+### Search (`SearchTopAppBar`)
 
-Mode is derived from back-stack depth, not set per-screen ad hoc — a screen doesn't "decide" it's a detail screen, its position in the nav graph does.
+`TopAppBar` with search baked in. Tapping the search action unfurls a search field in from the
+right (scale-x reveal), fading the header/title out and collapsing the bar down to its
+single-row height for the duration of the search — regardless of whether the bar was in
+one-row or two-row mode beforehand. See `docs/inputs.md`'s `SearchField` for the field itself.
 
 ---
 
