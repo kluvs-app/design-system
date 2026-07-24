@@ -49,12 +49,13 @@ Tiny rounded-full outlined chip for compact inline actions (e.g., "Copy Club ID"
 
 ## Segmented Control (`.kluvs-segmented`)
 
-Pill-shaped multi-option toggle.
+Pill-shaped multi-option toggle: a single container with a hairline divider between segments
+(none before the first), never separate gapped buttons.
 
-### Filled variant (Track-By)
-Used for Page / Percent toggles. Active segment fills with brand primary.
+### Filled variant — Track-By (`ToggleControl`)
+Used for Page / Percent toggles. Active segment fills with brand primary, `onPrimary` text.
 
-### Status-icon variant (RSVP)
+### Status-icon variant — RSVP (`AttendanceControl`)
 Used for attendance (Yes / Maybe / No). Icon-only segments tinted by status.
 
 | Segment | Active Background | Active Color |
