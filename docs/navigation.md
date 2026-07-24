@@ -2,12 +2,26 @@
 
 The primary structural anchors of the Kluvs application.
 
-## 1. Top Bar (`TopAppBar`)
+## 1. Top Bar
 
-Editorial page header — not a fixed wordmark bar. An eyebrow-style **header** label (e.g.
-"Profile", "Club", "Library" — Eyebrow family, uppercase, tracked) always shown in the top
-row, optionally paired with a big serif **title** underneath (Headline family — the actual
-name/value: a profile name, a club name, "My Shelf").
+Two distinct components serving two distinct roles — not one replacing the other.
+
+### Persistent chrome bar
+
+Fixed application header carrying identity and global navigation, not page-specific content.
+- **Height:** 52px.
+- **Background:** `surface.warm-dark.bar` (`#1A140F`) on dark / White on light.
+- **Content:** Brand wordmark "KLUVS" (Garamond, Bold, 20px), leading back affordance when
+  drilled into a page, trailing avatar/overflow menu for global actions (edit profile,
+  appearance, sign out).
+
+### Editorial page header (`TopAppBar`)
+
+Per-screen identity header, distinct from the persistent chrome bar above — the two can
+coexist (the chrome bar stays fixed; `TopAppBar` is the page's own content underneath it). An
+eyebrow-style **header** label (e.g. "Profile", "Club", "Library" — Eyebrow family, uppercase,
+tracked) always shown in the top row, optionally paired with a big serif **title** underneath
+(Headline family — the actual name/value: a profile name, a club name, "My Shelf").
 
 - **Height:** 56px header row; +64px when a title is present.
 - **Two modalities, one component:** passing a title puts the bar in its full two-row form;
