@@ -156,7 +156,7 @@ import android.widget.ImageView
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 
 @Composable
-fun KluvsSpinner(
+fun LoadingSpinner(
     modifier: Modifier = Modifier,
     size: Dp = 32.dp
 ) {
