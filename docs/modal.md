@@ -108,7 +108,7 @@ Use when an action has side-effects that require acknowledgment.
 
 ---
 
-## Danger zone box (optional)
+## Danger zone box (`DangerZoneBox`, optional)
 
 When an edit modal contains a secondary destructive action (e.g. "Delete club" inside Edit Club), place a danger zone box at the **bottom of the body** — not between body and footer. It sits inside the body's content flow, clearly separated from the Save/Cancel pair.
 
@@ -171,17 +171,19 @@ Mobile uses a **platform-native pattern split** based on action weight. The floa
 | Edit forms, settings (Edit Club, Edit Profile, Add Club…) | **Bottom sheet** | Multi-field forms benefit from vertical canvas; bottom-up swipe-to-dismiss is the native gesture. |
 | Hard confirmations (Delete Club, Sign Out, Delete Member…) | **Centered dialog** | Brief, intentionally interruptive. Centered placement signals "you must decide this now." |
 
-#### Centered dialog (confirmations)
+#### Centered dialog (confirmations) — `ConfirmationDialog`
 
 Android: M3 `AlertDialog`. iOS: `UIAlertController` (`.alert` style) or a SwiftUI `.alert` modifier.
 
-Apply the same token values as the web shell — the visual language (danger-red eyebrow, danger tint box, Cancel/Delete button pair) should be as close as the native component allows.
+Apply the same token values as the web shell — the visual language (danger-red eyebrow, danger tint box, Cancel/Delete button pair) should be as close as the native component allows. Confirm/cancel actions render as plain tinted text buttons (Android `AlertDialog`'s own convention), not filled buttons — a deliberate platform adaptation of the web footer spec below, not a deviation to fix.
 
-#### Bottom sheet (edit/form flows)
+#### Bottom sheet (edit/form flows) — `BottomSheet` / `BottomSheetFooter`
 
 Android: M3 `ModalBottomSheet`. iOS: `UISheetPresentationController` (`.medium` / `.large` detent) or SwiftUI `.sheet`.
 
-The three-zone anatomy still applies inside the sheet — Header with eyebrow label at the top, body content, footer with Cancel/Save. The sheet's drag handle replaces the × close button. Apply `radius.modal` (16px) to the top corners.
+The three-zone anatomy still applies inside the sheet — Header with eyebrow label at the top, body content, footer with Cancel/Save. The sheet's drag handle replaces the × close button. Apply `radius.modal` (16px) to the top corners. The footer is a free-form slot (not locked to the Cancel/Save pair) so a sheet with no footer at all — a single scrollable list, say — isn't forced to have one; revisit whether that flexibility is worth keeping once more real sheets actually adopt it.
+
+Both `ConfirmationDialog` and `BottomSheet` set their container background explicitly to the warm-dark "bar" surface tier (see Container above) — distinct from the "card" tier already used by inputs/cards, so a modal doesn't visually read as just another card.
 
 #### Token mapping
 
