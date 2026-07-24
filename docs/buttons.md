@@ -34,9 +34,15 @@ hierarchy above, just the icon made clickable, with a 48dp touch target and ripp
 
 ---
 
-## Pill Button (`.kluvs-btn-pill`)
+## Pills
 
-Tiny rounded-full outlined chip for compact inline actions (e.g., "Copy Club ID"). Supports a transient "success" state.
+Two independent components, not two states of one — both fully rounded, but distinct in
+behavior: `TriggerPill` fires a one-shot action, `TogglePill` holds persistent on/off state.
+
+### Trigger (`TriggerPill` / `.kluvs-btn-pill`)
+
+Tiny rounded-full outlined chip for compact one-shot actions (e.g., "Copy Club ID"). Supports
+a transient "success" state that reverts on its own after a short delay.
 
 | Property | Token | Value |
 |---|---|---|
@@ -44,6 +50,19 @@ Tiny rounded-full outlined chip for compact inline actions (e.g., "Copy Club ID"
 | Font | — | 11px, 500 weight, 0.04em tracking |
 | Default | — | grey border / grey text |
 | Success | — | green border / green text |
+
+### Toggle (`TogglePill`)
+
+Circular icon-only toggle for a persistent binary state (e.g., like/unlike a book). Copper
+border/icon when active, grey otherwise. Not a member of the Segmented Control family below —
+segmented controls pick one of several options; `TogglePill` is strictly on/off, one icon.
+
+| Property | Value |
+|---|---|
+| Shape | circle, 36dp |
+| Icon size | 16dp |
+| Default | grey border / grey icon |
+| Active | copper border / copper icon |
 
 ---
 

@@ -29,6 +29,11 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
 .btn-social--discord { background: #5865F2; }
 .btn-social--google { background: #F2F2F2; border: 1px solid #D1D1D1; color: #1F1F1F; }
 .btn-social--apple { background: #0F0F0F; }
+
+.kluvs-toggle-pill { width: 36px; height: 36px; border-radius: 999px; border: 1.5px solid var(--kluvs-warm-dark-card-2); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--kluvs-warm-fg-tertiary); }
+.kluvs-toggle-pill--active { border-color: var(--kluvs-primary); color: var(--kluvs-primary); }
+[data-surface="light"] .kluvs-toggle-pill { border-color: var(--kluvs-divider-light); color: var(--kluvs-content-light-secondary); }
+[data-surface="light"] .kluvs-toggle-pill--active { border-color: var(--kluvs-primary); color: var(--kluvs-primary); }
 </style></head>
 <body><div class="canvas">
 
@@ -54,12 +59,16 @@ html, body { margin: 0; padding: 0; background: transparent; font-family: var(--
       <button class="btn-social btn-social--google"><img src="../assets/provider-google.svg" alt="">Continue with Google</button>
       <button class="btn-social btn-social--apple"><img src="../assets/provider-apple.svg" alt="">Continue with Apple</button>
 
-      <div class="section-label" style="margin-top:12px">Pill Button</div>
+      <div class="section-label" style="margin-top:12px">Pills</div>
       <div style="display:flex;gap:10px;align-items:center">
         <button class="kluvs-btn-pill">Copy Club ID</button>
         <button class="kluvs-btn-pill kluvs-btn-pill--success">Copied!</button>
       </div>
-      
+      <div style="display:flex;gap:10px;align-items:center;margin-top:4px">
+        <button class="kluvs-toggle-pill" aria-label="Like">&#9825;</button>
+        <button class="kluvs-toggle-pill kluvs-toggle-pill--active" aria-label="Unlike">&#9829;</button>
+      </div>
+
       <div class="section-label" style="margin-top:8px">Segmented Control</div>
       <div style="display:flex;flex-direction:column;gap:12px;width:160px">
         <div class="kluvs-segmented">
