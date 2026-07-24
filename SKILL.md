@@ -17,6 +17,7 @@ Load these files in order — stop when you have enough context for the task:
   - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes; includes an applied sheet-vs-dialog decision table for the Clubs/Books/Me action set
   - `docs/navigation.md` — top bar contextual modes (root vs. detail), bottom nav destination rules, FAB usage, and screen-level shortcuts that skip a modal entirely (inline edit, OS image picker, OS share sheet)
   - `docs/typography.md` — the family/rung/modifier typography model (supersedes the old four-tier system) — read before implementing any text style, not just when "typography" is explicitly the task
+  - `docs/colors.md` — the semantic color-role layer (`card`, `bar`, `divider`, `content`, etc.), mapped to raw dark/light tokens per platform — read before implementing any surface/text color, not just when "colors" is explicitly the task
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 
@@ -30,7 +31,7 @@ If the user invokes this skill without other guidance, ask what they want to bui
 
 - Copper `#D16D30` is the only accent. One per view, on the primary CTA and active state only.
 - Dark surfaces (product): `#140F0D` → `#1A140F` → `#241C17`; `#332B24` is the hairline.
-- Light surfaces: `#FAFAFC` → `#FFFFFF`.
+- Light surfaces (cream): `#F2EDE5` (page) → `#F6F0E7` (bar) → `#FAF6EF` (card) → `#E8DECC` (deep/nav).
 - Type: **Two-register system.** EB Garamond (serif, 400/500/700 + italic 400/500) for wordmark, display, headings, and book titles — italic reserved for book titles only. IBM Plex Sans (sans, 400/500/700) for all UI chrome, body, labels, and eyebrow text. No other fonts, no monospace.
 - Radius: 2 (chips), 8 (inputs/timeline), 12 (cards/buttons), 9999 (pill/avatars).
 - No emoji. No gradients. No decorative illustration. No backdrop blur.

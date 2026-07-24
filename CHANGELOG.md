@@ -15,6 +15,73 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.6.0] — 2026-07-24
+
+### Added — Color role layer (docs only)
+
+- **New: `docs/colors.md`** — semantic color-role model (`background`, `bar`, `card`, `cardAlt`,
+  `divider`, `content`, `contentMuted`, `labelVariant`, `placeholder`, `disabled`, `accent`,
+  `onAccent`, `secondary`, `tertiary`, `danger`, `success`, plus subtle variants), mapping each
+  role to its raw dark/light token. Formalizes the role layer that `kluvs-mobile`'s Android
+  `:designsystem` module (`KluvsColors`/`KluvsTheme.colors`) now implements, mirroring how
+  `docs/typography.md` formalized the family/rung/modifier model.
+- **`CLAUDE.md`** — `docs/colors.md` added to the file map; pending-propagation section updated
+  with the Android color-role-layer status (shipped in `:designsystem`, not yet propagated to
+  every `composeApp` call site; web and iOS role layers not started).
+- **`SKILL.md`** — `docs/colors.md` added to the per-component read list (parallel to
+  `docs/typography.md`); non-negotiable light-surface swatch corrected from a stale placeholder
+  (`#FAFAFC`→`#FFFFFF`) to the real cream scale (`#F2EDE5`→`#F6F0E7`→`#FAF6EF`→`#E8DECC`).
+- Flagged, not fixed: light-mode `labelVariant` has no named `--kluvs-*` custom property yet in
+  `colors_and_type.css` — only a comment describing the dark/light inverse pairing.
+
+### Added — Component docs (mobile-driven, backfilled from `kluvs-mobile` Android build-out)
+
+- **Dropdown** (`docs/dropdowns.md`, new) — pill-shaped value-selector pattern (trigger +
+  popover option list), split out as its own family distinct from Pills and Segmented Control.
+- **Pills** (was "Pill Button") split into two independent components: `TriggerPill` (one-shot
+  action, transient success state) and `TogglePill` (persistent binary icon toggle).
+- **Segmented Control** entries named to their concrete components: `ToggleControl` (filled
+  Track-By variant) and `AttendanceControl` (status-icon RSVP variant).
+- **Buttons** — Secondary/Outlined reframed as two independent standalone components
+  (`SecondaryButton` copper / `OutlinedButton` grey) instead of one component with two states,
+  matching the real Android implementation; documents `TextButton`'s `emphasized` flag and adds
+  `IconButton` as a fifth entry (tappable icon, not part of the filled/outlined/text hierarchy).
+- **Inputs** split into `InputField` (editable — plain, prefix/suffix, multiline, keyboard type)
+  and `PickerField` (read-only, opens a picker on tap, drops the raised background to signal
+  "tap, don't type").
+- **SearchField** documented — label-less filter-as-you-type field, distinct from `InputField`
+  (always labeled) and from the separate, unbuilt search-and-select combobox (reserved package
+  name `.search`, distinct from `.fields`).
+- **Reading Progress** clarified: `ProgressBar` (primitive, no gap/stop-indicator dot) vs.
+  `OwnProgressRow` (composite) — the gap/dot being the actual Android M3 `LinearProgressIndicator`
+  default-styling bug this distinction was written to prevent.
+- **Top Bar** — `TopAppBar`/`SearchTopAppBar` documented as the canonical editorial
+  eyebrow+title header (two-modality: title present = two-row, absent = single-row), grounded in
+  real web masthead patterns (Profile/Club/Books) and mobile's existing `ClubsScreen` header. The
+  wordmark/avatar/kebab persistent chrome bar is retained alongside it as a separate, coexisting
+  component (a prior pass mistakenly framed `TopAppBar` as replacing it).
+- **Modal** — `ConfirmationDialog`/`BottomSheet`/`BottomSheetFooter`/`DangerZoneBox` named
+  inline; documents the deliberate Android platform adaptation (plain tinted text buttons in
+  `ConfirmationDialog`, matching native `AlertDialog` convention, vs. web's filled-button footer)
+  and that both components use the warm-dark "bar" surface tier, distinct from the "card" tier
+  already claimed by inputs/cards.
+- **Navigation** — new §2 "Action Menu" section documents `ActionMenu`: a small anchored popover
+  distinct from `Dropdown` (persisted value vs. one-shot command) and from the Top Bar/Modal
+  families (no header/body/footer shell, no scrim); Eyebrow-styled items, real usage capped at
+  1-3 plain-text actions. Remaining Navigation sections renumbered to stay sequential.
+- `Rename spinner's Compose sample from KluvsSpinner to LoadingSpinner` — matches the
+  no-app-prefix naming convention already established for `Icon` and the button family.
+- **Docs are prescriptive, not trackers**: dropped "Android has X" / "not yet implemented on Y"
+  adoption-status annotations from `buttons.md`/`typography.md` — that status belongs in
+  `CLAUDE.md`'s pending-propagation notes, not in specs client repos and agents read as the
+  canonical build target.
+
+### Removed
+
+- `preview/components-modal.html` — stale, unreferenced duplicate of `components-modals.html`
+  (hardcoded hex colors, no light/dark toggle, predates tokenization). Confirmed orphaned before
+  deletion: no link from `index.html` or any other preview page.
+
 ## [2.5.0] — 2026-07-22
 
 ### Added — Typography v2: family/rung/modifier model (docs only, not yet propagated)
