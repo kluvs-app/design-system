@@ -110,11 +110,17 @@ Create `res/animator/` and `res/interpolator/` if they don't already exist in th
 
 ### Step 2 — XML layout (View system)
 
+`spinner_kluvs.xml`'s viewport is padded (500x500, centered on the rotation pivot) so
+the "inhale" scale peak (1.08x) never clips against the vector's own internal canvas —
+VectorDrawable clips to its declared viewport regardless of the consuming View's size.
+That means the mark only fills part of the drawable's intrinsic bounds, so size the
+View at **1.268x** (`500 / 394.41`) your intended rendered size, not the raw size:
+
 ```xml
 <ImageView
     android:id="@+id/loadingSpinner"
-    android:layout_width="32dp"
-    android:layout_height="32dp"
+    android:layout_width="40.6dp"
+    android:layout_height="40.6dp"
     android:src="@drawable/spinner_kluvs_animation"
     android:contentDescription="@string/loading" />
 ```
@@ -171,9 +177,14 @@ fun LoadingSpinner(
                 avd?.start()
             }
         },
-        modifier = modifier.size(size)
+        // spinner_kluvs.xml pads its viewport so the "inhale" scale peak never clips;
+        // scale the View up to match so the drawn mark still renders at `size`.
+        modifier = modifier.size(size * VIEWPORT_PADDING_FACTOR)
     )
 }
+
+// 500 / 394.41 — the padded viewport's side length over the original mark's width.
+private const val VIEWPORT_PADDING_FACTOR = 1.268f
 ```
 
 ### Step 5 — Reduced motion
