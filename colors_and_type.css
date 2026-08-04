@@ -403,28 +403,49 @@
 .kluvs-role-eyebrow--admin  .kluvs-role-eyebrow__dot { background: var(--kluvs-role-admin); }
 .kluvs-role-eyebrow--member { color: var(--kluvs-role-member-label); }
 
-/* ──── Empty state — stacked placeholder covers ──── */
-.kluvs-empty-covers { position: relative; flex-shrink: 0; }
-.kluvs-empty-covers__cover {
+/* ──── Empty state — fragmented hex grid ──── */
+/* One reusable illustration (see docs/states.md § Fragmented Hex Grid and
+   assets/illustration-empty-hexagons.svg for the generation algorithm): a
+   tessellating hex grid with most edges removed, sitting quiet behind a
+   centered text block. Only heading/body/action change per screen. */
+.kluvs-empty { position: relative; width: 100%; max-width: 360px; aspect-ratio: 360 / 620; flex-shrink: 0; }
+.kluvs-empty__hexes {
   position: absolute;
   inset: 0;
-  margin: auto;
-  border-radius: 2px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.03);
-  background: repeating-linear-gradient(135deg, var(--kluvs-surface-dark-elevated) 0 5px, var(--kluvs-divider-dark) 5px 10px);
+  width: 100%;
+  height: 100%;
+  color: var(--kluvs-warm-fg-disabled);
+  overflow: visible;
+}
+.kluvs-empty__hexes line { stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
+.kluvs-empty__text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 0 40px;
 }
 .kluvs-empty-heading {
-  font: 500 28px/1 var(--kluvs-font-serif);
+  font: 500 22px/1.25 var(--kluvs-font-serif);
   font-style: italic;
   letter-spacing: -0.012em;
-  color: var(--kluvs-content-dark-secondary);
+  color: var(--kluvs-warm-fg-primary);
+  margin: 0;
 }
 .kluvs-empty-body {
   font: 400 13px/1.6 var(--kluvs-font-sans);
   color: var(--kluvs-warm-fg-tertiary);
-  max-width: 340px;
-  text-align: center;
+  max-width: 240px;
+  margin: 0;
 }
+.kluvs-empty__action { margin-top: 6px; }
+[data-surface="light"] .kluvs-empty__hexes { color: var(--kluvs-content-light-disabled); }
+[data-surface="light"] .kluvs-empty-heading { color: var(--kluvs-content-light-primary); }
+[data-surface="light"] .kluvs-empty-body { color: var(--kluvs-content-light-secondary); }
 
 /* ──── Book Cover ──── */
 .kluvs-book-cover {
