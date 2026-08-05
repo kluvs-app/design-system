@@ -11,9 +11,35 @@ Full-screen or section-level loading uses the **Breathe·Tidal** spinner.
 
 ## 2. Error
 
-Communicates failures and provides a recovery path.
-- **Anatomy:** Red circle icon with exclamation mark + Error title + Helper text + "Try again" action.
-- **Tokens:** `--kluvs-danger` for the icon and status signal.
+Full-screen "couldn't load this" state — a load failure, not an empty-but-healthy screen.
+Communicates the failure and provides a recovery path.
+
+- **Anatomy:** Reuses the **Fragmented Hex Grid** shell from § Empty State below — same
+  illustration, heading, and body layout — with two differences: the hex grid strokes render
+  in `--kluvs-danger` instead of the quiet `--kluvs-warm-fg-disabled` tone, and the action is
+  always present (never optional, since "try again" is the only real next step on a load
+  failure). Superseded the earlier icon-based anatomy (red circle + exclamation mark) so a
+  failure and an empty collection read as variations of one visual language rather than two
+  unrelated components.
+- **Heading:** Short, generic, and constant across screens (e.g. "Something went wrong.") —
+  it does not vary per failure the way the body does.
+- **Body:** The failure detail, drawn from a closed error vocabulary (`AppError` on mobile) —
+  never the raw exception or HTTP diagnostic text. Failures the backend can describe cleanly
+  (not found, validation, conflict) may show that detail directly; server/unknown failures
+  always fall back to generic copy, since 5xx bodies can leak raw database error text.
+- **Action:** `PrimaryButton` labeled "Retry", centered beneath the body — heavier weight than
+  Empty State's optional `SecondaryButton`, since retrying is the single, always-available path
+  forward here.
+- **Tokens:** `--kluvs-danger` for the hex grid stroke; see § Fragmented Hex Grid for the base
+  illustration spec (algorithm, stroke width, safe zone) shared with Empty State.
+- **Components:** `ErrorScreen` (`kluvs-mobile/designsystem/.../components/ErrorScreen.kt`,
+  Android — delegates to `EmptyState` with `lineColor = KluvsTheme.colors.danger`), `ErrorView`
+  (`kluvs-mobile/iosApp/iosApp/Components/ErrorView.swift`, iOS — same delegation to
+  `DesignSystem`'s `EmptyState`).
+- **Scope:** For full-screen load failures only (a screen's primary data couldn't be fetched at
+  all). Secondary/action failures (a mutation fails while the screen already has content — e.g.
+  a failed login attempt, a failed save) use a snackbar instead, so one bad request doesn't blow
+  away a screen the user is already looking at.
 
 ## 3. Empty State
 
@@ -41,6 +67,10 @@ useful to go.
 Not a static image — a deterministic pattern generated from a real tessellating hexagon
 grid, so it can be regenerated at any container size (phone, tablet, web) without
 re-drawing it by hand, and always stays aligned to the same underlying grid.
+
+Shared verbatim between Empty State and § Error above — same algorithm, same seed, same
+safe zone. Error is the one variant that overrides the stroke color (`--kluvs-danger`
+instead of `--kluvs-warm-fg-disabled`); every other property below applies to both.
 
 **Algorithm:**
 1. Tile the container with pointy-top hexagons of a fixed size (**hex radius 34px** at
