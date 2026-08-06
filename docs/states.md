@@ -38,8 +38,8 @@ Communicates the failure and provides a recovery path.
   `DesignSystem`'s `EmptyState`).
 - **Scope:** For full-screen load failures only (a screen's primary data couldn't be fetched at
   all). Secondary/action failures (a mutation fails while the screen already has content — e.g.
-  a failed login attempt, a failed save) use a snackbar instead, so one bad request doesn't blow
-  away a screen the user is already looking at.
+  a failed login attempt, a failed save) use § Snackbar below instead, so one bad request
+  doesn't blow away a screen the user is already looking at.
 
 ## 3. Empty State
 
@@ -103,7 +103,52 @@ than stretching the reference SVG.
 
 ---
 
-## 4. Reading Progress (`.kluvs-progress-*`)
+## 4. Snackbar
+
+Transient, non-blocking feedback for the result of an action already in flight — a save
+succeeded, a mutation failed, a login attempt was rejected. Floats above existing content at
+the bottom of the screen and auto-dismisses; never blocks interaction the way a modal/dialog
+does. This is the standard surface for **secondary/action failures** referenced in § Error
+above (a mutation fails while the screen already has content) — and, as of this spec, for
+**all** transient feedback across the app, including form-level failures like login, replacing
+the per-screen ad hoc banners/toasts that predate this doc.
+
+| Property | Value |
+|---|---|
+| Position | Bottom-anchored, above safe-area/nav chrome, horizontal margin 16px |
+| Shape | Rounded rect, 12px corner radius |
+| Duration | 4s auto-dismiss (no user action required); a message that changes while one is showing restarts the timer rather than queuing |
+| Max width | Full width minus margins on phone; does not stretch on tablet/wide layouts — cap around 400px, centered |
+
+**Anatomy:** Leading icon (variant-dependent) + message text (single line, truncate rather than
+wrap for anything absurdly long). No action slot and no close button — dismissal is purely
+time-based, superseded by the next message if one arrives first.
+
+### Variants
+
+| | Success (default) | Danger |
+|---|---|---|
+| Use for | Positive/success feedback — "Club created", "Invite link copied" | Action failed — "Couldn't save changes", login rejected, mutation `AppError`/`AuthError` |
+| Background | `success`, fully opaque | `danger`, fully opaque |
+| Border | none | none |
+| Icon | `IconType.Check`, `onAccent` tint | `IconType.Error`, `onAccent` tint |
+| Text | `onAccent` | `onAccent` |
+
+Only two variants exist — no separate "neutral/informational" case, since every message this
+app actually shows is either confirming something worked or reporting that it didn't. Both use
+a solid, fully opaque fill (not a translucent wash) with `onAccent` (white) icon/text — the same
+"opaque saturated surface + white content" pattern `PrimaryButton` uses for its copper fill,
+applied to the status colors instead of the brand color. A subtle tint works for a banner pinned
+inline on a known, fixed background (see `ErrorBanner`'s `dangerSubtle` treatment); a snackbar
+floats over arbitrary content below it and needs to read clearly regardless of what's behind it.
+
+**Components:** `KluvsSnackbar` (`kluvs-mobile/designsystem/.../components/KluvsSnackbar.kt`,
+Android — passed as the `snackbar` composable to M3's `SnackbarHost`, so existing
+`SnackbarHostState` plumbing is unchanged), `Snackbar`
+(`kluvs-mobile/iosApp/DesignSystem/Sources/DesignSystem/Components/Snackbar.swift`, iOS —
+replaces the earlier ad hoc `Toast` component).
+
+## 5. Reading Progress (`.kluvs-progress-*`)
 
 `ProgressBar` is the bar itself — a plain pill-shaped track with a pill-shaped fill, nothing
 else. No gap or seam between the filled and unfilled portion, and no "stop indicator" dot at
