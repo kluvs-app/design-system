@@ -18,6 +18,14 @@ Load these files in order — stop when you have enough context for the task:
   - `docs/navigation.md` — top bar contextual modes (root vs. detail), bottom nav destination rules, FAB usage, and screen-level shortcuts that skip a modal entirely (inline edit, OS image picker, OS share sheet)
   - `docs/typography.md` — the family/rung/modifier typography model (supersedes the old four-tier system) — read before implementing any text style, not just when "typography" is explicitly the task
   - `docs/colors.md` — the semantic color-role layer (`card`, `bar`, `divider`, `content`, etc.), mapped to raw dark/light tokens per platform — read before implementing any surface/text color, not just when "colors" is explicitly the task
+  - `docs/states.md` — functional states: Loading, Error, Empty Shelf (Fragmented Hex Grid), Progress, and Snackbar (Success/Danger variants)
+  - `docs/buttons.md` — button hierarchy: Primary, Secondary, Pill, and Segmented controls
+  - `docs/cards.md` — Standard and Highlighted card containers
+  - `docs/inputs.md` — form field anatomy and states, including PasswordField and InputField keyboard actions
+  - `docs/dropdowns.md` — pill-trigger + popover option list value selector
+  - `docs/avatars.md` — Avatar and Avatar Stack sizes and the 12-hue palette rules
+  - `docs/book-cover.md` — Book Cover sizes, scaled ribbons, and the hexagon hive grid fallback
+  - `docs/members.md` — member rows and Role Eyebrow identification
 
 **Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 
