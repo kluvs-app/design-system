@@ -15,6 +15,41 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.7.0] — 2026-08-25
+
+### Added — Snackbar
+
+- **`docs/states.md`** — Snackbar spec (§4): transient bottom-anchored feedback, Success/Danger
+  variants, opaque fill + `onAccent` icon/text, 4s auto-dismiss, no action slot. Formalizes the
+  standard surface for all transient feedback app-wide, replacing per-screen ad hoc
+  banners/toasts. Also updates the Error state to reuse the Fragmented Hex Grid shell.
+- **`preview/components-states.html`** — Snackbar showcase card (Success/Danger), matching the
+  `kluvs-mobile` `KluvsSnackbar` implementation.
+- **`docs/states.md`** — Empty Shelf now uses the Fragmented Hex Grid pattern in place of the
+  earlier Stacked Covers treatment (`assets/illustration-empty-hexagons.svg`).
+
+### Added — Assets
+
+- Showcase avatars and book covers for beta store listing assets, including a new Quixote book
+  cover.
+- Android `LoadingSpinner` clipping and linear-only easing fix.
+
+### Added — Docs
+
+- **`docs/inputs.md`** — documents `PasswordField` and `InputField` keyboard actions.
+
+### Fixed — Repo tooling
+
+- **`SKILL.md`** — the `docs/` read list only named 5 of 13 guides; added the missing entries
+  (`states`, `buttons`, `cards`, `inputs`, `dropdowns`, `avatars`, `book-cover`, `members`).
+- **`preview/colors-roles.html`** — removed. Hardcoded role-color hex values had drifted from
+  the current tokens (owner and admin both stale), the card was orphaned (not linked from
+  `index.html`'s nav), and the pattern it showed (avatar ring/badge) has been superseded by the
+  Role Eyebrow, already correctly shown in `components-members.html`.
+- **New: `.claude/commands/repo-audit.md`** — internal skill (`/repo-audit`) that checks release
+  hygiene, token/doc consistency, preview showcase coverage, asset usage, and README/CLAUDE.md
+  fact drift. Read-only; reports findings without fixing.
+
 ## [2.6.0] — 2026-07-24
 
 ### Added — Color role layer (docs only)
