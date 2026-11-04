@@ -148,13 +148,15 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 
 **Glyph use beyond icons:**
 - Status-bar mocks use unicode dots and a triangle: `●  ▲  80%`. Treat these as decorative, not as an icon system.
-- Brand wordmark "KLUVS" is **typographic** (Inter Bold). The only graphic flourish is a single 14-px copper dot used as punctuation next to the wordmark on the cover frame, and an 8-px copper underline beneath the wordmark on the auth screen.
+- Brand wordmark "KLUVS" is set in **EB Garamond Bold** with wide tracking, shipped as outlined paths (no font dependency). The only graphic flourish is a single 14-px copper dot used as punctuation next to the wordmark on the cover frame, and an 8-px copper underline beneath the wordmark on the auth screen.
 - **Emoji: never.**
 
 **Shipped assets** (in `assets/`):
 
 *Brand:*
-- `kluvs-wordmark-light.svg` / `kluvs-wordmark-dark.svg` — typographic logo, two themes.
+- `kluvs-wordmark-light.svg` / `kluvs-wordmark-dark.svg` — KLUVS wordmark. `-light` has dark text (for light surfaces), `-dark` has cream text (for dark surfaces).
+- `kluvs-lockup-dark.svg` / `kluvs-lockup-light.svg` — mark + wordmark lockup. Note the naming is inverted relative to the wordmark: `-dark` has dark text (for light surfaces), `-light` has cream text (for dark surfaces).
+- All wordmark and lockup files are **outlined to paths** and cropped to their artwork, so they render identically as `<img>`, in design tools, or rasterized, and center correctly without offsets.
 - `kluvs-mark.svg` / `kluvs-mark-white.svg` — compact mark for app icon / favicon use.
 - `kluvs-app-icon.png` / `kluvs-app-icon-mark.svg` — app icon assets.
 
