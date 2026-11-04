@@ -15,6 +15,19 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Fixed — Logo assets
+
+- **`assets/kluvs-wordmark-{light,dark}.svg`, `assets/kluvs-lockup-{light,dark}.svg`** — the
+  "KLUVS" text was a live `<text>` element loading EB Garamond via a Google Fonts `@import`,
+  which browsers block when an SVG is used as an `<img>` (it fell back to Georgia). The text is
+  now outlined to paths (EB Garamond Bold, same size, tracking, and kerning, verified by pixel
+  diff against the live-text render), so the files have no font dependency.
+- Trimmed the trailing letter-spacing from each `viewBox`, which made the artwork sit
+  off-center when centered. Wordmarks are cropped tightly to the letterforms; lockups keep their
+  42-unit height (so height-sized consumers render unchanged) and lose only the right-hand slack.
+- **`README.md`** — corrected the wordmark typeface (EB Garamond Bold, not Inter Bold) and
+  listed the lockup files, including their inverted light/dark naming.
+
 ## [2.7.0] — 2026-08-25
 
 ### Added — Snackbar
