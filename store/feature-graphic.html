@@ -1,0 +1,48 @@
+<!doctype html>
+<!--
+  Google Play feature graphic — exactly 1024×500.
+  Four phones (screens 1, 4, 5, 6) — fewer phones keeps each one legible.
+  Surface follows KLUVS_SURFACE in shots.js (or ?surface=dark|light).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kluvs feature graphic</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="shots.js"></script>
+<style>
+  html, body { margin: 0; }
+  body {
+    --bg: var(--kluvs-warm-dark-base);
+    --bezel: var(--kluvs-warm-dark-card-2);
+    width: 1024px; height: 500px; overflow: hidden; position: relative;
+    background: var(--bg);
+  }
+  body.light { --bg: var(--kluvs-surface-light); --bezel: var(--kluvs-warm-dark-base); }
+
+  .bleed { position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--kluvs-primary); z-index: 1; }
+
+  .row {
+    position: absolute; top: 40px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 32px;
+  }
+  .device { width: 196px; padding: 6px; border-radius: 30px; background: var(--bezel); }
+  .device img { display: block; width: 100%; border-radius: 24px; }
+</style>
+</head>
+<body>
+  <div class="bleed"></div>
+  <div class="row" id="row"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  if ((q.get("surface") || KLUVS_SURFACE) === "light") document.body.classList.add("light");
+  const row = document.getElementById("row");
+  for (const id of ["1", "4", "5", "6"]) {
+    const d = document.createElement("div");
+    d.className = "device";
+    d.innerHTML = `<img src="${KLUVS_SIZES.play.raw(id)}" alt="">`;
+    row.appendChild(d);
+  }
+</script>
+</body>
+</html>

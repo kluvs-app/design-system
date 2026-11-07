@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Review gallery for store/export/. Re-run store/render.sh, then refresh. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kluvs store assets</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="shots.js"></script>
+<style>
+  body { margin: 0; padding: 40px 24px 80px; background: var(--kluvs-warm-dark-base); color: #fff; font-family: var(--kluvs-font-sans); }
+  h1 { font: 500 34px/1.1 var(--kluvs-font-serif); margin: 0 0 6px; }
+  h2 { font: 500 11px/1 var(--kluvs-font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--kluvs-warm-fg-tertiary); margin: 48px 0 16px; }
+  p.meta { color: var(--kluvs-warm-fg-tertiary); margin: 0; font-size: 14px; }
+  .row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+  figure { margin: 0; flex: none; }
+  figure img { display: block; height: 520px; border-radius: 8px; outline: 1px solid var(--kluvs-warm-dark-card-2); }
+  figure.wide img { height: auto; width: min(1024px, 100%); }
+  figcaption { font-size: 12px; color: var(--kluvs-warm-fg-tertiary); margin-top: 8px; }
+</style>
+</head>
+<body>
+  <h1>Store assets</h1>
+  <p class="meta">Files live in store/export/ — upload straight from there.</p>
+  <div id="out"></div>
+<script>
+  const out = document.getElementById("out");
+  const bust = "?t=" + Date.now();
+  const sec = (title, html) => out.insertAdjacentHTML("beforeend", `<h2>${title}</h2>${html}`);
+  sec("Google Play — feature graphic · 1024×500",
+    `<figure class="wide"><img src="export/play/feature-graphic.png${bust}"><figcaption>play/feature-graphic.png</figcaption></figure>`);
+  for (const [key, s] of Object.entries(KLUVS_SIZES)) {
+    sec(`${s.label} · ${s.w}×${s.h}`, `<div class="row">` + KLUVS_SHOTS.map(sh =>
+      `<figure><img src="export/${key}/screen-${sh.id}.png${bust}"><figcaption>${key}/screen-${sh.id}.png</figcaption></figure>`).join("") + `</div>`);
+  }
+</script>
+</body>
+</html>
