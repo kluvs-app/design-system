@@ -27,6 +27,7 @@ The app's surface model is **dark-by-default in product, light in auth/marketing
 | `assets/` | Brand mark, role badges, social-provider glyphs (SVG). Drop-in. |
 | `docs/` | Modular technical specifications for every component group. |
 | `preview/` | Modular HTML specimens for visual reference. |
+| `store/` | Google Play / App Store listing graphics — templates, raw captures, and upload-ready PNGs in `store/export/`. See `store/README.md`. |
 
 ## Content fundamentals
 

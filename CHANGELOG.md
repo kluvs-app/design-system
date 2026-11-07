@@ -15,6 +15,24 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.8.0] — 2026-11-07
+
+### Added — Store assets
+
+- **`store/`** — Google Play and App Store listing graphics, kept in the repo as their own
+  deliverable (templates, raw captures and upload-ready PNGs all committed):
+  - `screenshot.html` + `shots.js` — screenshot template: copper eyebrow, EB Garamond
+    headline, Plex sub line over a flat-bezel device on the cream marketing surface (warm-dark
+    available). Sizing uses a 9:16-normalised unit so the phone crops at the same point on Play
+    and iPhone canvases.
+  - `feature-graphic.html` — Play feature graphic, four phones (screens 1, 4, 5, 6).
+  - `render.sh` — headless-Chrome export of every asset to `export/`; `index.html` is a review
+    gallery.
+  - `export/` — Play feature graphic (1024×500), Play phone (1080×1920), App Store 6.9"
+    (1320×2868) and 6.5" (1284×2778), six screenshots each.
+  - `raw/` — the source device captures (Android 1440×3120, iOS 1320×2868).
+- **`README.md`**, **`CLAUDE.md`** — `store/` added to the index / file map.
+
 ### Fixed — Logo assets
 
 - **`assets/kluvs-wordmark-{light,dark}.svg`, `assets/kluvs-lockup-{light,dark}.svg`** — the

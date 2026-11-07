@@ -29,6 +29,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/states.md` | Functional states — Loading, Error, Empty Shelf, and Progress. |
 | `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with snippets. |
 | `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
+| `store/` | Store listing graphics (Play + App Store). HTML templates + `render.sh` → upload-ready PNGs in `store/export/`; raw captures in `store/raw/`. See `store/README.md`. |
 
 ## Token namespacing
 

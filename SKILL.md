@@ -27,7 +27,7 @@ Load these files in order — stop when you have enough context for the task:
   - `docs/book-cover.md` — Book Cover sizes, scaled ribbons, and the hexagon hive grid fallback
   - `docs/members.md` — member rows and Role Eyebrow identification
 
-**Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
+**Do not read:** `index.html` (site entry point), `preview/` (token swatches for the hosted style guide), `store/` (store listing graphics — raster captures and exports), `CHANGELOG.md`, or `VERSION`. Read `docs/<component>.md` only when implementing that specific component (see step 4a above).
 
 ## What to do
 
