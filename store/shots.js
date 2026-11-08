@@ -52,6 +52,5 @@ window.KLUVS_SHOTS = [
 // Output sizes. `raw` builds the capture path for a shot id.
 window.KLUVS_SIZES = {
   "play":   { w: 1080, h: 1920, raw: id => `raw/android/screen-${id}.png`, label: "Google Play — phone" },
-  "ios-69": { w: 1320, h: 2868, raw: id => `raw/ios/ios-screen${id}.png`,  label: "App Store — 6.9\" iPhone" },
-  "ios-65": { w: 1284, h: 2778, raw: id => `raw/ios/ios-screen${id}.png`,  label: "App Store — 6.5\" iPhone" },
+  "ios":    { w: 1206, h: 2622, raw: id => `raw/ios/ios-screen${id}.png`,  label: "App Store — 6.1\" / 6.3\" iPhone" },
 };

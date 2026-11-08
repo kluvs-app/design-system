@@ -15,6 +15,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Changed — Store assets
+
+- **`store/`** — App Store screenshots now render at a single size, **1206×2622**
+  (`export/ios/`), the size App Store Connect accepts for the required 6.1" / 6.3" iPhone slot.
+  The 6.9" (1320×2868) and 6.5" (1284×2778) exports were rejected and have been removed.
+
 ## [2.8.0] — 2026-11-07
 
 ### Added — Store assets

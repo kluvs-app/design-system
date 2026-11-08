@@ -9,7 +9,7 @@ Google Play and App Store listing graphics. Templates are HTML; output is PNG at
 | `raw/android/screen-<n>.png` | Raw device captures (Android, 1440×3120) |
 | `raw/ios/ios-screen<n>.png` | Raw device captures (iPhone 6.9", 1320×2868) |
 | `shots.js` | Screenshot order, eyebrow / headline / sub copy, surface, output sizes |
-| `screenshot.html` | Screenshot template — `?shot=<n>&size=play\|ios-69\|ios-65[&surface=dark\|light]` |
+| `screenshot.html` | Screenshot template — `?shot=<n>&size=play\|ios[&surface=dark\|light]` |
 | `feature-graphic.html` | Play feature graphic — four phones (screens 1, 4, 5, 6) |
 | `render.sh` | Renders everything to `export/` via headless Chrome |
 | `index.html` | Review gallery — open in a browser after rendering |
@@ -21,15 +21,14 @@ Google Play and App Store listing graphics. Templates are HTML; output is PNG at
 |---|---|---|
 | `export/play/feature-graphic.png` | Play — feature graphic | 1024×500 |
 | `export/play/screen-<n>.png` | Play — phone screenshots | 1080×1920 |
-| `export/ios-69/screen-<n>.png` | App Store — 6.9" iPhone (required) | 1320×2868 |
-| `export/ios-65/screen-<n>.png` | App Store — 6.5" iPhone (fallback) | 1284×2778 |
+| `export/ios/screen-<n>.png` | App Store — 6.1" / 6.3" iPhone (the required slot) | 1206×2622 |
 
 ## Updating
 
 1. **New captures:** replace the files in `raw/`, keeping the filenames. The capture order is 1 Me · 2 Clubs · 3 Club overview · 4 Discussions · 5 Members · 6 Shelf.
 2. **Copy or order:** edit `shots.js`. Headlines use sentence case, end with a period and never use exclamation marks (see the voice rules in `../README.md`).
 3. **Surface:** `KLUVS_SURFACE` in `shots.js` — `light` (cream marketing surface, current) or `dark`. Or try one-off: `SURFACE=dark ./render.sh`.
-4. **Render:** `./render.sh` (all), or `./render.sh feature | play | ios-69 | ios-65`. Takes ~30s; needs Google Chrome (override the path with `CHROME=`).
+4. **Render:** `./render.sh` (all), or `./render.sh feature | play | ios`. Takes ~30s; needs Google Chrome (override the path with `CHROME=`).
 5. Refresh `index.html` to review.
 
 ## Layout notes
