@@ -15,6 +15,18 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Added — Assets
+
+- **`assets/icon-visibility.svg`, `assets/icon-visibility-off.svg`** — Material Symbols
+  (weight 600, filled, 24px) eye / eye-struck-through glyphs for the password reveal toggle.
+  Added to the `preview/components-icons.html` showcase.
+
+### Changed — Inputs
+
+- **`docs/inputs.md`** — `PasswordField` now ships a trailing show/hide reveal toggle (masked by
+  default; icon shows the action; per-instance state; `content-muted` tint). Supersedes the
+  earlier "permanently masked, no reveal toggle" rule.
+
 ## [2.8.1] — 2026-11-07
 
 ### Changed — Store assets

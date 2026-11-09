@@ -3,7 +3,7 @@
 Kluvs form fields use a warm, high-fidelity style to match the literary brand. Components
 are not variants of one another — they share visual chrome (radius, border, label, supporting
 text) but represent different things: `InputField` is something you type into, `PasswordField`
-is a categorically different typed input (permanently masked), `PickerField` is something you
+is a categorically different typed input (masked by default, with a reveal toggle), `PickerField` is something you
 tap to open a picker or dialog. Neither takes a `T`-generic option list — all are hollow,
 single-purpose fields.
 
@@ -43,10 +43,28 @@ components:
 
 Editable text field dedicated to password entry — a separate component from `InputField`,
 not a boolean flag on it, matching the same categorical split `InputField` already draws
-against `PickerField`. Always single-line and permanently masked (no show/hide reveal
-toggle — matches no existing pattern on any Kluvs platform today). Shares `InputField`'s
-visual chrome exactly; only the masking behavior differs. Supports the same keyboard-action
-callback as `InputField` for submitting a form on IME `Go`/`Done`.
+against `PickerField`. Always single-line and masked by default, with a trailing show/hide
+reveal toggle. Shares `InputField`'s visual chrome exactly; only the masking behavior differs.
+Supports the same keyboard-action callback as `InputField` for submitting a form on IME
+`Go`/`Done`.
+
+### Reveal toggle
+
+- **Placement:** trailing icon inside the field, vertically centered; the touch target is at
+  least 48dp / 44pt even though the glyph is 24px.
+- **Icons:** `icon-visibility.svg` (eye open) and `icon-visibility-off.svg` (eye struck through),
+  Material Symbols, weight 600, filled.
+- **Icon shows the action, not the state:** while the password is masked the toggle shows
+  `visibility` ("tap to show"); while revealed it shows `visibility-off` ("tap to hide").
+- **Color:** `content-muted` — never copper; the accent stays reserved for the primary CTA and
+  active state.
+- **State:** always starts masked. Reveal state is local to the field instance (each password
+  field in a form toggles independently) and is not persisted or shared with the caller.
+- **Accessibility:** the toggle is labelled "Show password" / "Hide password" to match the
+  action it will perform.
+- **Disabled:** when the field is disabled the toggle is disabled too.
+- **Keyboard:** revealing keeps the password keyboard type; it does not switch to a plain-text
+  keyboard.
 
 ## `SearchField`
 

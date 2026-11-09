@@ -172,7 +172,7 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 - `icon-arrow-back.svg`, `icon-book.svg`, `icon-check.svg`, `icon-crown.svg`, `icon-diamond.svg`
 - `icon-email.svg`, `icon-gem.svg`, `icon-help.svg`, `icon-hexagon.svg`, `icon-hive.svg`
 - `icon-honeycomb.svg`, `icon-info.svg`, `icon-location.svg`, `icon-logout.svg`, `icon-password.svg`
-- `icon-person.svg`, `icon-settings.svg`, `icon-shield.svg`, `icon-unfold.svg`
+- `icon-person.svg`, `icon-settings.svg`, `icon-shield.svg`, `icon-unfold.svg`, `icon-visibility.svg`, `icon-visibility-off.svg`
 
 ## Accessibility
 
