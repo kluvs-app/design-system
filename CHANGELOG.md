@@ -15,6 +15,8 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.9.0] — 2026-11-08
+
 ### Added — Assets
 
 - **`assets/icon-visibility.svg`, `assets/icon-visibility-off.svg`** — Material Symbols
