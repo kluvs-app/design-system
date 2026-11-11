@@ -15,6 +15,20 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Added — Tokens
+
+- **`color.status.wine` (`--kluvs-wine`, `#4F000C`) and `color.status.on-wine`
+  (`--kluvs-on-wine`, `#F2EDE5`)** — deep wine fill and cream text for the offline banner. Same
+  value on dark and light. Added to `tokens.json`, `colors_and_type.css`, and the `offline` /
+  `onOffline` rows of `docs/colors.md`.
+
+### Added — Components
+
+- **Offline Banner** — `docs/states.md` § 6 and a card in `preview/components-states.html`.
+  Persistent, non-dismissible "You're offline. Showing saved data." band at the top of the main
+  tab shell, shown only while the network is unreachable. Contrast and the reason the fill is
+  not lightened are documented there.
+
 ## [2.9.0] — 2026-11-08
 
 ### Added — Assets

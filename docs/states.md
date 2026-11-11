@@ -173,3 +173,60 @@ the end — some UI toolkits' default progress bar draws both by default; this s
   <button class="kluvs-btn-secondary kluvs-btn-secondary--sm">Update</button>
 </div>
 ```
+
+---
+
+## 6. Offline Banner
+
+Persistent, non-dismissible notice that the app cannot reach the network, so what the user is
+looking at may be saved data. Unlike a Snackbar (a transient result of one action) it stays for as
+long as the condition lasts and disappears on its own once the network is back. Unlike the Error
+screen it never replaces content: the screen underneath keeps showing its saved data.
+
+| Property | Value |
+|---|---|
+| Position | Top of the main tab shell, full width, above the tab content. Pushes content down; never overlays it |
+| Fill | `wine` `#4F000C` — same on dark and light |
+| Text | `onWine` `#F2EDE5`, Label family (14px IBM Plex Sans Medium), single line, centered |
+| Height | 32px band. The host extends the same wine fill under the status-bar inset so the band and the status bar read as one, and switches the status-bar icons to light while it shows (they are dark on the light theme, unreadable on wine) |
+| Shape | Rectangle, no radius, no border, no shadow — a full-bleed band, not a floating card |
+| Copy | "You're offline. Showing saved data." Sentence case, no icon, no action, no dismiss |
+| Motion | Slide down + fade in, 250ms, identity easing `cubic-bezier(0.2, 0.8, 0.2, 1)`; reversed on exit. With reduced motion, fade only |
+
+**When it shows:** only when the network is unreachable (a request failed to connect or timed
+out). Any HTTP response, even a 4xx or 5xx, means the network is reachable and the banner stays
+hidden — server failures are the Error screen's and Snackbar's job. It clears on the next
+request that gets a response, or when a background connectivity check finds the internet is back
+(first after 5s, backing off to every 30s, and only while the banner is showing).
+
+**Scope:** the main tab shell only. Full-screen flows outside it (auth, settings, invite join) do
+not show it.
+
+**Contrast:** text on wine is 13.5:1 (passes AA and AAA). The band against its neighbours is a
+different matter: ~13.9:1 against the light bar, but only ~1.2:1 against the warm-dark bar,
+because both are dark. On dark it therefore separates by hue, and the state is carried by the
+text, never by the fill alone. Do not lighten the fill to chase a lightness ratio: a wine light
+enough to reach 3:1 on dark reads as `danger` red, and offline is a state, not an error.
+
+**iOS status bar:** the host passes `extendsUnderStatusBar: true`, so the wine fill carries up
+under the status bar exactly as on Android. SwiftUI cannot set the status-bar icon style on its
+own (screens hide their navigation bar, so `toolbarColorScheme` has no effect), so the host also
+forces light icons while the banner shows, by overriding the root hosting controller's status bar
+style. Without that, the dark icons of the light theme are unreadable on wine. The component alone
+defaults to `extendsUnderStatusBar: false`, which leaves the band below the status bar.
+
+**Accessibility:** announce as a polite live region (Android `liveRegion = Polite`; iOS
+`accessibilityAddTraits(.isStaticText)` plus an announcement on appear) so screen readers say it
+once when it appears, without stealing focus. No icon, so nothing needs a content description.
+
+**Do not:** use `danger` or copper for it; add a dismiss control (it reflects live state); show
+it for server errors; stack it with a Snackbar in the same place (the Snackbar is bottom-anchored,
+so they do not collide).
+
+**Tokens:** `color.status.wine`, `color.status.on-wine`; roles `offline` / `onOffline`
+(`docs/colors.md`).
+
+**Components:** `OfflineBanner`
+(`kluvs-mobile/designsystem/.../components/OfflineBanner.kt`, Android),
+`OfflineBanner`
+(`kluvs-mobile/iosApp/DesignSystem/Sources/DesignSystem/Components/States/OfflineBanner.swift`, iOS).

@@ -31,6 +31,8 @@ touching call sites.
 | `danger` | Destructive actions, error state | `--kluvs-danger` | `--kluvs-danger` |
 | `dangerSubtle` | Danger-tinted fill (destructive warning boxes) | `--kluvs-danger-subtle` | `--kluvs-danger-subtle` |
 | `success` | Success state | `--kluvs-success` | `--kluvs-success` |
+| `offline` | Offline banner fill (deep wine) — a connectivity state, not an error | `--kluvs-wine` | `--kluvs-wine` |
+| `onOffline` | Text on an `offline` surface | `--kluvs-on-wine` | `--kluvs-on-wine` |
 | `successSubtle` | Success-tinted fill (e.g. pressed "yes" RSVP) | `--kluvs-success-subtle` | `--kluvs-success-subtle` |
 
 ¹ Not yet a named CSS custom property — `colors_and_type.css` currently only defines this
@@ -39,7 +41,7 @@ light surfaces"). Value is `#140F0D` (same as `--kluvs-warm-dark-base`). Should 
 `--kluvs-content-light-label-variant` custom property next time this file is touched — flagged
 here, not fixed as part of a docs-only pass.
 
-`accent`/`onAccent`/`secondary`/`tertiary`/`danger`/`success` (and their subtle variants) don't
+`accent`/`onAccent`/`secondary`/`tertiary`/`danger`/`success`/`offline`/`onOffline` (and the subtle variants) don't
 switch between dark/light — same brand/status values on both surfaces, per the BRAND and
 STATUS blocks in `colors_and_type.css`.
 
