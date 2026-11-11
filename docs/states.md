@@ -208,10 +208,12 @@ because both are dark. On dark it therefore separates by hue, and the state is c
 text, never by the fill alone. Do not lighten the fill to chase a lightness ratio: a wine light
 enough to reach 3:1 on dark reads as `danger` red, and offline is a state, not an error.
 
-**iOS status bar:** SwiftUI cannot set the status-bar icon style without UIKit, so on iOS the
-band sits *below* the status bar by default (`extendsUnderStatusBar: false`) rather than extending
-the wine fill under it as Android does. Extending it requires light status-bar icons on the light
-theme, which needs a hosting-controller override.
+**iOS status bar:** the host passes `extendsUnderStatusBar: true`, so the wine fill carries up
+under the status bar exactly as on Android. SwiftUI cannot set the status-bar icon style on its
+own (screens hide their navigation bar, so `toolbarColorScheme` has no effect), so the host also
+forces light icons while the banner shows, by overriding the root hosting controller's status bar
+style. Without that, the dark icons of the light theme are unreadable on wine. The component alone
+defaults to `extendsUnderStatusBar: false`, which leaves the band below the status bar.
 
 **Accessibility:** announce as a polite live region (Android `liveRegion = Polite`; iOS
 `accessibilityAddTraits(.isStaticText)` plus an announcement on appear) so screen readers say it
