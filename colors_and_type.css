@@ -77,6 +77,8 @@
   --kluvs-danger:        #EF4444;
   --kluvs-danger-hover:  #DC2626;
   --kluvs-success:       #48A480;      /* alias of secondary */
+  --kluvs-wine:          #4F000C;      /* offline banner fill — deep wine; same on dark and light. A state, not an error: do not use for danger */
+  --kluvs-on-wine:       #F2EDE5;      /* text on wine — cream, 13.5:1. Fixed cream on both themes (does not invert like warm-fg-primary) */
   --kluvs-primary-subtle:       rgba(209, 109, 48, 0.08);  /* copper tinted fill — advisory warning boxes */
   --kluvs-primary-border-soft:  rgba(209, 109, 48, 0.25);  /* copper soft border */
   --kluvs-danger-subtle:        rgba(239,  68, 68, 0.08);  /* danger tinted fill — destructive warning boxes */
