@@ -208,6 +208,11 @@ because both are dark. On dark it therefore separates by hue, and the state is c
 text, never by the fill alone. Do not lighten the fill to chase a lightness ratio: a wine light
 enough to reach 3:1 on dark reads as `danger` red, and offline is a state, not an error.
 
+**iOS status bar:** SwiftUI cannot set the status-bar icon style without UIKit, so on iOS the
+band sits *below* the status bar by default (`extendsUnderStatusBar: false`) rather than extending
+the wine fill under it as Android does. Extending it requires light status-bar icons on the light
+theme, which needs a hosting-controller override.
+
 **Accessibility:** announce as a polite live region (Android `liveRegion = Polite`; iOS
 `accessibilityAddTraits(.isStaticText)` plus an announcement on appear) so screen readers say it
 once when it appears, without stealing focus. No icon, so nothing needs a content description.
@@ -222,4 +227,4 @@ so they do not collide).
 **Components:** `OfflineBanner`
 (`kluvs-mobile/designsystem/.../components/OfflineBanner.kt`, Android),
 `OfflineBanner`
-(`kluvs-mobile/iosApp/DesignSystem/Sources/DesignSystem/Components/OfflineBanner.swift`, iOS).
+(`kluvs-mobile/iosApp/DesignSystem/Sources/DesignSystem/Components/States/OfflineBanner.swift`, iOS).
