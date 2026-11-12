@@ -15,6 +15,10 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+---
+
+## [2.10.0] — 2026-11-12
+
 ### Added — Tokens
 
 - **`color.status.wine` (`--kluvs-wine`, `#4F000C`) and `color.status.on-wine`
