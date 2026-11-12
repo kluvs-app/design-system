@@ -1,6 +1,6 @@
 # Store assets
 
-Google Play and App Store listing graphics. Templates are HTML; output is PNG at each portal's exact size. Everything here is committed — `export/` is the set that's live (or about to be) in the stores.
+Everything public-facing for Kluvs: Google Play and App Store listing graphics and copy, and (soon) the Top.gg bot and server pages. Graphics are HTML templates rendered to PNG at each portal's exact size. Everything here is committed — `export/` and `listing/` are what's live (or about to be).
 
 ## Layout
 
@@ -14,6 +14,12 @@ Google Play and App Store listing graphics. Templates are HTML; output is PNG at
 | `render.sh` | Renders everything to `export/` via headless Chrome |
 | `index.html` | Review gallery — open in a browser after rendering |
 | `export/` | Upload-ready PNGs |
+| `listing/app-store.md` | App Store copy — name, subtitle, promo text, description, keywords |
+| `topgg/bot.md` | Top.gg bot page — short description, tags, notes |
+| `topgg/bot-description.md` | Top.gg bot long description — paste-ready Markdown/HTML, no fences |
+| `topgg/server.md` | Top.gg server page — short description, tags, notes |
+| `topgg/server-description.md` | Top.gg server long description — paste-ready, no fences |
+| `listing/google-play.md` | Play listing copy — name, short/full description, what's new |
 
 ## Outputs
 
@@ -35,3 +41,7 @@ Google Play and App Store listing graphics. Templates are HTML; output is PNG at
 
 - Screenshot sizing uses `--u`, a 9:16-normalised unit (1vw on Play, larger on taller iPhone canvases), so the phone crops off the bottom at the same point on every platform.
 - No device-model frames, no imagery, no gradients — a flat bezel on a flat surface, with the 6px copper top-edge bleed from the brand cover frame. Copper otherwise appears only in the eyebrow.
+
+## Listing copy
+
+Each file in `listing/` holds paste-ready blocks, with the portal's character limit in the heading. Keep the voice rules from `../README.md`: sentence case, no emoji, no exclamation marks. When a feature ships or changes, update the copy here first, then paste it into the portal. Feature claims should match the screenshots in `shots.js`.
