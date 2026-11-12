@@ -6,7 +6,7 @@
 
 Kluvs ("Kluv" = a club) is a small, focused mobile app for running real-world book clubs. The product centres on three things: **finding your club**, **showing what you're reading right now**, and **knowing when the next discussion is**. The brand is warm, literary and a little vintage — copper-orange on warm-black surfaces, set in clean Inter typography. It feels like a hardcover book on a reading lamp at night, not a slick consumer app.
 
-The app's surface model is **dark-by-default in product, light in auth/marketing**. Cards, lists, top bars and bottom nav all sit on a near-black, slightly warm `#140F0D` page. The single accent — copper `#D16E30` — picks out the active tab, primary CTAs, the next discussion, the active timeline node, and brand wordmarks.
+The app's surface model is **dark-by-default in product, light in auth/marketing**. Cards, lists, top bars and bottom nav all sit on a near-black, slightly warm `#140F0D` page. The single accent — copper `#D16D30` — picks out the active tab, primary CTAs, the next discussion, the active timeline node, and brand wordmarks.
 
 ## Sources
 
@@ -97,11 +97,11 @@ Not specified in figma. House style implied by the surface model: **soft fades, 
 
 ### Hover & press states
 Targets a **mobile** product, so press matters most.
-- **Press on filled CTA:** the CTA shifts to copper `rgba(209,110,48,0.85)` overlay; no shrink.
+- **Press on filled CTA:** the CTA shifts to copper `rgba(209,109,48,0.85)` overlay; no shrink.
 - **Press on dark card:** background steps up one surface (`#241C17` → `#332B24`).
 - **Press on light list row:** background goes to `--kluvs-surface-muted` (`#F5F5F5`).
 - **Selected tab:** copper text + 2-px copper underline (130 px wide, radius 1).
-- **Selected bottom-nav:** copper-tinted pill `rgba(209,110,48,0.18)` behind the icon, copper label underneath.
+- **Selected bottom-nav:** copper-tinted pill `rgba(209,109,48,0.18)` behind the icon, copper label underneath.
 
 ### Borders & strokes
 - Inputs: 1-px stroke `#B0B0B0`, focused → 2-px copper, error → 1-px error-red.

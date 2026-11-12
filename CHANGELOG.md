@@ -72,6 +72,14 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
   - `raw/` — the source device captures (Android 1440×3120, iOS 1320×2868).
 - **`README.md`**, **`CLAUDE.md`** — `store/` added to the index / file map.
 
+### Fixed — Copper value drift
+
+- **Copper is `#D16D30` / `rgb(209, 109, 48)` everywhere.** Replaced the leftover `#D16E30` /
+  `rgb(209, 110, 48)` in `README.md` (press overlay, bottom-nav pill) and in the
+  `components-cards-dark`, `spacing-elevation` and `spacing-scale` preview cards. Off by one in
+  the green channel, so not visible, but it contradicted `tokens.json` and
+  `colors_and_type.css`.
+
 ### Fixed — Logo assets
 
 - **`assets/kluvs-wordmark-{light,dark}.svg`, `assets/kluvs-lockup-{light,dark}.svg`** — the
