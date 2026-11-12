@@ -36,6 +36,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 - **`assets/icon-visibility.svg`, `assets/icon-visibility-off.svg`** — Material Symbols
   (weight 600, filled, 24px) eye / eye-struck-through glyphs for the password reveal toggle.
   Added to the `preview/components-icons.html` showcase.
+- **`assets/og-image.png`** — 1200×630 social-share card (wordmark, mark and the line "Reading is done best together." on warm-dark with a faint hive pattern). Same file the web (`kluvs-frontend/public/`) and mobile (`kluvs-mobile/assets/`) repos ship; used as the banner on the Top.gg pages.
 
 ### Changed — Inputs
 

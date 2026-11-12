@@ -160,6 +160,7 @@ Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if ne
 - All wordmark and lockup files are **outlined to paths** and cropped to their artwork, so they render identically as `<img>`, in design tools, or rasterized, and center correctly without offsets.
 - `kluvs-mark.svg` / `kluvs-mark-white.svg` — compact mark for app icon / favicon use.
 - `kluvs-app-icon.png` / `kluvs-app-icon-mark.svg` — app icon assets.
+- `og-image.png` — 1200×630 social-share / banner card (wordmark + "Reading is done best together.").
 
 *Role badges:*
 - `role-badge-owner.svg` — mustard badge dot (`#C9900A`). Usable as graphical indicator on both surfaces.
