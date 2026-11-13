@@ -6,13 +6,21 @@ Everything for the Kluvs community server listing at https://top.gg/discord/serv
 |---|---|
 | Long description | `server-description.md` — paste as-is, no fences to strip |
 | Short description | below |
-| Tags | `TODO` — paste the live list here, then trim |
+| Tags | below |
 | Banner image in the description | https://kluvs.com/og-image.png (same file as `../../assets/og-image.png`) |
 
 ## Short description
 
 ```
 The home of the Kluvs community. Get help with the bot, swap what you're reading and help shape what we build next.
+```
+
+## Tags
+
+Kept as live, on purpose: more variants, more ways to be found organically.
+
+```
+Books, Book club, book Reading, Books, book,reading, reading books
 ```
 
 ## Notes
