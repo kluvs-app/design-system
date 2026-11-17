@@ -15,6 +15,13 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Removed — pre-v2 typography
+
+- **`colors_and_type.css`:** removed the old type variables and classes (`--kluvs-page-heading-*`, `-section-heading-*`, `-card-heading-*`, `-body-lg-*`, `-body-*`, `-helper-*`, `-helper-sm-*`, `-display-1/2-size`, `-modal-label-*`; `.kluvs-display-1/2`, `.kluvs-page-heading`, `.kluvs-section-heading`, `.kluvs-card-heading`, `.kluvs-body-lg`, `.kluvs-body`, `.kluvs-helper(-sm)`, `.kluvs-modal-label`). Replaced by v2 family variables (`--kluvs-<family>-<rung>-size/line/tracking`) and classes (`.kluvs-display-s`, `.kluvs-headline-m`, `.kluvs-title-l`, `.kluvs-body-m`, `.kluvs-caption`, `.kluvs-eyebrow`, `.kluvs-label`, `.kluvs-fine-print`, `.kluvs-mono`, `.kluvs-feature`), generated from `tokens.json`. **Breaking for anything importing the old names** (only the preview cards did).
+- Rebuilt `preview/type-specimen.html`, `type-display.html` and `type-body.html` on the v2 families; `components-composite.html` uses `.kluvs-caption`.
+- `docs/modal.md` points at the Eyebrow family instead of non-existent `typography.modal-label.*` tokens.
+- Removed "pre-v2 / old four-tier" history wording from `tokens.json`, `docs/typography.md`, `README.md`, `SKILL.md`, `index.html`.
+
 ### Changed — Docs
 
 - **Single source of truth.** `CLAUDE.md` now has a "Source of truth" section (where each kind of fact lives, rules for editing). `README.md` and `SKILL.md` no longer restate typography values or rules; they point to `tokens.json` and `docs/typography.md`.
