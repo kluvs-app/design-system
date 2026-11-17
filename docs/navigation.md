@@ -72,8 +72,9 @@ Secondary context header (e.g. Club Name).
 
 ## 4. Tab Strip
 
-- **Height:** 42px.
+- **Height:** 48px (`component.tab-strip.height`, the Material tab height).
 - **Style:** 13px labels, 2px copper underline on the active tab.
+- **Used for:** the Clubs screen's Overview / Discussions / Members row.
 
 ---
 

@@ -117,6 +117,7 @@ the per-screen ad hoc banners/toasts that predate this doc.
 |---|---|
 | Position | Bottom-anchored, above safe-area/nav chrome, horizontal margin 16px |
 | Shape | Rounded rect, 12px corner radius |
+| Height | 48 (Material single-line snackbar; `component.snackbar.height`) |
 | Duration | 4s auto-dismiss (no user action required); a message that changes while one is showing restarts the timer rather than queuing |
 | Max width | Full width minus margins on phone; does not stretch on tablet/wide layouts — cap around 400px, centered |
 
@@ -170,7 +171,7 @@ the end — some UI toolkits' default progress bar draws both by default; this s
   <div class="kluvs-progress-track" style="flex:1">
     <div class="kluvs-progress-fill" style="width:47%"></div>
   </div>
-  <button class="kluvs-btn-secondary kluvs-btn-secondary--sm">Update</button>
+  <button class="kluvs-btn-secondary">Update</button>
 </div>
 ```
 

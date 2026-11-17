@@ -32,6 +32,20 @@ Fixed brand-branded buttons for authentication.
 A tappable icon with no container of its own — not a member of the filled/outlined/text
 hierarchy above, just the icon made clickable, with a 48dp touch target and ripple.
 
+## Button sizes
+
+Every button is **40 high** on every platform (the Material 3 container height), with a **48 touch target**: the visible button stays 40 and the extra tappable area is invisible. Values live in `tokens.json` under `component.button.*`.
+
+| Button | Visible size | Radius | Side padding | Touch target |
+|---|---|---|---|---|
+| Primary, Secondary, Outlined | 40 high | 12 | 24 | 48 |
+| Text / Ghost | 40 high | — | 12 | 48 |
+| Social | 40 high, icon 20 | 12 | — | 48 |
+| Icon-only | 24 icon | — | — | 48 |
+| Outlined icon | 40 × 40, icon 20 | 12 | — | 48 |
+
+Outlined borders are 1px. Social buttons keep the provider's fixed colors and logo, which the provider's own guidelines require.
+
 ---
 
 ## Pills
@@ -46,6 +60,8 @@ a transient "success" state that reverts on its own after a short delay.
 
 | Property | Token | Value |
 |---|---|---|
+| Height | `component.button.pill.height` | `32` (Material chip), side padding 16 |
+| Touch target | `component.button.pill.touch-target` | `48` |
 | Radius | `radius.pill` | `9999px` |
 | Font | `typography.fine-print` | Fine print family (12px) — matches mobile `TriggerPill` |
 | Default | — | grey border / grey text |
@@ -61,6 +77,7 @@ segmented controls pick one of several options; `TogglePill` is strictly on/off,
 |---|---|
 | Shape | circle, 36dp |
 | Icon size | 16dp |
+| Touch target | 48dp (the circle stays 36) |
 | Default | grey border / grey icon |
 | Active | copper border / copper icon |
 
@@ -70,6 +87,8 @@ segmented controls pick one of several options; `TogglePill` is strictly on/off,
 
 Pill-shaped multi-option toggle: a single container with a hairline divider between segments
 (none before the first), never separate gapped buttons.
+
+Sizes: the text variant is 34 high; the icon variant uses 28 × 28 segments. In both, every segment has a 48 invisible touch target (`component.segmented-control.touch-target`).
 
 ### Filled variant — Track-By (`ToggleControl`)
 Used for Page / Percent toggles. Active segment fills with brand primary, `onPrimary` text.

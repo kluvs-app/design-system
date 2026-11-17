@@ -181,9 +181,11 @@ Apply the same token values as the web shell — the visual language (danger-red
 
 Android: M3 `ModalBottomSheet`. iOS: `UISheetPresentationController` (`.medium` / `.large` detent) or SwiftUI `.sheet`.
 
-The three-zone anatomy still applies inside the sheet — Header with eyebrow label at the top, body content, footer with Cancel/Save. The sheet's drag handle replaces the × close button. Apply `radius.modal` (16px) to the top corners. The footer is a free-form slot (not locked to the Cancel/Save pair) so a sheet with no footer at all — a single scrollable list, say — isn't forced to have one; revisit whether that flexibility is worth keeping once more real sheets actually adopt it.
+The three-zone anatomy still applies inside the sheet — Header with eyebrow label at the top, body content, footer with Cancel/Save. The sheet's drag handle replaces the × close button; it is 32 × 4 on every platform (`component.bottom-sheet.handle-*`, the Material drag handle). Apply `radius.modal` (16px) to the top corners. The footer is a free-form slot (not locked to the Cancel/Save pair) so a sheet with no footer at all — a single scrollable list, say — isn't forced to have one; revisit whether that flexibility is worth keeping once more real sheets actually adopt it.
 
 Both `ConfirmationDialog` and `BottomSheet` set their container background explicitly to the warm-dark "bar" surface tier (see Container above) — distinct from the "card" tier already used by inputs/cards, so a modal doesn't visually read as just another card.
+
+Mobile `ConfirmationDialog` width follows Material: 280 minimum, 560 maximum (`component.dialog.*`). The web modal keeps its own 384 maximum.
 
 #### Token mapping
 
