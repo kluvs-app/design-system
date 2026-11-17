@@ -28,7 +28,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/navigation.md` | App shell navigation — TopBar, Tabs, and BottomNav. |
 | `docs/states.md` | Functional states — Loading, Error, Empty Shelf, and Progress. |
 | `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with snippets. |
-| `preview/` | 27 standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
+| `preview/` | Standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
 | `store/` | Store listing graphics (Play + App Store). HTML templates + `render.sh` → upload-ready PNGs in `store/export/`; raw captures in `store/raw/`. See `store/README.md`. |
 
 ## Token namespacing
@@ -91,7 +91,6 @@ The three pending discrepancy fixes (see above) are tracked in `[Unreleased]` in
 
 - `Web-TBD` Figma page is intentionally empty — no web spec.
 - **Icons:** Canonical icon set is Material Symbols (weight 600, Grade 0, 24px SVG). Drop exports into `assets/icons/`.
-- Inter is loaded from Google Fonts CDN — no local `.ttf` bundle. Font family for production is TBD.
-- The four-tier typography system is documented in README; mobile M3 implementation and web utility class mapping are pending alignment.
+- EB Garamond and IBM Plex Sans are loaded from the Google Fonts CDN — no local `.ttf` bundle.
 - **Loading state:** full-page/section loading uses the Breathe·Tidal spinner (`assets/spinner-kluvs.svg`). Button loading state still uses appended "…" to the label (e.g. "Saving…") — the spinner is too large for inline button use.
 - **Button text on primary:** canonical value is white `#FFFFFF` (`color.brand.on-primary`). Mobile experiment using `colorScheme.background` (adaptive near-black on dark) was evaluated — white retained for consistency and because both approaches fail AA on light surfaces equally.
