@@ -32,7 +32,7 @@ These three are "this text names or identifies something," in decreasing scope: 
 
 ### Body, Caption — reading content and metadata (sans)
 
-Body is plain prose — author names, list content, anything actually being *read*. Caption is smaller, secondary-colored metadata (counts, timestamps, "40% complete") — the color is baked into the family, unlike Body which takes color from context. Caption also takes the `feature` modifier for short "featured aside" text ("3 books in progress").
+Body is plain prose — author names, list content, anything actually being *read*. Caption is smaller, secondary-colored metadata (counts, timestamps, "40% complete") — the color is baked into the family, unlike Body which takes color from context. Caption also takes the `feature` modifier for short muted italic notes (e.g. "Nothing here yet."). Note: the "N books in progress" aside is **Title S + `feature`**, not Caption — that is what mobile ships.
 
 ### Eyebrow, Label, Fine print — UI chrome (sans)
 
@@ -97,7 +97,8 @@ Rules for migrating existing UI (any platform) onto the families. The goal is th
 | Uppercase + tracked text at any size | **Eyebrow** |
 | Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display is hero/masthead only |
 | Serif italic | add `feature` (Headline/Title only) |
-| Sans italic aside ("3 books in progress") | **Caption + `feature`** (sans italic, not a serif Title) |
+| "N books in progress" aside | **Title S + `feature`** (matches mobile `ShelfSection`) |
+| Short muted italic note ("Nothing here yet.") | **Caption + `feature`** |
 | Serif italic (book titles, featured/current item, empty-state headlines) | **Headline or Title + `feature`** — this is the main use of italic; keep it |
 | Any monospace (dates, ISBNs, IDs, handles) | **Mono** (13px) |
 | Emphasized item in a repeating list | one **Title** rung up (`highlight`), e.g. next = Title L, rest = Title M |
