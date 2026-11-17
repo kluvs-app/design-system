@@ -124,22 +124,24 @@
   --kluvs-fw-medium:  500;
   --kluvs-fw-bold:    700;
 
-  /* Tailwind named scale (web-canonical) */
-  --kluvs-page-heading-size:    30px;  --kluvs-page-heading-line:    36px;
-  --kluvs-section-heading-size: 20px;  --kluvs-section-heading-line: 28px;
-  --kluvs-card-heading-size:    18px;  --kluvs-card-heading-line:    24px;
-  --kluvs-body-lg-size:         16px;  --kluvs-body-lg-line:         24px;
-  --kluvs-body-size:            14px;  --kluvs-body-line:            20px;
-  --kluvs-helper-size:          13px;  --kluvs-helper-line:          18px;
-  --kluvs-helper-sm-size:       12px;  --kluvs-helper-sm-line:       16px;
-
-  /* Display sizes for brand surfaces */
-  --kluvs-display-1-size: 96px;
-  --kluvs-display-2-size: 48px;
-
-  /* Modal header label — 11px / 0.14em; intentionally tighter than general eyebrow (12px / 0.1em) */
-  --kluvs-modal-label-size:     11px;
-  --kluvs-modal-label-tracking: 0.14em;
+  /* Typography families — generated from tokens.json (typography.family). size / line-height / tracking per rung. */
+  --kluvs-display-s-size: 48px;  --kluvs-display-s-line: 52px;  --kluvs-display-s-tracking: 0px;
+  --kluvs-display-m-size: 64px;  --kluvs-display-m-line: 68px;  --kluvs-display-m-tracking: 0px;
+  --kluvs-display-l-size: 96px;  --kluvs-display-l-line: 100px;  --kluvs-display-l-tracking: 0px;
+  --kluvs-headline-s-size: 30px;  --kluvs-headline-s-line: 36px;  --kluvs-headline-s-tracking: 0px;
+  --kluvs-headline-m-size: 34px;  --kluvs-headline-m-line: 40px;  --kluvs-headline-m-tracking: 0px;
+  --kluvs-headline-l-size: 40px;  --kluvs-headline-l-line: 46px;  --kluvs-headline-l-tracking: 0px;
+  --kluvs-title-s-size: 15px;  --kluvs-title-s-line: 20px;  --kluvs-title-s-tracking: 0px;
+  --kluvs-title-m-size: 19px;  --kluvs-title-m-line: 24px;  --kluvs-title-m-tracking: 0px;
+  --kluvs-title-l-size: 24px;  --kluvs-title-l-line: 30px;  --kluvs-title-l-tracking: 0px;
+  --kluvs-body-l-size: 16px;  --kluvs-body-l-line: 24px;  --kluvs-body-l-tracking: 0.5px;
+  --kluvs-body-m-size: 14px;  --kluvs-body-m-line: 20px;  --kluvs-body-m-tracking: 0.25px;
+  --kluvs-caption-size: 13px;  --kluvs-caption-line: 18px;  --kluvs-caption-tracking: 0.2px;
+  --kluvs-eyebrow-size: 11px;  --kluvs-eyebrow-line: 16px;  --kluvs-eyebrow-tracking: 0.14em;
+  --kluvs-label-size: 14px;  --kluvs-label-line: 18px;  --kluvs-label-tracking: 0.1px;
+  --kluvs-fine-print-size: 12px;  --kluvs-fine-print-line: 16px;  --kluvs-fine-print-tracking: 0.4px;
+  --kluvs-mono-size: 13px;  --kluvs-mono-line: 18px;  --kluvs-mono-tracking: 0px;
+  --kluvs-font-mono:  ui-monospace, "SF Mono", monospace;
 
   /* ─────────── AVATAR HUES (Dark / Chocolate Theme) ─────────── */
   --kluvs-avatar-hue-0: #331F17;
@@ -172,22 +174,26 @@
   --kluvs-avatar-hue-11: #F2E1DC;
 }
 
-/* ──── Semantic type classes (web-canonical names) ──── */
-/* Serif register: wordmark, display, headings, book titles */
-.kluvs-display-1       { font: 700 var(--kluvs-display-1-size)/1 var(--kluvs-font-serif); letter-spacing: -0.02em; }
-.kluvs-display-2       { font: 700 var(--kluvs-display-2-size)/1 var(--kluvs-font-serif); letter-spacing: -0.01em; }
-.kluvs-page-heading    { font: 500 var(--kluvs-page-heading-size)/var(--kluvs-page-heading-line) var(--kluvs-font-serif); letter-spacing: -0.01em; }
-.kluvs-section-heading { font: 500 var(--kluvs-section-heading-size)/var(--kluvs-section-heading-line) var(--kluvs-font-serif); }
-.kluvs-card-heading    { font: 400 var(--kluvs-card-heading-size)/var(--kluvs-card-heading-line) var(--kluvs-font-serif); font-style: italic; }
-/* Sans register: body, labels, UI chrome */
-.kluvs-body-lg         { font: 400 var(--kluvs-body-lg-size)/var(--kluvs-body-lg-line) var(--kluvs-font-sans); }
-.kluvs-body            { font: 400 var(--kluvs-body-size)/var(--kluvs-body-line) var(--kluvs-font-sans); }
-.kluvs-helper          { font: 400 var(--kluvs-helper-size)/var(--kluvs-helper-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
-.kluvs-helper-sm       { font: 400 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); color: var(--kluvs-content-light-secondary); }
-/* Eyebrow: section labels within UI (tabs, cards, panels) */
-.kluvs-eyebrow         { font: 500 var(--kluvs-helper-sm-size)/var(--kluvs-helper-sm-line) var(--kluvs-font-sans); letter-spacing: 0.1em; text-transform: uppercase; }
-/* Modal label: header eyebrow for dialog/sheet titles — 11px, 0.14em tracking */
-.kluvs-modal-label     { font: 500 var(--kluvs-modal-label-size)/1 var(--kluvs-font-sans); letter-spacing: var(--kluvs-modal-label-tracking); text-transform: uppercase; }
+/* ──── Typography family classes ──── */
+/* Serif: display, headline, title. Sans: body, caption, eyebrow, label, fine print. Mono: tabular metadata. */
+.kluvs-display-s          { font: 700 var(--kluvs-display-s-size)/var(--kluvs-display-s-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-display-s-tracking); }
+.kluvs-display-m          { font: 700 var(--kluvs-display-m-size)/var(--kluvs-display-m-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-display-m-tracking); }
+.kluvs-display-l          { font: 700 var(--kluvs-display-l-size)/var(--kluvs-display-l-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-display-l-tracking); }
+.kluvs-headline-s         { font: 500 var(--kluvs-headline-s-size)/var(--kluvs-headline-s-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-headline-s-tracking); }
+.kluvs-headline-m         { font: 500 var(--kluvs-headline-m-size)/var(--kluvs-headline-m-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-headline-m-tracking); }
+.kluvs-headline-l         { font: 500 var(--kluvs-headline-l-size)/var(--kluvs-headline-l-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-headline-l-tracking); }
+.kluvs-title-s            { font: 500 var(--kluvs-title-s-size)/var(--kluvs-title-s-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-title-s-tracking); }
+.kluvs-title-m            { font: 500 var(--kluvs-title-m-size)/var(--kluvs-title-m-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-title-m-tracking); }
+.kluvs-title-l            { font: 500 var(--kluvs-title-l-size)/var(--kluvs-title-l-line) var(--kluvs-font-serif); letter-spacing: var(--kluvs-title-l-tracking); }
+.kluvs-body-l             { font: 400 var(--kluvs-body-l-size)/var(--kluvs-body-l-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-body-l-tracking); }
+.kluvs-body-m             { font: 400 var(--kluvs-body-m-size)/var(--kluvs-body-m-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-body-m-tracking); }
+.kluvs-caption            { font: 400 var(--kluvs-caption-size)/var(--kluvs-caption-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-caption-tracking); color: var(--kluvs-content-light-secondary); }
+.kluvs-eyebrow            { font: 500 var(--kluvs-eyebrow-size)/var(--kluvs-eyebrow-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-eyebrow-tracking); text-transform: uppercase; }
+.kluvs-label              { font: 500 var(--kluvs-label-size)/var(--kluvs-label-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-label-tracking); }
+.kluvs-fine-print         { font: 400 var(--kluvs-fine-print-size)/var(--kluvs-fine-print-line) var(--kluvs-font-sans); letter-spacing: var(--kluvs-fine-print-tracking); color: var(--kluvs-content-light-secondary); }
+.kluvs-mono               { font: 400 var(--kluvs-mono-size)/var(--kluvs-mono-line) var(--kluvs-font-mono); letter-spacing: var(--kluvs-mono-tracking); }
+/* feature modifier: roman → italic (Headline, Title, Caption; Display only on the marketing hero) */
+.kluvs-feature { font-style: italic; }
 
 .kluvs-base {
   font-family: var(--kluvs-font-sans);
