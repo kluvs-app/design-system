@@ -15,6 +15,24 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.11.0] — 2026-11-16
+
+### Added — Tokens
+
+- **`typography.family.*.line-height` and `.tracking`** for every family (Eyebrow tracking already
+  existed). Values are the ones Android/iOS already ship, now canonical: absolute-px line heights
+  (e.g. Body L 24, Label 18, Headline L 46) and M3-derived tracking (Body L 0.5px, Body M 0.25px,
+  Caption 0.2px, Label 0.1px, Fine print 0.4px; Display/Headline/Title/Mono 0). Web clients must
+  adopt these in place of ratio-based leading. No change on mobile.
+
+### Changed — Docs
+
+- **`docs/typography.md`: added "Mapping off-scale text"** — decision rules for migrating existing UI
+  onto the family model (Tailwind/raw px sizes, sub-11px text, button text, mono, weights) plus the
+  explicit exemptions (avatar initials, icon glyph sizes).
+- **`SKILL.md`, `CLAUDE.md`, `README.md`: removed stale type rules** — "italic reserved for book
+  titles only" and "no monospace" contradicted the v2 `feature` modifier and Mono family.
+
 ---
 
 ## [2.10.0] — 2026-11-12
