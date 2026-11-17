@@ -68,21 +68,7 @@ Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical bad
 
 **See `docs/typography.md` for the full model** — this replaces the old four-tier / type-scale split (which mapped Kluvs values directly into Material 3's `Typography` roles and lost real distinctions, like register-switching and italic-as-emphasis, that Material has no concept of).
 
-Nine families, each a fixed shape (font-family + weight + default style) with 1–3 sized rungs (small/medium/large), plus two modifiers (`feature` = italic, `highlight` = step up one rung) layered on top instead of being their own tiers:
-
-| Family | Font | Weight | Rungs (px) | Modifiers |
-|---|---|---|---|---|
-| Display | Serif | Bold | S 48 · M 64 · L 96 | — (web-only; mobile never uses it) |
-| Headline | Serif | Medium | S 30 · M 34 · L 40 | `feature` |
-| Title | Serif | Medium | S 15 · M 19 · L 24 | `feature`, `highlight` |
-| Body | Sans | Regular | L 16 · M 14 | — |
-| Caption | Sans | Regular | 13 | `feature` |
-| Eyebrow | Sans | Medium | 11 | — (standalone, not a Label rung) |
-| Label | Sans | Medium | 14 | — |
-| Fine print | Sans | Regular | 12 | — |
-| Mono | Mono (system stack, reserved) | Regular | 13 | — |
-
-The numeric scale is shared across every platform — a given rung is worth the same number everywhere. Platforms differ in *which* rungs they reach for (mobile never uses Display), not in what a rung means.
+Nine families, two modifiers (`feature`, `highlight`). Values live in `tokens.json` (`typography.family`); usage rules, the role → family map and migration rules live in `docs/typography.md`. This README does not restate them.
 
 ### Spacing & radius
 Spacing scale is a strict **4 / 8 / 12 / 16 / 24**. Page gutters are 20px. Card internal padding is 16px. Vertical rhythm between sections is 16–24px.

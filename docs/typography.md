@@ -62,6 +62,29 @@ Combining both modifiers on the same text run is untested — no real case has n
 
 Practical implication: Android and iOS should never invent their own pixel values for a family/rung that already has a defined size here — if a size doesn't fit, that's a signal to either use a different (adjacent) rung, or that a genuinely new rung is needed across *all* platforms, not just the one being implemented.
 
+## Where each family is used
+
+The canonical role → family map. Clients use this; they do not look at each other's code. (Derived from the shipped mobile screens; if a real screen needs something not listed, ask for a DS update rather than inventing a mapping.)
+
+| Role | Family |
+|---|---|
+| Screen / page title (Clubs, Me, Join, Statistics heading) | Headline S (L for the profile name and stat numbers) |
+| Hero identity of one featured thing (book detail title, auth masthead) | Headline S + `feature` |
+| Empty-state headline; featured item on Overview / Up Next | Title L + `feature` |
+| Card or list title (club in a list, active session, author section) | Title M |
+| No-data heading; shelf row title | Title M + `feature` |
+| Compact title (book card title, reading-log entry) | Title S (roman) |
+| Featured row in a list (member row, own-progress row, "N books in progress", club list row, auth footer link text) | Title S + `feature` |
+| Reading content (account/legal text, member names) | Body L |
+| General supporting text, form and sheet copy | Body M |
+| Metadata (book card author/year, counts, hints, snackbar/error banner text, progress rows, Up Next date) | Caption |
+| Short muted italic note ("Nothing here yet.") | Caption + `feature` |
+| Section headers, menu titles, sheet titles, badges | Eyebrow |
+| Buttons, nav items, dropdown value, offline banner | Label |
+| Credits, version, trigger pill text | Fine print |
+| Share codes, ISBNs, dates in a tabular column | Mono |
+| Hero/masthead on wide web layouts | Display (web only) |
+
 ## Line height and tracking
 
 Every family carries a line height and tracking in `tokens.json` (`typography.family.<family>.line-height` / `.tracking`), alongside size and weight. All three platforms use these exact values, so a given family/rung renders the same shape everywhere.

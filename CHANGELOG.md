@@ -17,6 +17,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ### Changed — Docs
 
+- **Single source of truth.** `CLAUDE.md` now has a "Source of truth" section (where each kind of fact lives, rules for editing). `README.md` and `SKILL.md` no longer restate typography values or rules; they point to `tokens.json` and `docs/typography.md`.
+- **`docs/typography.md`: added "Where each family is used"** — the canonical role → family map, so clients no longer need to read another client's code.
+- **"N books in progress" aside is Title S + `feature`** (was documented as Caption + `feature`).
+
+### Changed — Docs
+
 - **`docs/buttons.md`: Trigger pill font is the Fine print family (12px)**, not 11px/500/0.04em — matches mobile's `TriggerPill`.
 
 ### Changed — Tokens

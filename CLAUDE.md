@@ -40,10 +40,28 @@ The CSS has two surface stacks — **do not mix them**:
 
 The back-compat alias block at the bottom of `colors_and_type.css` maps older `--kluvs-surface-dark-*` names to the warm-dark tokens — it exists to keep the preview cards working. Don't add to it.
 
+## Source of truth (read before editing anything)
+
+This repo is the **only** reference for clients. Clients must never be told to "look at mobile/web" — if a screen needs a rule that isn't here, add it here first.
+
+| Kind of fact | Lives in — and only in |
+|---|---|
+| Values (color, size, weight, line height, tracking, radius, spacing, motion) | `tokens.json` (mirrored by `colors_and_type.css` for web artifacts) |
+| Usage rules (which family/variant for which role, modifiers, migration/mapping, exemptions) | `docs/<topic>.md` |
+| Brand voice, rationale, contrast | `README.md` |
+| Agent entry point | `SKILL.md` — points to the above, restates nothing |
+| Status of client adoption | "Pending propagation" below (maintained by `/propagation-audit`) |
+
+Rules for editing:
+- **One home per fact.** If it is a value, it goes in `tokens.json`; everywhere else *links* to it. Do not copy numbers or rules into `README.md`, `SKILL.md` or this file.
+- **Phrase rules narrowly.** State exactly what a rule covers and what it does not (an overly broad "never X" has already misled an agent).
+- **Check before you change a spec.** When a spec disagrees with what a client ships, decide deliberately which is right; then fix the DS *and* record the decision in `CHANGELOG.md`. The DS leads; clients converge to it.
+- **Audit before release.** Run `/repo-audit` and fix findings first; cut the release only when the work is complete.
+
 ## Brand rules (non-negotiable)
 
 - **Accent:** copper `#D16D30` — one per view, on the primary CTA and active state only.
-- **Type:** Two-register system. **EB Garamond** (serif, 400/500/700 + italic 400/500) for wordmark, display, headings, and book titles. **IBM Plex Sans** (sans, 400/500/700) for all UI chrome, body, labels, and eyebrow text. No other fonts. Italic is the `feature` modifier on Headline/Title/Caption only (see `docs/typography.md`); bold is Display-only; no text below 11px.
+- **Type:** EB Garamond (serif) + IBM Plex Sans (sans), mono reserved. Everything else about type — sizes, weights, italic, line height, tracking — is defined only in `tokens.json` and `docs/typography.md`; do not restate it elsewhere.
 - **No emoji.** None in the Figma source; don't introduce them.
 - **No gradients, no images, no blur.** Surfaces are flat solid steps.
 - **Casing:** Title Case for screen titles and interactive tabs; Sentence case for body; ALL-CAPS for brand wordmarks (KLUVS) and eyebrow labels only.
