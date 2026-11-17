@@ -15,6 +15,10 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Changed — Docs
+
+- **`docs/buttons.md`: Trigger pill font is the Fine print family (12px)**, not 11px/500/0.04em — matches mobile's `TriggerPill`.
+
 ### Changed — Tokens
 
 - **`component.button` text now matches the Label family (14px / 500)** for Primary (was 15px/600) and

@@ -47,7 +47,7 @@ a transient "success" state that reverts on its own after a short delay.
 | Property | Token | Value |
 |---|---|---|
 | Radius | `radius.pill` | `9999px` |
-| Font | — | 11px, 500 weight, 0.04em tracking |
+| Font | `typography.fine-print` | Fine print family (12px) — matches mobile `TriggerPill` |
 | Default | — | grey border / grey text |
 | Success | — | green border / green text |
 
