@@ -86,6 +86,7 @@ The canonical role → family map. Clients use this; they do not look at each ot
 | Marketing hero (landing, Discord page) | Display L (+ `feature` allowed here only); Display S for a sub-hero |
 | Desktop club masthead | Display M |
 | Marketing section headings and FAQ headings | Headline M (S on narrow widths) |
+| Sub-section titles under a page title (FAQ categories) | Title L |
 | Page title on web | Headline S, stepping up to Headline M at `lg`; mobile stays Headline S |
 | Secondary handle / role line under a name (sidebar, menus) | Caption |
 
