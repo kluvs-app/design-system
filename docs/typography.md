@@ -97,7 +97,8 @@ Rules for migrating existing UI (any platform) onto the families. The goal is th
 | Uppercase + tracked text at any size | **Eyebrow** |
 | Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display is hero/masthead only |
 | Serif italic | add `feature` (Headline/Title only) |
-| Sans italic aside ("3 books in progress") | **Caption + `feature`** — never serif italic |
+| Sans italic aside ("3 books in progress") | **Caption + `feature`** (sans italic, not a serif Title) |
+| Serif italic (book titles, featured/current item, empty-state headlines) | **Headline or Title + `feature`** — this is the main use of italic; keep it |
 | Any monospace (dates, ISBNs, IDs, handles) | **Mono** (13px) |
 | Emphasized item in a repeating list | one **Title** rung up (`highlight`), e.g. next = Title L, rest = Title M |
 
