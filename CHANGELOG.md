@@ -19,6 +19,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 - **Single source of truth.** `CLAUDE.md` now has a "Source of truth" section (where each kind of fact lives, rules for editing). `README.md` and `SKILL.md` no longer restate typography values or rules; they point to `tokens.json` and `docs/typography.md`.
 - **`docs/typography.md`: added "Where each family is used"** — the canonical role → family map, so clients no longer need to read another client's code.
+- **Display usage clarified:** only Display S (48px) is in use (marketing hero, desktop club masthead); Display M (64) and L (96) are marked reserved/unused after proving too large on web. Values unchanged.
 - **"N books in progress" aside is Title S + `feature`** (was documented as Caption + `feature`).
 
 ### Changed — Docs

@@ -13,6 +13,8 @@ This taxonomy was derived from a real, ground-up audit of `kluvs-frontend`'s aut
 | Family | Font | Weight | Default style | Rungs (px) | `feature` (italic)? | `highlight` (step-up)? |
 |---|---|---|---|---|---|---|
 | **Display** | Serif | Bold | Roman | S 48 · M 64 · L 96 | marketing hero only | — |
+
+**Display usage today:** only **Display S (48px)** is in use — the marketing hero (stepping up from Headline L on narrow widths) and the desktop club masthead. **Display M (64) and Display L (96) are reserved and unused**: they were tried on the web hero and masthead and are too large. Do not use them; if a layout seems to need one, ask for a DS update.
 | **Headline** | Serif | Medium | Roman | S 30 · M 34 · L 40 | ✅ | plausible, unconfirmed |
 | **Title** | Serif | Medium | Roman | S 15 · M 19 · L 24 | ✅ (heavily used) | ✅ confirmed |
 | **Body** | Sans | Regular | — | L 16 · M 14 | — | — |
@@ -83,8 +85,8 @@ The canonical role → family map. Clients use this; they do not look at each ot
 | Buttons, nav items, dropdown value, offline banner | Label |
 | Credits, version, trigger pill text | Fine print |
 | Share codes, ISBNs, dates in a tabular column | Mono |
-| Marketing hero (landing, Discord page) | Display L (+ `feature` allowed here only); Display S for a sub-hero |
-| Desktop club masthead | Display M |
+| Marketing hero (landing, Discord page) | Headline L on narrow widths, Display S (+ `feature`, allowed here only) from `sm` up |
+| Desktop club masthead | Display S |
 | Marketing section headings and FAQ headings | Headline M (S on narrow widths) |
 | Sub-section titles under a page title (FAQ categories) | Title L |
 | Page title on web | Headline S, stepping up to Headline M at `lg`; mobile stays Headline S |
@@ -123,7 +125,7 @@ Rules for migrating existing UI (any platform) onto the families. The goal is th
 | Sans 13px | **Caption** |
 | Sans 8–10px (count badges, tiny metadata, diagram labels) | **Fine print**; **Eyebrow** if uppercase. The floor is 11px — nothing smaller exists |
 | Uppercase + tracked text at any size | **Eyebrow** |
-| Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display is hero/masthead only |
+| Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display (S only) is hero/masthead only |
 | Serif italic | add `feature` (Headline/Title only) |
 | "N books in progress" aside | **Title S + `feature`** (matches mobile `ShelfSection`) |
 | Short muted italic note ("Nothing here yet.") | **Caption + `feature`** |
