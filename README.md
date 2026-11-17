@@ -66,7 +66,7 @@ Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical bad
 
 #### Typography families
 
-**See `docs/typography.md` for the full model** — this replaces the old four-tier / type-scale split (which mapped Kluvs values directly into Material 3's `Typography` roles and lost real distinctions, like register-switching and italic-as-emphasis, that Material has no concept of).
+**See `docs/typography.md` for the full model**.
 
 Nine families, two modifiers (`feature`, `highlight`). Values live in `tokens.json` (`typography.family`); usage rules, the role → family map and migration rules live in `docs/typography.md`. This README does not restate them.
 

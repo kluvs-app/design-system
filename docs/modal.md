@@ -41,15 +41,15 @@ The header identifies the modal type via an **eyebrow label** — not a heading 
 | Property        | Token                                                          | Value |
 |---|---|---|
 | Font family     | `typography.font-family.sans`                                  | IBM Plex Sans |
-| Font size       | `typography.modal-label.size` → `--kluvs-modal-label-size`    | `11px` |
-| Font weight     | `typography.modal-label.weight`                                | `500` |
-| Letter spacing  | `typography.modal-label.tracking` → `--kluvs-modal-label-tracking` | `0.14em` |
-| Text transform  | `typography.modal-label.transform`                             | `uppercase` |
-| CSS class       | `.kluvs-modal-label`                                           | — |
+| Font size       | `typography.family.eyebrow.value` → `--kluvs-eyebrow-size`      | `11px` |
+| Font weight     | `typography.family.eyebrow.weight`                             | `500` |
+| Letter spacing  | `typography.family.eyebrow.tracking` → `--kluvs-eyebrow-tracking` | `0.14em` |
+| Text transform  | `typography.family.eyebrow.transform`                          | `uppercase` |
+| CSS class       | `.kluvs-eyebrow`                                               | — |
 | Padding         | —                                                              | `px-6 pt-5 pb-5` |
 | Border bottom   | `color.dark-web.divider`                                       | `1px solid` |
 
-The eyebrow label style is intentionally different from `.kluvs-eyebrow` (12px / 0.1em). The tighter size and wider tracking signal "you are inside a focused dialog" — a notch below panel labels in the visual hierarchy.
+The header uses the standard **Eyebrow** family (11px / 0.14em / uppercase) — the same shape as every other section label in the app.
 
 ### Label color — variants
 
@@ -70,7 +70,7 @@ Free-form content zone. Padding: `px-6 pt-6 pb-6`. Stack children with `gap: 20p
 
 ### Field labels within the body
 
-Labels for form fields inside the body use the same modal-label style but in secondary text color — not the accent:
+Labels for form fields inside the body use the Eyebrow style but in secondary text color — not the accent:
 
 ```
 font:            IBM Plex Sans, 11px, weight 500
@@ -120,7 +120,7 @@ When an edit modal contains a secondary destructive action (e.g. "Delete club" i
 | Padding       | —                                                              | `px-4 py-3` |
 
 Inside the box:
-- **Eyebrow label** — "DANGER ZONE" in `color.dark-web.content-secondary` (`#B0B0B0`), same modal-label style (11px / 0.14em / uppercase)
+- **Eyebrow label** — "DANGER ZONE" in `color.dark-web.content-secondary` (`#B0B0B0`), Eyebrow style (11px / 0.14em / uppercase)
 - **Outlined muted button** — `background: transparent`, `border: 1px solid color.dark-web.content-secondary`, `color: color.dark-web.content-secondary`, `radius.btn` (12px), label "Delete club" (no ellipsis). Transitions to `color.status.danger` border and text on hover.
 
 The box carries the danger signal; the contents stay quiet. This avoids stacking multiple layers of red on top of an already-red-tinted surface.

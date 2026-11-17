@@ -16,7 +16,7 @@ Load these files in order — stop when you have enough context for the task:
   - `docs/spinner-kluvs.md` — loading state (web, Android, iOS copy-paste snippets)
   - `docs/modal.md` — dialog/modal/sheet anatomy, tokens, behavior rules, and platform notes; includes an applied sheet-vs-dialog decision table for the Clubs/Books/Me action set
   - `docs/navigation.md` — top bar contextual modes (root vs. detail), bottom nav destination rules, FAB usage, and screen-level shortcuts that skip a modal entirely (inline edit, OS image picker, OS share sheet)
-  - `docs/typography.md` — the family/rung/modifier typography model (supersedes the old four-tier system) — read before implementing any text style, not just when "typography" is explicitly the task
+  - `docs/typography.md` — the family/rung/modifier typography model — read before implementing any text style, not just when "typography" is explicitly the task
   - `docs/colors.md` — the semantic color-role layer (`card`, `bar`, `divider`, `content`, etc.), mapped to raw dark/light tokens per platform — read before implementing any surface/text color, not just when "colors" is explicitly the task
   - `docs/states.md` — functional states: Loading, Error, Empty Shelf (Fragmented Hex Grid), Progress, and Snackbar (Success/Danger variants)
   - `docs/buttons.md` — button hierarchy: Primary, Secondary, Pill, and Segmented controls
