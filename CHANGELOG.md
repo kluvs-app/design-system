@@ -15,6 +15,13 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Changed — Tokens
+
+- **`component.button` text now matches the Label family (14px / 500)** for Primary (was 15px/600) and
+  Outlined (was 14px/600). Android and iOS already render every button with `typography.label`, so
+  mobile is unchanged; this removes a spec that disagreed with both the shipped apps and the
+  "Bold is Display-only" typography rule.
+
 ## [2.11.0] — 2026-11-16
 
 ### Added — Tokens
