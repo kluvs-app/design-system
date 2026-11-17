@@ -2,11 +2,7 @@
 
 A finite set of type "families" — each a fixed shape (font-family + weight + default style), with one to three named sizes ("rungs": small / medium / large) where real usage justifies more than one size. Two modifiers, `feature` and `highlight`, apply on top of specific families instead of being tiers of their own. See `tokens.json`'s `typography` object for the machine-readable version of everything below.
 
-**This replaces the old four-tier system** (`tier.1-section-header` → `tier.4-fine-print`, mapped to M3 roles and web utility classes). That model borrowed Material 3's shape too literally — M3 has no concept of a register switch (serif vs. sans) or an italic modifier, so mapping Kluvs values into M3's `Typography` slots silently discarded real distinctions (e.g. Android's old `Type.kt` rendered every serif heading as bold-non-italic, when the design actually differentiates roman-identity vs. italic-featured content). This doc is deliberately Material-*flavored* in its naming (small/medium/large rungs, family names like Body/Label/Headline) without being Material-*shaped* underneath.
-
-## Why this exists
-
-This taxonomy was derived from a real, ground-up audit of `kluvs-frontend`'s authenticated app screens (Profile, Clubs, Club Detail, Books, Discussions, Members, and every modal) — not from the design-system's own prior docs, which turned out to be mostly dead code the frontend never actually imported. The frontend's *shipped implementation* was itself inconsistent (a parallel Tailwind naming scheme used only on marketing pages, ad hoc arbitrary pixel values everywhere else) — so this is a **normalization** of real recurring patterns, not a transcription of an existing clean system. Treat any specific pixel value here as a considered default, not an untouchable law — but the *shape* of the model (families, rungs, modifiers) is the part that should hold.
+Naming is Material-*flavored* (small/medium/large rungs; Body, Label, Headline) without being Material-*shaped*: there is a register switch (serif vs. sans) and an italic modifier that Material has no concept of.
 
 ## Families
 
@@ -14,7 +10,7 @@ This taxonomy was derived from a real, ground-up audit of `kluvs-frontend`'s aut
 |---|---|---|---|---|---|---|
 | **Display** | Serif | Bold | Roman | S 48 · M 64 · L 96 | marketing hero only | — |
 
-**Display usage today:** only **Display S (48px)** is in use — the marketing hero (stepping up from Headline L on narrow widths) and the desktop club masthead. **Display M (64) and Display L (96) are reserved and unused**: they were tried on the web hero and masthead and are too large. Do not use them; if a layout seems to need one, ask for a DS update.
+**Display usage today:** only **Display S (48px)** is in use — the marketing hero (stepping up from Headline L on narrow widths). **Display M (64) and Display L (96) are reserved and unused**: they were tried on the web hero and masthead and are too large. Do not use them; if a layout seems to need one, ask for a DS update.
 | **Headline** | Serif | Medium | Roman | S 30 · M 34 · L 40 | ✅ | plausible, unconfirmed |
 | **Title** | Serif | Medium | Roman | S 15 · M 19 · L 24 | ✅ (heavily used) | ✅ confirmed |
 | **Body** | Sans | Regular | — | L 16 · M 14 | — | — |
@@ -26,7 +22,7 @@ This taxonomy was derived from a real, ground-up audit of `kluvs-frontend`'s aut
 
 ### Display, Headline, Title — identity content (serif)
 
-These three are "this text names or identifies something," in decreasing scope: Display is page/hero-level editorial text with room to breathe (marketing hero, a desktop masthead); Headline is "this whole page is about X" (a profile name, a big stat number — a number is not a separate tier, it's a Headline rung applied to numeric content); Title is card/row-level identity (a club name in a list, a book title, a session title).
+These three are "this text names or identifies something," in decreasing scope: Display is page/hero-level editorial text with room to breathe (marketing hero); Headline is "this whole page is about X" (a profile name, a big stat number — a number is not a separate tier, it's a Headline rung applied to numeric content); Title is card/row-level identity (a club name in a list, a book title, a session title).
 
 **`feature` (italic) on Headline/Title:** roman = structural identity ("this is the name of the thing"), italic = "this is the featured/current thing" — a book title, the active reading session, an empty-state headline ("Start reading together."). It is a font-*style* flip only — no change to size or weight.
 
@@ -86,11 +82,33 @@ The canonical role → family map. Clients use this; they do not look at each ot
 | Credits, version, trigger pill text | Fine print |
 | Share codes, ISBNs, dates in a tabular column | Mono |
 | Marketing hero (landing, Discord page) | Headline L on narrow widths, Display S (+ `feature`, allowed here only) from `sm` up |
-| Desktop club masthead | Display S |
+| Desktop club masthead | Headline L |
 | Marketing section headings and FAQ headings | Headline M (S on narrow widths) |
 | Sub-section titles under a page title (FAQ categories) | Title L |
 | Page title on web | Headline S, stepping up to Headline M at `lg`; mobile stays Headline S |
 | Secondary handle / role line under a name (sidebar, menus) | Caption |
+
+### Web differences from the table above
+
+Web may use a different existing rung than the table where listed here. No new sizes — every entry is a rung from this scale. Width-based entries use the `lg` breakpoint; other widths (tablet, foldables) reuse them or add their own entries.
+
+**Depends on width:**
+
+| Role | Narrow | `lg` and up |
+|---|---|---|
+| Page title | Headline S | Headline M (Clubs, Books, club name: Headline L) |
+| Book card author / year | Fine print | Caption |
+| Discussion card title | Title M | Title L |
+
+**All web widths:**
+
+| Role | Web uses | Table says |
+|---|---|---|
+| Secondary handles, counts, hints, form hints | Fine print | Caption |
+| Member names | Label | Body L |
+| Menu items (kebab menu) | Caption | Label |
+| Book detail title | Title M + `feature` | Headline S + `feature` |
+| Bottom-nav labels | Fine print | — |
 
 ## Line height and tracking
 
@@ -110,6 +128,8 @@ Every family carries a line height and tracking in `tokens.json` (`typography.fa
 
 Line heights are absolute px, not ratios — web must not substitute `leading-snug`, `leading-5` or similar. Eyebrow is the only tracking expressed in `em`; the rest are px (points on iOS). These values were captured from the shipped Android/iOS implementation (which already agree with each other) and made canonical; web adopts them.
 
+**Exception — long-form paragraphs on web.** Multi-line prose set in Body M (the book description and author bio) may use a 1.7 line height (`leading-[1.7]`) instead of 20px. This is the only sanctioned override; it applies to those long-form paragraphs on web, not to short Body text, other families, or other platforms.
+
 ## Mapping off-scale text
 
 Rules for migrating existing UI (any platform) onto the families. The goal is that **every piece of text is a family/rung** — no raw px, no framework default sizes (Tailwind `text-sm`, etc.).
@@ -125,7 +145,7 @@ Rules for migrating existing UI (any platform) onto the families. The goal is th
 | Sans 13px | **Caption** |
 | Sans 8–10px (count badges, tiny metadata, diagram labels) | **Fine print**; **Eyebrow** if uppercase. The floor is 11px — nothing smaller exists |
 | Uppercase + tracked text at any size | **Eyebrow** |
-| Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display (S only) is hero/masthead only |
+| Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display (S only) is marketing hero only |
 | Serif italic | add `feature` (Headline/Title only) |
 | "N books in progress" aside | **Title S + `feature`** (matches mobile `ShelfSection`) |
 | Short muted italic note ("Nothing here yet.") | **Caption + `feature`** |
