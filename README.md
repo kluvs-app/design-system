@@ -1,10 +1,10 @@
 # Kluvs Design System
 
-> A book-club mobile app design system, v1.0 · Android + iOS · Kotlin Multiplatform
+> The design system for Kluvs — a book-club app · Android + iOS (Kotlin Multiplatform) + Web · current version in `VERSION` / `CHANGELOG.md`
 
 ## What is Kluvs?
 
-Kluvs ("Kluv" = a club) is a small, focused mobile app for running real-world book clubs. The product centres on three things: **finding your club**, **showing what you're reading right now**, and **knowing when the next discussion is**. The brand is warm, literary and a little vintage — copper-orange on warm-black surfaces, set in clean Inter typography. It feels like a hardcover book on a reading lamp at night, not a slick consumer app.
+Kluvs ("Kluv" = a club) is a small, focused mobile app for running real-world book clubs. The product centres on three things: **finding your club**, **showing what you're reading right now**, and **knowing when the next discussion is**. The brand is warm, literary and a little vintage — copper-orange on warm-black surfaces, set in EB Garamond and IBM Plex Sans. It feels like a hardcover book on a reading lamp at night, not a slick consumer app.
 
 The app's surface model is **dark-by-default in product, light in auth/marketing**. Cards, lists, top bars and bottom nav all sit on a near-black, slightly warm `#140F0D` page. The single accent — copper `#D16D30` — picks out the active tab, primary CTAs, the next discussion, the active timeline node, and brand wordmarks.
 
@@ -13,7 +13,7 @@ The app's surface model is **dark-by-default in product, light in auth/marketing
 - **Figma file:** `Kluvs Design System.fig` (mounted as a virtual filesystem during generation; not redistributed here).
   - Pages: `Cover`, `Getting-Started` (22 frames), `Foundations` (60 frames), `Components` (22 frames), `Mobile-Auth`, `Mobile-Clubs`, `Mobile-Profile`, plus an empty `Web-TBD`.
   - Top components: `MemberAvatar` (Owner / Admin / Member × sm / md / lg), `InputField` (default / focused / error / disabled), `SocialButton` (Discord / Google / Apple), `TextDivider`, `LoadingScreen`, `ErrorScreen`, `NextDiscussionCard`.
-- **Codebase:** none provided. The Figma JSX export is the source of truth.
+- **Clients:** `kluvs-mobile` (Android + iOS) is the reference implementation and the source of truth when specs disagree; `kluvs-frontend` (web) follows the same tokens. `tokens.json` is the shared source of values.
 - **Imagery / illustration:** none in the file (zero raster images registered in metadata). The brand carries entirely on type, color and surface.
 
 ## Index
@@ -35,7 +35,7 @@ The voice is **plain, warm and a little understated**. Sentences are short. The 
 
 - **Tone:** literary-casual. "Welcome back" / "Sign in to continue to your book clubs" / "And more…" — friendly without being chirpy. No exclamation marks anywhere in the figma source.
 - **Person:** **second-person** addressing the reader ("Sign in to continue to **your** book clubs", "**Your** Statistics"). Profile screen header is just "**Me**" — first-person framing for self-views, second-person for system messages.
-- **Casing:** **Title Case** for screen titles, section headers and tabs ("Active Session", "Next Discussion", "Currently Reading", "Help & Support"). **Sentence case** for body and metadata ("In person", "Founded in 2026", "Member since 2026"). All-caps reserved for **brand wordmarks only** (KLUVS) and the occasional eyebrow ("NEXT DISCUSSION" 10px tracked label on the discussion card).
+- **Casing:** **Title Case** for screen titles, section headers and tabs ("Active Session", "Next Discussion", "Currently Reading", "Help & Support"). **Sentence case** for body and metadata ("In person", "Founded in 2026", "Member since 2026"). All-caps reserved for **brand wordmarks only** (KLUVS) and the occasional eyebrow ("NEXT DISCUSSION" 11px tracked label on the discussion card).
 - **Numbers + dates:** abbreviated dates use month name ("Apr 12, 2026 · 7:00 PM"), long-form for in-app event titles ("March 2, 2026 at 5:00 PM"). Counts always shown with a noun ("6 members", "23 books read", "3 clubs").
 - **Microcopy patterns:**
   - "Continue with {Provider}" for OAuth.
@@ -122,7 +122,7 @@ No backdrop-blur, no glassmorphism.
 There is no imagery in the source. If imagery is added later: **warm, slightly desaturated, dim-room book photography** would fit. Avoid cool blues, neon, or stock-flat illustration.
 
 ### Cards
-Square-ish, **10-px radius**, **no border on dark** / 1-px stroke on light if needed, **16-px internal padding**, no shadow on dark. Highlighted variant: copper border + warm tinted fill. Sections separate with 1-px divider rather than separate cards where possible.
+Square-ish, **12-px radius**, **no border on dark** / 1-px stroke on light if needed, **16-px internal padding**, no shadow on dark. Highlighted variant: copper border + warm tinted fill. Sections separate with 1-px divider rather than separate cards where possible.
 
 ### Layout rules
 - Mobile canvas: **390 × 844** (iPhone 14).
@@ -214,7 +214,7 @@ Contrast ratios computed against WCAG 2.x relative luminance. Target: **AA (4.5:
 Three pairings fall below strict AA for normal text. Each is a deliberate, documented trade-off:
 
 **White on Copper (3.53:1) — Primary CTA button text**
-The WCAG 2.x luminance formula under-represents perceptual contrast for saturated warm hues. The hue separation between white and copper reads as higher contrast than the ratio suggests. Button text is also rendered at 15px/600 weight with clear interactive affordance. This is expected to pass under WCAG 3.0 / APCA. Do not darken copper to chase this number — it would compromise the brand identity.
+The WCAG 2.x luminance formula under-represents perceptual contrast for saturated warm hues. The hue separation between white and copper reads as higher contrast than the ratio suggests. Button text is also rendered in the Label family (14px/500) with clear interactive affordance. This is expected to pass under WCAG 3.0 / APCA. Do not darken copper to chase this number — it would compromise the brand identity.
 
 **Admin Teal on Warm Dark Base (2.95:1) — Role badge indicator**
 Admin teal (`#006781`) is used exclusively as a graphical badge indicator on dark surfaces, never as body text. The 3:1 UI component threshold applies; at 2.95:1 it is marginally below. The teal reads clearly against the near-black warm surface in practice. Monitor and revisit if the admin badge ever carries text content.
@@ -224,7 +224,7 @@ Error red (`#EF4444`) passes AA for large/bold text (3:1) but not for normal bod
 
 ## Caveats / open questions
 
-- The figma file is a foundation pass: 26 variables, 6 text styles, 8 components. **There is no full button system yet** (only the social-button and the inline filled-rectangle CTA on auth); flag if/when a real `Button` component lands.
-- **No web frames** — `Web-TBD` is empty. Don't extrapolate the dark mobile palette to a marketing site without a designer's review.
-- **No motion spec.** Defaults are conservative best-guesses.
-- **Inter** is loaded from Google Fonts CDN; we did not find a hosted `.ttf` to copy locally. If the team wants a fully offline kit, drop Inter `.ttf`s into `fonts/` and adjust `colors_and_type.css`.
+- The original figma file was a foundation pass (26 variables, 6 text styles, 8 components); the button system, typography families and color roles have since been specified in `docs/` and `tokens.json`, and are implemented in `kluvs-mobile`.
+- **No web frames** — `Web-TBD` is empty; the web client follows the same tokens and supports both warm-dark and light surfaces (see `CLAUDE.md`). Web-specific layout is not specified in Figma.
+- **Motion** is not specified in Figma; the defaults are the `--kluvs-ease` / `--kluvs-dur-*` tokens, which are conservative best-guesses.
+- **Fonts** (EB Garamond, IBM Plex Sans) are loaded from the Google Fonts CDN; no `.ttf` files are bundled. For a fully offline kit, add them under `fonts/` and adjust `colors_and_type.css`.
