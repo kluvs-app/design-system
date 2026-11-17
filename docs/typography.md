@@ -12,7 +12,7 @@ This taxonomy was derived from a real, ground-up audit of `kluvs-frontend`'s aut
 
 | Family | Font | Weight | Default style | Rungs (px) | `feature` (italic)? | `highlight` (step-up)? |
 |---|---|---|---|---|---|---|
-| **Display** | Serif | Bold | Roman | S 48 · M 64 · L 96 | not observed | — |
+| **Display** | Serif | Bold | Roman | S 48 · M 64 · L 96 | marketing hero only | — |
 | **Headline** | Serif | Medium | Roman | S 30 · M 34 · L 40 | ✅ | plausible, unconfirmed |
 | **Title** | Serif | Medium | Roman | S 15 · M 19 · L 24 | ✅ (heavily used) | ✅ confirmed |
 | **Body** | Sans | Regular | — | L 16 · M 14 | — | — |
@@ -51,7 +51,7 @@ Confirmed recurring in real usage (timeline dates, ISBN numbers) but not yet a f
 
 Two orthogonal behaviors, not tiers of their own — this keeps the system from combinatorially exploding as families/rungs grow:
 
-- **`feature`** — a boolean per rung: roman ↔ italic. Applies to Headline, Title, Caption. Does not apply to Display, Body, Eyebrow, Label, Fine print, or Mono (no observed case, and for the all-caps/tabular families there's no register to flip in the first place).
+- **`feature`** — a boolean per rung: roman ↔ italic. Applies to Headline, Title, Caption, and to Display **only for the marketing hero** (the web landing/Discord hero is bold italic). Does not apply to other Display uses, Body, Eyebrow, Label, Fine print, or Mono (no observed case, and for the all-caps/tabular families there's no register to flip in the first place).
 - **`highlight`** — a *usage rule*, not a token: render this one instance of a repeating list one rung larger within its own family. Confirmed on Title (the "next" item in a discussion timeline). Creates zero new values — it just reuses a size that already exists for another purpose.
 
 Combining both modifiers on the same text run is untested — no real case has needed it yet.
@@ -83,7 +83,11 @@ The canonical role → family map. Clients use this; they do not look at each ot
 | Buttons, nav items, dropdown value, offline banner | Label |
 | Credits, version, trigger pill text | Fine print |
 | Share codes, ISBNs, dates in a tabular column | Mono |
-| Hero/masthead on wide web layouts | Display (web only) |
+| Marketing hero (landing, Discord page) | Display L (+ `feature` allowed here only); Display S for a sub-hero |
+| Desktop club masthead | Display M |
+| Marketing section headings and FAQ headings | Headline M (S on narrow widths) |
+| Page title on web | Headline S, stepping up to Headline M at `lg`; mobile stays Headline S |
+| Secondary handle / role line under a name (sidebar, menus) | Caption |
 
 ## Line height and tracking
 
@@ -128,7 +132,7 @@ Rules for migrating existing UI (any platform) onto the families. The goal is th
 
 **Weight:** the family sets it. Do not add `font-semibold`/`font-bold` on top — Bold (700) is Display-only; Medium covers all emphasis elsewhere.
 
-**Responsive:** the scale is the same on every breakpoint; a layout may switch *rungs* (e.g. Title M → Title L at `lg`) but never invents intermediate sizes.
+**Responsive:** the scale is the same on every breakpoint; a layout may switch *rungs* (e.g. Title M → Title L at `lg`, Headline S → Headline M for web page titles) but never invents intermediate sizes.
 
 **Not typography — leave alone:**
 - Avatar initials — sized per Avatar spec (`docs/avatars.md`: 8/10/12/35/45px).
