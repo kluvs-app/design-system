@@ -43,7 +43,7 @@ The back-compat alias block at the bottom of `colors_and_type.css` maps older `-
 ## Brand rules (non-negotiable)
 
 - **Accent:** copper `#D16D30` — one per view, on the primary CTA and active state only.
-- **Type:** Two-register system. **EB Garamond** (serif, 400/500/700 + italic 400/500) for wordmark, display, headings, and book titles. **IBM Plex Sans** (sans, 400/500/700) for all UI chrome, body, labels, and eyebrow text. No other fonts. Italic is reserved for book titles in Garamond only.
+- **Type:** Two-register system. **EB Garamond** (serif, 400/500/700 + italic 400/500) for wordmark, display, headings, and book titles. **IBM Plex Sans** (sans, 400/500/700) for all UI chrome, body, labels, and eyebrow text. No other fonts. Italic is the `feature` modifier on Headline/Title/Caption only (see `docs/typography.md`); bold is Display-only; no text below 11px.
 - **No emoji.** None in the Figma source; don't introduce them.
 - **No gradients, no images, no blur.** Surfaces are flat solid steps.
 - **Casing:** Title Case for screen titles and interactive tabs; Sentence case for body; ALL-CAPS for brand wordmarks (KLUVS) and eyebrow labels only.

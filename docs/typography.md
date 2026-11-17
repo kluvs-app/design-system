@@ -62,6 +62,55 @@ Combining both modifiers on the same text run is untested — no real case has n
 
 Practical implication: Android and iOS should never invent their own pixel values for a family/rung that already has a defined size here — if a size doesn't fit, that's a signal to either use a different (adjacent) rung, or that a genuinely new rung is needed across *all* platforms, not just the one being implemented.
 
+## Line height and tracking
+
+Every family carries a line height and tracking in `tokens.json` (`typography.family.<family>.line-height` / `.tracking`), alongside size and weight. All three platforms use these exact values, so a given family/rung renders the same shape everywhere.
+
+| Family | Line height (px) | Tracking |
+|---|---|---|
+| Display S / M / L | 52 / 68 / 100 | 0 |
+| Headline S / M / L | 36 / 40 / 46 | 0 |
+| Title S / M / L | 20 / 24 / 30 | 0 |
+| Body L / M | 24 / 20 | 0.5px / 0.25px |
+| Caption | 18 | 0.2px |
+| Eyebrow | 16 | 0.14em |
+| Label | 18 | 0.1px |
+| Fine print | 16 | 0.4px |
+| Mono | 18 | 0 |
+
+Line heights are absolute px, not ratios — web must not substitute `leading-snug`, `leading-5` or similar. Eyebrow is the only tracking expressed in `em`; the rest are px (points on iOS). These values were captured from the shipped Android/iOS implementation (which already agree with each other) and made canonical; web adopts them.
+
+## Mapping off-scale text
+
+Rules for migrating existing UI (any platform) onto the families. The goal is that **every piece of text is a family/rung** — no raw px, no framework default sizes (Tailwind `text-sm`, etc.).
+
+| Existing text | Maps to |
+|---|---|
+| Sans 14px on buttons, nav, menu items, names, or anything medium/semibold | **Label** |
+| Sans 14px, other prose | **Body M** |
+| Sans 15px prose | **Body M** (1px snap) |
+| Sans 15px on a button | **Label** — button container/weight parity (15px/600 primary) is the Button spec's job, not typography's |
+| Sans 16–18px | **Body L** |
+| Sans 12px, Tailwind `text-xs` | **Fine print** |
+| Sans 13px | **Caption** |
+| Sans 8–10px (count badges, tiny metadata, diagram labels) | **Fine print**; **Eyebrow** if uppercase. The floor is 11px — nothing smaller exists |
+| Uppercase + tracked text at any size | **Eyebrow** |
+| Serif sizes | Nearest Headline/Title rung — **by role, not raw size**: page titles are Headline, Display is hero/masthead only |
+| Serif italic | add `feature` (Headline/Title only) |
+| Sans italic aside ("3 books in progress") | **Caption + `feature`** — never serif italic |
+| Any monospace (dates, ISBNs, IDs, handles) | **Mono** (13px) |
+| Emphasized item in a repeating list | one **Title** rung up (`highlight`), e.g. next = Title L, rest = Title M |
+
+**Weight:** the family sets it. Do not add `font-semibold`/`font-bold` on top — Bold (700) is Display-only; Medium covers all emphasis elsewhere.
+
+**Responsive:** the scale is the same on every breakpoint; a layout may switch *rungs* (e.g. Title M → Title L at `lg`) but never invents intermediate sizes.
+
+**Not typography — leave alone:**
+- Avatar initials — sized per Avatar spec (`docs/avatars.md`: 8/10/12/35/45px).
+- Icon glyph sizes (Material Symbols `fontSize`/`!text-[18px]`).
+
+**Cross-platform parity:** `tokens.json` is the only source of sizes and weights; web (`t-*` classes), Android (`KluvsTypography`) and iOS (`KluvsTypography.swift`) must all resolve the same family/rung to the same px and weight. Rungs a platform reaches for may differ (mobile never uses Display); values — size, weight, line height, tracking — may not.
+
 ## Open items / not yet decided
 
 - **`label.large`** — hypothesized (possibly button-adjacent), not yet backed by a real observed case. Don't add it speculatively.

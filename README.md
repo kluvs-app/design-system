@@ -56,7 +56,7 @@ Role accents are rare and reserved: **owner** = mustard `#C9900A` (graphical bad
 ### Type
 **Two-register system** — EB Garamond (serif) for literary content, IBM Plex Sans for UI chrome. Three weights each: Regular 400, Medium 500, Bold 700. No other weights.
 
-**Serif register (EB Garamond):** wordmark, display text, page headings, section headings, and book titles. Book titles use italic. This is the literary layer — it signals "here is the thing you care about."
+**Serif register (EB Garamond):** wordmark, display text, page headings, section headings, and book titles. Italic is the `feature` modifier (book titles, the featured/current item) — see `docs/typography.md`. This is the literary layer — it signals "here is the thing you care about."
 
 **Sans register (IBM Plex Sans):** all UI chrome — body text, labels, buttons, tabs, modal titles, helper text, eyebrow labels. This is the interface layer — neutral and readable at all sizes.
 
