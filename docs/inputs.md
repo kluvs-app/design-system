@@ -10,7 +10,7 @@ single-purpose fields.
 ## Anatomy
 
 - **Label:** 12px IBM Plex Sans Medium, copper (focused) or grey (default).
-- **Field:** 8px radius, 14px text.
+- **Field:** 48 high, 8px radius, 16px side padding, 14px text (`component.input-field.*`).
 - **Validation:** Red border and label for error states — callers supply the full message,
   no "Error:" prefix is added by the component itself.
 - **Helper text:** muted hint text below the field, distinct from an error message — shown
@@ -72,6 +72,7 @@ Label-less filter-as-you-type field — e.g. filtering an already-visible list f
 bar. Not an `InputField` mode: no label at all (vs. `InputField`'s always-present label), and
 its icon is structural rather than optional decoration.
 
+- **Size:** 40 high, 8px radius, 16px side padding, 18px icon, with an invisible 48 touch target (`component.search-field.*`). It stays 40 inside a top app bar, so the bar doesn't grow.
 - **Leading icon:** search glyph by default; swapped for a small spinner while a search is in
   flight (`isLoading`).
 - **Trailing:** a clear button, shown only when there's text to clear.

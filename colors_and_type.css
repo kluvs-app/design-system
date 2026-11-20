@@ -208,8 +208,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font: 500 13px/1 var(--kluvs-font-sans);
-  padding: 10px 16px;
+  position: relative;
+  height: 40px;
+  font: 500 14px/1 var(--kluvs-font-sans);
+  padding: 0 24px;
   border-radius: var(--kluvs-radius-btn);
   background: transparent;
   border: 1px solid var(--kluvs-divider-dark);
@@ -217,9 +219,9 @@
   cursor: pointer;
   transition: background var(--kluvs-dur-fast) var(--kluvs-ease), transform var(--kluvs-dur-fast) var(--kluvs-ease);
 }
+.kluvs-btn-secondary::after { content: ""; position: absolute; inset: -4px 0; } /* 48px touch target */
 .kluvs-btn-secondary:hover  { background: var(--kluvs-surface-dark-elevated); }
 .kluvs-btn-secondary:active { transform: scale(0.97); }
-.kluvs-btn-secondary--sm    { padding: 6px 12px; font-size: 12px; border-radius: 8px; }
 
 /* ──── Read status indicators — corner ribbon and circular badge ──── */
 /* Marks a book cover as "read" / finished. Two variants for different cover sizes. */
@@ -252,10 +254,12 @@
 .kluvs-btn-pill {
   display: inline-flex;
   align-items: center;
-  font: 500 11px/1 var(--kluvs-font-sans);
+  position: relative;
+  height: 32px;
+  font: 500 12px/1 var(--kluvs-font-sans);
   letter-spacing: 0.04em;
   white-space: nowrap;
-  padding: 4px 10px;
+  padding: 0 16px;
   border-radius: var(--kluvs-radius-pill);
   background: transparent;
   border: 1px solid var(--kluvs-divider-dark);
@@ -263,6 +267,7 @@
   cursor: pointer;
   transition: color var(--kluvs-dur-fast) var(--kluvs-ease), border-color var(--kluvs-dur-fast) var(--kluvs-ease);
 }
+.kluvs-btn-pill::after { content: ""; position: absolute; inset: -8px 0; } /* 48px touch target */
 .kluvs-btn-pill--success {
   border-color: var(--kluvs-success);
   color: var(--kluvs-success);
@@ -280,7 +285,7 @@
 .kluvs-segmented__option {
   flex: 1;
   padding: 8px 0;
-  font: 500 12px/1 var(--kluvs-font-sans);
+  font: 500 14px/18px var(--kluvs-font-sans);
   text-align: center;
   background: transparent;
   color: var(--kluvs-content-dark-secondary);
@@ -369,9 +374,15 @@
 .kluvs-avatar-stack > * {
   position: relative;
   flex-shrink: 0;
-  box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
 }
-.kluvs-avatar-stack > *:not(:first-child) { margin-left: -8px; }
+/* Ring is a transparent cutout (not a colored stroke): each avatar is masked where the one above it overlaps,
+   so whatever background sits behind shows through. Values are for the 24px (md) stack: the previous avatar's
+   centre is 4px left of this one's left edge, and the cutout radius is 12px + the 1px ring. */
+.kluvs-avatar-stack > *:not(:first-child) {
+  margin-left: -8px;
+  -webkit-mask: radial-gradient(circle at -4px 50%, transparent 12.5px, #000 13px);
+  mask: radial-gradient(circle at -4px 50%, transparent 12.5px, #000 13px);
+}
 .kluvs-avatar-stack > *:nth-child(1) { z-index: 4; }
 .kluvs-avatar-stack > *:nth-child(2) { z-index: 3; }
 .kluvs-avatar-stack > *:nth-child(3) { z-index: 2; }
@@ -387,7 +398,6 @@
   font: 500 10px/1 var(--kluvs-font-sans);
   background: var(--kluvs-warm-dark-card-2);
   color: var(--kluvs-warm-fg-primary);
-  box-shadow: 0 0 0 2px var(--kluvs-surface-dark-elevated);
 }
 
 /* ──── Role eyebrow — uppercase role label + optional dot ──── */
@@ -533,13 +543,9 @@
   background: var(--kluvs-divider-light);
 }
 
-[data-surface="light"] .kluvs-avatar-stack > * {
-  box-shadow: 0 0 0 2px #FFFFFF;
-}
 [data-surface="light"] .kluvs-avatar-stack__overflow {
   background: var(--kluvs-divider-light);
   color: var(--kluvs-warm-dark-base);
-  box-shadow: 0 0 0 2px var(--kluvs-surface-light-raised);
 }
 
 [data-surface="light"] .kluvs-role-eyebrow--admin {

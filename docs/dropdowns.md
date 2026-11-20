@@ -13,6 +13,8 @@ Generic single-select trigger + popover list.
 | Property | Value |
 |---|---|
 | Trigger shape | fully rounded (pill), border only, no fill |
+| Size | 34 high, 16 side padding, 14px chevron (`component.dropdown.*`) |
+| Touch target | 48 — invisible; the visible pill stays 34 |
 | Default | grey border / grey text / grey chevron |
 | Selected | copper border / copper text / copper chevron |
 | Chevron | rotates 180° when open |

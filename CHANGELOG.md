@@ -15,6 +15,21 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Changed — button and pill sizes
+
+- Every button is 40 high (Material 3 container height) with a 48 touch target, on every platform. Replaces the 14px vertical padding in `tokens.json` (46 high), which no platform shipped. Android was ~40, iOS ~42.
+- Outlined border is 1px (was 1.5px in the token). Secondary `md` is now 40 high / 24 side padding / 14px text (was 10/16 padding, 13px).
+- Trigger pill: 32 high, 16 side padding, 12px text, 48 touch target (tokens said 4/10 padding and 11px, which disagreed with the doc and with mobile).
+- Added dimensions for Social (40, radius 12), Icon (48 touch target, 24 icon) and Outlined icon (40, radius 12, 20 icon, 48 touch target). Toggle pill keeps its 36 circle with a 48 touch target.
+- `docs/buttons.md` gets a "Button sizes" table.
+- Avatar initials are 0.4 × the avatar size in EB Garamond everywhere (`component.avatar.initials-ratio`); the only listed size that changes is `lg`, 12px → 16px. Avatar stack ring is now a 1px transparent cutout instead of a colored stroke, so it follows whatever background is behind it; the web stack uses a mask (dark and light) instead of a colored shadow. Mobile avatars use 0.3 today (and the iOS stack uses Plex Sans at 0.4), so both need to change.
+- Snackbar: 48 high (Material single-line; mobile was 54). Tab strip (Clubs: Overview / Discussions / Members): 48 high (was 42 in the doc and on iOS; Android uses Material's default). Bottom sheet drag handle: 32 × 4 (Material; iOS was 36 × 5). iOS needs to change on all three.
+- Mobile dialog width follows Material: 280 min, 560 max (`component.dialog.*`; iOS was 400). Web modal keeps 384.
+- Removed the small button size (`sizes.sm`, `.kluvs-btn-secondary--sm`, about 30 high): mobile has no small buttons and every button is 40 high. The web `Button` component's `sm` size (used in the progress row, Add discussion, BookInfo and two session modals) has no DS source and should become the standard size.
+- Progress bar: already 4 high on every platform, no change.
+- Input field: 48 high (was 56 on Android, ~40 on iOS, unspecified in the DS). Search field: 40 high, 48 touch target, including in the top bar. Mobile Android and iOS need to change to match.
+- Dropdown: 34 high, 16 side padding, 48 touch target (adopts mobile; the DS had no number). Segmented control: text variant 34 high, icon variant 28 × 28 segments, 48 touch target on every segment. Web `.kluvs-segmented__option` text is now 14px/18px (was 12px) to match the 34 height. Mobile currently has no padded touch area on these three, so it falls short of 48 until fixed.
+
 ### Removed — pre-v2 typography
 
 - **`colors_and_type.css`:** removed the old type variables and classes (`--kluvs-page-heading-*`, `-section-heading-*`, `-card-heading-*`, `-body-lg-*`, `-body-*`, `-helper-*`, `-helper-sm-*`, `-display-1/2-size`, `-modal-label-*`; `.kluvs-display-1/2`, `.kluvs-page-heading`, `.kluvs-section-heading`, `.kluvs-card-heading`, `.kluvs-body-lg`, `.kluvs-body`, `.kluvs-helper(-sm)`, `.kluvs-modal-label`). Replaced by v2 family variables (`--kluvs-<family>-<rung>-size/line/tracking`) and classes (`.kluvs-display-s`, `.kluvs-headline-m`, `.kluvs-title-l`, `.kluvs-body-m`, `.kluvs-caption`, `.kluvs-eyebrow`, `.kluvs-label`, `.kluvs-fine-print`, `.kluvs-mono`, `.kluvs-feature`), generated from `tokens.json`. **Breaking for anything importing the old names** (only the preview cards did).
