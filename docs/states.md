@@ -49,8 +49,8 @@ One reusable illustration; only the heading, body, and optional action change pe
 
 | Property | Value |
 |---|---|
-| Heading | Italic EB Garamond 500, 22px |
-| Body | 13px IBM Plex Sans, line-height 1.6, max-width ~240px |
+| Heading | Title L + `feature` (italic EB Garamond, 24/30). On web: Headline S, Headline M from `lg` |
+| Body | Body M (14/20), max-width ~240px on mobile, 340px on web |
 | Illustration | **Fragmented Hex Grid** — see below |
 | Action (optional) | `SecondaryButton` (see `docs/buttons.md`), centered, only when there's a real next step |
 

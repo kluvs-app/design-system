@@ -17,6 +17,8 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ### Fixed — audit findings
 
+- DS contradictions found by the propagation audit: the modal container is the warm-dark "bar" `#1A140F` with a `#332B24` border (tokens said `#141414` / `#2A2A2A`); the secondary button border, progress track and segmented border are warm-dark `card-2` `#332B24` in tokens and in the CSS (both said `#2A2A2A`); the empty-state heading is Title L + `feature` and the body is Body M (tokens said 28px / 13px, `states.md` 22px / 13px), with web stepping up to Headline S / M, recorded in the "Web differences" table; `docs/colors.md` no longer says iOS has no theme object.
+
 - `docs/cards.md` and the two card previews used pre-v2 type (10px bold eyebrow, 16–18px bold heading); they now use the Eyebrow, Title M, Body M and Fine print families. `docs/members.md` names Label and Fine print instead of raw sizes.
 - Added sizes to `tokens.json` that were only in docs: `component.bars.*` (chrome bar 52, TopAppBar row 56 + 64 with title, sub bar 32, bottom nav 80, offline banner 32) and `component.toggle-pill` (36, icon 16, 48 touch target). `docs/navigation.md`, `states.md` and `buttons.md` point at them. The 52 (web chrome bar) and 56 (mobile TopAppBar row) are two different components, not a conflict.
 - `index.html` typography section says Display S is the only rung in use and M and L are reserved.

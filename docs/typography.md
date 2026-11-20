@@ -99,6 +99,7 @@ Web may use a different existing rung than the table where listed here. No new s
 | Page title | Headline S | Headline M (Clubs, Books, club name: Headline L) |
 | Book card author / year | Fine print | Caption |
 | Discussion card title | Title M | Title L |
+| Empty-state headline (italic) | Headline S | Headline M |
 
 **All web widths:**
 

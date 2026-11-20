@@ -214,7 +214,7 @@
   padding: 0 24px;
   border-radius: var(--kluvs-radius-btn);
   background: transparent;
-  border: 1px solid var(--kluvs-divider-dark);
+  border: 1px solid var(--kluvs-warm-dark-card-2);
   color: var(--kluvs-content-dark-primary);
   cursor: pointer;
   transition: background var(--kluvs-dur-fast) var(--kluvs-ease), transform var(--kluvs-dur-fast) var(--kluvs-ease);
@@ -262,7 +262,7 @@
   padding: 0 16px;
   border-radius: var(--kluvs-radius-pill);
   background: transparent;
-  border: 1px solid var(--kluvs-divider-dark);
+  border: 1px solid var(--kluvs-warm-dark-card-2);
   color: var(--kluvs-content-dark-secondary);
   cursor: pointer;
   transition: color var(--kluvs-dur-fast) var(--kluvs-ease), border-color var(--kluvs-dur-fast) var(--kluvs-ease);
@@ -278,7 +278,7 @@
   display: flex;
   align-items: stretch;
   width: 100%;
-  border: 1px solid var(--kluvs-divider-dark);
+  border: 1px solid var(--kluvs-warm-dark-card-2);
   border-radius: var(--kluvs-radius-pill);
   overflow: hidden;
 }
@@ -290,7 +290,7 @@
   background: transparent;
   color: var(--kluvs-content-dark-secondary);
   border: none;
-  border-left: 1px solid var(--kluvs-divider-dark);
+  border-left: 1px solid var(--kluvs-warm-dark-card-2);
   cursor: pointer;
   transition: background var(--kluvs-dur-base) var(--kluvs-ease), color var(--kluvs-dur-base) var(--kluvs-ease);
 }
@@ -330,7 +330,7 @@
 .kluvs-progress-track {
   height: 4px;
   border-radius: var(--kluvs-radius-pill);
-  background: var(--kluvs-divider-dark);
+  background: var(--kluvs-warm-dark-card-2);
   overflow: hidden;
 }
 .kluvs-progress-fill {

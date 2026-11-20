@@ -57,5 +57,4 @@ STATUS blocks in `colors_and_type.css`.
   properties in this table's Dark/Light columns directly. Formalizing a web-side role
   abstraction (e.g. a Tailwind theme extension) is unstarted, tracked in `CLAUDE.md`'s
   pending-propagation section alongside the typography/button model.
-- **iOS**: no theme object of any kind yet (`Colors.swift` is static color constants only) —
-  out of scope until the iOS design-system phase begins.
+- **iOS**: `KluvsTheme.colors` carries all 20 roles and adapts to light/dark. Call-site migration is partial (41 of 75 app files). The remaining raw reads are tracked in `CLAUDE.md`.
