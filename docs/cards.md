@@ -19,8 +19,8 @@ Used for the "Next Discussion" or featured items.
 
 | Layer | Style |
 |---|---|
-| Eyebrow | 10px IBM Plex Sans Bold, Uppercase, 0.1em tracking |
-| Heading | 16-18px EB Garamond Bold |
-| Subtitle | 13-14px IBM Plex Sans Regular |
+| Eyebrow | Eyebrow family (11px, uppercase, 0.14em) |
+| Heading | Title M (card or list title; `feature` allowed) |
+| Subtitle | Body M |
 | Divider | 1px horizontal line, `card-2` on dark / `divider` on light |
-| Meta | 12px IBM Plex Sans Regular, muted |
+| Meta | Fine print, muted |

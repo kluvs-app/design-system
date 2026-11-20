@@ -9,8 +9,8 @@ The primary list-item pattern for member directories.
 | Property | Rule |
 |---|---|
 | Avatar | `lg` (40px) size |
-| Name | IBM Plex Sans, 14px, Medium |
-| Meta | IBM Plex Sans, 12px, Regular, `--kluvs-warm-fg-tertiary` |
+| Name | Label family (14px, medium) |
+| Meta | Fine print family (12px), `--kluvs-warm-fg-tertiary` |
 | Trailing | **Role Eyebrow** (anchored to the right edge) |
 
 ---

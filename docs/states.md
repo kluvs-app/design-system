@@ -189,7 +189,7 @@ screen it never replaces content: the screen underneath keeps showing its saved 
 | Position | Top of the main tab shell, full width, above the tab content. Pushes content down; never overlays it |
 | Fill | `wine` `#4F000C` — same on dark and light |
 | Text | `onWine` `#F2EDE5`, Label family (14px IBM Plex Sans Medium), single line, centered |
-| Height | 32px band. The host extends the same wine fill under the status-bar inset so the band and the status bar read as one, and switches the status-bar icons to light while it shows (they are dark on the light theme, unreadable on wine) |
+| Height | 32px band (`component.bars.offline-banner-height`). The host extends the same wine fill under the status-bar inset so the band and the status bar read as one, and switches the status-bar icons to light while it shows (they are dark on the light theme, unreadable on wine) |
 | Shape | Rectangle, no radius, no border, no shadow — a full-bleed band, not a floating card |
 | Copy | "You're offline. Showing saved data." Sentence case, no icon, no action, no dismiss |
 | Motion | Slide down + fade in, 250ms, identity easing `cubic-bezier(0.2, 0.8, 0.2, 1)`; reversed on exit. With reduced motion, fade only |
