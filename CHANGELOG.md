@@ -15,6 +15,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Fixed — audit findings
+
+- `docs/cards.md` and the two card previews used pre-v2 type (10px bold eyebrow, 16–18px bold heading); they now use the Eyebrow, Title M, Body M and Fine print families. `docs/members.md` names Label and Fine print instead of raw sizes.
+- Added sizes to `tokens.json` that were only in docs: `component.bars.*` (chrome bar 52, TopAppBar row 56 + 64 with title, sub bar 32, bottom nav 80, offline banner 32) and `component.toggle-pill` (36, icon 16, 48 touch target). `docs/navigation.md`, `states.md` and `buttons.md` point at them. The 52 (web chrome bar) and 56 (mobile TopAppBar row) are two different components, not a conflict.
+- `index.html` typography section says Display S is the only rung in use and M and L are reserved.
+
 ### Changed — button and pill sizes
 
 - On web the 48 touch target applies on touch screens only (`@media (pointer: coarse)`); with a mouse the visible size is the click target. Mobile keeps the 48 always.

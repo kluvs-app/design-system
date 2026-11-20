@@ -9,7 +9,7 @@ Two distinct components serving two distinct roles — not one replacing the oth
 ### Persistent chrome bar
 
 Fixed application header carrying identity and global navigation, not page-specific content.
-- **Height:** 52px.
+- **Height:** 52px (`component.bars.chrome-bar-height`).
 - **Background:** `surface.warm-dark.bar` (`#1A140F`) on dark / White on light.
 - **Content:** Brand wordmark "KLUVS" (Garamond, Bold, 20px), leading back affordance when
   drilled into a page, trailing avatar/overflow menu for global actions (edit profile,
@@ -23,7 +23,7 @@ eyebrow-style **header** label (e.g. "Profile", "Club", "Library" — Eyebrow fa
 tracked) always shown in the top row, optionally paired with a big serif **title** underneath
 (Headline family — the actual name/value: a profile name, a club name, "My Shelf").
 
-- **Height:** 56px header row; +64px when a title is present.
+- **Height:** 56px header row; +64px when a title is present (`component.bars.app-bar-row-height`, `app-bar-title-height`).
 - **Two modalities, one component:** passing a title puts the bar in its full two-row form;
   omitting it collapses the bar to the single header row. Not two separate components — a
   screen picks the mode by whether it has a title to show, the same way a detail screen has
@@ -65,7 +65,7 @@ reserved for a genuinely longer or richer menu, not built until one is actually 
 ## 3. Sub Bar
 
 Secondary context header (e.g. Club Name).
-- **Height:** 32px.
+- **Height:** 32px (`component.bars.sub-bar-height`).
 - **Style:** Subtle border top/bottom, 12px IBM Plex Sans Medium.
 
 ---
@@ -81,7 +81,7 @@ Secondary context header (e.g. Club Name).
 ## 5. Bottom Nav
 
 Primary mobile-first navigation anchor.
-- **Height:** 80px.
+- **Height:** 80px (`component.bars.bottom-nav-height`).
 - **Selected State:** Copper-tinted pill (`primary-soft`) behind the icon + copper label.
 - **Idle State:** Muted grey icon and label.
 

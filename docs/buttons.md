@@ -75,7 +75,7 @@ segmented controls pick one of several options; `TogglePill` is strictly on/off,
 
 | Property | Value |
 |---|---|
-| Shape | circle, 36dp |
+| Shape | circle, 36dp (`component.toggle-pill.*`) |
 | Icon size | 16dp |
 | Touch target | 48dp (the circle stays 36) |
 | Default | grey border / grey icon |
