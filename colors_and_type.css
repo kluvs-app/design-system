@@ -219,7 +219,7 @@
   cursor: pointer;
   transition: background var(--kluvs-dur-fast) var(--kluvs-ease), transform var(--kluvs-dur-fast) var(--kluvs-ease);
 }
-.kluvs-btn-secondary::after { content: ""; position: absolute; inset: -4px 0; } /* 48px touch target */
+@media (pointer: coarse) { .kluvs-btn-secondary::after { content: ""; position: absolute; inset: -4px 0; } } /* 48px touch target, touch screens only */
 .kluvs-btn-secondary:hover  { background: var(--kluvs-surface-dark-elevated); }
 .kluvs-btn-secondary:active { transform: scale(0.97); }
 
@@ -267,7 +267,7 @@
   cursor: pointer;
   transition: color var(--kluvs-dur-fast) var(--kluvs-ease), border-color var(--kluvs-dur-fast) var(--kluvs-ease);
 }
-.kluvs-btn-pill::after { content: ""; position: absolute; inset: -8px 0; } /* 48px touch target */
+@media (pointer: coarse) { .kluvs-btn-pill::after { content: ""; position: absolute; inset: -8px 0; } } /* 48px touch target, touch screens only */
 .kluvs-btn-pill--success {
   border-color: var(--kluvs-success);
   color: var(--kluvs-success);

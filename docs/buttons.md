@@ -34,7 +34,7 @@ hierarchy above, just the icon made clickable, with a 48dp touch target and ripp
 
 ## Button sizes
 
-Every button is **40 high** on every platform (the Material 3 container height), with a **48 touch target**: the visible button stays 40 and the extra tappable area is invisible. Values live in `tokens.json` under `component.button.*`.
+Every button is **40 high** on every platform (the Material 3 container height), with a **48 touch target**: the visible button stays 40 and the extra tappable area is invisible. On web the 48 applies on touch screens only (`@media (pointer: coarse)`); with a mouse the visible size is the click target. Values live in `tokens.json` under `component.button.*`.
 
 | Button | Visible size | Radius | Side padding | Touch target |
 |---|---|---|---|---|

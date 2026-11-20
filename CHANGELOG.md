@@ -17,6 +17,9 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ### Changed — button and pill sizes
 
+- On web the 48 touch target applies on touch screens only (`@media (pointer: coarse)`); with a mouse the visible size is the click target. Mobile keeps the 48 always.
+- Audit skills: `repo-audit` checks component sizes against docs, tokens and CSS; `propagation-audit` builds a DS / Android / iOS / web size matrix and flags client-vs-client differences and DS-silent components.
+
 - Every button is 40 high (Material 3 container height) with a 48 touch target, on every platform. Replaces the 14px vertical padding in `tokens.json` (46 high), which no platform shipped. Android was ~40, iOS ~42.
 - Outlined border is 1px (was 1.5px in the token). Secondary `md` is now 40 high / 24 side padding / 14px text (was 10/16 padding, 13px).
 - Trigger pill: 32 high, 16 side padding, 12px text, 48 touch target (tokens said 4/10 padding and 11px, which disagreed with the doc and with mobile).
