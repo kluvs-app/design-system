@@ -45,7 +45,7 @@ Overlapping row of avatars with a `+N` overflow chip, used for member previews.
 |---|---|---|
 | Overlap | `component.avatar-stack.overlap` | `-8px` margin-left on all but first |
 | Stack order | `component.avatar-stack.stack-order` | first avatar on top, descending z-index thereafter |
-| Ring | `component.avatar-stack.ring` | 2px transparent cutout — each avatar is masked around the one above it, so the real background shows through. No colored stroke. |
+| Ring | `component.avatar-stack.ring` | 1px transparent cutout — each avatar is masked around the one above it, so the real background shows through. No colored stroke. |
 | Max shown | `component.avatar-stack.max-shown` | 3 |
 | Overflow chip | `component.avatar-stack.overflow-chip` | same size as `md` avatar, `+N` |
 

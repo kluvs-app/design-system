@@ -377,11 +377,11 @@
 }
 /* Ring is a transparent cutout (not a colored stroke): each avatar is masked where the one above it overlaps,
    so whatever background sits behind shows through. Values are for the 24px (md) stack: the previous avatar's
-   centre is 4px left of this one's left edge, and the cutout radius is 12px + the 2px ring. */
+   centre is 4px left of this one's left edge, and the cutout radius is 12px + the 1px ring. */
 .kluvs-avatar-stack > *:not(:first-child) {
   margin-left: -8px;
-  -webkit-mask: radial-gradient(circle at -4px 50%, transparent 13.5px, #000 14px);
-  mask: radial-gradient(circle at -4px 50%, transparent 13.5px, #000 14px);
+  -webkit-mask: radial-gradient(circle at -4px 50%, transparent 12.5px, #000 13px);
+  mask: radial-gradient(circle at -4px 50%, transparent 12.5px, #000 13px);
 }
 .kluvs-avatar-stack > *:nth-child(1) { z-index: 4; }
 .kluvs-avatar-stack > *:nth-child(2) { z-index: 3; }
