@@ -15,6 +15,10 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+## [2.12.0] — 2026-11-20
+
+Versioning note: this release removes the pre-v2 type CSS names and the small button size, and changes component sizes. By the table above that reads as MAJOR; it ships as MINOR because no client consumed the removed names (only this repo's own previews did) and clients take their sizes from `tokens.json`.
+
 ### Fixed — audit findings
 
 - DS contradictions found by the propagation audit: the modal container is the warm-dark "bar" `#1A140F` with a `#332B24` border (tokens said `#141414` / `#2A2A2A`); the secondary button border, progress track and segmented border are warm-dark `card-2` `#332B24` in tokens and in the CSS (both said `#2A2A2A`); the empty-state heading is Title L + `feature` and the body is Body M (tokens said 28px / 13px, `states.md` 22px / 13px), with web stepping up to Headline S / M, recorded in the "Web differences" table; `docs/colors.md` no longer says iOS has no theme object.
