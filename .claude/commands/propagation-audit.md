@@ -43,12 +43,20 @@ conversation, only the working directory and the instruction to run the skill.
 
 Both agents check against the same underlying source (`design-system`, read fresh by each), so
 their findings line up by the same tiers (A: non-negotiable facts, B: pending-propagation items,
-C: cross-platform model adoption). Merge into one table, one row per checked item, one column
-per client:
+C: cross-platform model adoption, D: component dimensions). Merge into one table, one row per
+checked item, one column per client:
 
 | Item | kluvs-mobile | kluvs-frontend |
 |---|---|---|
 | ... | ✅ / ❌ / ⚠️ + evidence | ✅ / ❌ / ⚠️ + evidence |
+
+For tier D, make the table a **matrix**: one row per component and metric, with columns for the
+DS value, Android, iOS and web (`kluvs-mobile` reports Android and iOS separately). Then add two
+checks the per-client reports cannot make on their own:
+- **Clients disagreeing with each other.** Flag any row where two clients differ, even if the DS
+  is silent or both differ from the DS.
+- **DS silent.** List every component the clients build that has no `component.*` entry in
+  `tokens.json`. These are gaps in the design system and block a clean audit.
 
 Print this full table to the user. This table is the audit's output — it is not something to
 persist anywhere.
@@ -59,7 +67,9 @@ Read this repo's own `CLAUDE.md`, section "Pending propagation to client repos".
 is loaded into every session's context in this repo, so it must stay signal-only — a bullet per
 genuinely open item, nothing for compliant items, and no table.
 
-Compare the merged results against that section's current bullets:
+Compare the merged results (tiers B, C and the tier D matrix) against that section's current
+bullets. Derive the gaps from the matrix; do not treat the existing bullets as the list of known
+gaps. A red tier D row with no bullet gets one.
 
 - An item logged as pending that both clients now show ✅ for → propose **removing** that
   bullet entirely. Do not replace it with a "resolved" note — just delete it, the same way the

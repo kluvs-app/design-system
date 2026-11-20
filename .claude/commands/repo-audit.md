@@ -35,6 +35,12 @@ apply fixes yourself unless the user asks.
 - Spot-check that values referenced in `docs/*.md` (hex codes, token names) match what's
   actually defined in `colors_and_type.css` / `tokens.json` — docs describing a token that no
   longer exists, or citing a stale hex value, is a real discrepancy worth flagging.
+- **Component sizes.** Every component spec in `docs/*.md` should have a `component.*` entry in
+  `tokens.json` with numbers (height or size, radius, side padding, border width, touch target
+  where it is tappable). Flag a component doc with no numbers, a `component.*` entry with no doc,
+  and any number that differs between `docs/*.md`, `tokens.json` and `colors_and_type.css` (e.g.
+  a doc saying 12px text where the token says 11px). A component with no numbers is not finished:
+  it blocks a release.
 - Check `CLAUDE.md`'s "Pending propagation to client repos" section — if any of those items
   read as already resolved based on what's in this repo alone (i.e. the design-system side is
   fully specified and nothing here looks half-done), note it, but do NOT go check
