@@ -46,10 +46,15 @@ Reading is done best together.
 
 ## What's new (max 500)
 
-Latest release:
+Release 0.1.0:
 
 ```
-The pages keep turning...
+• Your clubs and books stay readable offline, with a banner so you know you're viewing saved data.
+• Book details now show a note about the author.
+• Clubs and Me load faster, and your selected club stays put when you switch tabs.
+• Show or hide your password as you type.
+• Friendlier error messages, plus a Help / FAQ link under About.
+• Fixes to removing members and keeping club data fresh.
 ```
 
 ## Assets

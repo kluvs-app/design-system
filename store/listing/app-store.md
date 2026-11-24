@@ -58,7 +58,16 @@ shelf,bookshelf,novel,reader,bookworm,tbr,library,discussion,group,friends,notes
 
 ## What's new
 
-Not set yet. App Store Connect doesn't show the field for the first version (0.0.9); it should appear on the next update.
+Release 0.1.0:
+
+```
+• Your clubs and books stay readable offline, with a banner so you know you're viewing saved data.
+• Book details now show a note about the author.
+• Clubs and Me load faster, and your selected club stays put when you switch tabs.
+• Show or hide your password as you type.
+• Friendlier error messages, plus a Help / FAQ link under About.
+• Fixes to removing members and keeping club data fresh.
+```
 
 ## Assets
 
