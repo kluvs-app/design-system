@@ -29,7 +29,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/states.md` | Functional states — Loading, Error, Empty Shelf, and Progress. |
 | `docs/spinner-kluvs.md` | Spinner integration guide — web, Android, and iOS with snippets. |
 | `preview/` | Standalone HTML cards, one per token group. Browser-viewable; useful as visual reference. |
-| `store/` | Store listing graphics (Play + App Store). HTML templates + `render.sh` → upload-ready PNGs in `store/export/`; raw captures in `store/raw/`. See `store/README.md`. |
+| `store/` | Store listing graphics (Play + App Store). HTML templates + `render.sh` → upload-ready PNGs in `store/export/`; raw captures in `store/raw/`. Also store copy (`store/listing/`) and Top.gg pages (`store/topgg/`). This repo is the home for **all** public-facing design and copy; commit rendered exports alongside their sources (they are deliverables, not build artifacts — don't gitignore them). See `store/README.md`. |
 
 ## Token namespacing
 
@@ -54,6 +54,7 @@ This repo is the **only** reference for clients. Clients must never be told to "
 
 Rules for editing:
 - **One home per fact.** If it is a value, it goes in `tokens.json`; everywhere else *links* to it. Do not copy numbers or rules into `README.md`, `SKILL.md` or this file.
+- **`docs/*.md` are prescriptive, platform-agnostic specs.** Never annotate them with which platform has or hasn't implemented something (no "Android `X`", no "not yet on iOS/web"). Adoption status belongs only in "Pending propagation" below.
 - **Phrase rules narrowly.** State exactly what a rule covers and what it does not (an overly broad "never X" has already misled an agent).
 - **Check before you change a spec.** When a spec disagrees with what a client ships, decide deliberately which is right; then fix the DS *and* record the decision in `CHANGELOG.md`. The DS leads; clients converge to it.
 - **Audit before release.** Run `/repo-audit` and fix findings first; cut the release only when the work is complete.
