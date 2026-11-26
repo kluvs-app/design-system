@@ -43,6 +43,6 @@ If the user invokes this skill without other guidance, ask what they want to bui
 - Type: two registers — EB Garamond (serif, literary content) and IBM Plex Sans (sans, UI chrome); mono reserved for tabular metadata. Sizes, weights, line heights, tracking, the `feature` (italic) and `highlight` modifiers, and the role → family map are defined **only** in `tokens.json` (`typography.family`) and `docs/typography.md` — read those, never use raw px or framework default sizes, and do not infer rules from other clients.
 - Radius: 2 (chips), 8 (inputs/timeline), 12 (cards/buttons), 9999 (pill/avatars).
 - Component sizes (height, padding, touch target) live in `tokens.json` under `component.*`. Read them before sizing any control; do not size from memory.
-- No emoji. No gradients. No decorative illustration. No backdrop blur.
+- No emoji. No gradients. No backdrop blur. Illustrations only as defined in `docs/illustrations.md`.
 - Mustard `#C9900A` (owner badge) — graphical badge indicator on both light and dark surfaces (~7:1 on dark, ~3:1 on light).
 - Icons: Material Symbols, weight 600, Grade 0, 24px SVG.

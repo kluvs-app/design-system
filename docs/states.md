@@ -47,6 +47,10 @@ Page-level "nothing here" state, used whenever a collection or section has no co
 an empty club list, a shelf with nothing on it, a club with no other members yet, and so on.
 One reusable illustration; only the heading, body, and optional action change per screen.
 
+> **Being phased out.** A screen that has its own illustration in `docs/illustrations.md`
+> uses that layout instead (illustration on top, text below). The Fragmented Hex Grid below
+> remains the layout for every empty and error screen that doesn't have one yet.
+
 | Property | Value |
 |---|---|
 | Heading | Title L + `feature` (italic EB Garamond, 24/30). On web: Headline S, Headline M from `lg` |
