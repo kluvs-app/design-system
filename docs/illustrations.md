@@ -24,18 +24,32 @@ Every illustration looks like a **woodcut / linocut print**, in the spirit of
 ## Palette: paper and inks
 
 The screen background is the **paper**: the illustration has no background of its own, and
-the surface it sits on shows through. On top of it go up to three **inks**, taken from
-existing color roles (`docs/colors.md`):
+the surface it sits on shows through. An illustration is **drawn** with three inks:
 
-| Ink | Color role | Used for |
+| Ink | Used for |
+|---|---|
+| Ink | All primary shapes (the wood) |
+| Soft ink | Depth only: shadows, inner faces, background objects, secondary grain |
+| Accent | The focal detail (see below). Optional |
+
+The carved lines between the shapes, plus a thin outline around the subject, form a fourth
+layer: the **cut**.
+
+**One illustration serves both surfaces.** Light mode is not a negative of dark mode: it is
+the same woodcut printed on cream paper. Each surface shows or hides layers and colors them
+from existing color roles (`docs/colors.md`):
+
+| Layer | Dark | Light |
 |---|---|---|
-| Ink | `labelVariant` | All primary shapes and carved lines |
-| Soft ink | `contentMuted` | Depth only: shadows, inner faces, background objects, secondary grain |
-| Accent | `secondary` | The focal detail (see below). Optional |
+| Ink | `labelVariant` | hidden (the paper shows through) |
+| Cut | hidden (the paper shows through) | `labelVariant` |
+| Soft ink | `contentMuted` | `contentMuted` |
+| Accent | `secondary` | `secondary` |
 
-Because `labelVariant` and `contentMuted` already invert between dark and light surfaces,
-**one illustration serves both surfaces**: cream ink on chocolate paper in dark, chocolate ink
-on cream paper in light. Never generate or draw a separate light version.
+So dark mode shows cream wood with the carved lines in the background color, and light mode
+shows chocolate carved lines and outline on cream wood. Never generate or draw a separate
+light version: swapping every color instead (cream wood → chocolate wood) produces a heavy
+photo-negative and is not allowed.
 
 Copper (`accent`) and blue-teal (`tertiary`) are **never** used in illustrations. Copper
 belongs to the screen's CTA (one per view), and blue-teal is too dim on dark surfaces.
@@ -70,17 +84,20 @@ hexagon-shaped frame.
 
 ## Format and layout
 
-- **File:** one SVG per illustration, square, text-free. Its fills are limited to the three
-  inks, and each filled shape is tagged with its ink role so clients can map it to the
-  surface's color roles. The carved lines are gaps (transparent), not a fourth color.
+- **File:** one SVG per illustration, square, text-free. It has exactly four top-level
+  groups, `<g id="ink-soft">`, `<g id="ink">`, `<g id="cut">`, `<g id="accent">`, painted in
+  that order. Each group sets its color with a plain `fill` attribute (no `<style>` block:
+  Android's SVG importer ignores CSS), so clients apply the table above by changing four
+  fills. The defaults are the dark-surface colors, with `cut` set to `fill="none"`.
 - **Safe zone:** the subject stays within the centered square defined by
   `component.illustration.safe-zone`, so clients can scale it down or crop slightly without
   cutting into the drawing.
 - **Size on screen:** `component.illustration.size`.
 - **Layout:** illustration on top; heading, body and action **below** it, centered, separated
   by `component.illustration.gap`. Text never overlaps the illustration.
-- **Location:** `assets/illustrations/<name>.svg`. The generated raster it was traced from
-  is kept beside it as `assets/illustrations/source/<name>.png`, so it can be re-traced.
+- **Location:** `assets/illustrations/<name>.svg`. The generated image it was traced from is
+  kept, as downloaded, in `assets/illustrations/source/<name>.<png|jpg>`, so it can be
+  re-traced.
 
 ## Catalog
 
@@ -110,8 +127,15 @@ Clients only consume the committed SVGs; nothing is generated at runtime.
    screen, all in the locked style below. Pick one.
 2. **Three renders (optional).** Generate three renders of the chosen concept and pick the
    best.
-3. **Trace.** Vectorize the chosen image into SVG, snapping every color to the nearest ink
-   and tagging each shape with its role. Check it on both surfaces.
+3. **Trace.** Vectorize the chosen image into SVG and check it on both surfaces:
+   - Snap every pixel to the nearest of the four dark-surface colors (paper and three inks)
+     at the generated resolution.
+   - Derive the cut layer from that full-resolution result: background-colored areas inside
+     the subject, plus a thin outline around it.
+   - Only then shrink each layer to half resolution (512 for a 1024 image) and trace it with
+     integer coordinates, dropping specks of a few pixels. Shrinking before snapping erases
+     the carved lines.
+   - Aim for roughly 150 KB or less per SVG.
 4. **Commit** the SVG and its source PNG, and add the concept to the catalog above.
 
 Generate on the dark palette: dark is the product's default surface, and the light version
