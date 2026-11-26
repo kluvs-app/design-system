@@ -15,6 +15,16 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ## [Unreleased]
 
+### Added — illustrations
+
+- `docs/illustrations.md`: a woodcut-print system for spot illustrations (empty states, errors, force update). One text-free square SVG per screen, inked with the existing `labelVariant`, `contentMuted` and `secondary` roles so one file serves both surfaces. Copper and blue-teal are never used. Includes hidden hexagons as the brand motif, a catalog, and the locked generation prompt.
+- `component.illustration` tokens in `tokens.json`: size (240 mobile, 280 web), safe zone (80%) and gap to the heading (24).
+
+### Changed
+
+- The "no imagery / no decorative illustration" rules in `README.md`, `SKILL.md` and `CLAUDE.md` now allow spot illustrations as defined in `docs/illustrations.md`. Backgrounds stay flat, and photography is still out.
+- `docs/states.md`: the Fragmented Hex Grid is being phased out. Screens switch to their own illustration as it's created; the hex grid stays the layout for the rest until then.
+
 ## [2.12.0] — 2026-11-20
 
 Versioning note: this release removes the pre-v2 type CSS names and the small button size, and changes component sizes. By the table above that reads as MAJOR; it ships as MINOR because no client consumed the removed names (only this repo's own previews did) and clients take their sizes from `tokens.json`.

@@ -22,6 +22,7 @@ A **static design system** for Kluvs — a dark-themed book-club mobile app. No 
 | `docs/cards.md` | Card containers — Standard and Highlighted variants. |
 | `docs/colors.md` | Semantic color-role layer — role names (`card`, `bar`, `divider`, etc.) mapped to raw tokens per platform. |
 | `docs/dropdowns.md` | Dropdown value selector — pill trigger + popover option list. |
+| `docs/illustrations.md` | Woodcut spot illustrations — style, inks, accent rule, layout, catalog, and the locked generation prompt. |
 | `docs/inputs.md` | Form field states and anatomy. |
 | `docs/members.md` | Member rows and Role Eyebrow identification. |
 | `docs/modal.md` | Modal anatomy spec — three-zone layout and platform notes. |
@@ -64,7 +65,7 @@ Rules for editing:
 - **Accent:** copper `#D16D30` — one per view, on the primary CTA and active state only.
 - **Type:** EB Garamond (serif) + IBM Plex Sans (sans), mono reserved. Everything else about type — sizes, weights, italic, line height, tracking — is defined only in `tokens.json` and `docs/typography.md`; do not restate it elsewhere.
 - **No emoji.** None in the Figma source; don't introduce them.
-- **No gradients, no images, no blur.** Surfaces are flat solid steps.
+- **No gradients, no images, no blur.** Surfaces are flat solid steps. The one exception is spot illustrations, which follow `docs/illustrations.md` only.
 - **Casing:** Title Case for screen titles and interactive tabs; Sentence case for body; ALL-CAPS for brand wordmarks (KLUVS) and eyebrow labels only.
 - **Both surfaces supported everywhere.** Warm-dark and light are both valid on mobile and web.
 

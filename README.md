@@ -14,7 +14,7 @@ The app's surface model is **dark-by-default in product, light in auth/marketing
   - Pages: `Cover`, `Getting-Started` (22 frames), `Foundations` (60 frames), `Components` (22 frames), `Mobile-Auth`, `Mobile-Clubs`, `Mobile-Profile`, plus an empty `Web-TBD`.
   - Top components: `MemberAvatar` (Owner / Admin / Member × sm / md / lg), `InputField` (default / focused / error / disabled), `SocialButton` (Discord / Google / Apple), `TextDivider`, `LoadingScreen`, `ErrorScreen`, `NextDiscussionCard`.
 - **Clients:** `kluvs-mobile` (Android + iOS) is the reference implementation and the source of truth when specs disagree; `kluvs-frontend` (web) follows the same tokens. `tokens.json` is the shared source of values.
-- **Imagery / illustration:** none in the file (zero raster images registered in metadata). The brand carries entirely on type, color and surface.
+- **Imagery / illustration:** none in the file (zero raster images registered in metadata). Spot illustrations were added later as a woodcut-print system; see `docs/illustrations.md`.
 
 ## Index
 
@@ -76,7 +76,7 @@ Spacing scale is a strict **4 / 8 / 12 / 16 / 24**. Page gutters are 20px. Card 
 Radius scale is **4 (sm) / 8 (md) / 16 (lg)**. In practice product surfaces use a tight subset: cards & primary CTAs at **12**, inputs at **8**, status indicators / 16-px squares at **2**, avatars and circular badges at **9999**. Pills (selected bottom-nav indicator) use the pill radius over a 36×72 capsule.
 
 ### Backgrounds
-**No imagery, no gradients, no textures.** Surfaces are flat, solid colors stepped by ~5% lightness. The cover frame's only decoration is a **6-px copper top-edge bleed** + small orange dot punctuating the wordmark. The product never uses full-bleed photography or illustration.
+**No imagery, no gradients, no textures.** Surfaces are flat, solid colors stepped by ~5% lightness. The cover frame's only decoration is a **6-px copper top-edge bleed** + small orange dot punctuating the wordmark. The product never uses full-bleed photography or background illustration; the only illustrations are the woodcut spot illustrations in `docs/illustrations.md`, which sit on the flat surface without a background of their own.
 
 ### Animation
 Not specified in figma. House style implied by the surface model: **soft fades, no bounces.** Suggested: 150–200ms ease-out for hover/press, 250ms for screen transitions, identity easing `cubic-bezier(0.2, 0.8, 0.2, 1)`. Never spin a logo. Loading uses the **Breathe·Tidal spinner** — the Kluvs mark with a 4s box-breathing animation (scale 0.96↔1.08, opacity 0.94↔1, 120° per step). See `assets/spinner-kluvs.svg` and `docs/spinner-kluvs.md`.
@@ -105,7 +105,7 @@ Used in exactly two places in the figma:
 No backdrop-blur, no glassmorphism.
 
 ### Imagery vibe
-There is no imagery in the source. If imagery is added later: **warm, slightly desaturated, dim-room book photography** would fit. Avoid cool blues, neon, or stock-flat illustration.
+No photography. Spot illustrations are **woodcut prints** of wooden objects from a reading life, inked in the surface's own colors. Style, palette and rules live in `docs/illustrations.md`. Avoid cool blues, neon, or stock-flat illustration.
 
 ### Cards
 Square-ish, **12-px radius**, **no border on dark** / 1-px stroke on light if needed, **16-px internal padding**, no shadow on dark. Highlighted variant: copper border + warm tinted fill. Sections separate with 1-px divider rather than separate cards where possible.
