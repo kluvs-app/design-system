@@ -9,6 +9,8 @@ Writes assets/illustrations/<name>.png (see docs/illustrations.md § Format and 
      outline) and makes the background outside the subject transparent.
   3. Downsamples to component.illustration.export-size and stores it as a small
      indexed PNG.
+  4. Writes KLUVS/temp/illustrations/<name>/preview.html, showing the PNG on both
+     surfaces with a heading, body and button, for review before committing.
 
 --loose-strokes is for scenes with a hatched floor or other loose strokes around the
 subject. Thin strokes outside the solid subject are treated as lines rather than part of
@@ -18,9 +20,12 @@ thin part of the focal object (a ladder's back rail) isn't mistaken for a loose 
 Don't use it on heavily carved subjects: the slivers between grain lines would count as
 loose strokes too.
 
-Needs Pillow and NumPy (`pip install pillow numpy`, ideally in a virtualenv).
+Needs Pillow and NumPy, kept in a virtualenv at KLUVS/temp/illustrations/.venv
+(see docs/illustrations.md § Generating an illustration). Run it with that Python:
+    ../temp/illustrations/.venv/bin/python scripts/export-illustration.py <source> <name>
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -99,6 +104,43 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     im.save(out, optimize=True)
     print(f"{out.relative_to(REPO)}: {size}x{size}, {out.stat().st_size // 1024} KB")
+
+    preview = write_preview(out, name, token(tokens, "component.illustration.size.mobile"),
+                            token(tokens, "component.illustration.gap"))
+    print(f"preview: {preview}")
+
+
+def write_preview(png, name, size, gap):
+    """Writes KLUVS/temp/illustrations/<name>/preview.html: the PNG on both surfaces, as a
+    screen would show it. Never committed; the drafts folder sits outside every repo."""
+    page = REPO.parent / "temp" / "illustrations" / name / "preview.html"
+    page.parent.mkdir(parents=True, exist_ok=True)
+    rel = lambda p: os.path.relpath(p, page.parent)
+    img = f"{rel(png)}?v={int(png.stat().st_mtime)}"
+    screen = f"""
+    <section class="screen"{{attr}}>
+      <img src="{img}" alt="" width="{size.removesuffix('px')}">
+      <h1 class="kluvs-empty-heading">A heading for this screen</h1>
+      <p class="kluvs-empty-body">One or two lines of body copy, set as real text below the illustration.</p>
+      <button class="cta">Primary action</button>
+    </section>"""
+    page.write_text(f"""<!doctype html>
+<meta charset="utf-8">
+<title>{name} · preview</title>
+<link rel="stylesheet" href="{rel(REPO / 'colors_and_type.css')}">
+<style>
+  body {{ margin: 0; display: flex; min-height: 100vh; }}
+  .screen {{ flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 10px; padding: 48px; text-align: center; background: var(--kluvs-warm-dark-base); }}
+  .screen[data-surface="light"] {{ background: var(--kluvs-surface-light); }}
+  .screen img {{ margin-bottom: calc({gap} - 10px); }}
+  .cta {{ margin-top: 6px; height: 48px; padding: 0 24px; border: 0; border-radius: var(--kluvs-radius-btn);
+         background: var(--kluvs-primary); color: var(--kluvs-on-primary); font: 500 14px/1 var(--kluvs-font-sans); }}
+</style>
+{screen.format(attr="")}
+{screen.format(attr=' data-surface="light"')}
+""")
+    return page
 
 
 if __name__ == "__main__":

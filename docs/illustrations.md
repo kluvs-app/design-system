@@ -110,14 +110,20 @@ Until a screen has its illustration, it keeps the **Fragmented Hex Grid** layout
 Illustrations are generated **at design time** from this repo and committed as assets.
 Clients only consume the committed PNGs; nothing is generated at runtime.
 
+`/illustration-create <name>` runs these steps with the `illustrations` MCP server
+(`ai-tooling/mcp-illustrations`).
+
 1. **Three concepts.** Generate one image for each of three different concepts for the
    screen, all in the locked style below. Pick one.
 2. **Three renders (optional).** Generate three renders of the chosen concept and pick the
    best.
 3. **Export** with `scripts/export-illustration.py <source> <name>`: it snaps every pixel to
    the palette, makes the background outside the subject transparent (keeping the carved
-   lines and a thin outline), and writes `assets/illustrations/<name>.png`. Check the result
-   on both surfaces.
+   lines and a thin outline), writes `assets/illustrations/<name>.png`, and writes a preview
+   of it on both surfaces to `temp/illustrations/<name>/preview.html`. Check the preview.
+   The script needs Pillow and NumPy, kept in a virtualenv at `temp/illustrations/.venv`
+   (`/illustration-create` creates it on first run). To create it by hand, from the KLUVS
+   folder: `python3 -m venv temp/illustrations/.venv && temp/illustrations/.venv/bin/pip install pillow numpy`.
 4. **Commit** the PNG and its source image, and add the concept to the catalog above.
 
 By default the export treats background showing through dense strokes as part of the
