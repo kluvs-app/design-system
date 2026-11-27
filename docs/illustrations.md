@@ -90,15 +90,15 @@ hexagon-shaped frame.
 
 One illustration per screen. "Something went wrong" and 404 share one.
 
-| Name | Screen | Concept | Focal detail (accent) |
-|---|---|---|---|
-| `force-update` | Force update | A wooden bookbinding press with a book clamped in it: a new edition is being bound | The book's spine and ribbon |
-| `empty-clubs` | No clubs yet | Open — exploring | |
-| `empty-shelf` | No books on the shelf | Open — exploring | |
-| `empty-discussions` | No upcoming discussions | Open — exploring | |
-| `empty-members` | No other members yet | Open — exploring | |
-| `error` | Something went wrong / 404 | Open — exploring | |
-| `connection-error` | Full-screen load failure with no connection | Open — exploring | |
+| Name | Screen | Concept | Focal detail (accent) | Export |
+|---|---|---|---|---|
+| `force-update` | Force update | A wooden bookbinding press with a book clamped in it: a new edition is being bound | The book's spine and ribbon | default |
+| `empty-clubs` | No clubs yet | Open — exploring | | |
+| `empty-shelf` | No books on the shelf | Open — exploring | | |
+| `empty-discussions` | No upcoming discussions | Open — exploring | | |
+| `empty-members` | No other members yet | Open — exploring | | |
+| `error` | Something went wrong / 404 | A bookshelf knocked over by a library ladder, books spilled across the floor: something fell, and the ladder is how it gets put back | The ladder | `--loose-strokes` |
+| `connection-error` | Full-screen load failure with no connection | Open — exploring | | |
 
 The offline state is a bar (`docs/states.md`), not an illustrated screen.
 
@@ -120,9 +120,12 @@ Clients only consume the committed PNGs; nothing is generated at runtime.
    on both surfaces.
 4. **Commit** the PNG and its source image, and add the concept to the catalog above.
 
-Prefer scenes whose subject stands on its own, without a hatched floor or loose strokes
-around it: background showing through a dense cluster of strokes is treated as part of the
-subject, so on the light surface it prints as a dark patch.
+By default the export treats background showing through dense strokes as part of the
+subject, which keeps carved grain intact. A scene with a hatched floor or other loose strokes
+around the subject needs `--loose-strokes` instead, or those gaps print as dark blocks on the
+light surface: it makes them transparent and prints the loose strokes in soft ink. Don't use
+it on heavily carved subjects, whose grain would fall apart. Record the export setting in the
+catalog so a re-export reproduces the same PNG.
 
 ### Locked style prompt
 
