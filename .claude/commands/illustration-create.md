@@ -6,7 +6,7 @@ description: Create a spot illustration for one catalog screen — concepts, ren
 
 Drives `docs/illustrations.md` § Generating an illustration for one screen. That spec owns every
 rule (style, palette, accent, hexagons, what never appears, export settings); this command
-restates none of them. Read it in full before step 2.
+restates none of them. Read it in full before step 1.
 
 Paths:
 
