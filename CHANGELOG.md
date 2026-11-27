@@ -25,6 +25,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 - `/illustration-create` (`.claude/commands/`): runs the generation steps for one catalog screen with the `illustrations` MCP server, stopping for the user's pick at each step.
 - `assets/illustrations/empty-clubs.png` (No clubs yet: an empty table set for a group, a single book waiting at its center), with its generated source `assets/illustrations/source/empty-clubs.jpg`.
 - `assets/illustrations/empty-shelf.png` (No books on the shelf: a bare shelf between carved scroll brackets, a single ribbon bookmark lying across it), with its generated source `assets/illustrations/source/empty-shelf.jpg`.
+- `assets/illustrations/empty-discussions.png` (No upcoming discussions: an hourglass whose sand has run out, waiting to be turned over), with its generated source `assets/illustrations/source/empty-discussions.jpg`.
 
 ### Changed
 
