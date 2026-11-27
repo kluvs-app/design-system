@@ -14,42 +14,30 @@ Every illustration looks like a **woodcut / linocut print**, in the spirit of
 - Bold, carved shapes. Lines look hand-cut and slightly irregular, never machine-perfect.
 - Wood grain, shading and depth come from **carved parallel lines**, never from gradients,
   noise, or soft shadows.
-- Flat color only: every area is exactly one of the three inks below. No tints, no blending,
+- Flat color only: every area is exactly one of the colors below. No tints, no blending,
   no paper texture, no vignette.
 - **Subjects:** wooden objects from a reading life: shelves, presses, desks, lecterns,
   crates, lamps, books. One clear subject per illustration.
 - **Mood:** calm and crafted. Quiet or slightly melancholic is fine; never comic, never
   alarming.
 
-## Palette: paper and inks
+## Palette
 
-The screen background is the **paper**: the illustration has no background of its own, and
-the surface it sits on shows through. An illustration is **drawn** with three inks:
+An illustration is printed in five fixed colors, and the **same image is used on both
+surfaces**: cream wood with dark carved lines reads as a print on a dark page in dark mode,
+and as the same print on a cream page in light mode. Nothing is recolored, inverted or
+swapped per surface.
 
-| Ink | Used for |
-|---|---|
-| Ink | All primary shapes (the wood) |
-| Soft ink | Depth only: shadows, inner faces, background objects, secondary grain |
-| Accent | The focal detail (see below). Optional |
-
-The carved lines between the shapes, plus a thin outline around the subject, form a fourth
-layer: the **cut**.
-
-**One illustration serves both surfaces.** Light mode is not a negative of dark mode: it is
-the same woodcut printed on cream paper. Each surface shows or hides layers and colors them
-from existing color roles (`docs/colors.md`):
-
-| Layer | Dark | Light |
+| Color | Token | Used for |
 |---|---|---|
-| Ink | `labelVariant` | hidden (the paper shows through) |
-| Cut | hidden (the paper shows through) | `labelVariant` |
-| Soft ink | `contentMuted` | `contentMuted` |
-| Accent | `secondary` | `secondary` |
+| Background | `color.warm-dark.base` | The generation background. Outside the subject it becomes transparent; inside it stays as the carved lines and a thin outline |
+| Ink | `color.foreground-warm.primary` | All primary shapes (the wood) |
+| Soft ink | `color.foreground-warm.tertiary` | Depth only: shadows, inner faces, background objects, secondary grain |
+| Accent | `color.brand.secondary` | The focal detail (see below). Optional |
 
-So dark mode shows cream wood with the carved lines in the background color, and light mode
-shows chocolate carved lines and outline on cream wood. Never generate or draw a separate
-light version: swapping every color instead (cream wood → chocolate wood) produces a heavy
-photo-negative and is not allowed.
+Because the carved lines and outline are the dark page color, an illustration must sit
+directly on the screen background (the `background` role in `docs/colors.md`), never on a
+card or bar: on a lighter dark surface the outline shows as a dark ring.
 
 Copper (`accent`) and blue-teal (`tertiary`) are **never** used in illustrations. Copper
 belongs to the screen's CTA (one per view), and blue-teal is too dim on dark surfaces.
@@ -84,20 +72,19 @@ hexagon-shaped frame.
 
 ## Format and layout
 
-- **File:** one SVG per illustration, square, text-free. It has exactly four top-level
-  groups, `<g id="ink-soft">`, `<g id="ink">`, `<g id="cut">`, `<g id="accent">`, painted in
-  that order. Each group sets its color with a plain `fill` attribute (no `<style>` block:
-  Android's SVG importer ignores CSS), so clients apply the table above by changing four
-  fills. The defaults are the dark-surface colors, with `cut` set to `fill="none"`.
+- **File:** one PNG per illustration, square, text-free, with a transparent background
+  outside the subject. Exported at `component.illustration.export-size` from the generated
+  image, with every color snapped to the tokens above. Clients show it as a plain image on
+  both surfaces, with no tinting.
 - **Safe zone:** the subject stays within the centered square defined by
   `component.illustration.safe-zone`, so clients can scale it down or crop slightly without
   cutting into the drawing.
 - **Size on screen:** `component.illustration.size`.
 - **Layout:** illustration on top; heading, body and action **below** it, centered, separated
   by `component.illustration.gap`. Text never overlaps the illustration.
-- **Location:** `assets/illustrations/<name>.svg`. The generated image it was traced from is
-  kept, as downloaded, in `assets/illustrations/source/<name>.<png|jpg>`, so it can be
-  re-traced.
+- **Location:** `assets/illustrations/<name>.png`. The generated image it was exported from
+  is kept, as downloaded, in `assets/illustrations/source/<name>.<png|jpg>`, so it can be
+  re-exported.
 
 ## Catalog
 
@@ -121,25 +108,21 @@ Until a screen has its illustration, it keeps the **Fragmented Hex Grid** layout
 ## Generating an illustration
 
 Illustrations are generated **at design time** from this repo and committed as assets.
-Clients only consume the committed SVGs; nothing is generated at runtime.
+Clients only consume the committed PNGs; nothing is generated at runtime.
 
 1. **Three concepts.** Generate one image for each of three different concepts for the
    screen, all in the locked style below. Pick one.
 2. **Three renders (optional).** Generate three renders of the chosen concept and pick the
    best.
-3. **Trace.** Vectorize the chosen image into SVG and check it on both surfaces:
-   - Snap every pixel to the nearest of the four dark-surface colors (paper and three inks)
-     at the generated resolution.
-   - Derive the cut layer from that full-resolution result: background-colored areas inside
-     the subject, plus a thin outline around it.
-   - Only then shrink each layer to half resolution (512 for a 1024 image) and trace it with
-     integer coordinates, dropping specks of a few pixels. Shrinking before snapping erases
-     the carved lines.
-   - Aim for roughly 150 KB or less per SVG.
-4. **Commit** the SVG and its source PNG, and add the concept to the catalog above.
+3. **Export** with `scripts/export-illustration.py <source> <name>`: it snaps every pixel to
+   the palette, makes the background outside the subject transparent (keeping the carved
+   lines and a thin outline), and writes `assets/illustrations/<name>.png`. Check the result
+   on both surfaces.
+4. **Commit** the PNG and its source image, and add the concept to the catalog above.
 
-Generate on the dark palette: dark is the product's default surface, and the light version
-comes from the role swap, not from a second generation.
+Prefer scenes whose subject stands on its own, without a hatched floor or loose strokes
+around it: background showing through a dense cluster of strokes is treated as part of the
+subject, so on the light surface it prints as a dark patch.
 
 ### Locked style prompt
 
@@ -166,5 +149,5 @@ Palette:
 Square 1:1 image.
 ```
 
-The hex values in the prompt are the dark-surface values of `labelVariant`, `contentMuted`
-and `secondary`. Keep them in sync with `tokens.json`.
+The hex values in the prompt are the palette tokens above. Keep them in sync with
+`tokens.json`.

@@ -17,8 +17,10 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 ### Added — illustrations
 
-- `docs/illustrations.md`: a woodcut-print system for spot illustrations (empty states, errors, force update). One text-free square SVG per screen with four layers (ink, soft ink, cut, accent) colored from the existing `labelVariant`, `contentMuted` and `secondary` roles, so one file serves both surfaces: light mode is the same print on cream paper, not a negative. Copper and blue-teal are never used. Includes hidden hexagons as the brand motif, a catalog, and the locked generation prompt.
-- `component.illustration` tokens in `tokens.json`: size (240 mobile, 280 web), safe zone (80%) and gap to the heading (24).
+- `docs/illustrations.md`: a woodcut-print system for spot illustrations (empty states, errors, force update). One text-free, transparent square PNG per screen in five fixed token colors, used as-is on both surfaces (cream wood with dark carved lines reads as a print on either page); illustrations sit on the screen background only. Copper and blue-teal are never used. Includes hidden hexagons as the brand motif, a catalog, and the locked generation prompt.
+- `component.illustration` tokens in `tokens.json`: size (240 mobile, 280 web), export size (720), safe zone (80%) and gap to the heading (24).
+- `assets/illustrations/force-update.png`: the first illustration, with its generated source in `assets/illustrations/source/`.
+- `scripts/export-illustration.py`: turns a generated image into the committed PNG.
 
 ### Changed
 
