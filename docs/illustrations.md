@@ -93,7 +93,7 @@ One illustration per screen. "Something went wrong" and 404 share one.
 | Name | Screen | Concept | Focal detail (accent) | Export |
 |---|---|---|---|---|
 | `force-update` | Force update | A wooden bookbinding press with a book clamped in it: a new edition is being bound | The book's spine and ribbon | default |
-| `empty-clubs` | No clubs yet | Open — exploring | | |
+| `empty-clubs` | No clubs yet | A round wooden table with four empty chairs tucked in and one closed book at its center, waiting for a group to sit down | The book | default |
 | `empty-shelf` | No books on the shelf | Open — exploring | | |
 | `empty-discussions` | No upcoming discussions | Open — exploring | | |
 | `empty-members` | No other members yet | Open — exploring | | |
