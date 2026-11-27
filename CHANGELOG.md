@@ -19,8 +19,8 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 
 - `docs/illustrations.md`: a woodcut-print system for spot illustrations (empty states, errors, force update). One text-free, transparent square PNG per screen in five fixed token colors, used as-is on both surfaces (cream wood with dark carved lines reads as a print on either page); illustrations sit on the screen background only. Copper and blue-teal are never used. Includes hidden hexagons as the brand motif, a catalog, and the locked generation prompt.
 - `component.illustration` tokens in `tokens.json`: size (240 mobile, 280 web), export size (720), safe zone (80%) and gap to the heading (24).
-- `assets/illustrations/force-update.png`: the first illustration, with its generated source in `assets/illustrations/source/`.
-- `scripts/export-illustration.py`: turns a generated image into the committed PNG.
+- `assets/illustrations/force-update.png` and `error.png` (shared by "Something went wrong" and 404), with their generated sources in `assets/illustrations/source/`.
+- `scripts/export-illustration.py`: turns a generated image into the committed PNG; `--loose-strokes` handles scenes with a hatched floor.
 
 ### Changed
 
