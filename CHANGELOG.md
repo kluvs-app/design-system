@@ -30,6 +30,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 - `assets/illustrations/connection-error.png` (Full-screen load failure with no connection: a signpost on a grassy mound, one arm pointing the way back down the path), with its generated source `assets/illustrations/source/connection-error.jpg`.
 - `assets/illustrations/book-search.png` (Book search, before typing: a magnifying glass resting on a closed book on a lectern), with its generated source `assets/illustrations/source/book-search.jpg`.
 - `assets/illustrations/no-session.png` (Club overview with no active session: a wrapped book tied with string, waiting to be opened), with its generated source `assets/illustrations/source/no-session.jpg`. `empty-discussions` now also covers the Active session tab when there is no session yet.
+- `assets/illustrations/empty-tracking.png` (Me screen with nothing to track: a closed reading journal with a fountain pen across it), with its generated source `assets/illustrations/source/empty-tracking.jpg`.
 
 ### Changed
 
