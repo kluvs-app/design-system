@@ -98,7 +98,7 @@ One illustration per screen. "Something went wrong" and 404 share one.
 | `empty-discussions` | No upcoming discussions | A carved wooden hourglass stand whose sand has all run out into a small mound, the upper bulb empty: waiting to be turned over for the next one | The sand | default |
 | `empty-members` | No other members yet | A carved wooden key rack with a row of empty hooks and a single old key hanging from the first one: one member so far, room for more | The key | default |
 | `error` | Something went wrong / 404 | A bookshelf knocked over by a library ladder, books spilled across the floor: something fell, and the ladder is how it gets put back | The ladder | `--loose-strokes` |
-| `connection-error` | Full-screen load failure with no connection | Open — exploring | | |
+| `connection-error` | Full-screen load failure with no connection | A wooden signpost on a grassy mound beside a winding dirt path, its blank arms angled off one side: you're out of reach for now, and one arm points the way back | The arm pointing down the path | `--loose-strokes` |
 
 The offline state is a bar (`docs/states.md`), not an illustrated screen.
 
