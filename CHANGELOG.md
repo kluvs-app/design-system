@@ -28,11 +28,13 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html) — adapt
 - `assets/illustrations/empty-discussions.png` (No upcoming discussions: an hourglass whose sand has run out, waiting to be turned over), with its generated source `assets/illustrations/source/empty-discussions.jpg`.
 - `assets/illustrations/empty-members.png` (No other members yet: a key rack with empty hooks and a single key hanging from the first), with its generated source `assets/illustrations/source/empty-members.jpg`.
 - `assets/illustrations/connection-error.png` (Full-screen load failure with no connection: a signpost on a grassy mound, one arm pointing the way back down the path), with its generated source `assets/illustrations/source/connection-error.jpg`.
+- `assets/illustrations/book-search.png` (Book search, before typing: a magnifying glass resting on a closed book on a lectern), with its generated source `assets/illustrations/source/book-search.jpg`.
 
 ### Changed
 
 - The "no imagery / no decorative illustration" rules in `README.md`, `SKILL.md` and `CLAUDE.md` now allow spot illustrations as defined in `docs/illustrations.md`. Backgrounds stay flat, and photography is still out.
 - `docs/states.md`: the Fragmented Hex Grid is being phased out. Screens switch to their own illustration as it's created; the hex grid stays the layout for the rest until then.
+- `docs/states.md`: search with no results is a text-only empty state (heading and body, no illustration, no hex grid).
 
 ## [2.12.0] — 2026-11-20
 
