@@ -99,6 +99,7 @@ One illustration per screen. "Something went wrong" and 404 share one.
 | `empty-members` | No other members yet | A carved wooden key rack with a row of empty hooks and a single old key hanging from the first one: one member so far, room for more | The key | default |
 | `error` | Something went wrong / 404 | A bookshelf knocked over by a library ladder, books spilled across the floor: something fell, and the ladder is how it gets put back | The ladder | `--loose-strokes` |
 | `connection-error` | Full-screen load failure with no connection | A wooden signpost on a grassy mound beside a winding dirt path, its blank arms angled off one side: you're out of reach for now, and one arm points the way back | The arm pointing down the path | `--loose-strokes` |
+| `book-search` | Book search, before typing | A wooden lectern with a closed book on it and a magnifying glass resting across the cover, ready to be picked up | The magnifying glass, rim and handle | default |
 
 The offline state is a bar (`docs/states.md`), not an illustrated screen.
 

@@ -50,6 +50,11 @@ One reusable illustration; only the heading, body, and optional action change pe
 > **Being phased out.** A screen that has its own illustration in `docs/illustrations.md`
 > uses that layout instead (illustration on top, text below). The Fragmented Hex Grid below
 > remains the layout for every empty and error screen that doesn't have one yet.
+>
+> **Exception: search with no results** is text only, with no illustration and no hex grid:
+> the heading and body, centered in the content area. It can appear and
+> disappear as the user types, so it stays quiet. This applies only to a search that returned
+> nothing, not to the search screen before typing, which has its own illustration.
 
 | Property | Value |
 |---|---|
