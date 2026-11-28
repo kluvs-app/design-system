@@ -101,6 +101,7 @@ One illustration per screen. "Something went wrong" and 404 share one.
 | `connection-error` | Full-screen load failure with no connection | A wooden signpost on a grassy mound beside a winding dirt path, its blank arms angled off one side: you're out of reach for now, and one arm points the way back | The arm pointing down the path | `--loose-strokes` |
 | `book-search` | Book search, before typing | A wooden lectern with a closed book on it and a magnifying glass resting across the cover, ready to be picked up | The magnifying glass, rim and handle | default |
 | `no-session` | Club overview with no active session | A book wrapped in plain paper and tied with string, resting on a small wooden side table: the next read has arrived but hasn't been opened | The string and its bow | default |
+| `empty-tracking` | Me screen with nothing to track | A closed leather reading journal with a strap clasp and a fountain pen lying across the cover, ready for the first entry; the cover carries the embossed three-hex mark | The pen | default |
 
 The offline state is a bar (`docs/states.md`), not an illustrated screen.
 
