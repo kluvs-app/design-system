@@ -95,11 +95,12 @@ One illustration per screen. "Something went wrong" and 404 share one.
 | `force-update` | Force update | A wooden bookbinding press with a book clamped in it: a new edition is being bound | The book's spine and ribbon | default |
 | `empty-clubs` | No clubs yet | A round wooden table with four empty chairs tucked in and one closed book at its center, waiting for a group to sit down | The book | default |
 | `empty-shelf` | No books on the shelf | A long plank shelf between two carved scroll brackets, bare from end to end, with only a loose ribbon bookmark lying across it: room for the first book | The ribbon bookmark | default |
-| `empty-discussions` | No upcoming discussions | A carved wooden hourglass stand whose sand has all run out into a small mound, the upper bulb empty: waiting to be turned over for the next one | The sand | default |
+| `empty-discussions` | No upcoming discussions / No session yet (Active session tab) | A carved wooden hourglass stand whose sand has all run out into a small mound, the upper bulb empty: waiting to be turned over for the next one | The sand | default |
 | `empty-members` | No other members yet | A carved wooden key rack with a row of empty hooks and a single old key hanging from the first one: one member so far, room for more | The key | default |
 | `error` | Something went wrong / 404 | A bookshelf knocked over by a library ladder, books spilled across the floor: something fell, and the ladder is how it gets put back | The ladder | `--loose-strokes` |
 | `connection-error` | Full-screen load failure with no connection | A wooden signpost on a grassy mound beside a winding dirt path, its blank arms angled off one side: you're out of reach for now, and one arm points the way back | The arm pointing down the path | `--loose-strokes` |
 | `book-search` | Book search, before typing | A wooden lectern with a closed book on it and a magnifying glass resting across the cover, ready to be picked up | The magnifying glass, rim and handle | default |
+| `no-session` | Club overview with no active session | A book wrapped in plain paper and tied with string, resting on a small wooden side table: the next read has arrived but hasn't been opened | The string and its bow | default |
 
 The offline state is a bar (`docs/states.md`), not an illustrated screen.
 
